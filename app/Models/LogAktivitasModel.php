@@ -6,14 +6,13 @@ use CodeIgniter\Model;
 
 class LogAktivitasModel extends Model
 {
-    protected $table            = 'logaktivitas';
+    protected $table            = 'log_aktivitas';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
-
+    protected $allowedFields    = ['id_user', 'tanggal_aktivitas', 'aksi', 'jenis_data', 'keterangan'];
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
 

@@ -1,18 +1,14 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Superadmin;
 
 use App\Controllers\BaseController;
 use CodeIgniter\HTTP\ResponseInterface;
 
-
-class AdminOpdController extends BaseController
+class KelolaDataInovasi extends BaseController
 {
-    
     public function index()
     {
-
+        //
     }
-
-
 }
