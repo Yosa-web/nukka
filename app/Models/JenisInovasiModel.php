@@ -6,13 +6,13 @@ use CodeIgniter\Model;
 
 class JenisInovasiModel extends Model
 {
-    protected $table            = 'jenisinovasis';
-    protected $primaryKey       = 'id';
+    protected $table            = 'jenis_inovasi';
+    protected $primaryKey       = 'id_jenis_inovasi';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['nama_jenis'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;

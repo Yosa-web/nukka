@@ -1,0 +1,595 @@
+ERROR - 2024-10-03 03:48:09 --> mysqli_sql_exception: Can't create table `litbang`.`inovasi` (errno: 150 "Foreign key constraint is incorrectly formed") in C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(312): mysqli->query('CREATE TABLE `i...', 0)
+#1 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `i...')
+#2 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `i...')
+#3 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\Forge.php(570): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `i...')
+#4 C:\xampp\htdocs\Runov_Litbang\app\Database\Migrations\2024-09-30-081333_CreateInovasi.php(29): CodeIgniter\Database\Forge->createTable('inovasi')
+#5 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(867): App\Database\Migrations\CreateInovasi->up()
+#6 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(183): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Commands\Database\Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CLI\Commands.php(70): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CLI\Console.php(48): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(351): CodeIgniter\CLI\Console->run()
+#11 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(104): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#12 C:\xampp\htdocs\Runov_Litbang\spark(84): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#13 {main}
+ERROR - 2024-10-03 03:51:55 --> mysqli_sql_exception: Can't create table `litbang`.`inovasi` (errno: 150 "Foreign key constraint is incorrectly formed") in C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(312): mysqli->query('CREATE TABLE `i...', 0)
+#1 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `i...')
+#2 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `i...')
+#3 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\Forge.php(570): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `i...')
+#4 C:\xampp\htdocs\Runov_Litbang\app\Database\Migrations\2024-09-30-081333_CreateInovasi.php(29): CodeIgniter\Database\Forge->createTable('inovasi')
+#5 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(867): App\Database\Migrations\CreateInovasi->up()
+#6 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MigrationRunner.php(183): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Commands\Database\Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CLI\Commands.php(70): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CLI\Console.php(48): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(351): CodeIgniter\CLI\Console->run()
+#11 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(104): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#12 C:\xampp\htdocs\Runov_Litbang\spark(84): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#13 {main}
+INFO - 2024-10-03 03:58:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 03:58:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 03:59:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 03:59:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 03:59:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 03:59:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 03:59:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 03:59:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 03:59:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 03:59:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-03 03:59:45 --> mysqli_sql_exception: Table 'litbang.auth_identities' doesn't exist in C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT 1\nFROM `...', 0)
+#1 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT 1\nFROM `...')
+#2 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT 1\nFROM `...')
+#3 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT 1\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Validation\StrictRules\Rules.php(232): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Validation\Validation.php(339): CodeIgniter\Validation\StrictRules\Rules->is_unique('yogasaifullah47...', 'secret', Array, NULL, 'email')
+#6 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Validation\Validation.php(204): CodeIgniter\Validation\Validation->processRules('email', 'Auth.email', 'yogasaifullah47...', Array, Array, 'email')
+#7 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Controller.php(152): CodeIgniter\Validation\Validation->run(Array, NULL, NULL)
+#8 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\shield\src\Controllers\RegisterController.php(100): CodeIgniter\Controller->validateData(Array, Array, Array, NULL)
+#9 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(933): CodeIgniter\Shield\Controllers\RegisterController->registerAction()
+#10 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(CodeIgniter\Shield\Controllers\RegisterController))
+#11 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 C:\xampp\htdocs\Runov_Litbang\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#16 {main}
+CRITICAL - 2024-10-03 03:59:45 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'litbang.auth_identities' doesn't exist
+[Method: POST, Route: register]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT 1
+FROM `auth_identities`
+WHERE `secret` = :secret:
+ LIMIT 1', [...], false)
+ 2 SYSTEMPATH\Validation\StrictRules\Rules.php(232): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\Validation\Validation.php(339): CodeIgniter\Validation\StrictRules\Rules->is_unique('yogasaifullah470@gmail.com', 'secret', [...], null, 'email')
+ 4 SYSTEMPATH\Validation\Validation.php(204): CodeIgniter\Validation\Validation->processRules('email', 'Auth.email', 'yogasaifullah470@gmail.com', [...], [...], 'email')
+ 5 SYSTEMPATH\Controller.php(152): CodeIgniter\Validation\Validation->run([...], null, null)
+ 6 VENDORPATH\codeigniter4\shield\src\Controllers\RegisterController.php(100): CodeIgniter\Controller->validateData([...], [...], [], null)
+ 7 SYSTEMPATH\CodeIgniter.php(933): CodeIgniter\Shield\Controllers\RegisterController->registerAction()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(CodeIgniter\Shield\Controllers\RegisterController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-03 03:59:45 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'litbang.auth_identities' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT 1
+FROM `auth_identities`
+WHERE `secret` = \'yogasaifullah470@gmail.com\'
+ LIMIT 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT 1
+FROM `auth_identities`
+WHERE `secret` = \'yogasaifullah470@gmail.com\'
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT 1
+FROM `auth_identities`
+WHERE `secret` = :secret:
+ LIMIT 1', [...], false)
+ 4 SYSTEMPATH\Validation\StrictRules\Rules.php(232): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\Validation\Validation.php(339): CodeIgniter\Validation\StrictRules\Rules->is_unique('yogasaifullah470@gmail.com', 'secret', [...], null, 'email')
+ 6 SYSTEMPATH\Validation\Validation.php(204): CodeIgniter\Validation\Validation->processRules('email', 'Auth.email', 'yogasaifullah470@gmail.com', [...], [...], 'email')
+ 7 SYSTEMPATH\Controller.php(152): CodeIgniter\Validation\Validation->run([...], null, null)
+ 8 VENDORPATH\codeigniter4\shield\src\Controllers\RegisterController.php(100): CodeIgniter\Controller->validateData([...], [...], [], null)
+ 9 SYSTEMPATH\CodeIgniter.php(933): CodeIgniter\Shield\Controllers\RegisterController->registerAction()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(CodeIgniter\Shield\Controllers\RegisterController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-03 03:59:45 --> [Caused by] mysqli_sql_exception: Table 'litbang.auth_identities' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT 1
+FROM `auth_identities`
+WHERE `secret` = \'yogasaifullah470@gmail.com\'
+ LIMIT 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT 1
+FROM `auth_identities`
+WHERE `secret` = \'yogasaifullah470@gmail.com\'
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT 1
+FROM `auth_identities`
+WHERE `secret` = \'yogasaifullah470@gmail.com\'
+ LIMIT 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT 1
+FROM `auth_identities`
+WHERE `secret` = :secret:
+ LIMIT 1', [...], false)
+ 5 SYSTEMPATH\Validation\StrictRules\Rules.php(232): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\Validation\Validation.php(339): CodeIgniter\Validation\StrictRules\Rules->is_unique('yogasaifullah470@gmail.com', 'secret', [...], null, 'email')
+ 7 SYSTEMPATH\Validation\Validation.php(204): CodeIgniter\Validation\Validation->processRules('email', 'Auth.email', 'yogasaifullah470@gmail.com', [...], [...], 'email')
+ 8 SYSTEMPATH\Controller.php(152): CodeIgniter\Validation\Validation->run([...], null, null)
+ 9 VENDORPATH\codeigniter4\shield\src\Controllers\RegisterController.php(100): CodeIgniter\Controller->validateData([...], [...], [], null)
+10 SYSTEMPATH\CodeIgniter.php(933): CodeIgniter\Shield\Controllers\RegisterController->registerAction()
+11 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(CodeIgniter\Shield\Controllers\RegisterController))
+12 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-03 04:03:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 04:03:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 04:03:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 04:04:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 04:04:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 04:04:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-03 04:04:46 --> mysqli_sql_exception: Table 'litbang.auth_identities' doesn't exist in C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT 1\nFROM `...', 0)
+#1 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT 1\nFROM `...')
+#2 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT 1\nFROM `...')
+#3 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT 1\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Validation\StrictRules\Rules.php(232): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Validation\Validation.php(339): CodeIgniter\Validation\StrictRules\Rules->is_unique('yogasaifullah47...', 'secret', Array, NULL, 'email')
+#6 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Validation\Validation.php(204): CodeIgniter\Validation\Validation->processRules('email', 'Auth.email', 'yogasaifullah47...', Array, Array, 'email')
+#7 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Controller.php(152): CodeIgniter\Validation\Validation->run(Array, NULL, NULL)
+#8 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\shield\src\Controllers\RegisterController.php(100): CodeIgniter\Controller->validateData(Array, Array, Array, NULL)
+#9 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(933): CodeIgniter\Shield\Controllers\RegisterController->registerAction()
+#10 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(CodeIgniter\Shield\Controllers\RegisterController))
+#11 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 C:\xampp\htdocs\Runov_Litbang\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#16 {main}
+CRITICAL - 2024-10-03 04:04:46 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'litbang.auth_identities' doesn't exist
+[Method: POST, Route: register]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT 1
+FROM `auth_identities`
+WHERE `secret` = :secret:
+ LIMIT 1', [...], false)
+ 2 SYSTEMPATH\Validation\StrictRules\Rules.php(232): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\Validation\Validation.php(339): CodeIgniter\Validation\StrictRules\Rules->is_unique('yogasaifullah470@gmail.com', 'secret', [...], null, 'email')
+ 4 SYSTEMPATH\Validation\Validation.php(204): CodeIgniter\Validation\Validation->processRules('email', 'Auth.email', 'yogasaifullah470@gmail.com', [...], [...], 'email')
+ 5 SYSTEMPATH\Controller.php(152): CodeIgniter\Validation\Validation->run([...], null, null)
+ 6 VENDORPATH\codeigniter4\shield\src\Controllers\RegisterController.php(100): CodeIgniter\Controller->validateData([...], [...], [], null)
+ 7 SYSTEMPATH\CodeIgniter.php(933): CodeIgniter\Shield\Controllers\RegisterController->registerAction()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(CodeIgniter\Shield\Controllers\RegisterController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-03 04:04:46 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'litbang.auth_identities' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT 1
+FROM `auth_identities`
+WHERE `secret` = \'yogasaifullah470@gmail.com\'
+ LIMIT 1')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT 1
+FROM `auth_identities`
+WHERE `secret` = \'yogasaifullah470@gmail.com\'
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT 1
+FROM `auth_identities`
+WHERE `secret` = :secret:
+ LIMIT 1', [...], false)
+ 4 SYSTEMPATH\Validation\StrictRules\Rules.php(232): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\Validation\Validation.php(339): CodeIgniter\Validation\StrictRules\Rules->is_unique('yogasaifullah470@gmail.com', 'secret', [...], null, 'email')
+ 6 SYSTEMPATH\Validation\Validation.php(204): CodeIgniter\Validation\Validation->processRules('email', 'Auth.email', 'yogasaifullah470@gmail.com', [...], [...], 'email')
+ 7 SYSTEMPATH\Controller.php(152): CodeIgniter\Validation\Validation->run([...], null, null)
+ 8 VENDORPATH\codeigniter4\shield\src\Controllers\RegisterController.php(100): CodeIgniter\Controller->validateData([...], [...], [], null)
+ 9 SYSTEMPATH\CodeIgniter.php(933): CodeIgniter\Shield\Controllers\RegisterController->registerAction()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(CodeIgniter\Shield\Controllers\RegisterController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-03 04:04:46 --> [Caused by] mysqli_sql_exception: Table 'litbang.auth_identities' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT 1
+FROM `auth_identities`
+WHERE `secret` = \'yogasaifullah470@gmail.com\'
+ LIMIT 1', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT 1
+FROM `auth_identities`
+WHERE `secret` = \'yogasaifullah470@gmail.com\'
+ LIMIT 1')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT 1
+FROM `auth_identities`
+WHERE `secret` = \'yogasaifullah470@gmail.com\'
+ LIMIT 1')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT 1
+FROM `auth_identities`
+WHERE `secret` = :secret:
+ LIMIT 1', [...], false)
+ 5 SYSTEMPATH\Validation\StrictRules\Rules.php(232): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\Validation\Validation.php(339): CodeIgniter\Validation\StrictRules\Rules->is_unique('yogasaifullah470@gmail.com', 'secret', [...], null, 'email')
+ 7 SYSTEMPATH\Validation\Validation.php(204): CodeIgniter\Validation\Validation->processRules('email', 'Auth.email', 'yogasaifullah470@gmail.com', [...], [...], 'email')
+ 8 SYSTEMPATH\Controller.php(152): CodeIgniter\Validation\Validation->run([...], null, null)
+ 9 VENDORPATH\codeigniter4\shield\src\Controllers\RegisterController.php(100): CodeIgniter\Controller->validateData([...], [...], [], null)
+10 SYSTEMPATH\CodeIgniter.php(933): CodeIgniter\Shield\Controllers\RegisterController->registerAction()
+11 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(CodeIgniter\Shield\Controllers\RegisterController))
+12 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-03 04:11:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 04:11:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 04:11:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 04:11:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 04:11:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 04:11:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 04:11:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 04:11:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 04:12:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-03 04:12:06 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`litbang`.`users`, CONSTRAINT `users_id_opd_foreign` FOREIGN KEY (`id_opd`) REFERENCES `opd` (`id_opd`) ON DELETE CASCADE) in C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `us...', 0)
+#1 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\shield\src\Models\UserModel.php(270): CodeIgniter\Model->insert(Object(CodeIgniter\Shield\Entities\User), false)
+#8 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\BaseModel.php(751): CodeIgniter\Shield\Models\UserModel->insert(Object(CodeIgniter\Shield\Entities\User), false)
+#9 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\shield\src\Models\UserModel.php(332): CodeIgniter\BaseModel->save(Object(CodeIgniter\Shield\Entities\User))
+#10 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\shield\src\Controllers\RegisterController.php(115): CodeIgniter\Shield\Models\UserModel->save(Object(CodeIgniter\Shield\Entities\User))
+#11 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(933): CodeIgniter\Shield\Controllers\RegisterController->registerAction()
+#12 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(CodeIgniter\Shield\Controllers\RegisterController))
+#13 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#14 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#15 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#16 C:\xampp\htdocs\Runov_Litbang\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#17 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#18 {main}
+CRITICAL - 2024-10-03 04:12:06 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`litbang`.`users`, CONSTRAINT `users_id_opd_foreign` FOREIGN KEY (`id_opd`) REFERENCES `opd` (`id_opd`) ON DELETE CASCADE)
+[Method: POST, Route: register]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `users` (`username`, `created_at`, `updated_at`) VALUES (:username:, :created_at:, :updated_at:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 5 VENDORPATH\codeigniter4\shield\src\Models\UserModel.php(270): CodeIgniter\Model->insert(Object(CodeIgniter\Shield\Entities\User), false)
+ 6 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Shield\Models\UserModel->insert(Object(CodeIgniter\Shield\Entities\User), false)
+ 7 VENDORPATH\codeigniter4\shield\src\Models\UserModel.php(332): CodeIgniter\BaseModel->save(Object(CodeIgniter\Shield\Entities\User))
+ 8 VENDORPATH\codeigniter4\shield\src\Controllers\RegisterController.php(115): CodeIgniter\Shield\Models\UserModel->save(Object(CodeIgniter\Shield\Entities\User))
+ 9 SYSTEMPATH\CodeIgniter.php(933): CodeIgniter\Shield\Controllers\RegisterController->registerAction()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(CodeIgniter\Shield\Controllers\RegisterController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-03 04:12:06 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`litbang`.`users`, CONSTRAINT `users_id_opd_foreign` FOREIGN KEY (`id_opd`) REFERENCES `opd` (`id_opd`) ON DELETE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `users` (`username`, `created_at`, `updated_at`) VALUES (\'admin\', \'2024-10-03 04:12:06\', \'2024-10-03 04:12:06\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `users` (`username`, `created_at`, `updated_at`) VALUES (\'admin\', \'2024-10-03 04:12:06\', \'2024-10-03 04:12:06\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `users` (`username`, `created_at`, `updated_at`) VALUES (:username:, :created_at:, :updated_at:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 7 VENDORPATH\codeigniter4\shield\src\Models\UserModel.php(270): CodeIgniter\Model->insert(Object(CodeIgniter\Shield\Entities\User), false)
+ 8 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Shield\Models\UserModel->insert(Object(CodeIgniter\Shield\Entities\User), false)
+ 9 VENDORPATH\codeigniter4\shield\src\Models\UserModel.php(332): CodeIgniter\BaseModel->save(Object(CodeIgniter\Shield\Entities\User))
+10 VENDORPATH\codeigniter4\shield\src\Controllers\RegisterController.php(115): CodeIgniter\Shield\Models\UserModel->save(Object(CodeIgniter\Shield\Entities\User))
+11 SYSTEMPATH\CodeIgniter.php(933): CodeIgniter\Shield\Controllers\RegisterController->registerAction()
+12 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(CodeIgniter\Shield\Controllers\RegisterController))
+13 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+15 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+16 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+17 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-03 04:12:06 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`litbang`.`users`, CONSTRAINT `users_id_opd_foreign` FOREIGN KEY (`id_opd`) REFERENCES `opd` (`id_opd`) ON DELETE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `users` (`username`, `created_at`, `updated_at`) VALUES (\'admin\', \'2024-10-03 04:12:06\', \'2024-10-03 04:12:06\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `users` (`username`, `created_at`, `updated_at`) VALUES (\'admin\', \'2024-10-03 04:12:06\', \'2024-10-03 04:12:06\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `users` (`username`, `created_at`, `updated_at`) VALUES (\'admin\', \'2024-10-03 04:12:06\', \'2024-10-03 04:12:06\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `users` (`username`, `created_at`, `updated_at`) VALUES (:username:, :created_at:, :updated_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 8 VENDORPATH\codeigniter4\shield\src\Models\UserModel.php(270): CodeIgniter\Model->insert(Object(CodeIgniter\Shield\Entities\User), false)
+ 9 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Shield\Models\UserModel->insert(Object(CodeIgniter\Shield\Entities\User), false)
+10 VENDORPATH\codeigniter4\shield\src\Models\UserModel.php(332): CodeIgniter\BaseModel->save(Object(CodeIgniter\Shield\Entities\User))
+11 VENDORPATH\codeigniter4\shield\src\Controllers\RegisterController.php(115): CodeIgniter\Shield\Models\UserModel->save(Object(CodeIgniter\Shield\Entities\User))
+12 SYSTEMPATH\CodeIgniter.php(933): CodeIgniter\Shield\Controllers\RegisterController->registerAction()
+13 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(CodeIgniter\Shield\Controllers\RegisterController))
+14 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+16 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+17 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+18 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-03 06:14:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-03 06:14:52 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`litbang`.`users`, CONSTRAINT `users_id_opd_foreign` FOREIGN KEY (`id_opd`) REFERENCES `opd` (`id_opd`) ON DELETE CASCADE) in C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `us...', 0)
+#1 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\shield\src\Models\UserModel.php(270): CodeIgniter\Model->insert(Object(CodeIgniter\Shield\Entities\User), false)
+#8 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\BaseModel.php(751): CodeIgniter\Shield\Models\UserModel->insert(Object(CodeIgniter\Shield\Entities\User), false)
+#9 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\shield\src\Models\UserModel.php(332): CodeIgniter\BaseModel->save(Object(CodeIgniter\Shield\Entities\User))
+#10 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\shield\src\Controllers\RegisterController.php(115): CodeIgniter\Shield\Models\UserModel->save(Object(CodeIgniter\Shield\Entities\User))
+#11 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(933): CodeIgniter\Shield\Controllers\RegisterController->registerAction()
+#12 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(CodeIgniter\Shield\Controllers\RegisterController))
+#13 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#14 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#15 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#16 C:\xampp\htdocs\Runov_Litbang\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#17 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#18 {main}
+CRITICAL - 2024-10-03 06:14:52 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`litbang`.`users`, CONSTRAINT `users_id_opd_foreign` FOREIGN KEY (`id_opd`) REFERENCES `opd` (`id_opd`) ON DELETE CASCADE)
+[Method: POST, Route: register]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `users` (`username`, `created_at`, `updated_at`) VALUES (:username:, :created_at:, :updated_at:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 5 VENDORPATH\codeigniter4\shield\src\Models\UserModel.php(270): CodeIgniter\Model->insert(Object(CodeIgniter\Shield\Entities\User), false)
+ 6 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Shield\Models\UserModel->insert(Object(CodeIgniter\Shield\Entities\User), false)
+ 7 VENDORPATH\codeigniter4\shield\src\Models\UserModel.php(332): CodeIgniter\BaseModel->save(Object(CodeIgniter\Shield\Entities\User))
+ 8 VENDORPATH\codeigniter4\shield\src\Controllers\RegisterController.php(115): CodeIgniter\Shield\Models\UserModel->save(Object(CodeIgniter\Shield\Entities\User))
+ 9 SYSTEMPATH\CodeIgniter.php(933): CodeIgniter\Shield\Controllers\RegisterController->registerAction()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(CodeIgniter\Shield\Controllers\RegisterController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-03 06:14:52 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`litbang`.`users`, CONSTRAINT `users_id_opd_foreign` FOREIGN KEY (`id_opd`) REFERENCES `opd` (`id_opd`) ON DELETE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `users` (`username`, `created_at`, `updated_at`) VALUES (\'admin\', \'2024-10-03 06:14:52\', \'2024-10-03 06:14:52\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `users` (`username`, `created_at`, `updated_at`) VALUES (\'admin\', \'2024-10-03 06:14:52\', \'2024-10-03 06:14:52\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `users` (`username`, `created_at`, `updated_at`) VALUES (:username:, :created_at:, :updated_at:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 7 VENDORPATH\codeigniter4\shield\src\Models\UserModel.php(270): CodeIgniter\Model->insert(Object(CodeIgniter\Shield\Entities\User), false)
+ 8 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Shield\Models\UserModel->insert(Object(CodeIgniter\Shield\Entities\User), false)
+ 9 VENDORPATH\codeigniter4\shield\src\Models\UserModel.php(332): CodeIgniter\BaseModel->save(Object(CodeIgniter\Shield\Entities\User))
+10 VENDORPATH\codeigniter4\shield\src\Controllers\RegisterController.php(115): CodeIgniter\Shield\Models\UserModel->save(Object(CodeIgniter\Shield\Entities\User))
+11 SYSTEMPATH\CodeIgniter.php(933): CodeIgniter\Shield\Controllers\RegisterController->registerAction()
+12 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(CodeIgniter\Shield\Controllers\RegisterController))
+13 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+15 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+16 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+17 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-03 06:14:52 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`litbang`.`users`, CONSTRAINT `users_id_opd_foreign` FOREIGN KEY (`id_opd`) REFERENCES `opd` (`id_opd`) ON DELETE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `users` (`username`, `created_at`, `updated_at`) VALUES (\'admin\', \'2024-10-03 06:14:52\', \'2024-10-03 06:14:52\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `users` (`username`, `created_at`, `updated_at`) VALUES (\'admin\', \'2024-10-03 06:14:52\', \'2024-10-03 06:14:52\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `users` (`username`, `created_at`, `updated_at`) VALUES (\'admin\', \'2024-10-03 06:14:52\', \'2024-10-03 06:14:52\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `users` (`username`, `created_at`, `updated_at`) VALUES (:username:, :created_at:, :updated_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 8 VENDORPATH\codeigniter4\shield\src\Models\UserModel.php(270): CodeIgniter\Model->insert(Object(CodeIgniter\Shield\Entities\User), false)
+ 9 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Shield\Models\UserModel->insert(Object(CodeIgniter\Shield\Entities\User), false)
+10 VENDORPATH\codeigniter4\shield\src\Models\UserModel.php(332): CodeIgniter\BaseModel->save(Object(CodeIgniter\Shield\Entities\User))
+11 VENDORPATH\codeigniter4\shield\src\Controllers\RegisterController.php(115): CodeIgniter\Shield\Models\UserModel->save(Object(CodeIgniter\Shield\Entities\User))
+12 SYSTEMPATH\CodeIgniter.php(933): CodeIgniter\Shield\Controllers\RegisterController->registerAction()
+13 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(CodeIgniter\Shield\Controllers\RegisterController))
+14 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+16 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+17 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+18 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-03 06:15:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 06:15:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 06:15:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 06:15:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 06:15:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 06:15:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 06:15:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 06:15:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 06:15:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 06:15:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 06:15:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 06:16:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-03 06:16:10 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`litbang`.`users`, CONSTRAINT `users_id_opd_foreign` FOREIGN KEY (`id_opd`) REFERENCES `opd` (`id_opd`) ON DELETE CASCADE) in C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `us...', 0)
+#1 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\shield\src\Models\UserModel.php(270): CodeIgniter\Model->insert(Object(CodeIgniter\Shield\Entities\User), false)
+#8 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\BaseModel.php(751): CodeIgniter\Shield\Models\UserModel->insert(Object(CodeIgniter\Shield\Entities\User), false)
+#9 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\shield\src\Models\UserModel.php(332): CodeIgniter\BaseModel->save(Object(CodeIgniter\Shield\Entities\User))
+#10 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\shield\src\Controllers\RegisterController.php(115): CodeIgniter\Shield\Models\UserModel->save(Object(CodeIgniter\Shield\Entities\User))
+#11 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(933): CodeIgniter\Shield\Controllers\RegisterController->registerAction()
+#12 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(CodeIgniter\Shield\Controllers\RegisterController))
+#13 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#14 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#15 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#16 C:\xampp\htdocs\Runov_Litbang\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#17 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#18 {main}
+CRITICAL - 2024-10-03 06:16:10 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`litbang`.`users`, CONSTRAINT `users_id_opd_foreign` FOREIGN KEY (`id_opd`) REFERENCES `opd` (`id_opd`) ON DELETE CASCADE)
+[Method: POST, Route: register]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `users` (`username`, `created_at`, `updated_at`) VALUES (:username:, :created_at:, :updated_at:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 5 VENDORPATH\codeigniter4\shield\src\Models\UserModel.php(270): CodeIgniter\Model->insert(Object(CodeIgniter\Shield\Entities\User), false)
+ 6 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Shield\Models\UserModel->insert(Object(CodeIgniter\Shield\Entities\User), false)
+ 7 VENDORPATH\codeigniter4\shield\src\Models\UserModel.php(332): CodeIgniter\BaseModel->save(Object(CodeIgniter\Shield\Entities\User))
+ 8 VENDORPATH\codeigniter4\shield\src\Controllers\RegisterController.php(115): CodeIgniter\Shield\Models\UserModel->save(Object(CodeIgniter\Shield\Entities\User))
+ 9 SYSTEMPATH\CodeIgniter.php(933): CodeIgniter\Shield\Controllers\RegisterController->registerAction()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(CodeIgniter\Shield\Controllers\RegisterController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-03 06:16:10 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`litbang`.`users`, CONSTRAINT `users_id_opd_foreign` FOREIGN KEY (`id_opd`) REFERENCES `opd` (`id_opd`) ON DELETE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `users` (`username`, `created_at`, `updated_at`) VALUES (\'admin\', \'2024-10-03 06:16:10\', \'2024-10-03 06:16:10\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `users` (`username`, `created_at`, `updated_at`) VALUES (\'admin\', \'2024-10-03 06:16:10\', \'2024-10-03 06:16:10\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `users` (`username`, `created_at`, `updated_at`) VALUES (:username:, :created_at:, :updated_at:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 7 VENDORPATH\codeigniter4\shield\src\Models\UserModel.php(270): CodeIgniter\Model->insert(Object(CodeIgniter\Shield\Entities\User), false)
+ 8 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Shield\Models\UserModel->insert(Object(CodeIgniter\Shield\Entities\User), false)
+ 9 VENDORPATH\codeigniter4\shield\src\Models\UserModel.php(332): CodeIgniter\BaseModel->save(Object(CodeIgniter\Shield\Entities\User))
+10 VENDORPATH\codeigniter4\shield\src\Controllers\RegisterController.php(115): CodeIgniter\Shield\Models\UserModel->save(Object(CodeIgniter\Shield\Entities\User))
+11 SYSTEMPATH\CodeIgniter.php(933): CodeIgniter\Shield\Controllers\RegisterController->registerAction()
+12 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(CodeIgniter\Shield\Controllers\RegisterController))
+13 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+15 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+16 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+17 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-03 06:16:10 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`litbang`.`users`, CONSTRAINT `users_id_opd_foreign` FOREIGN KEY (`id_opd`) REFERENCES `opd` (`id_opd`) ON DELETE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `users` (`username`, `created_at`, `updated_at`) VALUES (\'admin\', \'2024-10-03 06:16:10\', \'2024-10-03 06:16:10\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `users` (`username`, `created_at`, `updated_at`) VALUES (\'admin\', \'2024-10-03 06:16:10\', \'2024-10-03 06:16:10\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `users` (`username`, `created_at`, `updated_at`) VALUES (\'admin\', \'2024-10-03 06:16:10\', \'2024-10-03 06:16:10\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `users` (`username`, `created_at`, `updated_at`) VALUES (:username:, :created_at:, :updated_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 8 VENDORPATH\codeigniter4\shield\src\Models\UserModel.php(270): CodeIgniter\Model->insert(Object(CodeIgniter\Shield\Entities\User), false)
+ 9 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Shield\Models\UserModel->insert(Object(CodeIgniter\Shield\Entities\User), false)
+10 VENDORPATH\codeigniter4\shield\src\Models\UserModel.php(332): CodeIgniter\BaseModel->save(Object(CodeIgniter\Shield\Entities\User))
+11 VENDORPATH\codeigniter4\shield\src\Controllers\RegisterController.php(115): CodeIgniter\Shield\Models\UserModel->save(Object(CodeIgniter\Shield\Entities\User))
+12 SYSTEMPATH\CodeIgniter.php(933): CodeIgniter\Shield\Controllers\RegisterController->registerAction()
+13 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(CodeIgniter\Shield\Controllers\RegisterController))
+14 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+16 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+17 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+18 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-03 06:20:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 06:20:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 06:20:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 06:20:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 06:20:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 06:20:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 06:20:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 06:20:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 06:20:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-03 06:20:23 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`litbang`.`users`, CONSTRAINT `users_id_opd_foreign` FOREIGN KEY (`id_opd`) REFERENCES `opd` (`id_opd`) ON DELETE CASCADE) in C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `us...', 0)
+#1 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\shield\src\Models\UserModel.php(270): CodeIgniter\Model->insert(Object(CodeIgniter\Shield\Entities\User), false)
+#8 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\BaseModel.php(751): CodeIgniter\Shield\Models\UserModel->insert(Object(CodeIgniter\Shield\Entities\User), false)
+#9 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\shield\src\Models\UserModel.php(332): CodeIgniter\BaseModel->save(Object(CodeIgniter\Shield\Entities\User))
+#10 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\shield\src\Controllers\RegisterController.php(115): CodeIgniter\Shield\Models\UserModel->save(Object(CodeIgniter\Shield\Entities\User))
+#11 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(933): CodeIgniter\Shield\Controllers\RegisterController->registerAction()
+#12 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(CodeIgniter\Shield\Controllers\RegisterController))
+#13 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#14 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#15 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#16 C:\xampp\htdocs\Runov_Litbang\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#17 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#18 {main}
+CRITICAL - 2024-10-03 06:20:23 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`litbang`.`users`, CONSTRAINT `users_id_opd_foreign` FOREIGN KEY (`id_opd`) REFERENCES `opd` (`id_opd`) ON DELETE CASCADE)
+[Method: POST, Route: register]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `users` (`username`, `created_at`, `updated_at`) VALUES (:username:, :created_at:, :updated_at:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 5 VENDORPATH\codeigniter4\shield\src\Models\UserModel.php(270): CodeIgniter\Model->insert(Object(CodeIgniter\Shield\Entities\User), false)
+ 6 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Shield\Models\UserModel->insert(Object(CodeIgniter\Shield\Entities\User), false)
+ 7 VENDORPATH\codeigniter4\shield\src\Models\UserModel.php(332): CodeIgniter\BaseModel->save(Object(CodeIgniter\Shield\Entities\User))
+ 8 VENDORPATH\codeigniter4\shield\src\Controllers\RegisterController.php(115): CodeIgniter\Shield\Models\UserModel->save(Object(CodeIgniter\Shield\Entities\User))
+ 9 SYSTEMPATH\CodeIgniter.php(933): CodeIgniter\Shield\Controllers\RegisterController->registerAction()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(CodeIgniter\Shield\Controllers\RegisterController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-03 06:20:23 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`litbang`.`users`, CONSTRAINT `users_id_opd_foreign` FOREIGN KEY (`id_opd`) REFERENCES `opd` (`id_opd`) ON DELETE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `users` (`username`, `created_at`, `updated_at`) VALUES (\'yosa\', \'2024-10-03 06:20:23\', \'2024-10-03 06:20:23\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `users` (`username`, `created_at`, `updated_at`) VALUES (\'yosa\', \'2024-10-03 06:20:23\', \'2024-10-03 06:20:23\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `users` (`username`, `created_at`, `updated_at`) VALUES (:username:, :created_at:, :updated_at:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 7 VENDORPATH\codeigniter4\shield\src\Models\UserModel.php(270): CodeIgniter\Model->insert(Object(CodeIgniter\Shield\Entities\User), false)
+ 8 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Shield\Models\UserModel->insert(Object(CodeIgniter\Shield\Entities\User), false)
+ 9 VENDORPATH\codeigniter4\shield\src\Models\UserModel.php(332): CodeIgniter\BaseModel->save(Object(CodeIgniter\Shield\Entities\User))
+10 VENDORPATH\codeigniter4\shield\src\Controllers\RegisterController.php(115): CodeIgniter\Shield\Models\UserModel->save(Object(CodeIgniter\Shield\Entities\User))
+11 SYSTEMPATH\CodeIgniter.php(933): CodeIgniter\Shield\Controllers\RegisterController->registerAction()
+12 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(CodeIgniter\Shield\Controllers\RegisterController))
+13 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+15 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+16 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+17 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-03 06:20:23 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`litbang`.`users`, CONSTRAINT `users_id_opd_foreign` FOREIGN KEY (`id_opd`) REFERENCES `opd` (`id_opd`) ON DELETE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `users` (`username`, `created_at`, `updated_at`) VALUES (\'yosa\', \'2024-10-03 06:20:23\', \'2024-10-03 06:20:23\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `users` (`username`, `created_at`, `updated_at`) VALUES (\'yosa\', \'2024-10-03 06:20:23\', \'2024-10-03 06:20:23\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `users` (`username`, `created_at`, `updated_at`) VALUES (\'yosa\', \'2024-10-03 06:20:23\', \'2024-10-03 06:20:23\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `users` (`username`, `created_at`, `updated_at`) VALUES (:username:, :created_at:, :updated_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 8 VENDORPATH\codeigniter4\shield\src\Models\UserModel.php(270): CodeIgniter\Model->insert(Object(CodeIgniter\Shield\Entities\User), false)
+ 9 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Shield\Models\UserModel->insert(Object(CodeIgniter\Shield\Entities\User), false)
+10 VENDORPATH\codeigniter4\shield\src\Models\UserModel.php(332): CodeIgniter\BaseModel->save(Object(CodeIgniter\Shield\Entities\User))
+11 VENDORPATH\codeigniter4\shield\src\Controllers\RegisterController.php(115): CodeIgniter\Shield\Models\UserModel->save(Object(CodeIgniter\Shield\Entities\User))
+12 SYSTEMPATH\CodeIgniter.php(933): CodeIgniter\Shield\Controllers\RegisterController->registerAction()
+13 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(CodeIgniter\Shield\Controllers\RegisterController))
+14 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+16 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+17 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+18 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-03 06:21:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 06:21:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 06:21:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 06:21:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 06:21:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 06:21:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 06:21:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 06:21:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 06:22:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 06:22:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 06:22:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 06:22:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 06:22:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 06:22:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 06:22:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-03 06:22:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

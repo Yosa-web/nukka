@@ -45,12 +45,22 @@ class CreateAuthTables extends Migration
     public function up()
     {
 
+        // Table: opd
+        $this->forge->addField([
+            'id_opd'    => ['type' => 'INT', 'constraint' => 11, 'unsigned' => true, 'auto_increment' => true],
+            'nama_opd'  => ['type' => 'VARCHAR', 'constraint' => 50],
+            'alamat'    => ['type' => 'VARCHAR', 'constraint' => 50],
+            'telepon'   => ['type' => 'VARCHAR', 'constraint' => 12],
+            'email'     => ['type' => 'VARCHAR', 'constraint' => 50]
+        ]);
+        $this->forge->addPrimaryKey('id_opd');
+        $this->forge->createTable('opd');
 
         // Users Table
         $this->forge->addField([
             'id'             => ['type' => 'int', 'constraint' => 11, 'unsigned' => true, 'auto_increment' => true],
             'username'       => ['type' => 'varchar', 'constraint' => 30, 'null' => true],
-            'id_opd'     => ['type' => 'INT', 'constraint' => 11, 'unsigned' => true],
+            'id_opd'     => ['type' => 'INT', 'constraint' => 11, 'unsigned' => true, 'null' => true],
             'status'         => ['type' => 'varchar', 'constraint' => 255, 'null' => true],
             'status_message' => ['type' => 'varchar', 'constraint' => 255, 'null' => true],
             'active'         => ['type' => 'tinyint', 'constraint' => 1, 'null' => 0, 'default' => 0],
@@ -62,7 +72,7 @@ class CreateAuthTables extends Migration
         $this->forge->addPrimaryKey('id');
         $this->forge->addUniqueKey('username');
         $this->forge->addForeignKey('id_opd', 'opd', 'id_opd', '', 'CASCADE');
-        $this->createTable('users');
+        $this->createTable($this->tables['users']);
 
         /*
          * Auth Identities Table
@@ -87,7 +97,7 @@ class CreateAuthTables extends Migration
         $this->forge->addUniqueKey(['type', 'secret']);
         $this->forge->addKey('user_id');
         $this->forge->addForeignKey('user_id', 'users', 'id', '', 'CASCADE');
-        $this->createTable('identities');
+        $this->createTable($this->tables['identities']);
 
         /**
          * Auth Login Attempts Table
@@ -108,7 +118,7 @@ class CreateAuthTables extends Migration
         $this->forge->addKey(['id_type', 'identifier']);
         $this->forge->addKey('user_id');
         // NOTE: Do NOT delete the user_id or identifier when the user is deleted for security audits
-        $this->createTable('logins');
+        $this->createTable($this->tables['logins']);
 
         /*
          * Auth Token Login Attempts Table
@@ -128,7 +138,7 @@ class CreateAuthTables extends Migration
         $this->forge->addKey(['id_type', 'identifier']);
         $this->forge->addKey('user_id');
         // NOTE: Do NOT delete the user_id or identifier when the user is deleted for security audits
-        $this->createTable('token_logins');
+        $this->createTable($this->tables['token_logins']);
 
         /*
          * Auth Remember Tokens (remember-me) Table
@@ -146,7 +156,7 @@ class CreateAuthTables extends Migration
         $this->forge->addPrimaryKey('id');
         $this->forge->addUniqueKey('selector');
         $this->forge->addForeignKey('user_id', 'users', 'id', '', 'CASCADE');
-        $this->createTable('remember_tokens');
+        $this->createTable($this->tables['remember_tokens']);
 
         // Groups Users Table
         $this->forge->addField([
@@ -157,7 +167,7 @@ class CreateAuthTables extends Migration
         ]);
         $this->forge->addPrimaryKey('id');
         $this->forge->addForeignKey('user_id', 'users', 'id', '', 'CASCADE');
-        $this->createTable('groups_users');
+        $this->createTable($this->tables['groups_users']);
 
         // Users Permissions Table
         $this->forge->addField([
@@ -168,7 +178,7 @@ class CreateAuthTables extends Migration
         ]);
         $this->forge->addPrimaryKey('id');
         $this->forge->addForeignKey('user_id', 'users', 'id', '', 'CASCADE');
-        $this->createTable('permissions_users');
+        $this->createTable($this->tables['permissions_users']);
     }
 
     // --------------------------------------------------------------------
@@ -177,14 +187,14 @@ class CreateAuthTables extends Migration
     {
         $this->db->disableForeignKeyChecks();
         // Drop all tables
-
-        $this->forge->dropTable('logins');
-        $this->forge->dropTable('token_logins');
-        $this->forge->dropTable('remember_tokens');
-        $this->forge->dropTable('identities');
-        $this->forge->dropTable('groups_users');
-        $this->forge->dropTable('permissions_users');
-        $this->forge->dropTable('users');
+        $this->forge->dropTable('opd');
+        $this->forge->dropTable($this->tables['logins'], true);
+        $this->forge->dropTable($this->tables['token_logins'], true);
+        $this->forge->dropTable($this->tables['remember_tokens'], true);
+        $this->forge->dropTable($this->tables['identities'], true);
+        $this->forge->dropTable($this->tables['groups_users'], true);
+        $this->forge->dropTable($this->tables['permissions_users'], true);
+        $this->forge->dropTable($this->tables['users'], true);
 
         $this->db->enableForeignKeyChecks();
     }

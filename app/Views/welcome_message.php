@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loading Animation</title>
     <style>
-        body, html {
+        body,
+        html {
             margin: 0;
             padding: 0;
             width: 100%;
@@ -56,6 +58,7 @@
             0% {
                 transform: rotate(0deg);
             }
+
             100% {
                 transform: rotate(360deg);
             }
@@ -67,6 +70,7 @@
                 transform: scale(1);
                 opacity: 0.1;
             }
+
             100% {
                 transform: scale(1.2);
                 opacity: 0.3;
@@ -84,15 +88,19 @@
 
         /* Animasi teks memudar */
         @keyframes fadeIn {
-            0%, 100% {
+
+            0%,
+            100% {
                 opacity: 0;
             }
+
             50% {
                 opacity: 1;
             }
         }
     </style>
 </head>
+
 <body>
 
     <div class="loader">
@@ -101,4 +109,5 @@
     </div>
 
 </body>
+
 </html>

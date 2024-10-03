@@ -1,0 +1,1612 @@
+INFO - 2024-10-02 03:01:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:01:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:01:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:01:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:03:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:03:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:06:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:06:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:10:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:10:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:13:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:13:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:17:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:17:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:19:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:19:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:32:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:32:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-02 03:32:49 --> mysqli_sql_exception: Table 'litbang.jenisinovasis' doesn't exist in C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\Runov_Litbang\app\Controllers\JenisInovasiController.php(17): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\JenisInovasiController->index()
+#8 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\JenisInovasiController))
+#9 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\Runov_Litbang\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#14 {main}
+CRITICAL - 2024-10-02 03:32:49 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'litbang.jenisinovasis' doesn't exist
+[Method: GET, Route: jenis_inovasi]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `jenisinovasis`', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Controllers\JenisInovasiController.php(17): CodeIgniter\BaseModel->findAll()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\JenisInovasiController->index()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\JenisInovasiController))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-02 03:32:49 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'litbang.jenisinovasis' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `jenisinovasis`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `jenisinovasis`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `jenisinovasis`', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Controllers\JenisInovasiController.php(17): CodeIgniter\BaseModel->findAll()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\JenisInovasiController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\JenisInovasiController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-02 03:32:49 --> [Caused by] mysqli_sql_exception: Table 'litbang.jenisinovasis' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT *
+FROM `jenisinovasis`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `jenisinovasis`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `jenisinovasis`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `jenisinovasis`', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Controllers\JenisInovasiController.php(17): CodeIgniter\BaseModel->findAll()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\JenisInovasiController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\JenisInovasiController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-02 03:33:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:33:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-02 03:33:29 --> mysqli_sql_exception: Table 'litbang.jenisinovasis' doesn't exist in C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `je...', 0)
+#1 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `je...')
+#2 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `je...')
+#3 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `je...', Array, false)
+#4 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Model.php(802): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\Runov_Litbang\app\Controllers\JenisInovasiController.php(40): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\JenisInovasiController->store()
+#9 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\JenisInovasiController))
+#10 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\Runov_Litbang\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#15 {main}
+CRITICAL - 2024-10-02 03:33:29 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'litbang.jenisinovasis' doesn't exist
+[Method: POST, Route: jenis_inovasi/store]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `jenisinovasis` (`nama_jenis`) VALUES (:nama_jenis:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\JenisInovasiController.php(40): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\JenisInovasiController->store()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\JenisInovasiController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-02 03:33:29 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'litbang.jenisinovasis' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `jenisinovasis` (`nama_jenis`) VALUES (\'yosa\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `jenisinovasis` (`nama_jenis`) VALUES (\'yosa\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `jenisinovasis` (`nama_jenis`) VALUES (:nama_jenis:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\JenisInovasiController.php(40): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\JenisInovasiController->store()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\JenisInovasiController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-02 03:33:29 --> [Caused by] mysqli_sql_exception: Table 'litbang.jenisinovasis' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `jenisinovasis` (`nama_jenis`) VALUES (\'yosa\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `jenisinovasis` (`nama_jenis`) VALUES (\'yosa\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `jenisinovasis` (`nama_jenis`) VALUES (\'yosa\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `jenisinovasis` (`nama_jenis`) VALUES (:nama_jenis:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\JenisInovasiController.php(40): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\JenisInovasiController->store()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\JenisInovasiController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-02 03:35:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:35:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:38:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:38:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:38:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:38:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:38:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:38:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:38:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:39:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:39:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:39:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:47:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:47:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:47:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:47:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:47:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:47:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:47:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:47:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:47:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:47:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:47:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:47:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:47:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:52:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:52:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:55:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:55:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:56:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:56:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:56:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:56:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:56:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:56:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:56:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:56:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:57:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:57:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:57:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:57:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:57:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:57:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:57:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:57:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:57:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:57:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:57:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:57:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:57:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:57:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:57:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:57:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:57:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 03:57:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 04:11:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 04:11:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 04:11:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 04:11:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 04:11:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 04:33:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 04:33:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 04:33:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 04:33:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 04:33:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 04:36:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 04:36:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 04:36:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 04:36:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 04:36:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 04:36:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 04:36:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 04:48:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 04:48:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 04:48:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 04:48:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 04:48:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 04:48:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 04:48:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 04:48:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 04:48:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 04:48:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 04:48:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 04:48:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 04:48:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 06:41:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 06:41:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 06:41:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 06:41:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 06:42:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 06:42:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 06:42:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 06:42:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 06:42:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 06:42:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 06:42:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 06:42:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 06:42:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 06:42:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 06:42:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 06:43:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 06:43:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 06:43:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 06:43:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 06:43:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 06:43:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 06:43:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 06:43:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-02 06:48:18 --> mysqli_sql_exception: Column 'nama_jenis' cannot be null in C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `je...', 0)
+#1 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `je...')
+#2 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `je...')
+#3 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `je...', Array, false)
+#4 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Model.php(802): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\Runov_Litbang\app\Controllers\SuperAdminController.php(28): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\SuperAdminController->create()
+#9 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+#10 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\Runov_Litbang\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#15 {main}
+CRITICAL - 2024-10-02 06:48:18 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'nama_jenis' cannot be null
+[Method: GET, Route: jenis_inovasi/create]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `jenis_inovasi` (`nama_jenis`) VALUES (:nama_jenis:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\SuperAdminController.php(28): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->create()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-02 06:48:18 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'nama_jenis' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `jenis_inovasi` (`nama_jenis`) VALUES (NULL)')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `jenis_inovasi` (`nama_jenis`) VALUES (NULL)')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `jenis_inovasi` (`nama_jenis`) VALUES (:nama_jenis:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\SuperAdminController.php(28): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->create()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-02 06:48:18 --> [Caused by] mysqli_sql_exception: Column 'nama_jenis' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `jenis_inovasi` (`nama_jenis`) VALUES (NULL)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `jenis_inovasi` (`nama_jenis`) VALUES (NULL)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `jenis_inovasi` (`nama_jenis`) VALUES (NULL)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `jenis_inovasi` (`nama_jenis`) VALUES (:nama_jenis:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\SuperAdminController.php(28): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->create()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+ERROR - 2024-10-02 06:49:16 --> mysqli_sql_exception: Column 'nama_jenis' cannot be null in C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `je...', 0)
+#1 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `je...')
+#2 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `je...')
+#3 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `je...', Array, false)
+#4 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Model.php(802): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\Runov_Litbang\app\Controllers\SuperAdminController.php(28): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\SuperAdminController->create()
+#9 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+#10 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\Runov_Litbang\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#15 {main}
+CRITICAL - 2024-10-02 06:49:16 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'nama_jenis' cannot be null
+[Method: GET, Route: jenis_inovasi/create]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `jenis_inovasi` (`nama_jenis`) VALUES (:nama_jenis:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\SuperAdminController.php(28): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->create()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-02 06:49:16 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'nama_jenis' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `jenis_inovasi` (`nama_jenis`) VALUES (NULL)')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `jenis_inovasi` (`nama_jenis`) VALUES (NULL)')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `jenis_inovasi` (`nama_jenis`) VALUES (:nama_jenis:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\SuperAdminController.php(28): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->create()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-02 06:49:16 --> [Caused by] mysqli_sql_exception: Column 'nama_jenis' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `jenis_inovasi` (`nama_jenis`) VALUES (NULL)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `jenis_inovasi` (`nama_jenis`) VALUES (NULL)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `jenis_inovasi` (`nama_jenis`) VALUES (NULL)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `jenis_inovasi` (`nama_jenis`) VALUES (:nama_jenis:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\SuperAdminController.php(28): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->create()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-02 06:52:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 06:52:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 06:52:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-02 06:52:49 --> BadMethodCallException: Call to undefined method App\Models\LogAktivitasModel::insertLog
+[Method: POST, Route: jenis_inovasi/store]
+in SYSTEMPATH\Model.php on line 932.
+ 1 APPPATH\Controllers\SuperAdminController.php(59): CodeIgniter\Model->__call('insertLog', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->store()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-02 06:53:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 06:53:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 06:53:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-02 06:53:52 --> BadMethodCallException: Call to undefined method App\Models\LogAktivitasModel::insertLog
+[Method: POST, Route: jenis_inovasi/store]
+in SYSTEMPATH\Model.php on line 932.
+ 1 APPPATH\Controllers\SuperAdminController.php(59): CodeIgniter\Model->__call('insertLog', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->store()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-02 06:54:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 06:54:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 06:54:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-02 06:54:12 --> BadMethodCallException: Call to undefined method App\Models\LogAktivitasModel::insertLog
+[Method: POST, Route: jenis_inovasi/store]
+in SYSTEMPATH\Model.php on line 932.
+ 1 APPPATH\Controllers\SuperAdminController.php(59): CodeIgniter\Model->__call('insertLog', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->store()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-02 06:55:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 06:55:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 06:55:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 06:55:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 06:55:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:00:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-02 07:00:43 --> mysqli_sql_exception: Column 'id_user' cannot be null in C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `lo...', 0)
+#1 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `lo...')
+#2 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `lo...')
+#3 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `lo...', Array, false)
+#4 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Model.php(802): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\Runov_Litbang\app\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\Runov_Litbang\app\Controllers\SuperAdminController.php(96): App\Models\LogAktivitasModel->logActivity(NULL, 'Delete', 'Jenis Inovasi', 'Deleted jenis i...')
+#9 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\SuperAdminController->delete('16')
+#10 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+#11 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 C:\xampp\htdocs\Runov_Litbang\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#16 {main}
+CRITICAL - 2024-10-02 07:00:43 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'id_user' cannot be null
+[Method: GET, Route: jenis_inovasi/delete/16]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert([...])
+ 6 APPPATH\Controllers\SuperAdminController.php(96): App\Models\LogAktivitasModel->logActivity(null, 'Delete', 'Jenis Inovasi', 'Deleted jenis inovasi with ID: 16, name: kominfo')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->delete('16')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-02 07:00:43 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'id_user' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:00:43\', \'Delete\', \'Jenis Inovasi\', \'Deleted jenis inovasi with ID: 16, name: kominfo\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:00:43\', \'Delete\', \'Jenis Inovasi\', \'Deleted jenis inovasi with ID: 16, name: kominfo\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert([...])
+ 8 APPPATH\Controllers\SuperAdminController.php(96): App\Models\LogAktivitasModel->logActivity(null, 'Delete', 'Jenis Inovasi', 'Deleted jenis inovasi with ID: 16, name: kominfo')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->delete('16')
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-02 07:00:43 --> [Caused by] mysqli_sql_exception: Column 'id_user' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:00:43\', \'Delete\', \'Jenis Inovasi\', \'Deleted jenis inovasi with ID: 16, name: kominfo\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:00:43\', \'Delete\', \'Jenis Inovasi\', \'Deleted jenis inovasi with ID: 16, name: kominfo\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:00:43\', \'Delete\', \'Jenis Inovasi\', \'Deleted jenis inovasi with ID: 16, name: kominfo\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert([...])
+ 9 APPPATH\Controllers\SuperAdminController.php(96): App\Models\LogAktivitasModel->logActivity(null, 'Delete', 'Jenis Inovasi', 'Deleted jenis inovasi with ID: 16, name: kominfo')
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->delete('16')
+11 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+12 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-02 07:01:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:01:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:01:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:01:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:01:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:01:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:01:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:01:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:01:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:01:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:01:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:01:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:01:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:01:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-02 07:01:53 --> mysqli_sql_exception: Column 'id_user' cannot be null in C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `lo...', 0)
+#1 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `lo...')
+#2 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `lo...')
+#3 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `lo...', Array, false)
+#4 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Model.php(802): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\Runov_Litbang\app\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\Runov_Litbang\app\Controllers\SuperAdminController.php(42): App\Models\LogAktivitasModel->logActivity(NULL, 'Create', 'Jenis Inovasi', 'Added new jenis...')
+#9 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\SuperAdminController->store()
+#10 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+#11 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 C:\xampp\htdocs\Runov_Litbang\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#16 {main}
+CRITICAL - 2024-10-02 07:01:53 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'id_user' cannot be null
+[Method: POST, Route: jenis_inovasi/store]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert([...])
+ 6 APPPATH\Controllers\SuperAdminController.php(42): App\Models\LogAktivitasModel->logActivity(null, 'Create', 'Jenis Inovasi', 'Added new jenis inovasi: hukum')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->store()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-02 07:01:53 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'id_user' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:01:53\', \'Create\', \'Jenis Inovasi\', \'Added new jenis inovasi: hukum\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:01:53\', \'Create\', \'Jenis Inovasi\', \'Added new jenis inovasi: hukum\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert([...])
+ 8 APPPATH\Controllers\SuperAdminController.php(42): App\Models\LogAktivitasModel->logActivity(null, 'Create', 'Jenis Inovasi', 'Added new jenis inovasi: hukum')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->store()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-02 07:01:53 --> [Caused by] mysqli_sql_exception: Column 'id_user' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:01:53\', \'Create\', \'Jenis Inovasi\', \'Added new jenis inovasi: hukum\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:01:53\', \'Create\', \'Jenis Inovasi\', \'Added new jenis inovasi: hukum\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:01:53\', \'Create\', \'Jenis Inovasi\', \'Added new jenis inovasi: hukum\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert([...])
+ 9 APPPATH\Controllers\SuperAdminController.php(42): App\Models\LogAktivitasModel->logActivity(null, 'Create', 'Jenis Inovasi', 'Added new jenis inovasi: hukum')
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->store()
+11 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+12 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-02 07:03:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:03:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:03:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:03:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:04:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:04:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:04:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:04:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:04:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-02 07:04:18 --> mysqli_sql_exception: Column 'id_user' cannot be null in C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `lo...', 0)
+#1 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `lo...')
+#2 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `lo...')
+#3 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `lo...', Array, false)
+#4 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Model.php(802): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\Runov_Litbang\app\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\Runov_Litbang\app\Controllers\SuperAdminController.php(42): App\Models\LogAktivitasModel->logActivity(NULL, 'Create', 'Jenis Inovasi', 'Added new jenis...')
+#9 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\SuperAdminController->store()
+#10 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+#11 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 C:\xampp\htdocs\Runov_Litbang\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#16 {main}
+CRITICAL - 2024-10-02 07:04:18 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'id_user' cannot be null
+[Method: POST, Route: jenis_inovasi/store]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert([...])
+ 6 APPPATH\Controllers\SuperAdminController.php(42): App\Models\LogAktivitasModel->logActivity(null, 'Create', 'Jenis Inovasi', 'Added new jenis inovasi: hukum')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->store()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-02 07:04:18 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'id_user' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:04:18\', \'Create\', \'Jenis Inovasi\', \'Added new jenis inovasi: hukum\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:04:18\', \'Create\', \'Jenis Inovasi\', \'Added new jenis inovasi: hukum\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert([...])
+ 8 APPPATH\Controllers\SuperAdminController.php(42): App\Models\LogAktivitasModel->logActivity(null, 'Create', 'Jenis Inovasi', 'Added new jenis inovasi: hukum')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->store()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-02 07:04:18 --> [Caused by] mysqli_sql_exception: Column 'id_user' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:04:18\', \'Create\', \'Jenis Inovasi\', \'Added new jenis inovasi: hukum\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:04:18\', \'Create\', \'Jenis Inovasi\', \'Added new jenis inovasi: hukum\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:04:18\', \'Create\', \'Jenis Inovasi\', \'Added new jenis inovasi: hukum\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert([...])
+ 9 APPPATH\Controllers\SuperAdminController.php(42): App\Models\LogAktivitasModel->logActivity(null, 'Create', 'Jenis Inovasi', 'Added new jenis inovasi: hukum')
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->store()
+11 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+12 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-02 07:07:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:07:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-02 07:07:15 --> ErrorException: Attempt to read property "id" on null
+[Method: POST, Route: jenis_inovasi/store]
+in APPPATH\Controllers\SuperAdminController.php on line 43.
+ 1 APPPATH\Controllers\SuperAdminController.php(43): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "id" on null', 'C:\\xampp\\htdocs\\Runov_Litbang\\app\\Controllers\\SuperAdminController.php', 43)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->store()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-02 07:08:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:08:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-02 07:08:31 --> ErrorException: Attempt to read property "id_user" on null
+[Method: POST, Route: jenis_inovasi/store]
+in APPPATH\Controllers\SuperAdminController.php on line 43.
+ 1 APPPATH\Controllers\SuperAdminController.php(43): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "id_user" on null', 'C:\\xampp\\htdocs\\Runov_Litbang\\app\\Controllers\\SuperAdminController.php', 43)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->store()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-02 07:09:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:09:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:09:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:09:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:09:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:09:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:09:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:09:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-02 07:10:01 --> ErrorException: Attempt to read property "id" on null
+[Method: POST, Route: jenis_inovasi/store]
+in APPPATH\Controllers\SuperAdminController.php on line 43.
+ 1 APPPATH\Controllers\SuperAdminController.php(43): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "id" on null', 'C:\\xampp\\htdocs\\Runov_Litbang\\app\\Controllers\\SuperAdminController.php', 43)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->store()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-02 07:13:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:13:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:13:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:13:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:13:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:13:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:13:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:13:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:13:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-02 07:13:33 --> Error: Object of class CodeIgniter\Shield\Entities\User could not be converted to string
+[Method: POST, Route: jenis_inovasi/store]
+in SYSTEMPATH\Database\Query.php on line 337.
+ 1 SYSTEMPATH\Database\Query.php(337): strtr('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...])
+ 2 SYSTEMPATH\Database\Query.php(312): CodeIgniter\Database\Query->matchNamedBinds('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...])
+ 3 SYSTEMPATH\Database\Query.php(163): CodeIgniter\Database\Query->compileBinds()
+ 4 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\Query->getQuery()
+ 5 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...], false)
+ 6 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 7 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 8 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 9 APPPATH\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert([...])
+10 APPPATH\Controllers\SuperAdminController.php(42): App\Models\LogAktivitasModel->logActivity(Object(CodeIgniter\Shield\Entities\User), 'Create', 'Jenis Inovasi', 'Added new jenis inovasi: hukum')
+11 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->store()
+12 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+13 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+15 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+16 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+17 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-02 07:14:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:14:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:14:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:15:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:15:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:15:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:15:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:15:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:15:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:15:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:15:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:15:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-02 07:15:40 --> mysqli_sql_exception: Column 'id_user' cannot be null in C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `lo...', 0)
+#1 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `lo...')
+#2 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `lo...')
+#3 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `lo...', Array, false)
+#4 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Model.php(802): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\Runov_Litbang\app\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\Runov_Litbang\app\Controllers\SuperAdminController.php(108): App\Models\LogAktivitasModel->logActivity(NULL, 'Delete', 'Jenis Inovasi', 'Deleted jenis i...')
+#9 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\SuperAdminController->delete('22')
+#10 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+#11 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 C:\xampp\htdocs\Runov_Litbang\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#16 {main}
+CRITICAL - 2024-10-02 07:15:40 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'id_user' cannot be null
+[Method: GET, Route: jenis_inovasi/delete/22]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert([...])
+ 6 APPPATH\Controllers\SuperAdminController.php(108): App\Models\LogAktivitasModel->logActivity(null, 'Delete', 'Jenis Inovasi', 'Deleted jenis inovasi with ID: 22, name: hukum')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->delete('22')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-02 07:15:40 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'id_user' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:15:40\', \'Delete\', \'Jenis Inovasi\', \'Deleted jenis inovasi with ID: 22, name: hukum\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:15:40\', \'Delete\', \'Jenis Inovasi\', \'Deleted jenis inovasi with ID: 22, name: hukum\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert([...])
+ 8 APPPATH\Controllers\SuperAdminController.php(108): App\Models\LogAktivitasModel->logActivity(null, 'Delete', 'Jenis Inovasi', 'Deleted jenis inovasi with ID: 22, name: hukum')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->delete('22')
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-02 07:15:40 --> [Caused by] mysqli_sql_exception: Column 'id_user' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:15:40\', \'Delete\', \'Jenis Inovasi\', \'Deleted jenis inovasi with ID: 22, name: hukum\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:15:40\', \'Delete\', \'Jenis Inovasi\', \'Deleted jenis inovasi with ID: 22, name: hukum\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:15:40\', \'Delete\', \'Jenis Inovasi\', \'Deleted jenis inovasi with ID: 22, name: hukum\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert([...])
+ 9 APPPATH\Controllers\SuperAdminController.php(108): App\Models\LogAktivitasModel->logActivity(null, 'Delete', 'Jenis Inovasi', 'Deleted jenis inovasi with ID: 22, name: hukum')
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->delete('22')
+11 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+12 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-02 07:17:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:17:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:18:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:18:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:18:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:18:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:18:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:18:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:18:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:18:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:18:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-02 07:18:25 --> mysqli_sql_exception: Column 'id_user' cannot be null in C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `lo...', 0)
+#1 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `lo...')
+#2 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `lo...')
+#3 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `lo...', Array, false)
+#4 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Model.php(802): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\Runov_Litbang\app\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\Runov_Litbang\app\Controllers\SuperAdminController.php(108): App\Models\LogAktivitasModel->logActivity(NULL, 'Delete', 'Jenis Inovasi', 'Deleted jenis i...')
+#9 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\SuperAdminController->delete('20')
+#10 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+#11 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 C:\xampp\htdocs\Runov_Litbang\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#16 {main}
+CRITICAL - 2024-10-02 07:18:25 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'id_user' cannot be null
+[Method: GET, Route: jenis_inovasi/delete/20]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert([...])
+ 6 APPPATH\Controllers\SuperAdminController.php(108): App\Models\LogAktivitasModel->logActivity(null, 'Delete', 'Jenis Inovasi', 'Deleted jenis inovasi with ID: 20, name: hukum')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->delete('20')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-02 07:18:25 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'id_user' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:18:25\', \'Delete\', \'Jenis Inovasi\', \'Deleted jenis inovasi with ID: 20, name: hukum\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:18:25\', \'Delete\', \'Jenis Inovasi\', \'Deleted jenis inovasi with ID: 20, name: hukum\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert([...])
+ 8 APPPATH\Controllers\SuperAdminController.php(108): App\Models\LogAktivitasModel->logActivity(null, 'Delete', 'Jenis Inovasi', 'Deleted jenis inovasi with ID: 20, name: hukum')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->delete('20')
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-02 07:18:25 --> [Caused by] mysqli_sql_exception: Column 'id_user' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:18:25\', \'Delete\', \'Jenis Inovasi\', \'Deleted jenis inovasi with ID: 20, name: hukum\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:18:25\', \'Delete\', \'Jenis Inovasi\', \'Deleted jenis inovasi with ID: 20, name: hukum\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:18:25\', \'Delete\', \'Jenis Inovasi\', \'Deleted jenis inovasi with ID: 20, name: hukum\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert([...])
+ 9 APPPATH\Controllers\SuperAdminController.php(108): App\Models\LogAktivitasModel->logActivity(null, 'Delete', 'Jenis Inovasi', 'Deleted jenis inovasi with ID: 20, name: hukum')
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->delete('20')
+11 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+12 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-02 07:22:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:22:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:22:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-02 07:22:55 --> mysqli_sql_exception: Column 'id_user' cannot be null in C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `lo...', 0)
+#1 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `lo...')
+#2 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `lo...')
+#3 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `lo...', Array, false)
+#4 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Model.php(802): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\Runov_Litbang\app\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\Runov_Litbang\app\Controllers\SuperAdminController.php(108): App\Models\LogAktivitasModel->logActivity(NULL, 'Delete', 'Jenis Inovasi', 'Deleted jenis i...')
+#9 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\SuperAdminController->delete('21')
+#10 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+#11 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 C:\xampp\htdocs\Runov_Litbang\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#16 {main}
+CRITICAL - 2024-10-02 07:22:55 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'id_user' cannot be null
+[Method: GET, Route: jenis_inovasi/delete/21]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert([...])
+ 6 APPPATH\Controllers\SuperAdminController.php(108): App\Models\LogAktivitasModel->logActivity(null, 'Delete', 'Jenis Inovasi', 'Deleted jenis inovasi with ID: 21, name: hukum')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->delete('21')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-02 07:22:55 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'id_user' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:22:55\', \'Delete\', \'Jenis Inovasi\', \'Deleted jenis inovasi with ID: 21, name: hukum\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:22:55\', \'Delete\', \'Jenis Inovasi\', \'Deleted jenis inovasi with ID: 21, name: hukum\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert([...])
+ 8 APPPATH\Controllers\SuperAdminController.php(108): App\Models\LogAktivitasModel->logActivity(null, 'Delete', 'Jenis Inovasi', 'Deleted jenis inovasi with ID: 21, name: hukum')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->delete('21')
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-02 07:22:55 --> [Caused by] mysqli_sql_exception: Column 'id_user' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:22:55\', \'Delete\', \'Jenis Inovasi\', \'Deleted jenis inovasi with ID: 21, name: hukum\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:22:55\', \'Delete\', \'Jenis Inovasi\', \'Deleted jenis inovasi with ID: 21, name: hukum\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:22:55\', \'Delete\', \'Jenis Inovasi\', \'Deleted jenis inovasi with ID: 21, name: hukum\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert([...])
+ 9 APPPATH\Controllers\SuperAdminController.php(108): App\Models\LogAktivitasModel->logActivity(null, 'Delete', 'Jenis Inovasi', 'Deleted jenis inovasi with ID: 21, name: hukum')
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->delete('21')
+11 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+12 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-02 07:23:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:23:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:23:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:23:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:23:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:23:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:23:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:23:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:23:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:23:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:23:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-02 07:23:46 --> mysqli_sql_exception: Column 'id_user' cannot be null in C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `lo...', 0)
+#1 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `lo...')
+#2 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `lo...')
+#3 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `lo...', Array, false)
+#4 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Model.php(802): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\Runov_Litbang\app\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\Runov_Litbang\app\Controllers\SuperAdminController.php(108): App\Models\LogAktivitasModel->logActivity(NULL, 'Delete', 'Jenis Inovasi', 'Deleted jenis i...')
+#9 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\SuperAdminController->delete('19')
+#10 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+#11 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 C:\xampp\htdocs\Runov_Litbang\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#16 {main}
+CRITICAL - 2024-10-02 07:23:46 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'id_user' cannot be null
+[Method: GET, Route: jenis_inovasi/delete/19]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert([...])
+ 6 APPPATH\Controllers\SuperAdminController.php(108): App\Models\LogAktivitasModel->logActivity(null, 'Delete', 'Jenis Inovasi', 'Deleted jenis inovasi with ID: 19, name: hukum')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->delete('19')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-02 07:23:46 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'id_user' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:23:46\', \'Delete\', \'Jenis Inovasi\', \'Deleted jenis inovasi with ID: 19, name: hukum\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:23:46\', \'Delete\', \'Jenis Inovasi\', \'Deleted jenis inovasi with ID: 19, name: hukum\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert([...])
+ 8 APPPATH\Controllers\SuperAdminController.php(108): App\Models\LogAktivitasModel->logActivity(null, 'Delete', 'Jenis Inovasi', 'Deleted jenis inovasi with ID: 19, name: hukum')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->delete('19')
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-02 07:23:46 --> [Caused by] mysqli_sql_exception: Column 'id_user' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:23:46\', \'Delete\', \'Jenis Inovasi\', \'Deleted jenis inovasi with ID: 19, name: hukum\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:23:46\', \'Delete\', \'Jenis Inovasi\', \'Deleted jenis inovasi with ID: 19, name: hukum\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:23:46\', \'Delete\', \'Jenis Inovasi\', \'Deleted jenis inovasi with ID: 19, name: hukum\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert([...])
+ 9 APPPATH\Controllers\SuperAdminController.php(108): App\Models\LogAktivitasModel->logActivity(null, 'Delete', 'Jenis Inovasi', 'Deleted jenis inovasi with ID: 19, name: hukum')
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->delete('19')
+11 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+12 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-02 07:26:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:26:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:26:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:26:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:26:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:26:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:26:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:26:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:26:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-02 07:26:26 --> ID User tidak ditemukan saat mencoba menyimpan log aktivitas.
+INFO - 2024-10-02 07:26:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:26:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:26:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-02 07:26:32 --> mysqli_sql_exception: Column 'id_user' cannot be null in C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `lo...', 0)
+#1 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `lo...')
+#2 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `lo...')
+#3 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `lo...', Array, false)
+#4 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Model.php(802): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\Runov_Litbang\app\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\Runov_Litbang\app\Controllers\SuperAdminController.php(109): App\Models\LogAktivitasModel->logActivity(NULL, 'Delete', 'Jenis Inovasi', 'Deleted jenis i...')
+#9 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\SuperAdminController->delete('14')
+#10 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+#11 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 C:\xampp\htdocs\Runov_Litbang\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#16 {main}
+CRITICAL - 2024-10-02 07:26:32 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'id_user' cannot be null
+[Method: GET, Route: jenis_inovasi/delete/14]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert([...])
+ 6 APPPATH\Controllers\SuperAdminController.php(109): App\Models\LogAktivitasModel->logActivity(null, 'Delete', 'Jenis Inovasi', 'Deleted jenis inovasi with ID: 14, name: balitbang')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->delete('14')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-02 07:26:32 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'id_user' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:26:32\', \'Delete\', \'Jenis Inovasi\', \'Deleted jenis inovasi with ID: 14, name: balitbang\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:26:32\', \'Delete\', \'Jenis Inovasi\', \'Deleted jenis inovasi with ID: 14, name: balitbang\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert([...])
+ 8 APPPATH\Controllers\SuperAdminController.php(109): App\Models\LogAktivitasModel->logActivity(null, 'Delete', 'Jenis Inovasi', 'Deleted jenis inovasi with ID: 14, name: balitbang')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->delete('14')
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-02 07:26:32 --> [Caused by] mysqli_sql_exception: Column 'id_user' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:26:32\', \'Delete\', \'Jenis Inovasi\', \'Deleted jenis inovasi with ID: 14, name: balitbang\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:26:32\', \'Delete\', \'Jenis Inovasi\', \'Deleted jenis inovasi with ID: 14, name: balitbang\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:26:32\', \'Delete\', \'Jenis Inovasi\', \'Deleted jenis inovasi with ID: 14, name: balitbang\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert([...])
+ 9 APPPATH\Controllers\SuperAdminController.php(109): App\Models\LogAktivitasModel->logActivity(null, 'Delete', 'Jenis Inovasi', 'Deleted jenis inovasi with ID: 14, name: balitbang')
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->delete('14')
+11 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+12 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-02 07:26:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:26:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:26:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:26:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:26:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-02 07:26:47 --> mysqli_sql_exception: Column 'id_user' cannot be null in C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `lo...', 0)
+#1 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `lo...')
+#2 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `lo...')
+#3 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `lo...', Array, false)
+#4 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Model.php(802): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\Runov_Litbang\app\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\Runov_Litbang\app\Controllers\SuperAdminController.php(88): App\Models\LogAktivitasModel->logActivity(NULL, 'Update', 'Jenis Inovasi', 'Updated jenis i...')
+#9 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\SuperAdminController->update('2')
+#10 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+#11 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 C:\xampp\htdocs\Runov_Litbang\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#16 {main}
+CRITICAL - 2024-10-02 07:26:47 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'id_user' cannot be null
+[Method: POST, Route: jenis_inovasi/update/2]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert([...])
+ 6 APPPATH\Controllers\SuperAdminController.php(88): App\Models\LogAktivitasModel->logActivity(null, 'Update', 'Jenis Inovasi', 'Updated jenis inovasi with ID: 2, new name: anton')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->update('2')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-02 07:26:47 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'id_user' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:26:47\', \'Update\', \'Jenis Inovasi\', \'Updated jenis inovasi with ID: 2, new name: anton\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:26:47\', \'Update\', \'Jenis Inovasi\', \'Updated jenis inovasi with ID: 2, new name: anton\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert([...])
+ 8 APPPATH\Controllers\SuperAdminController.php(88): App\Models\LogAktivitasModel->logActivity(null, 'Update', 'Jenis Inovasi', 'Updated jenis inovasi with ID: 2, new name: anton')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->update('2')
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-02 07:26:47 --> [Caused by] mysqli_sql_exception: Column 'id_user' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:26:47\', \'Update\', \'Jenis Inovasi\', \'Updated jenis inovasi with ID: 2, new name: anton\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:26:47\', \'Update\', \'Jenis Inovasi\', \'Updated jenis inovasi with ID: 2, new name: anton\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:26:47\', \'Update\', \'Jenis Inovasi\', \'Updated jenis inovasi with ID: 2, new name: anton\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert([...])
+ 9 APPPATH\Controllers\SuperAdminController.php(88): App\Models\LogAktivitasModel->logActivity(null, 'Update', 'Jenis Inovasi', 'Updated jenis inovasi with ID: 2, new name: anton')
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->update('2')
+11 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+12 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-02 07:27:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:27:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:27:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-02 07:27:22 --> mysqli_sql_exception: Column 'id_user' cannot be null in C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `lo...', 0)
+#1 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `lo...')
+#2 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `lo...')
+#3 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `lo...', Array, false)
+#4 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Model.php(802): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\Runov_Litbang\app\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\Runov_Litbang\app\Controllers\SuperAdminController.php(87): App\Models\LogAktivitasModel->logActivity(NULL, 'Update', 'Jenis Inovasi', 'Updated jenis i...')
+#9 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\SuperAdminController->update('2')
+#10 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+#11 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 C:\xampp\htdocs\Runov_Litbang\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#16 {main}
+CRITICAL - 2024-10-02 07:27:22 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'id_user' cannot be null
+[Method: POST, Route: jenis_inovasi/update/2]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert([...])
+ 6 APPPATH\Controllers\SuperAdminController.php(87): App\Models\LogAktivitasModel->logActivity(null, 'Update', 'Jenis Inovasi', 'Updated jenis inovasi with ID: 2, new name: anton')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->update('2')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-02 07:27:22 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'id_user' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:27:22\', \'Update\', \'Jenis Inovasi\', \'Updated jenis inovasi with ID: 2, new name: anton\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:27:22\', \'Update\', \'Jenis Inovasi\', \'Updated jenis inovasi with ID: 2, new name: anton\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert([...])
+ 8 APPPATH\Controllers\SuperAdminController.php(87): App\Models\LogAktivitasModel->logActivity(null, 'Update', 'Jenis Inovasi', 'Updated jenis inovasi with ID: 2, new name: anton')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->update('2')
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-02 07:27:22 --> [Caused by] mysqli_sql_exception: Column 'id_user' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:27:22\', \'Update\', \'Jenis Inovasi\', \'Updated jenis inovasi with ID: 2, new name: anton\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:27:22\', \'Update\', \'Jenis Inovasi\', \'Updated jenis inovasi with ID: 2, new name: anton\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:27:22\', \'Update\', \'Jenis Inovasi\', \'Updated jenis inovasi with ID: 2, new name: anton\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert([...])
+ 9 APPPATH\Controllers\SuperAdminController.php(87): App\Models\LogAktivitasModel->logActivity(null, 'Update', 'Jenis Inovasi', 'Updated jenis inovasi with ID: 2, new name: anton')
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->update('2')
+11 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+12 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-02 07:27:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:27:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:27:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:27:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:27:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:27:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:27:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:27:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:27:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:27:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-02 07:27:36 --> mysqli_sql_exception: Column 'id_user' cannot be null in C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `lo...', 0)
+#1 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `lo...')
+#2 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `lo...')
+#3 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `lo...', Array, false)
+#4 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Model.php(802): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\Runov_Litbang\app\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\Runov_Litbang\app\Controllers\SuperAdminController.php(108): App\Models\LogAktivitasModel->logActivity(NULL, 'Delete', 'Jenis Inovasi', 'Deleted jenis i...')
+#9 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\SuperAdminController->delete('25')
+#10 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+#11 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 C:\xampp\htdocs\Runov_Litbang\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#16 {main}
+CRITICAL - 2024-10-02 07:27:36 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'id_user' cannot be null
+[Method: GET, Route: jenis_inovasi/delete/25]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert([...])
+ 6 APPPATH\Controllers\SuperAdminController.php(108): App\Models\LogAktivitasModel->logActivity(null, 'Delete', 'Jenis Inovasi', 'Deleted jenis inovasi with ID: 25, name: adli')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->delete('25')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-02 07:27:36 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'id_user' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:27:36\', \'Delete\', \'Jenis Inovasi\', \'Deleted jenis inovasi with ID: 25, name: adli\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:27:36\', \'Delete\', \'Jenis Inovasi\', \'Deleted jenis inovasi with ID: 25, name: adli\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert([...])
+ 8 APPPATH\Controllers\SuperAdminController.php(108): App\Models\LogAktivitasModel->logActivity(null, 'Delete', 'Jenis Inovasi', 'Deleted jenis inovasi with ID: 25, name: adli')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->delete('25')
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-02 07:27:36 --> [Caused by] mysqli_sql_exception: Column 'id_user' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:27:36\', \'Delete\', \'Jenis Inovasi\', \'Deleted jenis inovasi with ID: 25, name: adli\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:27:36\', \'Delete\', \'Jenis Inovasi\', \'Deleted jenis inovasi with ID: 25, name: adli\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:27:36\', \'Delete\', \'Jenis Inovasi\', \'Deleted jenis inovasi with ID: 25, name: adli\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert([...])
+ 9 APPPATH\Controllers\SuperAdminController.php(108): App\Models\LogAktivitasModel->logActivity(null, 'Delete', 'Jenis Inovasi', 'Deleted jenis inovasi with ID: 25, name: adli')
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->delete('25')
+11 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+12 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-02 07:27:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:27:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:27:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:27:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:27:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:27:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:27:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:27:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:27:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-02 07:27:51 --> mysqli_sql_exception: Column 'id_user' cannot be null in C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `lo...', 0)
+#1 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `lo...')
+#2 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `lo...')
+#3 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `lo...', Array, false)
+#4 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Model.php(802): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\Runov_Litbang\app\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\Runov_Litbang\app\Controllers\SuperAdminController.php(87): App\Models\LogAktivitasModel->logActivity(NULL, 'Update', 'Jenis Inovasi', 'Updated jenis i...')
+#9 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\SuperAdminController->update('24')
+#10 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+#11 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 C:\xampp\htdocs\Runov_Litbang\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 C:\xampp\htdocs\Runov_Litbang\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#16 {main}
+CRITICAL - 2024-10-02 07:27:51 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'id_user' cannot be null
+[Method: POST, Route: jenis_inovasi/update/24]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert([...])
+ 6 APPPATH\Controllers\SuperAdminController.php(87): App\Models\LogAktivitasModel->logActivity(null, 'Update', 'Jenis Inovasi', 'Updated jenis inovasi with ID: 24, new name: aldi')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->update('24')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-02 07:27:51 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'id_user' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:27:51\', \'Update\', \'Jenis Inovasi\', \'Updated jenis inovasi with ID: 24, new name: aldi\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:27:51\', \'Update\', \'Jenis Inovasi\', \'Updated jenis inovasi with ID: 24, new name: aldi\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert([...])
+ 8 APPPATH\Controllers\SuperAdminController.php(87): App\Models\LogAktivitasModel->logActivity(null, 'Update', 'Jenis Inovasi', 'Updated jenis inovasi with ID: 24, new name: aldi')
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->update('24')
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-02 07:27:51 --> [Caused by] mysqli_sql_exception: Column 'id_user' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:27:51\', \'Update\', \'Jenis Inovasi\', \'Updated jenis inovasi with ID: 24, new name: aldi\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:27:51\', \'Update\', \'Jenis Inovasi\', \'Updated jenis inovasi with ID: 24, new name: aldi\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (NULL, \'2024-10-02 07:27:51\', \'Update\', \'Jenis Inovasi\', \'Updated jenis inovasi with ID: 24, new name: aldi\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert([...])
+ 9 APPPATH\Controllers\SuperAdminController.php(87): App\Models\LogAktivitasModel->logActivity(null, 'Update', 'Jenis Inovasi', 'Updated jenis inovasi with ID: 24, new name: aldi')
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->update('24')
+11 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+12 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-02 07:27:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:27:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:27:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:27:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:30:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:30:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:30:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-02 07:30:11 --> Error: Object of class CodeIgniter\Shield\Entities\User could not be converted to string
+[Method: POST, Route: jenis_inovasi/update/24]
+in SYSTEMPATH\Database\Query.php on line 337.
+ 1 SYSTEMPATH\Database\Query.php(337): strtr('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...])
+ 2 SYSTEMPATH\Database\Query.php(312): CodeIgniter\Database\Query->matchNamedBinds('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...])
+ 3 SYSTEMPATH\Database\Query.php(163): CodeIgniter\Database\Query->compileBinds()
+ 4 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\Query->getQuery()
+ 5 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...], false)
+ 6 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 7 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 8 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 9 APPPATH\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert([...])
+10 APPPATH\Controllers\SuperAdminController.php(87): App\Models\LogAktivitasModel->logActivity(Object(CodeIgniter\Shield\Entities\User), 'Update', 'Jenis Inovasi', 'Updated jenis inovasi with ID: 24, new name: yosa')
+11 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->update('24')
+12 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+13 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+15 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+16 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+17 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-02 07:30:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:30:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:30:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:30:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:31:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-02 07:31:53 --> Error: Object of class CodeIgniter\Shield\Entities\User could not be converted to string
+[Method: GET, Route: jenis_inovasi/delete/24]
+in SYSTEMPATH\Database\Query.php on line 337.
+ 1 SYSTEMPATH\Database\Query.php(337): strtr('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...])
+ 2 SYSTEMPATH\Database\Query.php(312): CodeIgniter\Database\Query->matchNamedBinds('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...])
+ 3 SYSTEMPATH\Database\Query.php(163): CodeIgniter\Database\Query->compileBinds()
+ 4 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\Query->getQuery()
+ 5 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...], false)
+ 6 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 7 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 8 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 9 APPPATH\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert([...])
+10 APPPATH\Controllers\SuperAdminController.php(108): App\Models\LogAktivitasModel->logActivity(Object(CodeIgniter\Shield\Entities\User), 'Delete', 'Jenis Inovasi', 'Deleted jenis inovasi with ID: 24, name: yosa')
+11 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->delete('24')
+12 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+13 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+15 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+16 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+17 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-02 07:33:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:33:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:33:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:33:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:33:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:34:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:34:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:34:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-02 07:34:57 --> Error: Object of class CodeIgniter\Shield\Entities\User could not be converted to string
+[Method: POST, Route: jenis_inovasi/update/2]
+in SYSTEMPATH\Database\Query.php on line 337.
+ 1 SYSTEMPATH\Database\Query.php(337): strtr('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...])
+ 2 SYSTEMPATH\Database\Query.php(312): CodeIgniter\Database\Query->matchNamedBinds('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...])
+ 3 SYSTEMPATH\Database\Query.php(163): CodeIgniter\Database\Query->compileBinds()
+ 4 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\Query->getQuery()
+ 5 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `log_aktivitas` (`id_user`, `tanggal_aktivitas`, `aksi`, `jenis_data`, `keterangan`) VALUES (:id_user:, :tanggal_aktivitas:, :aksi:, :jenis_data:, :keterangan:)', [...], false)
+ 6 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 7 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 8 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], true)
+ 9 APPPATH\Models\LogAktivitasModel.php(58): CodeIgniter\Model->insert([...])
+10 APPPATH\Controllers\SuperAdminController.php(87): App\Models\LogAktivitasModel->logActivity(Object(CodeIgniter\Shield\Entities\User), 'Update', 'Jenis Inovasi', 'Updated jenis inovasi with ID: 2, new name: ica')
+11 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SuperAdminController->update('2')
+12 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SuperAdminController))
+13 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+14 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+15 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+16 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+17 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-02 07:34:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:34:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:36:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:36:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:36:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:36:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:36:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:36:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:36:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:41:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:41:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:41:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:41:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:41:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:41:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:41:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:41:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:41:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:41:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:41:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:41:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:41:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:41:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:41:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:41:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:41:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:41:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:41:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:41:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:41:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:41:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:41:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:41:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:42:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:42:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:42:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:42:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:42:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:42:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:42:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:42:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:42:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:42:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:42:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:42:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:42:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:42:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:42:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:42:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:52:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:52:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:52:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:53:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:53:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:53:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:53:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:53:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:53:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:53:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:53:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:53:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:53:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:54:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:54:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:54:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:54:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:55:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:55:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:55:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:55:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:55:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:55:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:55:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-02 07:55:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
