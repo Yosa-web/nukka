@@ -14,6 +14,7 @@ class LogAktivitasModel extends Model
     protected $protectFields    = true;
     protected $allowedFields    = ['id_user', 'tanggal_aktivitas', 'aksi', 'jenis_data', 'keterangan'];
 
+
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
 
@@ -43,18 +44,4 @@ class LogAktivitasModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
-
-    // Method to insert log
-    public function logActivity($id_user, $aksi, $jenis_data, $keterangan)
-    {
-        $data = [
-            'id_user' => $id_user,  // You should pass the user ID dynamically
-            'tanggal_aktivitas' => date('Y-m-d H:i:s'),  // Automatically store the current timestamp
-            'aksi' => $aksi,
-            'jenis_data' => $jenis_data,
-            'keterangan' => $keterangan
-        ];
-
-        $this->insert($data);
-    }
 }

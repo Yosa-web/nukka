@@ -8,4 +8,9 @@ class Home extends BaseController
     {
         return view('welcome_message');
     }
+
+    public function opd(): string
+    {
+        return view('opd');
+    }
 }
