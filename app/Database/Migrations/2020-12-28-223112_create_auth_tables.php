@@ -70,7 +70,7 @@ class CreateAuthTables extends Migration
             'deleted_at'     => ['type' => 'datetime', 'null' => true],
         ]);
         $this->forge->addPrimaryKey('id');
-        $this->forge->addUniqueKey('username');
+        $this->forge->addUniqueKey('username', 'NIK', 'NIP');
         $this->forge->addForeignKey('id_opd', 'opd', 'id_opd', '', 'CASCADE');
         $this->createTable($this->tables['users']);
 
@@ -84,6 +84,8 @@ class CreateAuthTables extends Migration
             'type'         => ['type' => 'varchar', 'constraint' => 255],
             'no_telepon' => ['type' => 'VARCHAR', 'constraint' => 12],
             'name'         => ['type' => 'varchar', 'constraint' => 255, 'null' => true],
+            'NIK'     => ['type' => 'INT', 'constraint' => 16, 'unsigned' => true, 'null' => true],
+            'NIP'     => ['type' => 'INT', 'constraint' => 18, 'unsigned' => true, 'null' => true],
             'secret'       => ['type' => 'varchar', 'constraint' => 255],
             'secret2'      => ['type' => 'varchar', 'constraint' => 255, 'null' => true],
             'expires'      => ['type' => 'datetime', 'null' => true],

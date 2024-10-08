@@ -13,7 +13,7 @@ class CreateGaleri extends Migration
             'id_galeri'    => ['type' => 'INT', 'constraint' => 11, 'auto_increment' => true],
             'judul'        => ['type' => 'VARCHAR', 'constraint' => 50],
             'id_user'        => ['type' => 'INT', 'constraint' => 11, 'unsigned' => true],
-            'url'          => ['type' => 'VARCHAR', 'constraint' => 100],
+            'url'          => ['type' => 'VARCHAR', 'constraint' => 255],
             'tipe'         => ['type' => 'ENUM', 'constraint' => ['image', 'video', 'document']],
             'uploaded_by'  => ['type' => 'INT', 'constraint' => 11, 'unsigned' => true],
             'uploaded_at'  => ['type' => 'DATETIME']

@@ -20,7 +20,7 @@ class CreateInovasi extends Migration
             'id_opd'          => ['type' => 'INT', 'constraint' => 11, 'null' => true, 'unsigned' => true],
             'published_by'    => ['type' => 'INT', 'constraint' => 11, 'unsigned' => true],
             'published_at'    => ['type' => 'DATETIME'],
-            'url_file'        => ['type' => 'VARCHAR', 'constraint' => 100]
+            'url_file'        => ['type' => 'VARCHAR', 'constraint' => 255]
         ]);
         $this->forge->addPrimaryKey('id_inovasi');
         $this->forge->addForeignKey('id_user', 'users', 'id');

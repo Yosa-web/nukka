@@ -13,8 +13,8 @@ class CreateLogAktivitas extends Migration
             'id_log'            => ['type' => 'INT', 'constraint' => 11, 'auto_increment' => true],
             'id_user'           => ['type' => 'INT', 'constraint' => 11, 'unsigned' => true],
             'tanggal_aktivitas' => ['type' => 'DATETIME'],
-            'aksi'              => ['type' => 'ENUM', 'constraint' => ['create', 'update', 'delete']],
-            'jenis_data'        => ['type' => 'ENUM', 'constraint' => ['berita', 'inovasi', 'settings', 'other']],
+            'aksi'              => ['type' => 'VARCHAR', 'constraint' => 20],
+            'jenis_data'        => ['type' => 'VARCHAR', 'constraint' => 20],
             'keterangan'        => ['type' => 'VARCHAR', 'constraint' => 50]
         ]);
         $this->forge->addPrimaryKey('id_log');

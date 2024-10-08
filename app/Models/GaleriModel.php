@@ -6,13 +6,13 @@ use CodeIgniter\Model;
 
 class GaleriModel extends Model
 {
-    protected $table            = 'galeris';
-    protected $primaryKey       = 'id';
+    protected $table            = 'galeri';
+    protected $primaryKey       = 'id_galeri';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['judul', 'id_user', 'url', 'tipe', 'uploaded_by', 'uploaded_at'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
@@ -28,7 +28,11 @@ class GaleriModel extends Model
     protected $deletedField  = 'deleted_at';
 
     // Validation
-    protected $validationRules      = [];
+    protected $validationRules      = [
+        'judul' => 'required|min_length[3]',
+        'url'   => 'required|valid_url',
+        'tipe'  => 'required|in_list[image,video]',
+    ];
     protected $validationMessages   = [];
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;

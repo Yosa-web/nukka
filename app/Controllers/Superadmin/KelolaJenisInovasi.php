@@ -38,8 +38,8 @@ class KelolaJenisInovasi extends BaseController
             'nama_jenis' => $this->request->getPost('nama_jenis')
         ];
 
-        // Insert data jenis inovasi
-        $jenisInovasiModel->insert($data);
+        // // Insert data jenis inovasi
+        // $jenisInovasiModel->insert($data);
 
         // Mendapatkan ID pengguna (SuperAdmin) yang sedang login
         $superAdminId = auth()->user()->id;
@@ -123,7 +123,7 @@ class KelolaJenisInovasi extends BaseController
         $db->transStart(); // Memulai transaksi
 
         // Simpan data jenis inovasi ke dalam database
-        if ($jenisInovasiModel->save($data)) {  // Corrected here
+        if ($jenisInovasiModel->update($id, $data)) {  // Corrected here
             // Mendapatkan ID jenis inovasi yang baru saja ditambahkan
             $newJenisInovasiId = $jenisInovasiModel->insertID();  // Corrected here
 
