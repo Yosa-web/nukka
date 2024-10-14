@@ -68,6 +68,8 @@ class KelolaOpd extends BaseController
             // Mendapatkan ID OPD yang baru saja ditambahkan
             $newOpdId = $this->opdModel->insertID();
 
+            
+
             // Data untuk log aktivitas
             $logData = [
                 'id_user'          => $superAdminId,

@@ -1,3 +1,1352 @@
+INFO - 2024-10-10 02:09:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:09:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:09:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:09:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:10:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:10:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:10:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:10:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:10:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:10:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:10:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:10:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:10:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:10:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:11:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:11:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:11:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:11:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-10 02:11:05 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "super_admin/berita/edit_opd.php"
+[Method: GET, Route: superadmin/berita/1/edit]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('super_admin/berita/edit_opd.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('super_admin/berita/edit_opd', [], true)
+ 3 APPPATH\Controllers\Superadmin\KelolaBerita.php(108): view('super_admin/berita/edit_opd', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Superadmin\KelolaBerita->edit('1')
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Superadmin\KelolaBerita))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-10 02:11:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:11:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:12:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-10 02:12:07 --> ErrorException: Attempt to read property "id" on array
+[Method: GET, Route: superadmin/berita/1/edit]
+in APPPATH\Views\super_admin\berita\edit_berita.php on line 28.
+ 1 APPPATH\Views\super_admin\berita\edit_berita.php(28): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "id" on array', 'C:\\laragon\\www\\Runov_Litbang\\app\\Views\\super_admin\\berita\\edit_berita.php', 28)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\laragon\\www\\Runov_Litbang\\app\\Views\\super_admin\\berita\\edit_berita.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('super_admin/berita/edit_berita', [], true)
+ 5 APPPATH\Controllers\Superadmin\KelolaBerita.php(108): view('super_admin/berita/edit_berita', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Superadmin\KelolaBerita->edit('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Superadmin\KelolaBerita))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-10 02:12:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:12:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:13:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-10 02:13:22 --> ErrorException: Attempt to read property "id" on array
+[Method: GET, Route: superadmin/berita/1/edit]
+in APPPATH\Views\super_admin\berita\edit_berita.php on line 30.
+ 1 APPPATH\Views\super_admin\berita\edit_berita.php(30): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "id" on array', 'C:\\laragon\\www\\Runov_Litbang\\app\\Views\\super_admin\\berita\\edit_berita.php', 30)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\laragon\\www\\Runov_Litbang\\app\\Views\\super_admin\\berita\\edit_berita.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('super_admin/berita/edit_berita', [], true)
+ 5 APPPATH\Controllers\Superadmin\KelolaBerita.php(108): view('super_admin/berita/edit_berita', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Superadmin\KelolaBerita->edit('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Superadmin\KelolaBerita))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-10 02:13:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:13:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:14:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-10 02:14:35 --> ErrorException: Attempt to read property "judul" on array
+[Method: GET, Route: superadmin/berita/1/edit]
+in APPPATH\Views\super_admin\berita\edit_berita.php on line 35.
+ 1 APPPATH\Views\super_admin\berita\edit_berita.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "judul" on array', 'C:\\laragon\\www\\Runov_Litbang\\app\\Views\\super_admin\\berita\\edit_berita.php', 35)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\laragon\\www\\Runov_Litbang\\app\\Views\\super_admin\\berita\\edit_berita.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('super_admin/berita/edit_berita', [], true)
+ 5 APPPATH\Controllers\Superadmin\KelolaBerita.php(108): view('super_admin/berita/edit_berita', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Superadmin\KelolaBerita->edit('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Superadmin\KelolaBerita))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-10 02:14:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:14:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:17:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-10 02:17:33 --> ErrorException: Attempt to read property "gambar" on array
+[Method: GET, Route: superadmin/berita/1/edit]
+in APPPATH\Views\super_admin\berita\edit_berita.php on line 53.
+ 1 APPPATH\Views\super_admin\berita\edit_berita.php(53): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "gambar" on array', 'C:\\laragon\\www\\Runov_Litbang\\app\\Views\\super_admin\\berita\\edit_berita.php', 53)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\laragon\\www\\Runov_Litbang\\app\\Views\\super_admin\\berita\\edit_berita.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('super_admin/berita/edit_berita', [], true)
+ 5 APPPATH\Controllers\Superadmin\KelolaBerita.php(108): view('super_admin/berita/edit_berita', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Superadmin\KelolaBerita->edit('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Superadmin\KelolaBerita))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-10 02:17:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:17:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:17:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-10 02:17:57 --> ErrorException: Attempt to read property "tanggal_post" on array
+[Method: GET, Route: superadmin/berita/1/edit]
+in APPPATH\Views\super_admin\berita\edit_berita.php on line 60.
+ 1 APPPATH\Views\super_admin\berita\edit_berita.php(60): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "tanggal_post" on array', 'C:\\laragon\\www\\Runov_Litbang\\app\\Views\\super_admin\\berita\\edit_berita.php', 60)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\laragon\\www\\Runov_Litbang\\app\\Views\\super_admin\\berita\\edit_berita.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('super_admin/berita/edit_berita', [], true)
+ 5 APPPATH\Controllers\Superadmin\KelolaBerita.php(108): view('super_admin/berita/edit_berita', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Superadmin\KelolaBerita->edit('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Superadmin\KelolaBerita))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-10 02:18:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:18:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:18:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:18:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:18:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:18:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:19:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:19:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:19:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-10-10 02:19:50 --> Image moved successfully: 1728526790_c4ce9d246688add3d71d.png
+INFO - 2024-10-10 02:19:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:19:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:19:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:19:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:20:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:20:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:20:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:20:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:20:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:20:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:20:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:20:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:20:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:24:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:24:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:25:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:25:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:25:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:25:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:25:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:25:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:26:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-10-10 02:26:11 --> Array
+(
+    [judul] => Bupati Pesawaran Melakukan Kegiatan Makan Bersama
+    [isi] => aaaaaaaaaaaaaaaaaaaa
+    [tanggal_post] => 2024-10-10T09:26
+    [status] => draft
+)
+
+DEBUG - 2024-10-10 02:26:11 --> Image moved successfully: 1728527171_95367ef71bae6db4d7c9.png
+INFO - 2024-10-10 02:26:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:26:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:26:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:26:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:26:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:26:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:26:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:26:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:26:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:39:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:39:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:39:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:39:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:39:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:39:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:39:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:39:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:39:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-10 02:45:23 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "landing_page/berita/berita_published.php"
+[Method: GET, Route: berita]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('landing_page/berita/berita_published.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('landing_page/berita/berita_published', [], true)
+ 3 APPPATH\Controllers\Superadmin\KelolaBerita.php(208): view('landing_page/berita/berita_published', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Superadmin\KelolaBerita->publishedNews()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Superadmin\KelolaBerita))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-10 02:45:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:45:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:47:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:47:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:47:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:47:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:49:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:49:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:49:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:49:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:50:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:50:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:50:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:50:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-10 02:53:41 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "berita_published.php"
+[Method: GET, Route: berita]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('berita_published.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('berita_published', [], true)
+ 3 APPPATH\Controllers\Superadmin\KelolaBerita.php(209): view('berita_published', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Superadmin\KelolaBerita->publishedNews()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Superadmin\KelolaBerita))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-10 02:53:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:53:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-10 02:54:11 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "berita_published.php"
+[Method: GET, Route: berita]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('berita_published.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('berita_published', [], true)
+ 3 APPPATH\Controllers\Superadmin\KelolaBerita.php(209): view('berita_published', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Superadmin\KelolaBerita->publishedNews()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Superadmin\KelolaBerita))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-10 02:54:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:54:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:54:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:54:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:54:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:54:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:57:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:57:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:57:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:57:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:57:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:57:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:57:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:57:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:57:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:57:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:57:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:57:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:58:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-10-10 02:58:02 --> Array
+(
+    [judul] => Pemerintah Melakukan Reboisasi
+    [isi] => aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    [tanggal_post] => 2024-10-10T09:57
+    [status] => published
+)
+
+DEBUG - 2024-10-10 02:58:02 --> Image moved successfully: 1728529082_93de8035d60fdbd0cb3e.png
+INFO - 2024-10-10 02:58:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:58:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:58:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:58:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:58:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:58:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:58:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:58:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:59:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:59:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:59:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 02:59:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 03:01:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 03:01:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 03:01:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 03:01:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 03:20:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 03:20:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 03:20:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 03:20:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 03:21:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 03:21:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 03:21:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 03:21:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-10 03:27:19 --> ErrorException: Undefined array key "uploaded_by_username"
+[Method: GET, Route: berita]
+in APPPATH\Views\landing_page\berita\berita_published.php on line 56.
+ 1 APPPATH\Views\landing_page\berita\berita_published.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "uploaded_by_username"', 'C:\\laragon\\www\\Runov_Litbang\\app\\Views\\landing_page\\berita\\berita_published.php', 56)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\laragon\\www\\Runov_Litbang\\app\\Views\\landing_page\\berita\\berita_published.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('landing_page/berita/berita_published', [], true)
+ 5 APPPATH\Controllers\Superadmin\KelolaBerita.php(210): view('landing_page/berita/berita_published', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Superadmin\KelolaBerita->publishedNews()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Superadmin\KelolaBerita))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-10 03:27:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 03:27:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-10 03:30:13 --> ErrorException: Undefined array key "uploaded_by_username"
+[Method: GET, Route: berita]
+in APPPATH\Views\landing_page\berita\berita_published.php on line 56.
+ 1 APPPATH\Views\landing_page\berita\berita_published.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "uploaded_by_username"', 'C:\\laragon\\www\\Runov_Litbang\\app\\Views\\landing_page\\berita\\berita_published.php', 56)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\laragon\\www\\Runov_Litbang\\app\\Views\\landing_page\\berita\\berita_published.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('landing_page/berita/berita_published', [], true)
+ 5 APPPATH\Controllers\Superadmin\KelolaBerita.php(210): view('landing_page/berita/berita_published', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Superadmin\KelolaBerita->publishedNews()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Superadmin\KelolaBerita))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-10 03:30:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 03:30:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 03:34:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 03:34:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 03:34:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 03:34:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 03:36:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 03:36:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 03:36:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 03:36:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-10 03:38:06 --> mysqli_sql_exception: Column 'status' in where clause is ambiguous in C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `berita`...', 0)
+#1 C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `berita`...')
+#2 C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `berita`...')
+#3 C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `berita`...', Array, false)
+#4 C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\laragon\www\Runov_Litbang\app\Models\BeritaModel.php(99): CodeIgniter\BaseModel->findAll()
+#7 C:\laragon\www\Runov_Litbang\app\Controllers\Superadmin\KelolaBerita.php(206): App\Models\BeritaModel->getPublishedNews()
+#8 C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Superadmin\KelolaBerita->publishedNews()
+#9 C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Superadmin\KelolaBerita))
+#10 C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\laragon\www\Runov_Litbang\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#15 {main}
+CRITICAL - 2024-10-10 03:38:06 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'status' in where clause is ambiguous
+[Method: GET, Route: berita]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `berita`.*, `users`.`username` AS `uploaded_by_username`
+FROM `berita`
+JOIN `users` ON `users`.`id` = `berita`.`posted_by`
+WHERE `status` = :status:', [...], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\BeritaModel.php(99): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Superadmin\KelolaBerita.php(206): App\Models\BeritaModel->getPublishedNews()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Superadmin\KelolaBerita->publishedNews()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Superadmin\KelolaBerita))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-10 03:38:06 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'status' in where clause is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `berita`.*, `users`.`username` AS `uploaded_by_username`
+FROM `berita`
+JOIN `users` ON `users`.`id` = `berita`.`posted_by`
+WHERE `status` = \'published\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `berita`.*, `users`.`username` AS `uploaded_by_username`
+FROM `berita`
+JOIN `users` ON `users`.`id` = `berita`.`posted_by`
+WHERE `status` = \'published\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `berita`.*, `users`.`username` AS `uploaded_by_username`
+FROM `berita`
+JOIN `users` ON `users`.`id` = `berita`.`posted_by`
+WHERE `status` = :status:', [...], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\BeritaModel.php(99): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Superadmin\KelolaBerita.php(206): App\Models\BeritaModel->getPublishedNews()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Superadmin\KelolaBerita->publishedNews()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Superadmin\KelolaBerita))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-10 03:38:06 --> [Caused by] mysqli_sql_exception: Column 'status' in where clause is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `berita`.*, `users`.`username` AS `uploaded_by_username`
+FROM `berita`
+JOIN `users` ON `users`.`id` = `berita`.`posted_by`
+WHERE `status` = \'published\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `berita`.*, `users`.`username` AS `uploaded_by_username`
+FROM `berita`
+JOIN `users` ON `users`.`id` = `berita`.`posted_by`
+WHERE `status` = \'published\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `berita`.*, `users`.`username` AS `uploaded_by_username`
+FROM `berita`
+JOIN `users` ON `users`.`id` = `berita`.`posted_by`
+WHERE `status` = \'published\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `berita`.*, `users`.`username` AS `uploaded_by_username`
+FROM `berita`
+JOIN `users` ON `users`.`id` = `berita`.`posted_by`
+WHERE `status` = :status:', [...], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\BeritaModel.php(99): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Superadmin\KelolaBerita.php(206): App\Models\BeritaModel->getPublishedNews()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Superadmin\KelolaBerita->publishedNews()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Superadmin\KelolaBerita))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-10 03:38:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 03:38:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-10 03:38:44 --> mysqli_sql_exception: Not unique table/alias: 'users' in C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `berita`...', 0)
+#1 C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `berita`...')
+#2 C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `berita`...')
+#3 C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `berita`...', Array, false)
+#4 C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\laragon\www\Runov_Litbang\app\Models\BeritaModel.php(87): CodeIgniter\BaseModel->findAll()
+#7 C:\laragon\www\Runov_Litbang\app\Controllers\Superadmin\KelolaBerita.php(207): App\Models\BeritaModel->getBerita()
+#8 C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Superadmin\KelolaBerita->publishedNews()
+#9 C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Superadmin\KelolaBerita))
+#10 C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#12 C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\laragon\www\Runov_Litbang\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#15 {main}
+CRITICAL - 2024-10-10 03:38:44 --> CodeIgniter\Database\Exceptions\DatabaseException: Not unique table/alias: 'users'
+[Method: GET, Route: berita]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `berita`.*, `users`.`username` AS `uploaded_by_username`, `berita`.*, `users`.`username` AS `uploaded_by_username`
+FROM `berita`
+JOIN `users` ON `users`.`id` = `berita`.`posted_by`
+JOIN `users` ON `users`.`id` = `berita`.`posted_by`', [], false)
+ 2 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\BeritaModel.php(87): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Superadmin\KelolaBerita.php(207): App\Models\BeritaModel->getBerita()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Superadmin\KelolaBerita->publishedNews()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Superadmin\KelolaBerita))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-10 03:38:44 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Not unique table/alias: 'users'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `berita`.*, `users`.`username` AS `uploaded_by_username`, `berita`.*, `users`.`username` AS `uploaded_by_username`
+FROM `berita`
+JOIN `users` ON `users`.`id` = `berita`.`posted_by`
+JOIN `users` ON `users`.`id` = `berita`.`posted_by`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `berita`.*, `users`.`username` AS `uploaded_by_username`, `berita`.*, `users`.`username` AS `uploaded_by_username`
+FROM `berita`
+JOIN `users` ON `users`.`id` = `berita`.`posted_by`
+JOIN `users` ON `users`.`id` = `berita`.`posted_by`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `berita`.*, `users`.`username` AS `uploaded_by_username`, `berita`.*, `users`.`username` AS `uploaded_by_username`
+FROM `berita`
+JOIN `users` ON `users`.`id` = `berita`.`posted_by`
+JOIN `users` ON `users`.`id` = `berita`.`posted_by`', [], false)
+ 4 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\BeritaModel.php(87): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Superadmin\KelolaBerita.php(207): App\Models\BeritaModel->getBerita()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Superadmin\KelolaBerita->publishedNews()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Superadmin\KelolaBerita))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-10 03:38:44 --> [Caused by] mysqli_sql_exception: Not unique table/alias: 'users'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `berita`.*, `users`.`username` AS `uploaded_by_username`, `berita`.*, `users`.`username` AS `uploaded_by_username`
+FROM `berita`
+JOIN `users` ON `users`.`id` = `berita`.`posted_by`
+JOIN `users` ON `users`.`id` = `berita`.`posted_by`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `berita`.*, `users`.`username` AS `uploaded_by_username`, `berita`.*, `users`.`username` AS `uploaded_by_username`
+FROM `berita`
+JOIN `users` ON `users`.`id` = `berita`.`posted_by`
+JOIN `users` ON `users`.`id` = `berita`.`posted_by`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `berita`.*, `users`.`username` AS `uploaded_by_username`, `berita`.*, `users`.`username` AS `uploaded_by_username`
+FROM `berita`
+JOIN `users` ON `users`.`id` = `berita`.`posted_by`
+JOIN `users` ON `users`.`id` = `berita`.`posted_by`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `berita`.*, `users`.`username` AS `uploaded_by_username`, `berita`.*, `users`.`username` AS `uploaded_by_username`
+FROM `berita`
+JOIN `users` ON `users`.`id` = `berita`.`posted_by`
+JOIN `users` ON `users`.`id` = `berita`.`posted_by`', [], false)
+ 5 SYSTEMPATH\Model.php(286): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\BeritaModel.php(87): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Superadmin\KelolaBerita.php(207): App\Models\BeritaModel->getBerita()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Superadmin\KelolaBerita->publishedNews()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Superadmin\KelolaBerita))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-10 03:38:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 03:38:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-10 03:45:09 --> ErrorException: Undefined array key "uploaded_by_username"
+[Method: GET, Route: berita]
+in APPPATH\Views\landing_page\berita\berita_published.php on line 56.
+ 1 APPPATH\Views\landing_page\berita\berita_published.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "uploaded_by_username"', 'C:\\laragon\\www\\Runov_Litbang\\app\\Views\\landing_page\\berita\\berita_published.php', 56)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\laragon\\www\\Runov_Litbang\\app\\Views\\landing_page\\berita\\berita_published.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('landing_page/berita/berita_published', [], true)
+ 5 APPPATH\Controllers\Superadmin\KelolaBerita.php(210): view('landing_page/berita/berita_published', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Superadmin\KelolaBerita->publishedNews()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Superadmin\KelolaBerita))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-10 03:45:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 03:45:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-10 03:45:43 --> ErrorException: Undefined array key "uploaded_by_username"
+[Method: GET, Route: berita]
+in APPPATH\Views\landing_page\berita\berita_published.php on line 56.
+ 1 APPPATH\Views\landing_page\berita\berita_published.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "uploaded_by_username"', 'C:\\laragon\\www\\Runov_Litbang\\app\\Views\\landing_page\\berita\\berita_published.php', 56)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\laragon\\www\\Runov_Litbang\\app\\Views\\landing_page\\berita\\berita_published.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('landing_page/berita/berita_published', [], true)
+ 5 APPPATH\Controllers\Superadmin\KelolaBerita.php(210): view('landing_page/berita/berita_published', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Superadmin\KelolaBerita->publishedNews()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Superadmin\KelolaBerita))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-10 03:45:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 03:45:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 03:46:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 03:46:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 03:46:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 03:46:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-10 03:51:37 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "berita_published.php"
+[Method: GET, Route: berita]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('berita_published.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('berita_published', [], true)
+ 3 APPPATH\Controllers\Superadmin\KelolaBerita.php(209): view('berita_published', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Superadmin\KelolaBerita->publishedNews()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Superadmin\KelolaBerita))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-10 03:51:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 03:51:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 03:52:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 03:52:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 03:52:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 03:52:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-10 03:53:40 --> ErrorException: Undefined array key "uploaded_by_username"
+[Method: GET, Route: berita]
+in APPPATH\Views\landing_page\berita\berita_published.php on line 57.
+ 1 APPPATH\Views\landing_page\berita\berita_published.php(57): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "uploaded_by_username"', 'C:\\laragon\\www\\Runov_Litbang\\app\\Views\\landing_page\\berita\\berita_published.php', 57)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\laragon\\www\\Runov_Litbang\\app\\Views\\landing_page\\berita\\berita_published.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('landing_page/berita/berita_published', [], true)
+ 5 APPPATH\Controllers\Superadmin\KelolaBerita.php(209): view('landing_page/berita/berita_published', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Superadmin\KelolaBerita->publishedNews()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Superadmin\KelolaBerita))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-10 03:53:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 03:53:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-10 03:55:35 --> ErrorException: Undefined array key "uploaded_by_username"
+[Method: GET, Route: berita]
+in APPPATH\Views\landing_page\berita\berita_published.php on line 57.
+ 1 APPPATH\Views\landing_page\berita\berita_published.php(57): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "uploaded_by_username"', 'C:\\laragon\\www\\Runov_Litbang\\app\\Views\\landing_page\\berita\\berita_published.php', 57)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\laragon\\www\\Runov_Litbang\\app\\Views\\landing_page\\berita\\berita_published.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('landing_page/berita/berita_published', [], true)
+ 5 APPPATH\Controllers\Superadmin\KelolaBerita.php(209): view('landing_page/berita/berita_published', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Superadmin\KelolaBerita->publishedNews()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Superadmin\KelolaBerita))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-10 03:55:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 03:55:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-10 03:58:58 --> mysqli_sql_exception: Column 'status' in where clause is ambiguous in C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `berita`...', 0)
+#1 C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `berita`...')
+#2 C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `berita`...')
+#3 C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `berita`...', Array, false)
+#4 C:\laragon\www\Runov_Litbang\app\Models\BeritaModel.php(96): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\Runov_Litbang\app\Controllers\Superadmin\KelolaBerita.php(206): App\Models\BeritaModel->getPublishedNews()
+#6 C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Superadmin\KelolaBerita->publishedNews()
+#7 C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Superadmin\KelolaBerita))
+#8 C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\laragon\www\Runov_Litbang\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#13 {main}
+CRITICAL - 2024-10-10 03:58:58 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'status' in where clause is ambiguous
+[Method: GET, Route: berita]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `berita`.*, `users`.`username` as `uploaded_by_username`
+FROM `berita`
+LEFT JOIN `users` ON `users`.`id` = `berita`.`uploaded_by`
+WHERE `status` = :status:', [...], false)
+ 2 APPPATH\Models\BeritaModel.php(96): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Superadmin\KelolaBerita.php(206): App\Models\BeritaModel->getPublishedNews()
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Superadmin\KelolaBerita->publishedNews()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Superadmin\KelolaBerita))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-10 03:58:58 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'status' in where clause is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `berita`.*, `users`.`username` as `uploaded_by_username`
+FROM `berita`
+LEFT JOIN `users` ON `users`.`id` = `berita`.`uploaded_by`
+WHERE `status` = \'published\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `berita`.*, `users`.`username` as `uploaded_by_username`
+FROM `berita`
+LEFT JOIN `users` ON `users`.`id` = `berita`.`uploaded_by`
+WHERE `status` = \'published\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `berita`.*, `users`.`username` as `uploaded_by_username`
+FROM `berita`
+LEFT JOIN `users` ON `users`.`id` = `berita`.`uploaded_by`
+WHERE `status` = :status:', [...], false)
+ 4 APPPATH\Models\BeritaModel.php(96): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Superadmin\KelolaBerita.php(206): App\Models\BeritaModel->getPublishedNews()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Superadmin\KelolaBerita->publishedNews()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Superadmin\KelolaBerita))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-10 03:58:58 --> [Caused by] mysqli_sql_exception: Column 'status' in where clause is ambiguous
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `berita`.*, `users`.`username` as `uploaded_by_username`
+FROM `berita`
+LEFT JOIN `users` ON `users`.`id` = `berita`.`uploaded_by`
+WHERE `status` = \'published\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `berita`.*, `users`.`username` as `uploaded_by_username`
+FROM `berita`
+LEFT JOIN `users` ON `users`.`id` = `berita`.`uploaded_by`
+WHERE `status` = \'published\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `berita`.*, `users`.`username` as `uploaded_by_username`
+FROM `berita`
+LEFT JOIN `users` ON `users`.`id` = `berita`.`uploaded_by`
+WHERE `status` = \'published\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `berita`.*, `users`.`username` as `uploaded_by_username`
+FROM `berita`
+LEFT JOIN `users` ON `users`.`id` = `berita`.`uploaded_by`
+WHERE `status` = :status:', [...], false)
+ 5 APPPATH\Models\BeritaModel.php(96): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Superadmin\KelolaBerita.php(206): App\Models\BeritaModel->getPublishedNews()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Superadmin\KelolaBerita->publishedNews()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Superadmin\KelolaBerita))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-10 03:59:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 03:59:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-10 04:00:35 --> ErrorException: Undefined array key "uploaded_by_username"
+[Method: GET, Route: berita]
+in APPPATH\Views\landing_page\berita\berita_published.php on line 57.
+ 1 APPPATH\Views\landing_page\berita\berita_published.php(57): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "uploaded_by_username"', 'C:\\laragon\\www\\Runov_Litbang\\app\\Views\\landing_page\\berita\\berita_published.php', 57)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\laragon\\www\\Runov_Litbang\\app\\Views\\landing_page\\berita\\berita_published.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('landing_page/berita/berita_published', [], true)
+ 5 APPPATH\Controllers\Superadmin\KelolaBerita.php(209): view('landing_page/berita/berita_published', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Superadmin\KelolaBerita->publishedNews()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Superadmin\KelolaBerita))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-10 04:00:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:00:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-10 04:04:24 --> ErrorException: Undefined array key "uploaded_by_username"
+[Method: GET, Route: berita]
+in APPPATH\Views\landing_page\berita\berita_published.php on line 57.
+ 1 APPPATH\Views\landing_page\berita\berita_published.php(57): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "uploaded_by_username"', 'C:\\laragon\\www\\Runov_Litbang\\app\\Views\\landing_page\\berita\\berita_published.php', 57)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\laragon\\www\\Runov_Litbang\\app\\Views\\landing_page\\berita\\berita_published.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('landing_page/berita/berita_published', [], true)
+ 5 APPPATH\Controllers\Superadmin\KelolaBerita.php(209): view('landing_page/berita/berita_published', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Superadmin\KelolaBerita->publishedNews()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Superadmin\KelolaBerita))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-10 04:04:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:04:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:10:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:10:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:10:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:10:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-10-10 04:13:23 --> Published News: Array
+(
+    [0] => Array
+        (
+            [id_berita] => 1
+            [judul] => Juara 1 Mewarnai botol kaca
+            [isi] => botol kaca dipakai hingga kini
+            [gambar] => 
+            [tanggal_post] => 2024-10-08 15:22:00
+            [posted_by] => 1
+            [status] => published
+            [uploaded_by_username] => admin
+        )
+
+    [1] => Array
+        (
+            [id_berita] => 3
+            [judul] => Pemerintah Melakukan Reboisasi
+            [isi] => aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            [gambar] => http://localhost:8080/assets/uploads/images/berita/1728529082_93de8035d60fdbd0cb3e.png
+            [tanggal_post] => 2024-10-10 09:57:00
+            [posted_by] => 1
+            [status] => published
+            [uploaded_by_username] => admin
+        )
+
+)
+
+INFO - 2024-10-10 04:13:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:13:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:13:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:13:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-10-10 04:14:40 --> Published News: Array
+(
+    [0] => Array
+        (
+            [id_berita] => 1
+            [judul] => Juara 1 Mewarnai botol kaca
+            [isi] => botol kaca dipakai hingga kini
+            [gambar] => 
+            [tanggal_post] => 2024-10-08 15:22:00
+            [posted_by] => 1
+            [status] => published
+            [uploaded_by_username] => admin
+        )
+
+    [1] => Array
+        (
+            [id_berita] => 3
+            [judul] => Pemerintah Melakukan Reboisasi
+            [isi] => aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            [gambar] => http://localhost:8080/assets/uploads/images/berita/1728529082_93de8035d60fdbd0cb3e.png
+            [tanggal_post] => 2024-10-10 09:57:00
+            [posted_by] => 1
+            [status] => published
+            [uploaded_by_username] => admin
+        )
+
+)
+
+INFO - 2024-10-10 04:14:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:14:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:14:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:14:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:15:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:15:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:15:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:15:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:16:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-10-10 04:16:02 --> Image moved successfully: 1728533762_5e85ee6ed4af79f770d1.png
+INFO - 2024-10-10 04:16:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:16:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:16:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:16:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-10-10 04:16:07 --> Published News: Array
+(
+    [0] => Array
+        (
+            [id_berita] => 1
+            [judul] => Juara 1 Mewarnai botol kaca
+            [isi] => botol kaca dipakai hingga kini
+            [gambar] => http://localhost:8080/assets/uploads/images/berita/1728533762_5e85ee6ed4af79f770d1.png
+            [tanggal_post] => 2024-10-08 15:22:00
+            [posted_by] => 1
+            [status] => published
+            [uploaded_by_username] => admin
+        )
+
+    [1] => Array
+        (
+            [id_berita] => 3
+            [judul] => Pemerintah Melakukan Reboisasi
+            [isi] => aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            [gambar] => http://localhost:8080/assets/uploads/images/berita/1728529082_93de8035d60fdbd0cb3e.png
+            [tanggal_post] => 2024-10-10 09:57:00
+            [posted_by] => 1
+            [status] => published
+            [uploaded_by_username] => admin
+        )
+
+)
+
+INFO - 2024-10-10 04:16:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:16:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:16:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:16:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:29:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:29:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:29:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:29:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:29:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:29:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:29:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:29:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:29:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:29:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:30:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:30:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:30:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:30:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:30:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:30:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:32:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:32:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:32:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:32:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:33:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:33:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:33:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:33:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:33:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:35:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:35:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:35:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:35:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:35:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-10-10 04:51:54 --> Published News: Array
+(
+    [0] => Array
+        (
+            [id_berita] => 1
+            [judul] => Juara 1 Mewarnai botol kaca
+            [isi] => botol kaca dipakai hingga kini
+            [gambar] => http://localhost:8080/assets/uploads/images/berita/1728533762_5e85ee6ed4af79f770d1.png
+            [tanggal_post] => 2024-10-08 15:22:00
+            [posted_by] => 1
+            [status] => published
+            [uploaded_by_username] => admin
+        )
+
+    [1] => Array
+        (
+            [id_berita] => 3
+            [judul] => Pemerintah Melakukan Reboisasi
+            [isi] => aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            [gambar] => http://localhost:8080/assets/uploads/images/berita/1728529082_93de8035d60fdbd0cb3e.png
+            [tanggal_post] => 2024-10-10 09:57:00
+            [posted_by] => 1
+            [status] => published
+            [uploaded_by_username] => admin
+        )
+
+)
+
+INFO - 2024-10-10 04:51:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:51:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:52:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 04:52:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-10-10 06:26:27 --> ParseError: Unclosed '{' on line 12
+[Method: GET, Route: berita]
+in APPPATH\Controllers\Superadmin\KelolaBerita.php on line 226.
+ 1 VENDORPATH\composer\ClassLoader.php(427): Composer\Autoload\{closure}('C:\\laragon\\www\\Runov_Litbang\\vendor\\composer/../../app\\Controllers\\Superadmin\\KelolaBerita.php')
+ 2 [internal function]: Composer\Autoload\ClassLoader->loadClass('App\\Controllers\\Superadmin\\KelolaBerita')
+ 3 SYSTEMPATH\CodeIgniter.php(887): class_exists('\\App\\Controllers\\Superadmin\\KelolaBerita', true)
+ 4 SYSTEMPATH\CodeIgniter.php(496): CodeIgniter\CodeIgniter->startController()
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-10 06:26:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:26:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-10-10 06:27:19 --> Published News: Array
+(
+    [0] => Array
+        (
+            [id_berita] => 1
+            [judul] => Juara 1 Mewarnai botol kaca
+            [isi] => botol kaca dipakai hingga kini
+            [gambar] => http://localhost:8080/assets/uploads/images/berita/1728533762_5e85ee6ed4af79f770d1.png
+            [tanggal_post] => 2024-10-08 15:22:00
+            [posted_by] => 1
+            [status] => published
+            [uploaded_by_username] => admin
+        )
+
+    [1] => Array
+        (
+            [id_berita] => 3
+            [judul] => Pemerintah Melakukan Reboisasi
+            [isi] => aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            [gambar] => http://localhost:8080/assets/uploads/images/berita/1728529082_93de8035d60fdbd0cb3e.png
+            [tanggal_post] => 2024-10-10 09:57:00
+            [posted_by] => 1
+            [status] => published
+            [uploaded_by_username] => admin
+        )
+
+)
+
+INFO - 2024-10-10 06:27:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:27:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:27:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:27:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-10-10 06:31:45 --> Published News: Array
+(
+    [0] => Array
+        (
+            [id_berita] => 1
+            [judul] => Juara 1 Mewarnai botol kaca
+            [isi] => botol kaca dipakai hingga kini
+            [gambar] => http://localhost:8080/assets/uploads/images/berita/1728533762_5e85ee6ed4af79f770d1.png
+            [tanggal_post] => 2024-10-08 15:22:00
+            [posted_by] => 1
+            [status] => published
+            [uploaded_by_username] => admin
+        )
+
+    [1] => Array
+        (
+            [id_berita] => 3
+            [judul] => Pemerintah Melakukan Reboisasi
+            [isi] => aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            [gambar] => http://localhost:8080/assets/uploads/images/berita/1728529082_93de8035d60fdbd0cb3e.png
+            [tanggal_post] => 2024-10-10 09:57:00
+            [posted_by] => 1
+            [status] => published
+            [uploaded_by_username] => admin
+        )
+
+)
+
+INFO - 2024-10-10 06:31:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:31:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:31:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:31:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-10-10 06:32:04 --> Published News: Array
+(
+    [0] => Array
+        (
+            [id_berita] => 1
+            [judul] => Juara 1 Mewarnai botol kaca
+            [isi] => botol kaca dipakai hingga kini
+            [gambar] => http://localhost:8080/assets/uploads/images/berita/1728533762_5e85ee6ed4af79f770d1.png
+            [tanggal_post] => 2024-10-08 15:22:00
+            [posted_by] => 1
+            [status] => published
+            [uploaded_by_username] => admin
+        )
+
+    [1] => Array
+        (
+            [id_berita] => 3
+            [judul] => Pemerintah Melakukan Reboisasi
+            [isi] => aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            [gambar] => http://localhost:8080/assets/uploads/images/berita/1728529082_93de8035d60fdbd0cb3e.png
+            [tanggal_post] => 2024-10-10 09:57:00
+            [posted_by] => 1
+            [status] => published
+            [uploaded_by_username] => admin
+        )
+
+)
+
+INFO - 2024-10-10 06:32:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:32:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:32:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:32:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-10-10 06:36:53 --> Published News: Array
+(
+    [0] => Array
+        (
+            [id_berita] => 1
+            [judul] => Juara 1 Mewarnai botol kaca
+            [isi] => botol kaca dipakai hingga kini
+            [gambar] => http://localhost:8080/assets/uploads/images/berita/1728533762_5e85ee6ed4af79f770d1.png
+            [tanggal_post] => 2024-10-08 15:22:00
+            [posted_by] => 1
+            [status] => published
+            [uploaded_by_username] => admin
+        )
+
+    [1] => Array
+        (
+            [id_berita] => 3
+            [judul] => Pemerintah Melakukan Reboisasi
+            [isi] => aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            [gambar] => http://localhost:8080/assets/uploads/images/berita/1728529082_93de8035d60fdbd0cb3e.png
+            [tanggal_post] => 2024-10-10 09:57:00
+            [posted_by] => 1
+            [status] => published
+            [uploaded_by_username] => admin
+        )
+
+)
+
+INFO - 2024-10-10 06:36:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:36:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:36:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:36:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-10-10 06:36:59 --> mysqli_sql_exception: Unknown column 'berita.id' in 'where clause' in C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `berita`...', 0)
+#1 C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `berita`...')
+#2 C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `berita`...')
+#3 C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `berita`...', Array, false)
+#4 C:\laragon\www\Runov_Litbang\app\Models\BeritaModel.php(102): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\Runov_Litbang\app\Controllers\Superadmin\KelolaBerita.php(219): App\Models\BeritaModel->getPublishedNews('1')
+#6 C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Superadmin\KelolaBerita->show('1')
+#7 C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Superadmin\KelolaBerita))
+#8 C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\laragon\www\Runov_Litbang\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\laragon\\www\\...')
+#13 {main}
+CRITICAL - 2024-10-10 06:36:59 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'berita.id' in 'where clause'
+[Method: GET, Route: berita/detail/1]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `berita`.*, `users`.`username` AS `uploaded_by_username`
+FROM `berita`
+LEFT JOIN `users` ON `users`.`id` = `berita`.`posted_by`
+WHERE `berita`.`status` = :berita.status:
+AND `berita`.`id` = :berita.id:', [...], false)
+ 2 APPPATH\Models\BeritaModel.php(102): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Superadmin\KelolaBerita.php(219): App\Models\BeritaModel->getPublishedNews('1')
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Superadmin\KelolaBerita->show('1')
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Superadmin\KelolaBerita))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-10 06:36:59 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'berita.id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `berita`.*, `users`.`username` AS `uploaded_by_username`
+FROM `berita`
+LEFT JOIN `users` ON `users`.`id` = `berita`.`posted_by`
+WHERE `berita`.`status` = \'published\'
+AND `berita`.`id` = \'1\'')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `berita`.*, `users`.`username` AS `uploaded_by_username`
+FROM `berita`
+LEFT JOIN `users` ON `users`.`id` = `berita`.`posted_by`
+WHERE `berita`.`status` = \'published\'
+AND `berita`.`id` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `berita`.*, `users`.`username` AS `uploaded_by_username`
+FROM `berita`
+LEFT JOIN `users` ON `users`.`id` = `berita`.`posted_by`
+WHERE `berita`.`status` = :berita.status:
+AND `berita`.`id` = :berita.id:', [...], false)
+ 4 APPPATH\Models\BeritaModel.php(102): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Superadmin\KelolaBerita.php(219): App\Models\BeritaModel->getPublishedNews('1')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Superadmin\KelolaBerita->show('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Superadmin\KelolaBerita))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-10-10 06:36:59 --> [Caused by] mysqli_sql_exception: Unknown column 'berita.id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `berita`.*, `users`.`username` AS `uploaded_by_username`
+FROM `berita`
+LEFT JOIN `users` ON `users`.`id` = `berita`.`posted_by`
+WHERE `berita`.`status` = \'published\'
+AND `berita`.`id` = \'1\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `berita`.*, `users`.`username` AS `uploaded_by_username`
+FROM `berita`
+LEFT JOIN `users` ON `users`.`id` = `berita`.`posted_by`
+WHERE `berita`.`status` = \'published\'
+AND `berita`.`id` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `berita`.*, `users`.`username` AS `uploaded_by_username`
+FROM `berita`
+LEFT JOIN `users` ON `users`.`id` = `berita`.`posted_by`
+WHERE `berita`.`status` = \'published\'
+AND `berita`.`id` = \'1\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `berita`.*, `users`.`username` AS `uploaded_by_username`
+FROM `berita`
+LEFT JOIN `users` ON `users`.`id` = `berita`.`posted_by`
+WHERE `berita`.`status` = :berita.status:
+AND `berita`.`id` = :berita.id:', [...], false)
+ 5 APPPATH\Models\BeritaModel.php(102): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Superadmin\KelolaBerita.php(219): App\Models\BeritaModel->getPublishedNews('1')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Superadmin\KelolaBerita->show('1')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Superadmin\KelolaBerita))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-10 06:37:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:37:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-10-10 06:45:41 --> Published News: Array
+(
+    [0] => Array
+        (
+            [id_berita] => 1
+            [judul] => Juara 1 Mewarnai botol kaca
+            [isi] => botol kaca dipakai hingga kini
+            [gambar] => http://localhost:8080/assets/uploads/images/berita/1728533762_5e85ee6ed4af79f770d1.png
+            [tanggal_post] => 2024-10-08 15:22:00
+            [posted_by] => 1
+            [status] => published
+            [uploaded_by_username] => admin
+        )
+
+)
+
+CRITICAL - 2024-10-10 06:45:41 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "landing_page/berita/detail.php"
+[Method: GET, Route: berita/detail/1]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('landing_page/berita/detail.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('landing_page/berita/detail', [], true)
+ 3 APPPATH\Controllers\Superadmin\KelolaBerita.php(224): view('landing_page/berita/detail', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Superadmin\KelolaBerita->show('1')
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Superadmin\KelolaBerita))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-10 06:45:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:45:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-10-10 06:46:18 --> Published News: Array
+(
+    [0] => Array
+        (
+            [id_berita] => 1
+            [judul] => Juara 1 Mewarnai botol kaca
+            [isi] => botol kaca dipakai hingga kini
+            [gambar] => http://localhost:8080/assets/uploads/images/berita/1728533762_5e85ee6ed4af79f770d1.png
+            [tanggal_post] => 2024-10-08 15:22:00
+            [posted_by] => 1
+            [status] => published
+            [uploaded_by_username] => admin
+        )
+
+)
+
+CRITICAL - 2024-10-10 06:46:18 --> ErrorException: Undefined array key "judul"
+[Method: GET, Route: berita/detail/1]
+in APPPATH\Views\landing_page\berita\detail.php on line 6.
+ 1 APPPATH\Views\landing_page\berita\detail.php(6): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "judul"', 'C:\\laragon\\www\\Runov_Litbang\\app\\Views\\landing_page\\berita\\detail.php', 6)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\laragon\\www\\Runov_Litbang\\app\\Views\\landing_page\\berita\\detail.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('landing_page/berita/detail', [], true)
+ 5 APPPATH\Controllers\Superadmin\KelolaBerita.php(224): view('landing_page/berita/detail', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Superadmin\KelolaBerita->show('1')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Superadmin\KelolaBerita))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-10-10 06:46:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:46:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-10-10 06:48:39 --> Published News: Array
+(
+    [0] => Array
+        (
+            [id_berita] => 1
+            [judul] => Juara 1 Mewarnai botol kaca
+            [isi] => botol kaca dipakai hingga kini
+            [gambar] => http://localhost:8080/assets/uploads/images/berita/1728533762_5e85ee6ed4af79f770d1.png
+            [tanggal_post] => 2024-10-08 15:22:00
+            [posted_by] => 1
+            [status] => published
+            [uploaded_by_username] => admin
+        )
+
+)
+
+INFO - 2024-10-10 06:48:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:48:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:48:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:48:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-10-10 06:48:45 --> Published News: Array
+(
+    [0] => Array
+        (
+            [id_berita] => 1
+            [judul] => Juara 1 Mewarnai botol kaca
+            [isi] => botol kaca dipakai hingga kini
+            [gambar] => http://localhost:8080/assets/uploads/images/berita/1728533762_5e85ee6ed4af79f770d1.png
+            [tanggal_post] => 2024-10-08 15:22:00
+            [posted_by] => 1
+            [status] => published
+            [uploaded_by_username] => admin
+        )
+
+    [1] => Array
+        (
+            [id_berita] => 3
+            [judul] => Pemerintah Melakukan Reboisasi
+            [isi] => aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            [gambar] => http://localhost:8080/assets/uploads/images/berita/1728529082_93de8035d60fdbd0cb3e.png
+            [tanggal_post] => 2024-10-10 09:57:00
+            [posted_by] => 1
+            [status] => published
+            [uploaded_by_username] => admin
+        )
+
+)
+
+INFO - 2024-10-10 06:48:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:48:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:48:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-10-10 06:48:49 --> Published News: Array
+(
+    [0] => Array
+        (
+            [id_berita] => 3
+            [judul] => Pemerintah Melakukan Reboisasi
+            [isi] => aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            [gambar] => http://localhost:8080/assets/uploads/images/berita/1728529082_93de8035d60fdbd0cb3e.png
+            [tanggal_post] => 2024-10-10 09:57:00
+            [posted_by] => 1
+            [status] => published
+            [uploaded_by_username] => admin
+        )
+
+)
+
+INFO - 2024-10-10 06:48:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:48:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:48:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:48:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-10-10 06:52:18 --> Published News: Array
+(
+    [0] => Array
+        (
+            [id_berita] => 3
+            [judul] => Pemerintah Melakukan Reboisasi
+            [isi] => aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            [gambar] => http://localhost:8080/assets/uploads/images/berita/1728529082_93de8035d60fdbd0cb3e.png
+            [tanggal_post] => 2024-10-10 09:57:00
+            [posted_by] => 1
+            [status] => published
+            [uploaded_by_username] => admin
+        )
+
+)
+
+INFO - 2024-10-10 06:52:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:52:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:52:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:52:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-10-10 06:57:38 --> Published News: Array
+(
+    [0] => Array
+        (
+            [id_berita] => 1
+            [judul] => Juara 1 Mewarnai botol kaca
+            [isi] => botol kaca dipakai hingga kini
+            [gambar] => http://localhost:8080/assets/uploads/images/berita/1728533762_5e85ee6ed4af79f770d1.png
+            [tanggal_post] => 2024-10-08 15:22:00
+            [posted_by] => 1
+            [status] => published
+            [uploaded_by_username] => admin
+        )
+
+    [1] => Array
+        (
+            [id_berita] => 3
+            [judul] => Pemerintah Melakukan Reboisasi
+            [isi] => aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            [gambar] => http://localhost:8080/assets/uploads/images/berita/1728529082_93de8035d60fdbd0cb3e.png
+            [tanggal_post] => 2024-10-10 09:57:00
+            [posted_by] => 1
+            [status] => published
+            [uploaded_by_username] => admin
+        )
+
+)
+
+INFO - 2024-10-10 06:57:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:57:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:57:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:57:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:58:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:58:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:58:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:58:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:58:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:59:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:59:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:59:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:59:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:59:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:59:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:59:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-10-10 06:59:13 --> Published News: Array
+(
+    [0] => Array
+        (
+            [id_berita] => 1
+            [judul] => Juara 1 Mewarnai botol kaca
+            [isi] => botol kaca dipakai hingga kini
+            [gambar] => http://localhost:8080/assets/uploads/images/berita/1728533762_5e85ee6ed4af79f770d1.png
+            [tanggal_post] => 2024-10-08 15:22:00
+            [posted_by] => 1
+            [status] => published
+            [uploaded_by_username] => admin
+        )
+
+)
+
+INFO - 2024-10-10 06:59:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:59:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:59:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:59:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-10-10 06:59:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+=======
 INFO - 2024-10-10 03:07:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-10-10 03:07:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-10-10 03:07:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

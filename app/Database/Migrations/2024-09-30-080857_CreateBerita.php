@@ -11,16 +11,14 @@ class CreateBerita extends Migration
         // Table: berita
         $this->forge->addField([
             'id_berita'       => ['type' => 'INT', 'constraint' => 11, 'auto_increment' => true],
-            'id_user'       => ['type' => 'INT', 'constraint' => 11, 'unsigned' => true],
             'judul'           => ['type' => 'VARCHAR', 'constraint' => 50],
             'isi'             => ['type' => 'LONGTEXT'],
             'gambar'          => ['type' => 'VARCHAR', 'constraint' => 255],
             'tanggal_post'    => ['type' => 'DATETIME'],
             'posted_by'       => ['type' => 'INT', 'constraint' => 11, 'unsigned' => true],
-            'status'            => ['type' => 'ENUM', 'constraint' => ['draft', 'published', 'archive']]
+            'status' => ['type' => 'ENUM', 'constraint' => ['draft', 'published', 'archive'], 'default' => 'draft']
         ]);
         $this->forge->addPrimaryKey('id_berita');
-        $this->forge->addForeignKey('id_user', 'users', 'id');
         $this->forge->addForeignKey('posted_by', 'users', 'id');
         $this->forge->createTable('berita');
     }
