@@ -20,7 +20,7 @@ class CreateGaleri extends Migration
         ]);
         $this->forge->addPrimaryKey('id_galeri');
         $this->forge->addForeignKey('id_user', 'users', 'id');
-        $this->forge->addForeignKey('uploaded_by', 'userS', 'id');
+        $this->forge->addForeignKey('uploaded_by', 'users', 'id');
         $this->forge->createTable('galeri');
     }
 

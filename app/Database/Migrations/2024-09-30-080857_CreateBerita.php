@@ -17,7 +17,7 @@ class CreateBerita extends Migration
             'gambar'          => ['type' => 'VARCHAR', 'constraint' => 255],
             'tanggal_post'    => ['type' => 'DATETIME'],
             'posted_by'       => ['type' => 'INT', 'constraint' => 11, 'unsigned' => true],
-            'status'            => ['ENUM', 'constraint' => ['draft', 'published', 'archive']]
+            'status'            => ['type' => 'ENUM', 'constraint' => ['draft', 'published', 'archive']]
         ]);
         $this->forge->addPrimaryKey('id_berita');
         $this->forge->addForeignKey('id_user', 'users', 'id');
