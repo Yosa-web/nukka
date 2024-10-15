@@ -49,7 +49,7 @@ $routes->group('', ['filter' => 'group:user'], function ($routes) {
 $routes->get('/berita', 'Superadmin\KelolaBerita::publishedNews');
 $routes->get('berita/detail/(:num)', 'Superadmin\KelolaBerita::show/$1');
 
-// $routes->group('super_admin', ['filter' => 'group:user'], function ($routes) {
+$routes->group('super_admin', ['filter' => 'group:user'], function ($routes) {
     $routes->get('/superadmin/galeri/delete/(:num)', 'Superadmin\KelolaGaleri::delete/$1'); // Menghapus galeri
 });
 
