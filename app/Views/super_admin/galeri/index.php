@@ -110,7 +110,12 @@
                         <td><?= $item['uploaded_at'] ?></td>
                         <td>
                             <a href="/superadmin/galeri/edit/<?= $item['id_galeri'] ?>" class="edit-btn">Edit</a>
-                            <a href="/superadmin/galeri/delete/<?= $item['id_galeri'] ?>" class="delete-btn" onclick="return confirm('Apakah Anda yakin ingin menghapus?')">Hapus</a>
+                            <form action="<?= base_url('superadmin/galeri/' . $item['id_galeri']) ?>" method="post" style="display: inline;">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <?= csrf_field() ?>
+                                <button type="submit" class="delete-btn" onclick="return confirm('Apakah Anda yakin ingin menghapus?')">Delete</button>
+                            </form>
+                            <!-- <a href="/superadmin/galeri/ class="delete-btn" onclick="return confirm('Apakah Anda yakin ingin menghapus?')">Hapus</a> -->
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -118,5 +123,6 @@
         </table>
     </div>
 </body>
+
 
 </html>

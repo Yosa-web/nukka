@@ -38,20 +38,41 @@ $routes->group('', ['filter' => 'group:user'], function ($routes) {
     $routes->post('/superadmin/galeri/update/(:num)', 'Superadmin\KelolaGaleri::update/$1'); // Memperbarui galeri
     $routes->delete('/superadmin/galeri/(:num)', 'Superadmin\KelolaGaleri::delete/$1'); // Menghapus galeri
 
+    $routes->get('/superadmin/optionweb', 'Superadmin\KelolaOptionWeb::index'); // Menampilkan option web
+    $routes->post('/superadmin/optionweb/update/(:num)', 'Superadmin\KelolaOptionWeb::update/$1'); // Mengupdate setting berdasarkan ID    
+    $routes->get('/superadmin/optionweb/edit/(:num)', 'Superadmin\KelolaOptionWeb::edit/$1'); // Mengupdate setting berdasarkan ID 
+    $routes->get('/superadmin/optionweb/image/(:num)', 'Superadmin\KelolaOptionWeb::showImage/$1');
+    $routes->get('/superadmin/optionweb', 'Superadmin\KelolaOptionWeb::showAllOptions');
+    $routes->get('/superadmin/optionweb/detail/(:num)', 'Superadmin\KelolaOptionWeb::showOption/$1');
+    $routes->get('image/(:any)', 'Superadmin\KelolaOptionWeb::show/$1');
+
+
+
     $routes->get('/superadmin/berita/list-berita', 'Superadmin\KelolaBerita::index'); // Menampilkan daftar galeri
     $routes->get('/superadmin/berita/create', 'Superadmin\KelolaBerita::create'); // Menampilkan form tambah galeri
     $routes->post('/superadmin/berita/store', 'Superadmin\KelolaBerita::store'); // Menyimpan galeri baru
     $routes->get('/superadmin/berita/(:num)/edit', 'Superadmin\KelolaBerita::edit/$1'); // Menampilkan form edit
     $routes->put('/superadmin/berita/update/(:num)', 'Superadmin\KelolaBerita::update/$1'); // Memperbarui galeri
     $routes->delete('/superadmin/berita/(:num)', 'Superadmin\KelolaBerita::delete/$1'); // Menghapus galeri
+
 });
 
 $routes->get('/berita', 'Superadmin\KelolaBerita::publishedNews');
 $routes->get('berita/detail/(:num)', 'Superadmin\KelolaBerita::show/$1');
 
-$routes->group('super_admin', ['filter' => 'group:user'], function ($routes) {
-    $routes->get('/superadmin/galeri/delete/(:num)', 'Superadmin\KelolaGaleri::delete/$1'); // Menghapus galeri
-});
+
+// $routes->get('/option_web', 'Superadmin\KelolaOptionWeb::publishedOptions');
+// $routes->get('option_web/detail/(:num)', 'Superadmin\KelolaOptionWeb::show/$1');
+
+// $routes->group('optionweb', function ($routes) {
+//     $routes->get('/', 'OptionWebController::index'); // Menampilkan option web
+//     $routes->post('update/(:num)', 'OptionWebController::update/$1'); // Mengupdate setting berdasarkan ID
+// });
+
+
+// $routes->group('super_admin', ['filter' => 'group:user'], function ($routes) {
+//     $routes->get('/superadmin/galeri/delete/(:num)', 'Superadmin\KelolaGaleri::delete/$1'); // Menghapus galeri
+// });
 
 // $routes->group('superadmin', ['filter' => 'group:user'], function ($routes) {
 //     $routes->get('/galeri', 'Superadmin\KelolaGaleri::index'); // Menampilkan daftar galeri
