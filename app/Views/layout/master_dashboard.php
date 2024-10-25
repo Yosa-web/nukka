@@ -6,34 +6,50 @@
     <title>Dashboard | Rumah Inovasi</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="assets/images/logo_litbang.png" />
+    <link rel="shortcut icon" href="/assets/images/logo_litbang.png" />
+    <!-- Sweet Alert-->
+    <link href="/assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+    <!-- dropzone css -->
+    <link href="assets/libs/dropzone/min/dropzone.min.css" rel="stylesheet" type="text/css" />
     <!-- plugin css -->
     <link
-        href="assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css"
+        href="/assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css"
         rel="stylesheet"
         type="text/css" />
 
     <!-- DataTables -->
-    <link href="assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
 
     <!-- Responsive datatable examples -->
-    <link href="assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- alertifyjs Css -->
+    <link
+        href="/assets/libs/alertifyjs/build/css/alertify.min.css"
+        rel="stylesheet"
+        type="text/css" />
+
+    <!-- alertifyjs default themes  Css -->
+    <link
+        href="/assets/libs/alertifyjs/build/css/themes/default.min.css"
+        rel="stylesheet"
+        type="text/css" />
 
     <!-- Bootstrap Css -->
     <link
-        href="assets/css/bootstrap.css"
+        href="/assets/css/bootstrap.css"
         id="bootstrap-style"
         rel="stylesheet"
         type="text/css" />
     <!-- Icons Css -->
     <link
-        href="assets/css/icons.min.css"
+        href="/assets/css/icons.min.css"
         rel="stylesheet"
         type="text/css" />
     <!-- App Css-->
     <link
-        href="assets/css/app.min.css"
+        href="/assets/css/app.min.css"
         id="app-style"
         rel="stylesheet"
         type="text/css" />
@@ -50,13 +66,13 @@
                         <a href="#" class="logo logo-dark">
                             <span class="logo-sm">
                                 <img
-                                    src="assets/images/logo_litbang.png"
+                                    src="/assets/images/logo_litbang.png"
                                     alt=""
                                     height="35" />
                             </span>
                             <span class="logo-lg">
                                 <img
-                                    src="assets/images/logo_litbang.png"
+                                    src="/assets/images/logo_litbang.png"
                                     alt=""
                                     height="35" />
                                 <span class="logo-txt">Rumah Inovasi</span>
@@ -83,7 +99,7 @@
                             aria-expanded="false">
                             <img
                                 class="rounded-circle header-profile-user"
-                                src="assets/images/users/admin.jpg"
+                                src="/assets/images/users/admin.jpg"
                                 alt="Header Avatar" />
                             <span
                                 class="d-none d-xl-inline-block ms-1 fw-medium">Super Admin</span>
@@ -330,34 +346,37 @@
     </div>
 
     <!-- JAVASCRIPT -->
-    <script src="assets/libs/jquery/jquery.min.js"></script>
-    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/libs/metismenu/metisMenu.min.js"></script>
-    <script src="assets/libs/simplebar/simplebar.min.js"></script>
-    <script src="assets/libs/node-waves/waves.min.js"></script>
-    <script src="assets/libs/feather-icons/feather.min.js"></script>
+    <script src="/assets/libs/jquery/jquery.min.js"></script>
+    <script src="/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/libs/metismenu/metisMenu.min.js"></script>
+    <script src="/assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="/assets/libs/node-waves/waves.min.js"></script>
+    <script src="/assets/libs/feather-icons/feather.min.js"></script>
     <!-- pace js -->
-    <script src="assets/libs/pace-js/pace.min.js"></script>
+    <script src="/assets/libs/pace-js/pace.min.js"></script>
     <!-- echarts js -->
-    <script src="assets/libs/echarts/echarts.min.js"></script>
+    <script src="/assets/libs/echarts/echarts.min.js"></script>
     <!-- echarts init -->
-    <script src="assets/js/pages/echarts.init.js"></script>
+    <script src="/assets/js/pages/echarts.init.js"></script>
     <!-- Plugins js-->
-    <script src="assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
-    <script src="assets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="/assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="/assets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
     <!-- dashboard init -->
-    <script src="assets/js/pages/dashboard.init.js"></script>
+    <script src="/assets/js/pages/dashboard.init.js"></script>
     <!-- Required datatable js -->
-    <script src="assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
     <!-- Responsive examples -->
-    <script src="assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+    <script src="/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="/assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
     <!-- Datatable init js -->
-    <script src="assets/js/pages/datatables.init.js"></script>
-    <!-- Buttons examples -->
-    <script src="assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="/assets/js/pages/datatables.init.js"></script>
+    <!-- dropzone js -->
+    <script src="assets/libs/dropzone/min/dropzone.min.js"></script>
     <script src="assets/js/app.js"></script>
+    <!-- Buttons examples -->
+    <script src="/assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="/assets/js/app.js"></script>
 </body>
 
 </html>

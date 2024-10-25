@@ -10,6 +10,7 @@ use App\Controllers\SuperAdminController;
  * @var RouteCollection $routes
  */
 $routes->get('/', 'Home::index');
+$routes->get('/dashboard', 'Superadmin\Dashboard::index');
 $routes->get('/jenis_inovasi', 'Superadmin\KelolaJenisInovasi::index');
 $routes->get('/jenis_inovasi/create', 'Superadmin\KelolaJenisInovasi::create');
 $routes->post('/jenis_inovasi/store', 'Superadmin\KelolaJenisInovasi::store');
@@ -24,7 +25,7 @@ service('auth')->routes($routes);
 $routes->group('', ['filter' => 'group:user'], function ($routes) {
     $routes->get('/superadmin/opd/create', 'Superadmin\KelolaOpd::createOpd');
     $routes->post('/superadmin/opd/store', 'Superadmin\KelolaOpd::storeOpd');
-    $routes->get('/superadmin/opd', 'Superadmin\KelolaOpd::index');
+    $routes->get('superadmin/opd', 'Superadmin\KelolaOpd::index');
     $routes->get('/superadmin/opd/(:num)/edit', 'Superadmin\KelolaOpd::editOpd/$1');
     $routes->put('/superadmin/opd/update/(:num)', 'Superadmin\KelolaOpd::updateOpd/$1');
     $routes->delete('/superadmin/opd/(:num)', 'Superadmin\KelolaOpd::deleteOpd/$1');

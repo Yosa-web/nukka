@@ -6,7 +6,7 @@ class Home extends BaseController
 {
     public function index(): string
     {
-        return view('super_admin/dashboard');
+        return view('welcome_message');
     }
 
     public function opd(): string

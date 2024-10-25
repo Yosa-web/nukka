@@ -22,12 +22,6 @@ class KelolaJenisInovasi extends BaseController
         return view('/super_admin/jenis_inovasi/jenis_inovasi_list', $data);
     }
 
-    public function create()
-    {
-        // Memuat view untuk form input
-        return view('/super_admin/jenis_inovasi/create_jenis_inovasi');
-    }
-
     public function store()
     {
         $jenisInovasiModel = new \App\Models\JenisInovasiModel();
