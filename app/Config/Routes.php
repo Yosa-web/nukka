@@ -5,7 +5,7 @@ use App\Controllers\JenisInovasiController;
 use App\Models\UserModel;
 use app\Database\Migrations\CreateJenisInovasi;
 use App\Controllers\SuperAdminController;
-
+use CodeIgniter\Shield\Controllers\RegisterController;
 /**
  * @var RouteCollection $routes
  */
@@ -18,7 +18,37 @@ $routes->post('/jenis_inovasi/update/(:num)', 'Superadmin\KelolaJenisInovasi::up
 $routes->get('/jenis_inovasi/delete/(:num)', 'Superadmin\KelolaJenisInovasi::delete/$1');
 
 
-service('auth')->routes($routes);
+// service('auth')->routes($routes);
+service('auth')->routes($routes, ['except' => ['register', 'login']]);
+$routes->get('register', '\App\Controllers\CustomRegisterController::registerView');
+$routes->post('register', '\App\Controllers\CustomRegisterController::registerActionNew');
+$routes->get('user/register', '\App\Controllers\CustomRegisterController::registerViewUser');
+$routes->post('user/register', '\App\Controllers\CustomRegisterController::registerAction');
+$routes->get('login', '\App\Controllers\CustomLoginController::loginView');
+$routes->post('login', '\App\Controllers\CustomLoginController::loginAction');
+
+// $routes->get('/register/admin', '\App\Controllers\CustomRegisterController::registerView');
+// $routes->post('register/admin', '\App\Controllers\CustomRegisterController::registerActionNew');
+
+
+$routes->get('/superadmin/listuser', 'Superadmin\KelolaUser::index');
+$routes->get('/superadmin/user/create', 'Superadmin\KelolaUser::create');
+$routes->post('/superadmin/user/store', 'Superadmin\KelolaUser::store');
+$routes->post('/superadmin/user/update/(:num)', 'Superadmin\KelolaUser::update/$1');
+
+$routes->get('/superadmin/user/list', 'Superadmin\KelolaUser::index');
+$routes->get('/superadmin/user/create', 'Superadmin\KelolaUser::create');
+$routes->post('admin/create-account', 'Superadmin\KelolaUser::createAccountAction');
+$routes->get('/superadmin/user/edit/(:num)', 'Superadmin\KelolaUser::edit/$1');
+$routes->post('/superadmin/user/update/(:num)', 'Superadmin\KelolaUser::update/$1');
+$routes->delete('superadmin/user/(:num)', 'Superadmin\KelolaUser::delete/$1'); // Change to DELETE
+
+$routes->get('/superadmin/userumum/create', 'Superadmin\KelolaUser::createUserUmum');
+$routes->post('superadmin/userumum/store', 'Superadmin\KelolaUser::storeUserUmum');
+$routes->get('/superadmin/userumum/edit/(:num)', 'Superadmin\KelolaUser::editUserUmum/$1');
+$routes->post('/superadmin/userumum/update/(:num)', 'Superadmin\KelolaUser::updateUserUmum/$1');
+
+
 
 //Kelola Data OPD
 $routes->group('', ['filter' => 'group:user'], function ($routes) {
@@ -36,7 +66,7 @@ $routes->group('', ['filter' => 'group:user'], function ($routes) {
     $routes->post('/superadmin/galeri/storeImage', 'Superadmin\GaleriImage::storeImage'); // Menyimpan galeri baru
     $routes->get('/superadmin/galeri/edit/(:num)', 'Superadmin\KelolaGaleri::edit/$1'); // Menampilkan form edit
     $routes->post('/superadmin/galeri/update/(:num)', 'Superadmin\KelolaGaleri::update/$1'); // Memperbarui galeri
-    $routes->delete('/superadmin/galeri/(:num)', 'Superadmin\KelolaGaleri::delete/$1'); // Menghapus galeri
+    $routes->get('/superadmin/galeri/delete/(:num)', 'Superadmin\KelolaGaleri::delete/$1'); // Menghapus galeri
 
     $routes->get('/superadmin/berita/list-berita', 'Superadmin\KelolaBerita::index'); // Menampilkan daftar galeri
     $routes->get('/superadmin/berita/create', 'Superadmin\KelolaBerita::create'); // Menampilkan form tambah galeri

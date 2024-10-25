@@ -1,46 +1,46 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
-use CodeIgniter\Model;
+use CodeIgniter\Shield\Models\UserModel as ShieldUserModel;
 
-class GroupModel extends Model
+class GroupModel extends ShieldUserModel
 {
-    protected $table            = 'auth_groups_users';
-    protected $primaryKey       = 'id';
-    protected $useAutoIncrement = true;
-    protected $returnType       = 'array';
-    protected $useSoftDeletes   = false;
-    protected $protectFields    = true;
-    protected $allowedFields    = ['group', 'user_id'];
+    protected function initialize(): void
+    {
+        parent::initialize();
 
-    protected bool $allowEmptyInserts = false;
-    protected bool $updateOnlyChanged = true;
+        $this->allowedFields = [
+            ...$this->allowedFields,
 
-    protected array $casts = [];
-    protected array $castHandlers = [];
+            // 'first_name',
+        ];
+    }
 
-    // Dates
-    protected $useTimestamps = false;
-    protected $dateFormat    = 'datetime';
-    protected $createdField  = 'created_at';
-    protected $updatedField  = 'updated_at';
-    protected $deletedField  = 'deleted_at';
+    public function addUserToGroup($userId, $group)
+    {
+        // Siapkan data untuk dimasukkan ke dalam tabel auth_groups_users
+        $data = [
+            'user_id' => $userId,
+            'group'   => $group, // Group dalam bentuk varchar
+        ];
+    
+        // Masukkan data ke tabel auth_groups_users
+        return $this->db->table('auth_groups_users')->insert($data);
+    }
 
-    // Validation
-    protected $validationRules      = [];
-    protected $validationMessages   = [];
-    protected $skipValidation       = false;
-    protected $cleanValidationRules = true;
+    public function getGroupsForUser(int $userId)
+    {
+        return $this->db->table('auth_groups_users') // Pastikan tabel ini benar
+                    ->where('user_id', $userId)
+                    ->get()
+                    ->getResultArray();
+    }
 
-    // Callbacks
-    protected $allowCallbacks = true;
-    protected $beforeInsert   = [];
-    protected $afterInsert    = [];
-    protected $beforeUpdate   = [];
-    protected $afterUpdate    = [];
-    protected $beforeFind     = [];
-    protected $afterFind      = [];
-    protected $beforeDelete   = [];
-    protected $afterDelete    = [];
+    public function removeUserFromAllGroups($userId)
+    {
+        return $this->db->table('auth_groups_users')->where('user_id', $userId)->delete();
+    }
 }
