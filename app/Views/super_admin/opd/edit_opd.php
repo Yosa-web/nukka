@@ -1,68 +1,87 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit OPD</title>
-    <!-- Bootstrap 5 CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .error {
-            color: #dc3545; /* Warna merah untuk pesan error */
-            font-size: 0.9em;
-            margin-top: 5px;
-        }
-        .form-control.is-invalid {
-            border-color: #dc3545; /* Gaya border merah saat ada kesalahan */
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-    </style>
-</head>
-<body>
+<?= $this->extend('layout/master_dashboard'); ?>
 
-<div class="container mt-5">
-    <h2 class="mb-4">Edit OPD</h2>
-    <form action="<?= base_url('/superadmin/opd/update/' . $opd['id_opd']) ?>" method="post">
-    <?= csrf_field() ?>
-        <input type="hidden" name="_method" value="PUT">
+<?= $this->section('content'); ?>
+<div class="main-content">
+    <div class="page-content">
+        <div class="container-fluid">
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div
+                        class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h3 class="mb-sm-0">
+                            Edit OPD
+                        </h3>
 
-        <!-- Nama OPD -->
-        <div class="form-group">
-            <label for="nama_opd" class="form-label">Nama OPD</label>
-            <input type="text" id="nama_opd" name="nama_opd" class="form-control" placeholder="Masukkan Nama OPD" value="<?= old('nama_opd', $opd['nama_opd']) ?>">
-            <div id="nama_opd_error" class="error"></div>
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item">
+                                    <a href="javascript: void(0);">Pengguna</a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a href="data-opd.html">Data OPD</a>
+                                </li>
+                                <li class="breadcrumb-item active">
+                                    Edit OPD
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <form action="<?= base_url('/superadmin/opd/update/' . $opd['id_opd']) ?>" method="post">
+                                <?= csrf_field() ?>
+                                <input type="hidden" name="_method" value="PUT">
+                                <div class="row mb-3">
+                                    <label for="nama_opd" class="col-sm-3 col-form-label">Nama OPD</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="nama_opd" name="nama_opd" placeholder="Masukkan Nama OPD" value="<?= old('nama_opd', $opd['nama_opd']) ?>">
+                                        <div id="nama_opd_error" class="error"></div>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="alamat" class="col-sm-3 col-form-label">Alamat</label>
+                                    <div class="col-sm-9">
+                                        <textarea class="form-control" id="alamat" name="alamat" rows="4" placeholder="Masukkan Alamat OPD"><?= old('alamat', $opd['alamat']) ?></textarea>
+                                    </div>
+                                    <div id="alamat_error" class="error"></div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="telepon" class="col-sm-3 col-form-label">No. Telepon</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="telepon" name="telepon" placeholder="Masukkan Nomor Telepon" value="<?= old('telepon', $opd['telepon']) ?>">
+                                    </div>
+                                    <div id="telepon_error" class="error"></div>
+                                </div>
+                                <div class="row mb-5">
+                                    <label for="email" class="col-sm-3 col-form-label">Email</label>
+                                    <div class="col-sm-9">
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan Email OPD" value="<?= old('email', $opd['email']) ?>">
+                                    </div>
+                                    <div id="email_error" class="error"></div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="d-flex justify-content-end">
+                                            <button type="button" class="btn btn-secondary w-md">Batal</button>
+                                            <button type="submit" class="btn btn-warning w-md ms-4">Perbarui</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <!-- Alamat -->
-        <div class="form-group">
-            <label for="alamat" class="form-label">Alamat</label>
-            <input type="text" id="alamat" name="alamat" class="form-control" placeholder="Masukkan Alamat" value="<?= old('alamat', $opd['alamat']) ?>">
-            <div id="alamat_error" class="error"></div>
-        </div>
-
-        <!-- Telepon -->
-        <div class="form-group">
-            <label for="telepon" class="form-label">Telepon</label>
-            <input type="text" id="telepon" name="telepon" class="form-control" placeholder="Masukkan Nomor Telepon" value="<?= old('telepon', $opd['telepon']) ?>">
-            <div id="telepon_error" class="error"></div>
-        </div>
-
-        <!-- Email -->
-        <div class="form-group">
-            <label for="email" class="form-label">Email</label>
-            <input type="text" id="email" name="email" class="form-control" placeholder="Masukkan Email" value="<?= old('email', $opd['email']) ?>">
-            <div id="email_error" class="error"></div>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Update</button>
-    </form>
+    </div>
 </div>
-
-<!-- jQuery dan Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
     $(document).ready(function() {
@@ -124,6 +143,4 @@
         });
     });
 </script>
-
-</body>
-</html>
+<?= $this->endSection(); ?>
