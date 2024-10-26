@@ -1,77 +1,141 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Validasi Real-Time</title>
-    <!-- Bootstrap 5 CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .error {
-            color: #dc3545; /* Warna merah untuk pesan error */
-            font-size: 0.9em;
-            margin-top: 5px;
-        }
-        .form-control.is-invalid {
-            border-color: #dc3545; /* Gaya border merah saat ada kesalahan */
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-    </style>
-</head>
-<body>
+<?= $this->extend('layout/master_dashboard'); ?>
 
-<div class="container mt-5">
-    <h2 class="mb-4">Form Validasi Berita</h2>
-    <form action="<?= base_url('/superadmin/berita/store') ?>" method="post" enctype="multipart/form-data">
-        <!-- Judul -->
-        <div class="form-group">
-            <label for="judul" class="form-label">Judul Berita</label>
-            <input type="text" id="judul" name="judul" class="form-control <?= isset(session()->getFlashdata('errors')['judul']) ? 'is-invalid' : '' ?>" value="<?= old('judul') ?>" placeholder="Masukkan Judul Berita">
-            <div id="judul_error" class="error"><?= isset(session()->getFlashdata('errors')['judul']) ? session()->getFlashdata('errors')['judul'] : '' ?></div>
+<?= $this->section('content'); ?>
+<div class="main-content">
+    <div class="page-content">
+        <div class="container-fluid">
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div
+                        class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h3 class="mb-sm-0">
+                            Tambah Berita Baru
+                        </h3>
+
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item">
+                                    <a href="javascript: void(0);">Kelola Konten</a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a href="kelola-berita.html">Kelola Berita</a>
+                                </li>
+                                <li class="breadcrumb-item active">
+                                    Tambah Berita
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <form action="<?= base_url('/superadmin/berita/store') ?>" method="post" enctype="multipart/form-data">
+                                <!-- Judul -->
+                                <div class="form-group mb-3">
+                                    <label for="judul" class="form-label">Judul Berita</label>
+                                    <input type="text" class="form-control <?= isset(session()->getFlashdata('errors')['judul']) ? 'is-invalid' : '' ?>" id="judul" name="judul" value="<?= old('judul') ?>" placeholder="Masukkan Judul Berita">
+                                    <div id="judul_error" class="error"><?= isset(session()->getFlashdata('errors')['judul']) ? session()->getFlashdata('errors')['judul'] : '' ?></div>
+                                </div>
+                                <!-- Isi Berita-->
+                                <div class="form-group mb-3">
+                                    <label for="isi" class="form-label">Isi Berita</label>
+                                    <div id="ckeditor-classic" name="isi" class="<?= isset(session()->getFlashdata('errors')['isi']) ? 'is-invalid' : '' ?>"><?= old('isi') ?></div>
+                                    <div id="isi_error" class="error"><?= isset(session()->getFlashdata('errors')['isi']) ? session()->getFlashdata('errors')['isi'] : '' ?></div>
+                                </div>
+                                <!-- Gambar -->
+                                <div class="form-group mb-4">
+                                    <label for="gambar" class="form-label">Unggah Gambar</label>
+                                    <div class="dropzone" id="imageDropzone">
+                                        <div class="fallback">
+                                            <input id="gambar" name="gambar" type="file" class="<?= isset(session()->getFlashdata('errors')['gambar']) ? 'is-invalid' : '' ?>" accept="image/*" multiple="multiple">
+                                        </div>
+                                        <div class="dz-message needsclick">
+                                            <div class="mb-3">
+                                                <i class="display-4 text-muted bx bx-cloud-upload"></i>
+                                            </div>
+                                            <h5>Drop files here or click to upload.</h5>
+                                        </div>
+                                        <div id="gambar_error" class="error"><?= isset(session()->getFlashdata('errors')['gambar']) ? session()->getFlashdata('errors')['gambar'] : '' ?></div>
+                                    </div>
+                                </div>
+                                <!-- Tanggal Post -->
+                                <div class="row mb-3">
+                                    <label
+                                        for="tanggal_post"
+                                        class="col-sm-2 col-form-label">Tanggal Posting</label>
+                                    <div class="col-sm-9">
+                                        <input
+                                            class="form-control <?= isset(session()->getFlashdata('errors')['tanggal_post']) ? 'is-invalid' : '' ?>"
+                                            type="datetime-local"
+                                            id="tanggal_post" name="tanggal_post" value="<?= old('tanggal_post') ?>" required />
+                                    </div>
+                                    <div id="tanggal_post_error" class="error"><?= isset(session()->getFlashdata('errors')['tanggal_post']) ? session()->getFlashdata('errors')['tanggal_post'] : '' ?></div>
+                                </div>
+                                <!-- Status -->
+                                <div class="row mb-5">
+                                    <label for="status-input" class="col-sm-2 col-form-label">Status</label>
+                                    <div class="col-sm-9">
+                                        <select
+                                            class="form-select <?= isset(session()->getFlashdata('errors')['status']) ? 'is-invalid' : '' ?>" id="status-input">
+                                            <option>
+                                                Pilih Status
+                                            </option>
+                                            <option value="draft" <?= old('status') == 'draft' ? 'selected' : '' ?>>Draft</option>
+                                            <option value="published" <?= old('status') == 'published' ? 'selected' : '' ?>>Published</option>
+                                            <option value="archive" <?= old('status') == 'archive' ? 'selected' : '' ?>>Archive</option>
+                                        </select>
+                                    </div>
+                                    <div id="status_error" class="error"><?= isset(session()->getFlashdata('errors')['status']) ? session()->getFlashdata('errors')['status'] : '' ?></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="d-flex justify-content-end">
+                                            <button type="button" class="btn btn-secondary w-md">Batal</button>
+                                            <button type="submit" class="btn btn-primary w-md ms-4">Kirim</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <!-- Isi -->
-        <div class="form-group">
-            <label for="isi" class="form-label">Isi Berita</label>
-            <textarea id="isi" name="isi" class="form-control <?= isset(session()->getFlashdata('errors')['isi']) ? 'is-invalid' : '' ?>" placeholder="Masukkan Isi Berita" rows="5"><?= old('isi') ?></textarea>
-            <div id="isi_error" class="error"><?= isset(session()->getFlashdata('errors')['isi']) ? session()->getFlashdata('errors')['isi'] : '' ?></div>
-        </div>
-
-        <!-- Gambar -->
-        <div class="form-group">
-            <label for="gambar" class="form-label">Unggah Gambar</label>
-            <input type="file" id="gambar" name="gambar" class="form-control <?= isset(session()->getFlashdata('errors')['gambar']) ? 'is-invalid' : '' ?>" accept="image/*">
-            <div id="gambar_error" class="error"><?= isset(session()->getFlashdata('errors')['gambar']) ? session()->getFlashdata('errors')['gambar'] : '' ?></div>
-        </div>
-
-        <!-- Tanggal Post -->
-        <div class="form-group">
-            <label for="tanggal_post" class="form-label">Tanggal Posting</label>
-            <input type="datetime-local" id="tanggal_post" name="tanggal_post" class="form-control <?= isset(session()->getFlashdata('errors')['tanggal_post']) ? 'is-invalid' : '' ?>" value="<?= old('tanggal_post') ?>" required>
-            <div id="tanggal_post_error" class="error"><?= isset(session()->getFlashdata('errors')['tanggal_post']) ? session()->getFlashdata('errors')['tanggal_post'] : '' ?></div>
-        </div>
-
-        <!-- Status -->
-        <div class="form-group">
-            <label for="status" class="form-label">Status</label>
-            <select id="status" name="status" class="form-control <?= isset(session()->getFlashdata('errors')['status']) ? 'is-invalid' : '' ?>">
-                <option value="draft" <?= old('status') == 'draft' ? 'selected' : '' ?>>Draft</option>
-                <option value="published" <?= old('status') == 'published' ? 'selected' : '' ?>>Published</option>
-                <option value="archive" <?= old('status') == 'archive' ? 'selected' : '' ?>>Archive</option>
-            </select>
-            <div id="status_error" class="error"><?= isset(session()->getFlashdata('errors')['status']) ? session()->getFlashdata('errors')['status'] : '' ?></div>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    </div>
 </div>
 
-<!-- jQuery dan Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
+<!-- ckeditor -->
+<script src="/assets/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js"></script>
+<!-- init js -->
+<script src="/assets/js/pages/form-editor.init.js"></script>
+<script>
+    // Disable Dropzone auto-discovering all elements with .dropzone class
+    Dropzone.autoDiscover = false;
+    // Initialize Dropzone
+    var myDropzone = new Dropzone("#imageDropzone", {
+        url: "/your-upload-endpoint", // URL untuk mengupload file
+        maxFiles: 5,
+        maxFilesize: 2, // Maksimal ukuran file dalam MB
+        acceptedFiles: "image/*",
+        addRemoveLinks: true,
+        dictRemoveFile: "Remove",
+        thumbnailWidth: 200,
+        thumbnailHeight: 200,
+        init: function() {
+            this.on("success", function(file, response) {
+                console.log("File successfully uploaded!");
+            });
+            this.on("error", function(file, errorMessage) {
+                console.log("Error: " + errorMessage);
+            });
+        }
+    });
+</script>
 <script>
     $(document).ready(function() {
         // Judul Validation
@@ -119,6 +183,4 @@
         });
     });
 </script>
-
-</body>
-</html>
+<?= $this->endSection(); ?>

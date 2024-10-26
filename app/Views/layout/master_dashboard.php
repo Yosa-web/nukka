@@ -10,7 +10,7 @@
     <!-- Sweet Alert-->
     <link href="/assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
     <!-- dropzone css -->
-    <link href="assets/libs/dropzone/min/dropzone.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/libs/dropzone/min/dropzone.min.css" rel="stylesheet" type="text/css" />
     <!-- plugin css -->
     <link
         href="/assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css"
@@ -372,8 +372,8 @@
     <!-- Datatable init js -->
     <script src="/assets/js/pages/datatables.init.js"></script>
     <!-- dropzone js -->
-    <script src="assets/libs/dropzone/min/dropzone.min.js"></script>
-    <script src="assets/js/app.js"></script>
+    <script src="/assets/libs/dropzone/min/dropzone.min.js"></script>
+    <script src="/assets/js/app.js"></script>
     <!-- Buttons examples -->
     <script src="/assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
     <script src="/assets/js/app.js"></script>
