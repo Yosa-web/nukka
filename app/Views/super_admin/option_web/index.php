@@ -1,219 +1,305 @@
-<!DOCTYPE html>
-<html lang="en">
+<?= $this->extend('layout/master_dashboard'); ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pengaturan | Rumah Inovasi</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- App favicon -->
-    <link rel="shortcut icon" href="assets/images/logo_litbang.png" />
-    <!-- Sweet Alert-->
-    <link href="assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
-    <!-- dropzone css -->
-    <link href="assets/libs/dropzone/min/dropzone.min.css" rel="stylesheet" type="text/css" />
-    <!-- plugin css -->
-    <link
-        href="assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css"
-        rel="stylesheet"
-        type="text/css" />
+<?= $this->section('content'); ?>
+<div class="main-content">
+    <div class="page-content">
+        <div class="container-fluid">
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div
+                        class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h3 class="mb-sm-0">
+                            Pengaturan Website
+                        </h3>
 
-    <!-- DataTables -->
-    <link href="assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-
-    <!-- Responsive datatable examples -->
-    <link href="assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-
-    <!-- Bootstrap Css -->
-    <link
-        href="assets/css/bootstrap.css"
-        id="bootstrap-style"
-        rel="stylesheet"
-        type="text/css" />
-    <!-- Icons Css -->
-    <link
-        href="assets/css/icons.min.css"
-        rel="stylesheet"
-        type="text/css" />
-    <!-- App Css-->
-    <link
-        href="assets/css/app.min.css"
-        id="app-style"
-        rel="stylesheet"
-        type="text/css" />
-</head>
-
-<body>
-    <div class="container">
-        <h1>Option Web Settings</h1>
-
-        <?php if (session()->getFlashdata('success')): ?>
-            <div style="color: green;">
-                <?= session()->getFlashdata('success') ?>
-            </div>
-        <?php endif; ?>
-
-        <?php if (session()->getFlashdata('errors')): ?>
-            <div style="color: red;">
-                <?php foreach (session()->getFlashdata('errors') as $error): ?>
-                    <p><?= $error ?></p>
-                <?php endforeach; ?>
-            </div>
-        <?php endif; ?>
-
-        <table class="table align-middle mb-0 table-hover">
-            <thead>
-                <tr>
-                    <th style="width: 200px">Key</th>
-                    <th>Value</th>
-                    <th class="text-center" style="width: 200px">Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php if (!empty($options)): ?>
-                    <?php foreach ($options as $option): ?>
-                        <tr>
-                            <td scope="row"><?= esc($option['key']) ?></td>
-                            <td>
-                                <?php if ($option['seting_type'] === 'Image'): ?>
-                                    <!-- Menampilkan gambar -->
-                                    <img src="<?= base_url('assets/uploads/images/optionweb/' . esc($option['value'])) ?>" alt="Option Image" class="option-image rounded me-2" width="200">
-                                <?php else: ?>
-                                    <!-- Menampilkan teks jika bukan gambar -->
-                                    <?= esc($option['value']) ?>
-                                <?php endif; ?>
-                            </td>
-                            <td class="text-center">
-                                <button type="button" class="btn btn-outline-warning btn-sm edit" title="Edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fas fa-pencil-alt"></i></button>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                <?php else: ?>
-                    <tr>
-                        <td colspan="4">No options found.</td>
-                    </tr>
-                <?php endif; ?>
-            </tbody>
-        </table>
-    </div>
-    <!-- Modal edit logo -->
-    <div
-        class="modal fade"
-        id="staticBackdrop"
-        data-bs-backdrop="static"
-        data-bs-keyboard="false"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="staticBackdropLabel"
-        aria-hidden="true">
-        <div
-            class="modal-dialog modal-dialog-centered"
-            role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5
-                        class="modal-title"
-                        id="staticBackdropLabel">
-                        Edit Logo
-                    </h5>
-                    <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"></button>
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item">
+                                    <a href="javascript: void(0);">Pengaturan</a>
+                                </li>
+                                <li class="breadcrumb-item active">
+                                    <a href="pengaturan-web.html">Pengaturan Web</a>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-body">
-                    <form
-                        action="javascript: void(0);">
-                        <div class="mb-3">
-                            <label
-                                for="setting-logo"
-                                class="col-form-label">Upload Logo</label>
-                            <div class="dropzone" id="imageDropzone">
-                                <div class="fallback">
-                                    <input name="file" type="file" multiple="multiple">
-                                </div>
-                                <div class="dz-message needsclick">
-                                    <div class="mb-3">
-                                        <i class="display-4 text-muted bx bx-cloud-upload"></i>
-                                    </div>
-                                    <h5>Drop files here or click to upload.</h5>
-                                </div>
+            </div>
+            <!-- end page title -->
+            <?php if (session()->getFlashdata('success')): ?>
+                <div style="color: green;">
+                    <?= session()->getFlashdata('success') ?>
+                </div>
+            <?php endif; ?>
+
+            <?php if (session()->getFlashdata('errors')): ?>
+                <div style="color: red;">
+                    <?php foreach (session()->getFlashdata('errors') as $error): ?>
+                        <p><?= $error ?></p>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table align-middle mb-0 table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 200px">Key</th>
+                                            <th>Value</th>
+                                            <th class="text-center" style="width: 200px">Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php if (!empty($options)): ?>
+                                            <?php foreach ($options as $option): ?>
+                                                <tr>
+                                                    <th scope="row"><?= esc($option['key']) ?></th>
+                                                    <td>
+                                                        <?php if ($option['seting_type'] === 'Image'): ?>
+                                                            <img class="rounded me-2" alt="Option Image" width="200" src="<?= base_url('assets/uploads/images/optionweb/' . esc($option['value'])) ?>" data-holder-rendered="true">
+                                                        <?php else: ?>
+                                                            <?= esc($option['value']) ?>
+                                                        <?php endif; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <button type="button" class="btn btn-outline-warning btn-sm edit" title="Edit" data-bs-toggle="modal"
+                                                            data-bs-target="#editModal" data-key="<?= esc($option['key']) ?>"
+                                                            data-setting-id="<?= esc($option['id_setting']) ?>"
+                                                            data-type="<?= esc($option['seting_type']) ?>">
+                                                            <i class="fas fa-pencil-alt"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            <?php endforeach; ?>
+                                        <?php else: ?>
+                                            <tr>
+                                                <td colspan="4">No options found.</td>
+                                            </tr>
+                                        <?php endif; ?>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button
-                        type="button"
-                        class="btn btn-light"
-                        data-bs-dismiss="modal">
-                        Batal
-                    </button>
-                    <button
-                        type="submit"
-                        class="btn btn-primary"
-                        data-bs-dismiss="modal"
-                        id="alert-success">
-                        Kirim
-                    </button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- JAVASCRIPT -->
-    <script src="assets/libs/jquery/jquery.min.js"></script>
-    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/libs/metismenu/metisMenu.min.js"></script>
-    <script src="assets/libs/simplebar/simplebar.min.js"></script>
-    <script src="assets/libs/node-waves/waves.min.js"></script>
-    <script src="assets/libs/feather-icons/feather.min.js"></script>
-    <!-- pace js -->
-    <script src="assets/libs/pace-js/pace.min.js"></script>
-    <!-- Plugins js-->
-    <script src="assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
-    <script src="assets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
-    <!-- Required datatable js -->
-    <script src="assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <!-- Responsive examples -->
-    <script src="assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
-    <!-- Datatable init js -->
-    <script src="assets/js/pages/datatables.init.js"></script>
-    <!-- Buttons examples -->
-    <script src="assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="assets/js/app.js"></script>
-    <!-- Sweet Alerts js -->
-    <script src="assets/libs/sweetalert2/sweetalert2.min.js"></script>
-    <!-- Sweet alert init js-->
-    <script>
-        document
-            .getElementById("sa-warning")
-            .addEventListener("click", function() {
-                Swal.fire({
-                    title: "Konfirmasi hapus data?",
-                    text: "",
-                    icon: "warning",
-                    showCancelButton: !0,
-                    confirmButtonColor: "#2ab57d",
-                    cancelButtonColor: "#fd625e",
-                    confirmButtonText: "Hapus",
-                    cancelButtonText: "Batal",
-                }).then(function(e) {
-                    e.value &&
-                        Swal.fire(
-                            "Terhapus!",
-                            "Data telah dihapus",
-                            "success",
-                        );
-                });
+<!-- Modal edit -->
+<div
+    class="modal fade"
+    id="editModal"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="editModalLabel"
+    aria-hidden="true">
+    <div
+        class="modal-dialog modal-dialog-centered"
+        role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5
+                    class="modal-title"
+                    id="editModalLabel">
+                    Edit Pengaturan
+                </h5>
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="edit-form" action="" method="post" enctype="multipart/form-data">
+                    <div id="edit-field">
+                        <!-- Isi input akan berubah berdasarkan key -->
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button
+                    type="button"
+                    class="btn btn-light"
+                    data-bs-dismiss="modal">
+                    Batal
+                </button>
+                <button
+                    type="submit"
+                    class="btn btn-warning"
+                    form="edit-form">
+                    Perbarui
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- dropzone js -->
+<script src="/assets/libs/dropzone/min/dropzone.min.js"></script>
+<script>
+    // Disable Dropzone auto-discovering all elements with .dropzone class
+    Dropzone.autoDiscover = false;
+    // Initialize Dropzone
+    var myDropzone = new Dropzone("#imageDropzone", {
+        url: "/your-upload-endpoint", // URL untuk mengupload file
+        maxFiles: 5,
+        maxFilesize: 2, // Maksimal ukuran file dalam MB
+        acceptedFiles: "image/*",
+        addRemoveLinks: true,
+        dictRemoveFile: "Remove",
+        thumbnailWidth: 200,
+        thumbnailHeight: 200,
+        init: function() {
+            this.on("success", function(file, response) {
+                console.log("File successfully uploaded!");
             });
-    </script>
-    <!-- dropzone js -->
-    <script src="assets/libs/dropzone/min/dropzone.min.js"></script>
-</body>
+            this.on("error", function(file, errorMessage) {
+                console.log("Error: " + errorMessage);
+            });
+        }
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Tangkap klik pada tombol edit
+        const editButtons = document.querySelectorAll('.edit');
+        const modal = document.getElementById('editModal');
+        const modalLabel = modal.querySelector('.modal-title');
+        const editField = modal.querySelector('#edit-field');
+        const form = modal.querySelector('#edit-form');
 
-</html>
+        editButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const key = this.getAttribute('data-key');
+                const settingId = this.getAttribute('data-setting-id');
+                const type = this.getAttribute('data-type');
+
+                // Set form action URL berdasarkan setting ID
+                form.action = `/superadmin/optionweb/edit/${settingId}`;
+
+                // Ubah konten modal berdasarkan key dan type
+                modalLabel.textContent = `Edit ${key}`;
+                editField.innerHTML = ''; // Bersihkan konten sebelumnya
+
+                switch (key) {
+                    case 'Logo':
+                        editField.innerHTML = `
+                            <div class="mb-3">
+                                <label
+                                    for="setting-logo"
+                                    class="col-form-label"
+                                    >Upload Logo</label>
+                                <div class="dropzone" id="imageDropzone">
+                                    <div class="fallback">
+                                        <input name="file" type="file" multiple="multiple">
+                                    </div>
+                                    <div class="dz-message needsclick">
+                                        <div class="mb-3">
+                                            <i class="display-4 text-muted bx bx-cloud-upload"></i>
+                                        </div>
+                                        <h5>Drop files here or click to upload.</h5>
+                                    </div>
+                                </div>
+                            </div>`;
+                        break;
+
+                    case 'Warna':
+                        editField.innerHTML = `
+                            <div class="mb-3">
+                                <label
+                                    for="setting-warna"
+                                    class="col-form-label"
+                                    >Warna</label>
+                                <input
+                                    type="color"
+                                    class="form-control form-control-color mw-100"
+                                    id="setting-warna"
+                                    value="#5156be"
+                                    title="Choose your color"
+                                />
+                            </div>`;
+                        break;
+
+                    case 'Nama':
+                        editField.innerHTML = `
+                            <div class="mb-3">
+                                <label
+                                    for="setting-nama"
+                                    class="col-form-label"
+                                    >Nama Website</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="setting-nama"
+                                    required />
+                            </div>`;
+                        break;
+
+                    case 'Regulasi':
+                        editField.innerHTML = `
+                            <div class="mb-3">
+                                <label
+                                    for="setting-regulasi"
+                                    class="col-form-label"
+                                    >Regulasi</label
+                                >
+                                <textarea class="form-control" id="setting-regulasi" rows="4"></textarea>
+                            </div>`;
+                        break;
+
+                    case 'Banner':
+                        editField.innerHTML = `
+                            <div class="mb-3">
+                                <label
+                                    for="setting-banner"
+                                    class="col-form-label"
+                                    >Upload Banner</label>
+                                >
+                                <div class="dropzone" id="bannerDropzone">
+                                    <div class="fallback">
+                                        <input name="file" type="file" multiple="multiple">
+                                    </div>
+                                    <div class="dz-message needsclick">
+                                        <div class="mb-3">
+                                            <i class="display-4 text-muted bx bx-cloud-upload"></i>
+                                        </div>
+                                        <h5>Drop files here or click to upload.</h5>
+                                    </div>
+                                </div>
+                            </div>`;
+                        break;
+
+                    case 'Deskripsi':
+                        editField.innerHTML = `
+                            <div class="mb-3">
+                                <label
+                                    for="setting-deskripsi"
+                                    class="col-form-label"
+                                    >Deskripsi</label
+                                >
+                                <textarea class="form-control" id="setting-deskripsi" rows="4"></textarea>
+                            </div>`;
+                        break;
+
+                    default:
+                        editField.innerHTML = `
+                            <div class="mb-3">
+                                <label for="setting-value" class="col-form-label">Value</label>
+                                <input type="text" class="form-control" name="value" id="setting-value" required>
+                            </div>`;
+                        break;
+                }
+            });
+        });
+    });
+</script>
+<?= $this->endSection(); ?>

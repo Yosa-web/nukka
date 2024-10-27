@@ -371,11 +371,11 @@
     <script src="/assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
     <!-- Datatable init js -->
     <script src="/assets/js/pages/datatables.init.js"></script>
-    <!-- dropzone js -->
-    <script src="/assets/libs/dropzone/min/dropzone.min.js"></script>
     <script src="/assets/js/app.js"></script>
     <!-- Buttons examples -->
     <script src="/assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <!-- Sweet Alerts js -->
+    <script src="/assets/libs/sweetalert2/sweetalert2.min.js"></script>
     <script src="/assets/js/app.js"></script>
 </body>
 
