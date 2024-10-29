@@ -1,14 +1,74 @@
-<?= $this->extend(config('Auth')->views['layout']) ?>
+<!DOCTYPE html>
+<html lang="en">
 
-<?= $this->section('title') ?><?= lang('Auth.register') ?> <?= $this->endSection() ?>
+<head>
+    <meta charset="utf-8" />
+    <title>Register Admin OPD | Rumah Inovasi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="/assets/images/logo_litbang.png" />
+    <!-- choices css -->
+    <link href="/assets/libs/choices.js/public/assets/styles/choices.min.css" rel="stylesheet" type="text/css" />
+    <!-- Sweet Alert-->
+    <link href="/assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
 
-<?= $this->section('main') ?>
+    <!-- Bootstrap Css -->
+    <link
+        href="/assets/css/bootstrap.min.css"
+        id="bootstrap-style"
+        rel="stylesheet"
+        type="text/css" />
+    <!-- Icons Css -->
+    <link
+        href="/assets/css/icons.min.css"
+        rel="stylesheet"
+        type="text/css" />
+    <!-- App Css-->
+    <link
+        href="/assets/css/app.min.css"
+        id="app-style"
+        rel="stylesheet"
+        type="text/css" />
 
-    <div class="container d-flex justify-content-center p-5">
-        <div class="card col-12 col-md-5 shadow-sm">
-            <div class="card-body">
-                <h5 class="card-title mb-5"><?= lang('Auth.register') ?></h5>
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+        }
 
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .auth-box {
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <?= $this->section('title') ?><?= lang('Auth.register') ?> <?= $this->endSection() ?>
+    <div class="container">
+        <div class="auth-box">
+            <div class="mb-4 mb-md-4 text-center">
+                <a href="#" class="d-block auth-logo">
+                    <img
+                        src="/assets/images/logo_litbang.png"
+                        alt=""
+                        height="50" />
+                </a>
+            </div>
+            <div class="auth-content my-auto">
+                <div class="text-center">
+                    <h3 class="mb-0 fw-bold">Buat Akun Baru</h3>
+                    <p class="text-muted mt-2">Registrasi sebagai Admin OPD</p>
+                </div>
                 <?php if (session('error') !== null) : ?>
                     <div class="alert alert-danger" role="alert"><?= session('error') ?></div>
                 <?php elseif (session('errors') !== null) : ?>
@@ -23,67 +83,180 @@
                         <?php endif ?>
                     </div>
                 <?php endif ?>
-
-                <form action="<?= url_to('register') ?>" method="post">
+                <form class="needs-validation mt-4 pt-2" novalidate onsubmit="return validateForm()" action="<?= url_to('register') ?>" method="post">
                     <?= csrf_field() ?>
-
-                    <!-- Email -->
-                    <div class="form-floating mb-2">
-                        <input type="email" class="form-control" id="floatingEmailInput" name="email" inputmode="email" autocomplete="email" placeholder="<?= lang('Auth.email') ?>" value="<?= old('email') ?>" required>
-                        <label for="floatingEmailInput"><?= lang('Auth.email') ?></label>
+                    <!-- Nama -->
+                    <div class="mb-3">
+                        <label for="floatingNameInput" class="form-label">Nama Lengkap</label>
+                        <input type="text" class="form-control" id="floatingNameInput" name="name" inputmode="text" autocomplete="name" placeholder="Masukkan Nama Anda" value="<?= old('name') ?>" required>
+                        <div class="invalid-feedback">
+                            Please Enter Name
+                        </div>
                     </div>
-
-                    <!-- ID OPD -->
-                    <div class="form-floating mb-4">
-                        <select class="form-select" id="floatingIdOpdInput" name="id_opd" required>
-                            <option value="" disabled selected>Pilih OPD</option> <!-- Placeholder option -->
+                    <!-- NIP -->
+                    <div class="mb-3">
+                        <label for="floatingNipInput" class="form-label">NIP</label>
+                        <input type="text" class="form-control" id="floatingNipInput" name="NIP" inputmode="text" autocomplete="nip" placeholder="Masukkan NIP Anda" value="<?= old('NIP') ?>" required>
+                        <div class="invalid-feedback">
+                            Please Enter NIP
+                        </div>
+                    </div>
+                    <!-- OPD -->
+                    <div class="mb-3">
+                        <div class="d-flex align-items-start">
+                            <div class="flex-grow-1">
+                                <label for="floatingIdOpdInput" class="form-label">OPD</label>
+                            </div>
+                            <div class="flex-shrink-0">
+                                <div class="">
+                                    <a class="btn text-muted" id="sa-title">OPD tidak tersedia?</a>
+                                </div>
+                            </div>
+                        </div>
+                        <select required class="form-control" data-trigger name="id_opd"
+                            id="floatingIdOpdInput"
+                            placeholder="Pilih OPD" required>
+                            <option value="" disabled selected>Pilih OPD</option>
                             <?php foreach ($opd as $opd): ?>
                                 <option value="<?= esc($opd['id_opd']) ?>" <?= old('id_opd') == esc($opd['id_opd']) ? 'selected' : '' ?>><?= esc($opd['nama_opd']) ?></option>
                             <?php endforeach; ?>
                         </select>
-                        <label for="floatingIdOpdInput">OPD</label>
+                        <div class="invalid-feedback">
+                            Please Choose One
+                        </div>
                     </div>
-
-                    <!-- No Telepon -->
-                    <div class="form-floating mb-4">
-                        <input type="text" class="form-control" id="floatingNoTeleponInput" name="no_telepon" inputmode="tel" autocomplete="tel" placeholder="No Telepon" value="<?= old('no_telepon') ?>" required>
-                        <label for="floatingNoTeleponInput">No Telepon</label>
+                    <!-- Email -->
+                    <div class="mb-3">
+                        <label for="floatingEmailInput" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="floatingEmailInput" name="email" inputmode="email" autocomplete="email" placeholder="Masukkan Email Anda" value="<?= old('email') ?>" required>
+                        <div class="invalid-feedback">
+                            Please Enter Email
+                        </div>
                     </div>
-
-                    <!-- Name -->
-                    <div class="form-floating mb-4">
-                        <input type="text" class="form-control" id="floatingNameInput" name="name" inputmode="text" autocomplete="name" placeholder="Nama Lengkap" value="<?= old('name') ?>" required>
-                        <label for="floatingNameInput">Nama Lengkap</label>
+                    <!-- Telepon -->
+                    <div class="mb-3">
+                        <label for="no_telp" class="form-label">No. Telp</label>
+                        <input type="text" class="form-control" id="floatingNoTeleponInput" name="no_telepon" inputmode="tel" autocomplete="tel" placeholder="Masukkan Nomor Telepon" value="<?= old('no_telepon') ?>" required>
+                        <div class="invalid-feedback">
+                            Please Enter Phone Number
+                        </div>
                     </div>
-
-
-                    <!-- NIP -->
-                    <div class="form-floating mb-4">
-                        <input type="text" class="form-control" id="floatingNipInput" name="NIP" inputmode="text" autocomplete="nip" placeholder="NIP" value="<?= old('NIP') ?>" required>
-                        <label for="floatingNipInput">NIP</label>
-                    </div>
-
                     <!-- Password -->
-                    <div class="form-floating mb-2">
-                        <input type="password" class="form-control" id="floatingPasswordInput" name="password" inputmode="text" autocomplete="new-password" placeholder="<?= lang('Auth.password') ?>" required>
-                        <label for="floatingPasswordInput"><?= lang('Auth.password') ?></label>
+                    <div class="mb-4">
+                        <label for="floatingPasswordInput" class="form-label">Password</label>
+                        <div class="input-group auth-pass-inputgroup">
+                            <input
+                                type="password"
+                                class="form-control"
+                                id="floatingPasswordInput" name="password" inputmode="text" autocomplete="new-password"
+                                placeholder="Masukkan Kata Sandi"
+                                required />
+                            <button
+                                class="btn btn-light shadow-none ms-0"
+                                type="button"
+                                id="password-addon">
+                                <i class="mdi mdi-eye-outline"></i>
+                            </button>
+                            <div
+                                class="invalid-feedback"
+                                id="password-error">
+                            </div>
+                        </div>
                     </div>
-
-                    <!-- Password (Again) -->
-                    <div class="form-floating mb-5">
-                        <input type="password" class="form-control" id="floatingPasswordConfirmInput" name="password_confirm" inputmode="text" autocomplete="new-password" placeholder="<?= lang('Auth.passwordConfirm') ?>" required>
-                        <label for="floatingPasswordConfirmInput"><?= lang('Auth.passwordConfirm') ?></label>
+                    <!-- Re-Password -->
+                    <div class="mb-4">
+                        <label for="floatingPasswordConfirmInput" class="form-label">Konfirmasi Password</label>
+                        <div class="input-group auth-pass-inputgroup">
+                            <input
+                                type="password"
+                                class="form-control"
+                                id="floatingPasswordConfirmInput" name="password_confirm" inputmode="text" autocomplete="new-password"
+                                placeholder="Masukkan kembali kata sandi"
+                                required />
+                            <button
+                                class="btn btn-light shadow-none ms-0"
+                                type="button"
+                                id="repassword-addon">
+                                <i class="mdi mdi-eye-outline"></i>
+                            </button>
+                            <div
+                                class="invalid-feedback"
+                                id="repassword-error">
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="d-grid col-12 col-md-8 mx-auto m-3">
-                        <button type="submit" class="btn btn-primary btn-block"><?= lang('Auth.register') ?></button>
+                    <div class="row mb-4">
+                        <div class="col">
+                            <div class="form-check">
+                                <input
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    id="remember-check" required />
+                                <label
+                                    class="form-check-label text-muted fw-normal"
+                                    for="remember-check">
+                                    Saya setuju dengan <a href="#" class="text-primary">Syarat dan Ketentuan</a> yang berlaku
+                                </label>
+                            </div>
+                        </div>
                     </div>
-
-                    <p class="text-center"><?= lang('Auth.haveAccount') ?> <a href="<?= url_to('login') ?>"><?= lang('Auth.login') ?></a></p>
-
+                    <div class="mb-3">
+                        <button class="btn btn-primary w-100 waves-effect waves-light" type="submit"><?= lang('Auth.register') ?></button>
+                    </div>
                 </form>
+
+                <div class="mt-4 text-center">
+                    <p class="mb-0">
+                        Sudah punya akun?
+                        <a href="<?= url_to('login') ?>" class="text-primary fw-semibold">
+                            <?= lang('Auth.login') ?>
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div class="text-muted mt-4 mt-md-5 text-center">
+                <p class="mb-0">
+                    Balitbang Pesawaran ©
+                    <script>
+                        document.write(new Date().getFullYear());
+                    </script>
+                    All Right Reserved.
+                </p>
             </div>
         </div>
     </div>
 
-<?= $this->endSection() ?>
+    <!-- JAVASCRIPT -->
+    <script src="/assets/libs/jquery/jquery.min.js"></script>
+    <script src="/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/libs/metismenu/metisMenu.min.js"></script>
+    <script src="/assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="/assets/libs/node-waves/waves.min.js"></script>
+    <script src="/assets/libs/feather-icons/feather.min.js"></script>
+    <!-- pace js -->
+    <script src="/assets/libs/pace-js/pace.min.js"></script>
+    <!-- password addon init -->
+    <script src="/assets/js/pages/pass-addon.init.js"></script>
+    <!-- validation init -->
+    <script src="/assets/js/pages/validation.init.js"></script>
+    <!-- form init js -->
+    <script src="/assets/js/pages/form-advanced.init.js"></script>
+    <!-- choices js -->
+    <script src="/assets/libs/choices.js/public/assets/scripts/choices.min.js"></script>
+    <script src="/assets/js/app.js"></script>
+    <!-- Sweet Alerts js -->
+    <script src="/assets/libs/sweetalert2/sweetalert2.min.js"></script>
+    <!-- Sweet alert init js-->
+    <script>
+        document.getElementById("sa-title").addEventListener("click", function() {
+            Swal.fire({
+                title: "Silakan hubungi nomor berikut",
+                text: "WhatsApp : +628831234xxxx",
+                icon: "info",
+                confirmButtonColor: "#5156be",
+            });
+        })
+    </script>
+</body>
+
+</html>

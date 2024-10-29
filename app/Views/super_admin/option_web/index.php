@@ -262,7 +262,7 @@
                                 <label
                                     for="setting-banner"
                                     class="col-form-label"
-                                    >Upload Banner</label>
+                                    >Unggah Banner</label
                                 >
                                 <div class="dropzone" id="bannerDropzone">
                                     <div class="fallback">

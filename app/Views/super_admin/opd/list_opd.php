@@ -57,10 +57,10 @@
                                                 <a href="<?= base_url('superadmin/opd/' . $jenis['id_opd'] . '/edit') ?>" class="btn btn-outline-warning btn-sm edit mb-3" title="Edit">
                                                     <i class="fas fa-pencil-alt"></i>
                                                 </a>
-                                                <form action="<?= base_url('superadmin/opd/' . $jenis['id_opd']) ?>" method="post" style="display: inline;">
+                                                <form id="delete-form-<?= $jenis['id_opd'] ?>" action="<?= base_url('superadmin/opd/' . $jenis['id_opd']) ?>" method="post" style="display: inline;">
                                                     <input type="hidden" name="_method" value="DELETE">
                                                     <?= csrf_field() ?>
-                                                    <a class="btn btn-outline-danger btn-sm delete ms-2 mb-3" title="Delete">
+                                                    <a class="btn btn-outline-danger btn-sm delete ms-2 mb-3" title="Delete" onclick="if(confirm('Apakah Anda yakin ingin menghapus?')) { document.getElementById('delete-form-<?= $jenis['id_opd'] ?>').submit(); }">
                                                         <i class="fas fa-trash-alt"></i>
                                                     </a>
                                                 </form>

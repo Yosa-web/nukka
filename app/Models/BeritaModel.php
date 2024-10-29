@@ -32,7 +32,7 @@ class BeritaModel extends Model
         'judul' => 'required|max_length[50]',
         'isi' => 'required',
         // 'gambar' => 'uploaded[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]|max_size[gambar,2048]',
-        'tanggal_post' => 'required',
+        // 'tanggal_post' => 'required',
         // 'posted_by' => 'required|integer',
         'status' => 'in_list[draft,published,archive]'
     ];
@@ -49,9 +49,9 @@ class BeritaModel extends Model
         //     'mime_in'  => 'Format gambar harus berupa jpg, jpeg, atau png.',
         //     'max_size' => 'Ukuran gambar tidak boleh lebih dari 2MB.'
         // ],
-        'tanggal_post' => [
-            'required'   => 'Tanggal posting wajib diisi.',
-        ],
+        // 'tanggal_post' => [
+        //     'required'   => 'Tanggal posting wajib diisi.',
+        // ],
         // 'posted_by' => [
         //     'required' => 'ID pengguna yang memposting wajib diisi.',
         //     'integer'  => 'ID pengguna harus berupa angka.'

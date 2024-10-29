@@ -46,28 +46,19 @@
                                 <!-- Isi Berita-->
                                 <div class="form-group mb-3">
                                     <label for="isi" class="form-label">Isi Berita</label>
-                                    <div id="ckeditor-classic" name="isi" class="<?= isset(session()->getFlashdata('errors')['isi']) ? 'is-invalid' : '' ?>"><?= old('isi', $berita['isi']) ?></div>
+                                    <textarea id="isi" name="isi" class="form-control <?= isset(session()->getFlashdata('errors')['isi']) ? 'is-invalid' : '' ?>" placeholder="Masukkan Isi Berita" rows="5"><?= old('isi', $berita['isi']) ?></textarea>
                                     <div id="isi_error" class="error"><?= isset(session()->getFlashdata('errors')['isi']) ? session()->getFlashdata('errors')['isi'] : '' ?></div>
                                 </div>
                                 <!-- Gambar -->
                                 <div class="form-group mb-4">
                                     <label for="gambar" class="form-label">Unggah Gambar</label>
-                                    <div class="dropzone" id="imageDropzone">
-                                        <div class="fallback">
-                                            <input id="gambar" name="gambar" type="file" class="<?= isset(session()->getFlashdata('errors')['gambar']) ? 'is-invalid' : '' ?>" accept="image/*" multiple="multiple">
-                                        </div>
-                                        <div class="dz-message needsclick">
-                                            <div class="mb-3">
-                                                <i class="display-4 text-muted bx bx-cloud-upload"></i>
-                                            </div>
-                                            <h5>Drop files here or click to upload.</h5>
-                                        </div>
-                                        <div id="gambar_error" class="error"><?= isset(session()->getFlashdata('errors')['gambar']) ? session()->getFlashdata('errors')['gambar'] : '' ?></div>
-                                        <!-- Jika ada gambar lama, tampilkan gambar yang sudah diunggah -->
-                                        <?php if ($berita['gambar']): ?>
-                                            <p>Gambar Saat Ini: <img src="<?= base_url('/uploads/' . $berita['gambar']) ?>" alt="Gambar Berita" width="100"></p>
-                                        <?php endif; ?>
-                                    </div>
+                                    <input type="file" id="gambar" name="gambar" class="form-control <?= isset(session()->getFlashdata('errors')['gambar']) ? 'is-invalid' : '' ?>" accept="image/*">
+                                    <div id="gambar_error" class="error"><?= isset(session()->getFlashdata('errors')['gambar']) ? session()->getFlashdata('errors')['gambar'] : '' ?></div>
+                                    <!-- Jika ada gambar lama, tampilkan gambar yang sudah diunggah -->
+                                    <?php if ($berita['gambar']): ?>
+                                        <p>Gambar Saat Ini: <img src="<?= base_url($berita['gambar']) ?>" alt="Gambar Berita" width="100"></p>
+                                        <input type="hidden" name="gambar_lama" value="<?= $berita['gambar'] ?>">
+                                    <?php endif; ?>
                                 </div>
                                 <!-- Tanggal Post -->
                                 <div class="row mb-3">
@@ -87,7 +78,7 @@
                                     <label for="status-input" class="col-sm-2 col-form-label">Status</label>
                                     <div class="col-sm-9">
                                         <select
-                                            class="form-select <?= isset(session()->getFlashdata('errors')['status']) ? 'is-invalid' : '' ?>" id="status-input">
+                                            class="form-select <?= isset(session()->getFlashdata('errors')['status']) ? 'is-invalid' : '' ?>" id="status-input" name="status">
                                             <option>
                                                 Pilih Status
                                             </option>

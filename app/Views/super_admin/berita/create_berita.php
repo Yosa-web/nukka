@@ -44,7 +44,7 @@
                                 <!-- Isi Berita-->
                                 <div class="form-group mb-3">
                                     <label for="isi" class="form-label">Isi Berita</label>
-                                    <div id="ckeditor-classic" name="isi" class="<?= isset(session()->getFlashdata('errors')['isi']) ? 'is-invalid' : '' ?>"><?= old('isi') ?></div>
+                                    <textarea id="isi" name="isi" class="form-control <?= isset(session()->getFlashdata('errors')['isi']) ? 'is-invalid' : '' ?>" placeholder="Masukkan Isi Berita" rows="5"><?= old('isi') ?></textarea>
                                     <div id="isi_error" class="error"><?= isset(session()->getFlashdata('errors')['isi']) ? session()->getFlashdata('errors')['isi'] : '' ?></div>
                                 </div>
                                 <!-- Gambar -->
@@ -63,25 +63,12 @@
                                         <div id="gambar_error" class="error"><?= isset(session()->getFlashdata('errors')['gambar']) ? session()->getFlashdata('errors')['gambar'] : '' ?></div>
                                     </div>
                                 </div>
-                                <!-- Tanggal Post -->
-                                <div class="row mb-3">
-                                    <label
-                                        for="tanggal_post"
-                                        class="col-sm-2 col-form-label">Tanggal Posting</label>
-                                    <div class="col-sm-9">
-                                        <input
-                                            class="form-control <?= isset(session()->getFlashdata('errors')['tanggal_post']) ? 'is-invalid' : '' ?>"
-                                            type="datetime-local"
-                                            id="tanggal_post" name="tanggal_post" value="<?= old('tanggal_post') ?>" required />
-                                    </div>
-                                    <div id="tanggal_post_error" class="error"><?= isset(session()->getFlashdata('errors')['tanggal_post']) ? session()->getFlashdata('errors')['tanggal_post'] : '' ?></div>
-                                </div>
                                 <!-- Status -->
                                 <div class="row mb-5">
                                     <label for="status-input" class="col-sm-2 col-form-label">Status</label>
                                     <div class="col-sm-9">
                                         <select
-                                            class="form-select <?= isset(session()->getFlashdata('errors')['status']) ? 'is-invalid' : '' ?>" id="status-input">
+                                            class="form-select <?= isset(session()->getFlashdata('errors')['status']) ? 'is-invalid' : '' ?>" id="status-input" name="status">
                                             <option>
                                                 Pilih Status
                                             </option>

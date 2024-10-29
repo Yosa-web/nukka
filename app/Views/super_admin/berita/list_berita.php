@@ -44,7 +44,9 @@
                     <div class="col-xl-4 col-sm-6">
                         <div class="card">
                             <div class="">
-                                <img src="/assets/images/small/img-3.jpg" alt="" class="img-fluid">
+                            <?php if ($item['gambar']): ?>
+                                <img src="<?= base_url($item['gambar']) ?>" alt="Gambar Berita" class="img-fluid">
+                            <?php endif; ?>
                             </div>
                             <div class="card-body">
                                 <div class="row">
