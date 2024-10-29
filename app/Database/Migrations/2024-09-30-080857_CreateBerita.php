@@ -19,7 +19,7 @@ class CreateBerita extends Migration
             'status' => ['type' => 'ENUM', 'constraint' => ['draft', 'published', 'archive'], 'default' => 'draft']
         ]);
         $this->forge->addPrimaryKey('id_berita');
-        $this->forge->addForeignKey('posted_by', 'users', 'id');
+        $this->forge->addForeignKey('posted_by', 'users', tableField: 'id');
         $this->forge->createTable('berita');
     }
 
