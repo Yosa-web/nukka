@@ -67,7 +67,7 @@ $routes->group('', ['filter' => 'group:user'], function ($routes) {
     $routes->post('/superadmin/galeri/storeImage', 'Superadmin\GaleriImage::storeImage'); // Menyimpan galeri baru
     $routes->get('/superadmin/galeri/edit/(:num)', 'Superadmin\KelolaGaleri::edit/$1'); // Menampilkan form edit
     $routes->post('/superadmin/galeri/update/(:num)', 'Superadmin\KelolaGaleri::update/$1'); // Memperbarui galeri
-    $routes->get('/superadmin/galeri/delete/(:num)', 'Superadmin\KelolaGaleri::delete/$1'); // Menghapus galeri
+    $routes->delete('/superadmin/galeri/(:num)', 'Superadmin\KelolaGaleri::delete/$1'); // Menghapus galeri
 
     $routes->get('/superadmin/optionweb', 'Superadmin\KelolaOptionWeb::index'); // Menampilkan option web
     $routes->post('/superadmin/optionweb/update/(:num)', 'Superadmin\KelolaOptionWeb::update/$1'); // Mengupdate setting berdasarkan ID    

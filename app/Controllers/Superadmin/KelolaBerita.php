@@ -138,6 +138,9 @@ public function update($id)
         $fotoUrl = $beritaLama['gambar'];
     }
 
+    // Mengambil tanggal post sebelumnya jika tidak ada input baru
+    $tanggalPost = $this->request->getVar('tanggal_post') ?: $beritaLama['tanggal_post'];
+
     $superAdminId = auth()->user()->id;
     $user = auth()->user()->id;
 
@@ -145,7 +148,7 @@ public function update($id)
         'judul'        => $this->request->getVar('judul'),
         'isi'          => $this->request->getVar('isi'),
         'gambar'       => $fotoUrl,  // Menyimpan gambar baru atau lama
-        'tanggal_post' => $this->request->getVar('tanggal_post'),
+        'tanggal_post' => $tanggalPost,
         'posted_by'    => $user,
         'status'       => $this->request->getVar('status'),
     ];
@@ -182,6 +185,7 @@ public function update($id)
         return redirect()->back()->withInput()->with('errors', $this->beritaModel->errors());
     }
 }
+
 
 public function delete($id){
     $superAdminId = auth()->user()->id;

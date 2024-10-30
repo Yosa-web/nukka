@@ -96,10 +96,23 @@
     </div>
 </div>
 
-<!-- ckeditor -->
-<script src="/assets/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js"></script>
 <!-- init js -->
 <script src="/assets/js/pages/form-editor.init.js"></script>
+<script>
+    document.getElementById('isi').addEventListener('input', function() {
+        const minLength = 150;
+        const isiField = this;
+        const errorDiv = document.getElementById('isi_error');
+
+        if (isiField.value.length < minLength) {
+            errorDiv.textContent = 'Isi Berita harus memiliki minimal ' + minLength + ' karakter.';
+            isiField.classList.add('is-invalid');
+        } else {
+            errorDiv.textContent = '';
+            isiField.classList.remove('is-invalid');
+        }
+    });
+</script>
 <script>
     // Disable Dropzone auto-discovering all elements with .dropzone class
     Dropzone.autoDiscover = false;
@@ -139,9 +152,9 @@
 
         // Isi Validation
         $('#isi').on('keyup change', function() {
-            var isi = $(this).val();
-            if (isi.length < 10 || isi.length > 2000) {
-                $('#isi_error').text('Isi berita harus memiliki 10 hingga 2000 karakter.');
+            const isi = $(this).val();
+            if (isi.length < 50 || isi.length > 2000) {
+                $('#isi_error').text('Isi berita harus memiliki 50 hingga 2000 karakter.');
                 $(this).addClass('is-invalid');
             } else {
                 $('#isi_error').text('');

@@ -10,7 +10,7 @@
                     <div
                         class="page-title-box d-sm-flex align-items-center justify-content-between">
                         <h3 class="mb-sm-0">
-                            Tambah Berita Baru
+                            Edit Berita
                         </h3>
 
                         <div class="page-title-right">
@@ -22,7 +22,7 @@
                                     <a href="kelola-berita.html">Kelola Berita</a>
                                 </li>
                                 <li class="breadcrumb-item active">
-                                    Tambah Berita
+                                    Edit Berita
                                 </li>
                             </ol>
                         </div>
@@ -46,32 +46,19 @@
                                 <!-- Isi Berita-->
                                 <div class="form-group mb-3">
                                     <label for="isi" class="form-label">Isi Berita</label>
-                                    <textarea id="isi" name="isi" class="form-control <?= isset(session()->getFlashdata('errors')['isi']) ? 'is-invalid' : '' ?>" placeholder="Masukkan Isi Berita" rows="5"><?= old('isi', $berita['isi']) ?></textarea>
+                                    <textarea id="isi" name="isi" class="form-control <?= isset(session()->getFlashdata('errors')['isi']) ? 'is-invalid' : '' ?>" placeholder="Masukkan Isi Berita" rows="10"><?= old('isi', $berita['isi']) ?></textarea>
                                     <div id="isi_error" class="error"><?= isset(session()->getFlashdata('errors')['isi']) ? session()->getFlashdata('errors')['isi'] : '' ?></div>
                                 </div>
                                 <!-- Gambar -->
                                 <div class="form-group mb-4">
                                     <label for="gambar" class="form-label">Unggah Gambar</label>
-                                    <input type="file" id="gambar" name="gambar" class="form-control <?= isset(session()->getFlashdata('errors')['gambar']) ? 'is-invalid' : '' ?>" accept="image/*">
+                                    <input type="file" id="gambar" name="gambar" class="form-control mb-2 <?= isset(session()->getFlashdata('errors')['gambar']) ? 'is-invalid' : '' ?>" accept="image/*">
                                     <div id="gambar_error" class="error"><?= isset(session()->getFlashdata('errors')['gambar']) ? session()->getFlashdata('errors')['gambar'] : '' ?></div>
                                     <!-- Jika ada gambar lama, tampilkan gambar yang sudah diunggah -->
                                     <?php if ($berita['gambar']): ?>
                                         <p>Gambar Saat Ini: <img src="<?= base_url($berita['gambar']) ?>" alt="Gambar Berita" width="100"></p>
                                         <input type="hidden" name="gambar_lama" value="<?= $berita['gambar'] ?>">
                                     <?php endif; ?>
-                                </div>
-                                <!-- Tanggal Post -->
-                                <div class="row mb-3">
-                                    <label
-                                        for="tanggal_post"
-                                        class="col-sm-2 col-form-label">Tanggal Posting</label>
-                                    <div class="col-sm-9">
-                                        <input
-                                            class="form-control <?= isset(session()->getFlashdata('errors')['tanggal_post']) ? 'is-invalid' : '' ?>"
-                                            type="datetime-local"
-                                            id="tanggal_post" name="tanggal_post" value="<?= old('tanggal_post', date('Y-m-d\TH:i', strtotime($berita['tanggal_post']))) ?>" required />
-                                    </div>
-                                    <div id="tanggal_post_error" class="error"><?= isset(session()->getFlashdata('errors')['tanggal_post']) ? session()->getFlashdata('errors')['tanggal_post'] : '' ?></div>
                                 </div>
                                 <!-- Status -->
                                 <div class="row mb-5">
@@ -92,7 +79,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="d-flex justify-content-end">
-                                            <button type="button" class="btn btn-secondary w-md">Batal</button>
+                                            <button type="button" class="btn btn-secondary w-md" onclick="window.location.href='/superadmin/berita/list-berita'">Batal</button>
                                             <button type="submit" class="btn btn-warning w-md ms-4">Perbarui</button>
                                         </div>
                                     </div>
@@ -106,10 +93,23 @@
     </div>
 </div>
 
-<!-- ckeditor -->
-<script src="/assets/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js"></script>
 <!-- init js -->
 <script src="/assets/js/pages/form-editor.init.js"></script>
+<script>
+    document.getElementById('isi').addEventListener('input', function() {
+        const minLength = 150;
+        const isiField = this;
+        const errorDiv = document.getElementById('isi_error');
+
+        if (isiField.value.length < minLength) {
+            errorDiv.textContent = 'Isi Berita harus memiliki minimal ' + minLength + ' karakter.';
+            isiField.classList.add('is-invalid');
+        } else {
+            errorDiv.textContent = '';
+            isiField.classList.remove('is-invalid');
+        }
+    });
+</script>
 <script>
     // Disable Dropzone auto-discovering all elements with .dropzone class
     Dropzone.autoDiscover = false;

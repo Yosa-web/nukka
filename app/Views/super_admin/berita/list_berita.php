@@ -25,6 +25,18 @@
                     </div>
                 </div>
             </div>
+            <style>
+                .img-fluid {
+                    aspect-ratio: 3 / 2;
+                    width: 100%;
+                }
+
+                .img-fluid img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            </style>
 
             <div class="row align-items-center">
                 <div class="col-md-6">
@@ -61,7 +73,7 @@
                                     </div>
                                 </div>
                                 <h5 class=""><a href="#" class="text-body"><?= $item['judul'] ?></a></h5>
-                                <p class="mb-0 font-size-15"><?= substr($item['isi'], 0, 50) . '...' ?></p>
+                                <p class="mb-0 font-size-15"><?= substr($item['isi'], 0, 150) . '...' ?></p>
                                 <div class="row mt-3">
                                     <div class="col-8">
                                         <a href="#" class="align-middle font-size-15">Lihat Detail <i class="mdi mdi-chevron-right"></i></a>
@@ -73,7 +85,7 @@
                                         <form action="<?= base_url('superadmin/berita/' . $item['id_berita']) ?>" method="post">
                                             <input type="hidden" name="_method" value="DELETE">
                                             <?= csrf_field() ?>
-                                            <button type="submit" class="btn btn-outline-danger btn-sm delete ms-2" title="Delete" id="sa-warning"><i class="fas fa-trash-alt"></i></button>
+                                            <button type="submit" class="btn btn-outline-danger btn-sm delete ms-2" title="Delete" id="sa-warning" onclick="return confirm('Apakah Anda yakin ingin menghapus?')"><i class="fas fa-trash-alt"></i></button>
                                         </form>
                                     </div>
                                 </div>
@@ -99,12 +111,6 @@
                             </li>
                             <li class="page-item">
                                 <a href="#" class="page-link">3</a>
-                            </li>
-                            <li class="page-item">
-                                <a href="#" class="page-link">4</a>
-                            </li>
-                            <li class="page-item">
-                                <a href="#" class="page-link">5</a>
                             </li>
                             <li class="page-item">
                                 <a href="#" class="page-link"><i class="mdi mdi-chevron-right"></i></a>
