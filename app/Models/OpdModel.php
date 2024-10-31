@@ -3,13 +3,14 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
+use App\Entities\Opd;
 
 class OpdModel extends Model
 {
     protected $table            = 'opd';
     protected $primaryKey       = 'id_opd';
     protected $useAutoIncrement = true;
-    protected $returnType       = 'array';
+    protected $returnType = Opd::class;
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = ['nama_opd', 'alamat', 'telepon', 'email'];

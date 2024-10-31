@@ -40,8 +40,8 @@
                     <div class="form-floating mb-4">
                         <select class="form-select" id="floatingIdOpdInput" name="id_opd" required>
                             <option value="" disabled>Pilih OPD</option>
-                            <?php foreach ($opd as $item): ?> <!-- Ganti $opd menjadi $item -->
-                                <option value="<?= esc($item['id_opd']) ?>" <?= old('id_opd', $user->id_opd) == esc($item['id_opd']) ? 'selected' : '' ?>><?= esc($item['nama_opd']) ?></option>
+                            <?php foreach ($opd as $item): ?>
+                                <option value="<?= esc($item->id_opd) ?>" <?= old('id_opd', $user->id_opd) == esc($item->id_opd) ? 'selected' : '' ?>><?= esc($item->nama_opd) ?></option>
                             <?php endforeach; ?>
                         </select>
                         <label for="floatingIdOpdInput">OPD</label>
@@ -67,13 +67,13 @@
 
                     <!-- Group -->
                     <div class="form-floating mb-4">
-                        <select type="text" class="form-control" id="floatingGroupInput" name="group" inputmode="text" autocomplete="group" placeholder="group" required>
+                        <select type="text" class="form-control" id="floatingGroupInput" name="group" required>
                             <option value="" disabled>Pilih Group User</option>
-                            <option value="admin-opd" <?= old('group', $user->group) == 'admin-opd' ? 'selected' : '' ?>>Admin Opd</option>
-                            <option value="sekertaris-opd" <?= old('group', $user->group) == 'sekertaris-opd' ? 'selected' : '' ?>>Sekertaris OPD</option>
-                            <option value="super-admin" <?= old('group', $user->group) == 'super-admin' ? 'selected' : '' ?>>Super Admin</option>
-                            <option value="operator" <?= old('group', $user->group) == 'operator' ? 'selected' : '' ?>>Operator</option>
-                            <option value="user" <?= old('group', $user->group) == 'user' ? 'selected' : '' ?>>User</option>
+                            <option value="admin-opd" <?= $currentGroup == 'admin-opd' ? 'selected' : '' ?>>Admin Opd</option>
+                            <option value="sekertaris-opd" <?= $currentGroup == 'sekertaris-opd' ? 'selected' : '' ?>>Sekertaris OPD</option>
+                            <option value="super-admin" <?= $currentGroup == 'super-admin' ? 'selected' : '' ?>>Super Admin</option>
+                            <option value="operator" <?= $currentGroup == 'operator' ? 'selected' : '' ?>>Operator</option>
+                            <option value="user" <?= $currentGroup == 'user' ? 'selected' : '' ?>>User</option>
                         </select>
                         <label for="floatingGroupInput">Group</label>
                     </div>

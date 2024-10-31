@@ -37,8 +37,8 @@
                     <div class="form-floating mb-4">
                         <select class="form-select" id="floatingIdOpdInput" name="id_opd" required>
                             <option value="" disabled selected>Pilih OPD</option> <!-- Placeholder option -->
-                            <?php foreach ($opd as $opd): ?>
-                                <option value="<?= esc($opd['id_opd']) ?>" <?= old('id_opd') == esc($opd['id_opd']) ? 'selected' : '' ?>><?= esc($opd['nama_opd']) ?></option>
+                            <?php foreach ($opd as $item): ?> <!-- Ganti nama variabel untuk menghindari konflik -->
+                                <option value="<?= esc($item->id_opd) ?>" <?= old('id_opd') == esc($item->id_opd) ? 'selected' : '' ?>><?= esc($item->nama_opd) ?></option>
                             <?php endforeach; ?>
                         </select>
                         <label for="floatingIdOpdInput">OPD</label>
