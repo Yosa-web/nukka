@@ -29,7 +29,7 @@ class BeritaModel extends Model
 
     // Validation
     protected $validationRules      = [
-        'judul' => 'required|max_length[50]',
+        'judul' => 'required|max_length[200]',
         'isi' => 'required',
         // 'gambar' => 'uploaded[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]|max_size[gambar,2048]',
         // 'tanggal_post' => 'required',
@@ -39,7 +39,7 @@ class BeritaModel extends Model
     protected $validationMessages   = [
         'judul' => [
             'required'   => 'Judul berita wajib diisi.',
-            'max_length' => 'Judul berita tidak boleh lebih dari 50 karakter.'
+            'max_length' => 'Judul berita tidak boleh lebih dari 200 karakter.'
         ],
         'isi' => [
             'required' => 'Isi berita wajib diisi.',

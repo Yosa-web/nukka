@@ -32,6 +32,22 @@ $routes->post('login', '\App\Controllers\CustomLoginController::loginAction');
 // $routes->post('register/admin', '\App\Controllers\CustomRegisterController::registerActionNew');
 
 
+
+// $routes->get('/superadmin/listuser', 'Superadmin\KelolaUser::index');
+// $routes->get('/superadmin/user/create', 'Superadmin\KelolaUser::create');
+// $routes->post('/superadmin/user/store', 'Superadmin\KelolaUser::store');
+// $routes->post('/superadmin/user/update/(:num)', 'Superadmin\KelolaUser::update/$1');
+
+$routes->get('/superadmin/user/list/admin', 'Superadmin\KelolaUser::indexAdmin');
+$routes->get('/superadmin/user/list/pegawai', 'Superadmin\KelolaUser::indexPegawai');
+$routes->get('/superadmin/user/list/umum', 'Superadmin\KelolaUser::indexUmum');
+$routes->get('/superadmin/user/create', 'Superadmin\KelolaUser::create');
+$routes->post('/superadmin/user/store', 'Superadmin\KelolaUser::store');
+$routes->post('admin/create-account', 'Superadmin\KelolaUser::createAccountAction');
+$routes->get('/superadmin/user/edit/(:num)', 'Superadmin\KelolaUser::edit/$1');
+$routes->post('/superadmin/user/update/(:num)', 'Superadmin\KelolaUser::update/$1');
+$routes->delete('/superadmin/user/(:num)', 'Superadmin\KelolaUser::delete/$1'); // Change to DELETE
+
 $routes->get('/superadmin/listuser', 'Superadmin\KelolaUser::index');
 $routes->get('/superadmin/user/create', 'Superadmin\KelolaUser::create');
 $routes->post('/superadmin/user/store', 'Superadmin\KelolaUser::store');
@@ -43,6 +59,7 @@ $routes->post('admin/create-account', 'Superadmin\KelolaUser::createAccountActio
 $routes->get('/superadmin/user/edit/(:num)', 'Superadmin\KelolaUser::edit/$1');
 $routes->post('/superadmin/user/update/(:num)', 'Superadmin\KelolaUser::update/$1');
 $routes->delete('superadmin/user/(:num)', 'Superadmin\KelolaUser::delete/$1'); // Change to DELETE
+
 
 $routes->get('/superadmin/userumum/create', 'Superadmin\KelolaUser::createUserUmum');
 $routes->post('superadmin/userumum/store', 'Superadmin\KelolaUser::storeUserUmum');
@@ -113,3 +130,7 @@ $routes->get('berita/detail/(:num)', 'Superadmin\KelolaBerita::show/$1');
 //     $routes->post('/galeri/update/(:num)', 'Superadmin\KelolaGaleri::update/$1'); // Memperbarui galeri
 //     $routes->delete('/galeri/(:num)', 'Superadmin\KelolaGaleri::delete/$1'); // Menghapus galeri
 // });
+
+$routes->get('/useractivation', 'Superadmin\KelolaUser::nonActiveList');
+$routes->post('/useractivation/activate/(:num)', 'Superadmin\KelolaUser::activate/$1');
+

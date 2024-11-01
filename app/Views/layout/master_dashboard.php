@@ -132,7 +132,7 @@
                     <!-- Left Menu Start -->
                     <ul class="metismenu list-unstyled" id="side-menu">
                         <li>
-                            <a href="dashboard.html">
+                            <a href="/dashboard">
                                 <i data-feather="home"></i>
                                 <span>Dashboard</span>
                             </a>
@@ -190,7 +190,7 @@
                         </li>
 
                         <li>
-                            <a href="kelola-berita.html">
+                            <a href="/superadmin/berita/list-berita">
                                 <i data-feather="layout"></i>
                                 <span>Kelola Berita</span>
                             </a>

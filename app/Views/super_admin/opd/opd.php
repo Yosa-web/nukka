@@ -83,7 +83,7 @@
         // Nama OPD Validation
         $('#nama_opd').on('keyup change', function() {
             var namaOpd = $(this).val();
-            if (namaOpd.length < 3 || namaOpd.length > 100) {
+            if (namaOpd.length < 1 || namaOpd.length > 100) {
                 $('#nama_opd_error').text('Nama OPD harus memiliki 3 hingga 100 karakter.');
                 $(this).addClass('is-invalid');
             } else {
@@ -95,7 +95,7 @@
         // Alamat Validation
         $('#alamat').on('keyup change', function() {
             var alamat = $(this).val();
-            if (alamat.length < 10 || alamat.length > 255) {
+            if (alamat.length < 1 || alamat.length > 255) {
                 $('#alamat_error').text('Alamat harus memiliki 10 hingga 255 karakter.');
                 $(this).addClass('is-invalid');
             } else {
@@ -107,7 +107,7 @@
         // Telepon Validation
         $('#telepon').on('keyup change', function() {
             var telepon = $(this).val();
-            if (telepon.length < 10 || telepon.length > 15 || !$.isNumeric(telepon)) {
+            if (telepon.length < 11 || telepon.length > 13 || !$.isNumeric(telepon)) {
                 $('#telepon_error').text('Nomor telepon harus berupa angka dan memiliki 10 hingga 15 digit.');
                 $(this).addClass('is-invalid');
             } else {

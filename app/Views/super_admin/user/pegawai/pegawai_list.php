@@ -43,101 +43,44 @@
                             <button type="button" class="btn btn-primary waves-effect btn-label waves-light" onclick="window.location.href='tambah-pegawai.html'"><i class="bx bx-plus label-icon"></i>Tambah Data</button>
                         </div>
                         <div class="card-body">
-                            <table id="datatable" class="table table-bordered dt-responsive w-100 table-hover">
-                                <thead>
-                                    <tr>
-                                        <th class="text-center" style="width: 100px">Nama Pegawai</th>
-                                        <th class="text-center" style="width: 180px">OPD</th>
-                                        <th class="text-center" style="width: 80px">NIP</th>
-                                        <th class="text-center" style="width: 100px">Jabatan</th>
-                                        <th class="text-center" style="width: 100px">No. Telepon</th>
-                                        <th class="text-center" style="width: 100px">Email</th>
-                                        <th class="text-center" style="width: 70px">Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="text-center">Kepala 1</td>
-                                        <td>Dinas Komunikasi Informatika Statistik dan Persandian Kabupaten Pesawaran</td>
-                                        <td class="text-center">1932xxxxxxxxxxxx</td>
-                                        <td class="text-center">Kepala OPD</td>
-                                        <td class="text-center">0721xxxxxxxx</td>
-                                        <td class="text-center">kominfo@pesawarankab.go.id</td>
-                                        <td class="text-center">
-                                            <a href="edit-pegawai.html" class="btn btn-outline-warning btn-sm edit mb-3" title="Edit">
-                                                <i class="fas fa-pencil-alt"></i>
-                                            </a>
-                                            <a class="btn btn-outline-danger btn-sm delete ms-2 mb-3" title="Delete" id="sa-warning">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center">Kepala 2</td>
-                                        <td>Dinas Komunikasi Informatika Statistik dan Persandian Kabupaten Pesawaran</td>
-                                        <td class="text-center">1932xxxxxxxxxxxx</td>
-                                        <td class="text-center">Kepala OPD</td>
-                                        <td class="text-center">0721xxxxxxxx</td>
-                                        <td class="text-center">kominfo@pesawarankab.go.id</td>
-                                        <td class="text-center">
-                                            <a href="edit-pegawai.html" class="btn btn-outline-warning btn-sm edit mb-3" title="Edit">
-                                                <i class="fas fa-pencil-alt"></i>
-                                            </a>
-                                            <a class="btn btn-outline-danger btn-sm delete ms-2 mb-3" title="Delete" id="sa-warning">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center">Kepala 3</td>
-                                        <td>Dinas Komunikasi Informatika Statistik dan Persandian Kabupaten Pesawaran</td>
-                                        <td class="text-center">1932xxxxxxxxxxxx</td>
-                                        <td class="text-center">Kepala OPD</td>
-                                        <td class="text-center">0721xxxxxxxx</td>
-                                        <td class="text-center">kominfo@pesawarankab.go.id</td>
-                                        <td class="text-center">
-                                            <a href="edit-pegawai.html" class="btn btn-outline-warning btn-sm edit mb-3" title="Edit">
-                                                <i class="fas fa-pencil-alt"></i>
-                                            </a>
-                                            <a class="btn btn-outline-danger btn-sm delete ms-2 mb-3" title="Delete" id="sa-warning">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center">Kepala 4</td>
-                                        <td>Dinas Komunikasi Informatika Statistik dan Persandian Kabupaten Pesawaran</td>
-                                        <td class="text-center">1932xxxxxxxxxxxx</td>
-                                        <td class="text-center">Kepala OPD</td>
-                                        <td class="text-center">0721xxxxxxxx</td>
-                                        <td class="text-center">kominfo@pesawarankab.go.id</td>
-                                        <td class="text-center">
-                                            <a href="edit-pegawai.html" class="btn btn-outline-warning btn-sm edit mb-3" title="Edit">
-                                                <i class="fas fa-pencil-alt"></i>
-                                            </a>
-                                            <a class="btn btn-outline-danger btn-sm delete ms-2 mb-3" title="Delete" id="sa-warning">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center">Kepala 5</td>
-                                        <td>Dinas Komunikasi Informatika Statistik dan Persandian Kabupaten Pesawaran</td>
-                                        <td class="text-center">1932xxxxxxxxxxxx</td>
-                                        <td class="text-center">Kepala OPD</td>
-                                        <td class="text-center">0721xxxxxxxx</td>
-                                        <td class="text-center">kominfo@pesawarankab.go.id</td>
-                                        <td class="text-center">
-                                            <a href="edit-pegawai.html" class="btn btn-outline-warning btn-sm edit mb-3" title="Edit">
-                                                <i class="fas fa-pencil-alt"></i>
-                                            </a>
-                                            <a class="btn btn-outline-danger btn-sm delete ms-2 mb-3" title="Delete" id="sa-warning">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <?php if (!empty($pegawaiOPD)): ?>
+                                <table id="datatable" class="table table-bordered dt-responsive w-100 table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center" style="width: 100px">Nama Pegawai</th>
+                                            <th class="text-center" style="width: 180px">OPD</th>
+                                            <th class="text-center" style="width: 80px">NIP</th>
+                                            <th class="text-center" style="width: 100px">Jabatan</th>
+                                            <th class="text-center" style="width: 100px">No. Telepon</th>
+                                            <th class="text-center" style="width: 100px">Email</th>
+                                            <th class="text-center" style="width: 70px">Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach ($pegawaiOPD as $user): ?>
+                                            <tr>
+                                                <td class="text-center"><?= esc($user['name']); ?></td>
+                                                <td><?= esc($user['id_opd']); ?></td>
+                                                <td class="text-center"><?= esc($user['NIP']); ?></td>
+                                                <td class="text-center"><?= esc($user['group']); ?></td>
+                                                <td class="text-center"><?= esc($user['no_telepon']); ?></td>
+                                                <td class="text-center"><?= esc($user['email']); ?></td>
+                                                <td class="text-center">
+                                                    <a href="<?= site_url('pegawaiopd/edit/' . $user['id']); ?>" class="btn btn-outline-warning btn-sm edit mb-3" title="Edit">
+                                                        <i class="fas fa-pencil-alt"></i>
+                                                    </a>
+                                                    <form action="<?= site_url('pegawaiopd/delete/' . $user['id']); ?>" method="post" style="display:inline;">
+                                                        <input type="hidden" name="_method" value="DELETE">
+                                                        <button type="submit" class="btn btn-outline-danger btn-sm delete ms-2 mb-3" title="Delete" id="sa-warning" onclick="return confirm('Are you sure you want to delete this user?');"><i class="fas fa-trash-alt"></i></button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    </tbody>
+                                </table>
+                            <?php else: ?>
+                                <p>Tidak ada Pengguna OPD (Pegawai).</p>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>

@@ -69,7 +69,7 @@
                                                 <td class="text-center"><?= esc($user['email']); ?></td>
                                                 <td class="text-center"><span class="badge bg-success rounded-pill">Aktif</span></td>
                                                 <td class="text-center">
-                                                    <a href="<?= site_url('superadmin/user/edit/' . $user['id']); ?>" class="btn btn-outline-warning btn-sm edit mb-3" title="Edit">
+                                                    <a href="<?= site_url('adminopd/edit/' . $user['id']); ?>" class="btn btn-outline-warning btn-sm edit mb-3" title="Edit">
                                                         <i class="fas fa-pencil-alt"></i>
                                                     </a>
                                                     <a class="btn btn-outline-danger btn-sm delete ms-2 mb-3" title="Delete" id="sa-warning">

@@ -19,7 +19,7 @@
                                     <a href="javascript: void(0);">Kelola Konten</a>
                                 </li>
                                 <li class="breadcrumb-item">
-                                    <a href="kelola-berita.html">Kelola Berita</a>
+                                    <a href="/superadmin/berita/list-berita">Kelola Berita</a>
                                 </li>
                                 <li class="breadcrumb-item active">
                                     Tambah Berita
@@ -48,41 +48,29 @@
                                     <div id="isi_error" class="error"><?= isset(session()->getFlashdata('errors')['isi']) ? session()->getFlashdata('errors')['isi'] : '' ?></div>
                                 </div>
                                 <!-- Gambar -->
-                                <div class="form-group mb-4">
-                                    <label for="gambar" class="form-label">Unggah Gambar</label>
-                                    <div class="dropzone" id="imageDropzone">
-                                        <div class="fallback">
-                                            <input id="gambar" name="gambar" type="file" class="<?= isset(session()->getFlashdata('errors')['gambar']) ? 'is-invalid' : '' ?>" accept="image/*" multiple="multiple">
-                                        </div>
-                                        <div class="dz-message needsclick">
-                                            <div class="mb-3">
-                                                <i class="display-4 text-muted bx bx-cloud-upload"></i>
-                                            </div>
-                                            <h5>Drop files here or click to upload.</h5>
-                                        </div>
-                                        <div id="gambar_error" class="error"><?= isset(session()->getFlashdata('errors')['gambar']) ? session()->getFlashdata('errors')['gambar'] : '' ?></div>
-                                    </div>
+                                <div class="form-group mb-3">
+                                    <label for="gambar" class="col-sm-2 col-form-label">Unggah Gambar</label>
+                                    <input type="file" id="gambar" name="gambar" class="form-control <?= isset(session()->getFlashdata('errors')['gambar']) ? 'is-invalid' : '' ?>" accept="image/*">
+                                    <div id="gambar_error" class="error"><?= isset(session()->getFlashdata('errors')['gambar']) ? session()->getFlashdata('errors')['gambar'] : '' ?></div>
                                 </div>
                                 <!-- Status -->
-                                <div class="row mb-5">
+                                <div class="form-group mb-5">
                                     <label for="status-input" class="col-sm-2 col-form-label">Status</label>
-                                    <div class="col-sm-9">
-                                        <select
-                                            class="form-select <?= isset(session()->getFlashdata('errors')['status']) ? 'is-invalid' : '' ?>" id="status-input" name="status">
-                                            <option>
-                                                Pilih Status
-                                            </option>
-                                            <option value="draft" <?= old('status') == 'draft' ? 'selected' : '' ?>>Draft</option>
-                                            <option value="published" <?= old('status') == 'published' ? 'selected' : '' ?>>Published</option>
-                                            <option value="archive" <?= old('status') == 'archive' ? 'selected' : '' ?>>Archive</option>
-                                        </select>
-                                    </div>
+                                    <select
+                                        class="form-select <?= isset(session()->getFlashdata('errors')['status']) ? 'is-invalid' : '' ?>" id="status-input" name="status">
+                                        <option>
+                                            Pilih Status
+                                        </option>
+                                        <option value="draft" <?= old('status') == 'draft' ? 'selected' : '' ?>>Draft</option>
+                                        <option value="published" <?= old('status') == 'published' ? 'selected' : '' ?>>Published</option>
+                                        <option value="archive" <?= old('status') == 'archive' ? 'selected' : '' ?>>Archive</option>
+                                    </select>
                                     <div id="status_error" class="error"><?= isset(session()->getFlashdata('errors')['status']) ? session()->getFlashdata('errors')['status'] : '' ?></div>
                                 </div>
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="d-flex justify-content-end">
-                                            <button type="button" class="btn btn-secondary w-md">Batal</button>
+                                            <button type="button" class="btn btn-secondary w-md" onclick="window.location.href='/superadmin/berita/list-berita'">Batal</button>
                                             <button type="submit" class="btn btn-primary w-md ms-4">Kirim</button>
                                         </div>
                                     </div>
@@ -138,18 +126,6 @@
 </script>
 <script>
     $(document).ready(function() {
-        // Judul Validation
-        $('#judul').on('keyup change', function() {
-            var judul = $(this).val();
-            if (judul.length < 3 || judul.length > 100) {
-                $('#judul_error').text('Judul berita harus memiliki 3 hingga 100 karakter.');
-                $(this).addClass('is-invalid');
-            } else {
-                $('#judul_error').text('');
-                $(this).removeClass('is-invalid');
-            }
-        });
-
         // Isi Validation
         $('#isi').on('keyup change', function() {
             const isi = $(this).val();

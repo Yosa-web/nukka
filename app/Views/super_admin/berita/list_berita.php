@@ -18,7 +18,7 @@
                                     <a href="javascript: void(0);">Kelola Konten</a>
                                 </li>
                                 <li class="breadcrumb-item active">
-                                    <a href="#">Kelola Berita</a>
+                                    Kelola Berita
                                 </li>
                             </ol>
                         </div>
@@ -72,7 +72,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h5 class=""><a href="#" class="text-body"><?= $item['judul'] ?></a></h5>
+                                <h5 class=""><a href="#" class="text-body"><?= substr($item['judul'], 0, 75) . '...' ?></a></h5>
                                 <p class="mb-0 font-size-15"><?= substr($item['isi'], 0, 150) . '...' ?></p>
                                 <div class="row mt-3">
                                     <div class="col-8">

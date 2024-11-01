@@ -23,4 +23,11 @@ class UserModel extends ShieldUserModel
 
         ];
     }
+
+    public function getUsersWithOpd()
+    {
+        return $this->select('users.*, opd.nama_opd')
+                    ->join('opd', 'opd.id_opd = users.id_opd', 'left')
+                    ->findAll();
+    }
 }

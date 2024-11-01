@@ -19,7 +19,7 @@
                                     <a href="javascript: void(0);">Kelola Konten</a>
                                 </li>
                                 <li class="breadcrumb-item">
-                                    <a href="kelola-berita.html">Kelola Berita</a>
+                                    <a href="/superadmin/berita/list-berita">Kelola Berita</a>
                                 </li>
                                 <li class="breadcrumb-item active">
                                     Edit Berita
@@ -111,42 +111,7 @@
     });
 </script>
 <script>
-    // Disable Dropzone auto-discovering all elements with .dropzone class
-    Dropzone.autoDiscover = false;
-    // Initialize Dropzone
-    var myDropzone = new Dropzone("#imageDropzone", {
-        url: "/your-upload-endpoint", // URL untuk mengupload file
-        maxFiles: 5,
-        maxFilesize: 2, // Maksimal ukuran file dalam MB
-        acceptedFiles: "image/*",
-        addRemoveLinks: true,
-        dictRemoveFile: "Remove",
-        thumbnailWidth: 200,
-        thumbnailHeight: 200,
-        init: function() {
-            this.on("success", function(file, response) {
-                console.log("File successfully uploaded!");
-            });
-            this.on("error", function(file, errorMessage) {
-                console.log("Error: " + errorMessage);
-            });
-        }
-    });
-</script>
-<script>
     $(document).ready(function() {
-        // Judul Validation
-        $('#judul').on('keyup change', function() {
-            var judul = $(this).val();
-            if (judul.length < 3 || judul.length > 100) {
-                $('#judul_error').text('Judul berita harus memiliki 3 hingga 100 karakter.');
-                $(this).addClass('is-invalid');
-            } else {
-                $('#judul_error').text('');
-                $(this).removeClass('is-invalid');
-            }
-        });
-
         // Isi Validation
         $('#isi').on('keyup change', function() {
             var isi = $(this).val();

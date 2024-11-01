@@ -11,7 +11,7 @@ class CreateBerita extends Migration
         // Table: berita
         $this->forge->addField([
             'id_berita'       => ['type' => 'INT', 'constraint' => 11, 'auto_increment' => true],
-            'judul'           => ['type' => 'VARCHAR', 'constraint' => 50],
+            'judul'           => ['type' => 'VARCHAR', 'constraint' => 255],
             'isi'             => ['type' => 'LONGTEXT'],
             'gambar'          => ['type' => 'VARCHAR', 'constraint' => 255],
             'tanggal_post'    => ['type' => 'DATETIME'],
