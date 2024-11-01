@@ -1,6 +1,7 @@
 <?= $this->extend('layout/master_dashboard'); ?>
 
 <?= $this->section('content'); ?>
+<?= $this->section('title') ?><title>Data Pegawai OPD | Rumah Inovasi</title><?= $this->endSection() ?>
 <div class="main-content">
     <div class="page-content">
         <div class="container-fluid">
@@ -22,7 +23,7 @@
                                     <a href="#">Data Pengguna</a>
                                 </li>
                                 <li class="breadcrumb-item active">
-                                    <a href="data-pegawai.html">Pegawai</a>
+                                    <a href="/superadmin/user/list/pegawai">Pegawai</a>
                                 </li>
                             </ol>
                         </div>
@@ -40,7 +41,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header d-flex justify-content-end">
-                            <button type="button" class="btn btn-primary waves-effect btn-label waves-light" onclick="window.location.href='tambah-pegawai.html'"><i class="bx bx-plus label-icon"></i>Tambah Data</button>
+                            <button type="button" class="btn btn-primary waves-effect btn-label waves-light" onclick="window.location.href='<?= site_url('superadmin/pegawaiopd/create'); ?>'"><i class="bx bx-plus label-icon"></i>Tambah Data</button>
                         </div>
                         <div class="card-body">
                             <?php if (!empty($pegawaiOPD)): ?>
@@ -48,11 +49,12 @@
                                     <thead>
                                         <tr>
                                             <th class="text-center" style="width: 100px">Nama Pegawai</th>
-                                            <th class="text-center" style="width: 180px">OPD</th>
-                                            <th class="text-center" style="width: 80px">NIP</th>
-                                            <th class="text-center" style="width: 100px">Jabatan</th>
-                                            <th class="text-center" style="width: 100px">No. Telepon</th>
-                                            <th class="text-center" style="width: 100px">Email</th>
+                                            <th class="text-center" style="width: 150px">OPD</th>
+                                            <th class="text-center" style="width: 50px">NIP</th>
+                                            <th class="text-center" style="width: 50px">Jabatan</th>
+                                            <th class="text-center" style="width: 80px">No. Telepon</th>
+                                            <th class="text-center" style="width: 80px">Email</th>
+                                            <th class="text-center" style="width: 50px">Status</th>
                                             <th class="text-center" style="width: 70px">Aksi</th>
                                         </tr>
                                     </thead>
@@ -65,6 +67,7 @@
                                                 <td class="text-center"><?= esc($user['group']); ?></td>
                                                 <td class="text-center"><?= esc($user['no_telepon']); ?></td>
                                                 <td class="text-center"><?= esc($user['email']); ?></td>
+                                                <td class="text-center"><span class="badge bg-success rounded-pill">Aktif</span></td>
                                                 <td class="text-center">
                                                     <a href="<?= site_url('pegawaiopd/edit/' . $user['id']); ?>" class="btn btn-outline-warning btn-sm edit mb-3" title="Edit">
                                                         <i class="fas fa-pencil-alt"></i>

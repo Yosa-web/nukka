@@ -1,6 +1,7 @@
 <?= $this->extend('layout/master_dashboard'); ?>
 
 <?= $this->section('content'); ?>
+<?= $this->section('title') ?><title>Tambah OPD | Rumah Inovasi</title><?= $this->endSection() ?>
 <div class="main-content">
     <div class="page-content">
         <div class="container-fluid">
@@ -18,7 +19,7 @@
                                     <a href="javascript: void(0);">Pengguna</a>
                                 </li>
                                 <li class="breadcrumb-item">
-                                    <a href="data-opd.html">Data OPD</a>
+                                    <a href="/superadmin/opd">Data OPD</a>
                                 </li>
                                 <li class="breadcrumb-item active">
                                     Tambah OPD
@@ -64,7 +65,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="d-flex justify-content-end">
-                                            <button type="button" class="btn btn-secondary w-md">Batal</button>
+                                            <button type="button" class="btn btn-secondary w-md" onclick="window.location.href='/superadmin/opd'">Batal</button>
                                             <button type="submit" class="btn btn-primary w-md ms-4">Kirim</button>
                                         </div>
                                     </div>

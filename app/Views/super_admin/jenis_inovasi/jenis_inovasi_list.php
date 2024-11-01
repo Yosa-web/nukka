@@ -1,6 +1,7 @@
 <?= $this->extend('layout/master_dashboard'); ?>
 
 <?= $this->section('content'); ?>
+<?= $this->section('title') ?><title>Jenis Inovasi | Rumah Inovasi</title><?= $this->endSection() ?>
 <div class="main-content">
     <div class="page-content">
         <div class="container-fluid">
@@ -175,8 +176,8 @@
                     data-bs-dismiss="modal"
                     aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <form action="/jenis_inovasi/update/<?= $jenis_inovasi['id_jenis_inovasi'] ?>" method="post">
+            <form action="/jenis_inovasi/update/<?= $jenis['id_jenis_inovasi'] ?>" method="post">
+                <div class="modal-body">
                     <div class="mb-3">
                         <label
                             for="nama_jenis"
@@ -186,35 +187,32 @@
                             type="text"
                             class="form-control"
                             id="nama_jenis"
-                            name="nama_jenis" value="<?= $jenis_inovasi['nama_jenis'] ?>"
+                            name="nama_jenis" value="<?= $jenis['nama_jenis'] ?>"
                             required />
                     </div>
-                    <div class="modal-footer">
-                        <button
-                            type="button"
-                            class="btn btn-light"
-                            data-bs-dismiss="modal">
-                            Batal
-                        </button>
-                        <button
-                            type="submit"
-                            class="btn btn-warning"
-                            data-bs-dismiss="modal"
-                            id="alert-success">
-                            Update
-                        </button>
-                    </div>
-                </form>
-            </div>
+                </div>
+                <div class="modal-footer">
+                    <button
+                        type="button"
+                        class="btn btn-light"
+                        data-bs-dismiss="modal">
+                        Batal
+                    </button>
+                    <button
+                        type="submit"
+                        class="btn btn-warning"
+                        data-bs-dismiss="modal"
+                        id="alert-success">
+                        Perbarui
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
 
 <!-- Modal js -->
 <script src="/assets/js/pages/modal.init.js"></script>
-<!-- Table Editable plugin -->
-<script src="/assets/libs/table-edits/build/table-edits.min.js"></script>
-<script src="/assets/js/pages/table-editable.int.js"></script>
 <!-- alertifyjs js -->
 <script src="/assets/libs/alertifyjs/build/alertify.min.js"></script>
 <script>

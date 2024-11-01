@@ -1,6 +1,7 @@
 <?= $this->extend('layout/master_dashboard'); ?>
 
 <?= $this->section('content'); ?>
+<?= $this->section('title') ?><title>Data OPD | Rumah Inovasi</title><?= $this->endSection() ?>
 <div class="main-content">
     <div class="page-content">
         <div class="container-fluid">
@@ -19,7 +20,7 @@
                                     <a href="javascript: void(0);">Pengguna</a>
                                 </li>
                                 <li class="breadcrumb-item active">
-                                    <a href="data-opd.html">Data OPD</a>
+                                    Data OPD
                                 </li>
                             </ol>
                         </div>
@@ -48,21 +49,21 @@
                                 <tbody>
                                     <?php foreach ($opd as $jenis): ?>
                                         <tr>
-                                            <td class="text-center"><?= $jenis['id_opd'] ?></td>
-                                            <td><?= $jenis['nama_opd'] ?></td>
-                                            <td><?= $jenis['alamat'] ?></td>
-                                            <td class="text-center"><?= $jenis['telepon'] ?></td>
-                                            <td class="text-center"><?= $jenis['email'] ?></td>
+                                            <td class="text-center"><?= $jenis->id_opd ?></td>
+                                            <td><?= $jenis->nama_opd ?></td>
+                                            <td><?= $jenis->alamat ?></td>
+                                            <td class="text-center"><?= $jenis->telepon ?></td>
+                                            <td class="text-center"><?= $jenis->email ?></td>
                                             <td class="text-center">
-                                                <a href="<?= base_url('superadmin/opd/' . $jenis['id_opd'] . '/edit') ?>" class="btn btn-outline-warning btn-sm edit mb-3" title="Edit">
+                                                <a href="<?= base_url('superadmin/opd/' . $jenis->id_opd . '/edit') ?>" class="btn btn-outline-warning btn-sm edit mb-3" title="Edit">
                                                     <i class="fas fa-pencil-alt"></i>
                                                 </a>
-                                                <form id="delete-form-<?= $jenis['id_opd'] ?>" action="<?= base_url('superadmin/opd/' . $jenis['id_opd']) ?>" method="post" style="display: inline;">
+                                                <form id="delete-form-<?= $jenis->id_opd ?>" action="<?= base_url('superadmin/opd/' . $jenis->id_opd) ?>" method="post" style="display: inline;">
                                                     <input type="hidden" name="_method" value="DELETE">
                                                     <?= csrf_field() ?>
-                                                    <a class="btn btn-outline-danger btn-sm delete ms-2 mb-3" title="Delete" onclick="if(confirm('Apakah Anda yakin ingin menghapus?')) { document.getElementById('delete-form-<?= $jenis['id_opd'] ?>').submit(); }">
+                                                    <button type="button" class="btn btn-outline-danger btn-sm delete ms-2 mb-3" title="Delete">
                                                         <i class="fas fa-trash-alt"></i>
-                                                    </a>
+                                                    </button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -78,32 +79,58 @@
 </div>
 
 <!-- Sweet Alerts js -->
-<script src="assets/libs/sweetalert2/sweetalert2.min.js"></script>
-<!-- Sweet alert init js-->
+<script src="/assets/libs/sweetalert2/sweetalert2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-    document
-        .getElementById("sa-warning")
-        .addEventListener("click", function() {
+    document.querySelectorAll(".delete").forEach(function(button) {
+        button.addEventListener("click", function(event) {
             event.preventDefault();
-            const href = this.getAttribute("href");
+
+            const form = this.closest("form");
+            const formData = new FormData(form);
 
             Swal.fire({
-                title: "Konfirmasi hapus data?",
-                text: "",
+                title: "Konfirmasi hapus?",
+                text: "Anda yakin ingin menghapus data ini?",
                 icon: "warning",
-                showCancelButton: !0,
+                showCancelButton: true,
                 confirmButtonColor: "#2ab57d",
                 cancelButtonColor: "#fd625e",
                 confirmButtonText: "Hapus",
                 cancelButtonText: "Batal",
             }).then(function(result) {
-                e.value &&
-                    Swal.fire(
-                        "Terhapus!",
-                        "Data telah dihapus",
-                        "success",
-                    );
+                if (result.isConfirmed) {
+                    // Mengirim form menggunakan AJAX
+                    fetch(form.action, {
+                        method: form.method,
+                        body: formData
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            // Tampilkan SweetAlert sukses setelah penghapusan berhasil
+                            Swal.fire(
+                                "Terhapus!",
+                                "Data telah dihapus.",
+                                "success"
+                            ).then(() => {
+                                // Refresh atau perbarui halaman jika diperlukan
+                                location.reload();
+                            });
+                        } else {
+                            throw new Error('Gagal menghapus data');
+                        }
+                    })
+                    .catch(error => {
+                        Swal.fire(
+                            "Error",
+                            "Terjadi kesalahan saat menghapus data.",
+                            "error"
+                        );
+                    });
+                }
             });
         });
+    });
 </script>
+
 <?= $this->endSection(); ?>

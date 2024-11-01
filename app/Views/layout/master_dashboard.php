@@ -3,12 +3,14 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Dashboard | Rumah Inovasi</title>
+    <?= $this->renderSection('title'); ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- App favicon -->
     <link rel="shortcut icon" href="/assets/images/logo_litbang.png" />
     <!-- Sweet Alert-->
     <link href="/assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+    <!-- choices css -->
+    <link href="assets/libs/choices.js/public/assets/styles/choices.min.css" rel="stylesheet" type="text/css" />
     <!-- dropzone css -->
     <link href="/assets/libs/dropzone/min/dropzone.min.css" rel="stylesheet" type="text/css" />
     <!-- plugin css -->
@@ -107,15 +109,15 @@
                                 class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                         </button>
                         <div class="dropdown-menu dropdown-menu-end">
-                            <!-- <a
+                            <a
 									class="dropdown-item"
 									href="#"
 									><i
 										class="mdi mdi mdi-face-man font-size-16 align-middle me-1"></i>
-									Profile</a
+									Profil</a
 								>
-								<div class="dropdown-divider"></div> -->
-                            <a class="dropdown-item" href="login.html"><i
+								<div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/logout"><i
                                     class="mdi mdi-logout font-size-16 align-middle me-1"></i>
                                 Logout</a>
                         </div>
@@ -131,19 +133,18 @@
                 <div id="sidebar-menu">
                     <!-- Left Menu Start -->
                     <ul class="metismenu list-unstyled" id="side-menu">
-                        <li>
-                            <a href="/dashboard">
-                                <i data-feather="home"></i>
-                                <span>Dashboard</span>
-                            </a>
-                        </li>
-
+                            <li>
+                                <a href="/dashboard">
+                                    <i data-feather="home"></i>
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
                         <li class="menu-title">
                             Inovasi
                         </li>
 
                         <li>
-                            <a href="jenis-inovasi.html">
+                            <a href="/jenis_inovasi">
                                 <i class='bx bx-bulb'></i>
                                 <span>Jenis Inovasi</span>
                             </a>
@@ -165,7 +166,7 @@
                         </li>
 
                         <li>
-                            <a href="data-opd.html">
+                            <a href="/superadmin/opd">
                                 <i data-feather="user-check"></i>
                                 <span>Data OPD</span>
                             </a>
@@ -177,11 +178,11 @@
                                 <span>Data Pengguna</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="true">
-                                <li><a href="data-admin.html">Admin</a></li>
+                                <li><a href="/superadmin/user/list/admin">Admin</a></li>
                                 <li>
-                                    <a href="data-pegawai.html">Pegawai</a>
+                                    <a href="/superadmin/user/list/pegawai">Pegawai</a>
                                 </li>
-                                <li><a href="data-pengguna-umum.html">Umum</a></li>
+                                <li><a href="/superadmin/user/list/umum">Umum</a></li>
                             </ul>
                         </li>
 
@@ -197,7 +198,7 @@
                         </li>
 
                         <li>
-                            <a href="kelola-galeri.html">
+                            <a href="/superadmin/galeri">
                                 <i data-feather="grid"></i>
                                 <span>Kelola Galeri</span>
                             </a>

@@ -1,6 +1,7 @@
 <?= $this->extend('layout/master_dashboard'); ?>
 
 <?= $this->section('content'); ?>
+<?= $this->section('title') ?><title>Data Pengguna Umum | Rumah Inovasi</title><?= $this->endSection() ?>
 <div class="main-content">
     <div class="page-content">
         <div class="container-fluid">
@@ -65,10 +66,7 @@
                                                     <a href="<?= site_url('penggunaumum/edit/' . $user['id']); ?>" class="btn btn-outline-warning btn-sm edit mb-3" title="Edit">
                                                         <i class="fas fa-pencil-alt"></i>
                                                     </a>
-                                                    <a class="btn btn-outline-danger btn-sm delete ms-2 mb-3" title="Delete" id="sa-warning">
-                                                        <i class="fas fa-trash-alt"></i>
-                                                    </a>
-                                                    <form action="<?= site_url('penggunaumum/delete/' . $user['id']); ?>" method="post">
+                                                    <form action="<?= site_url('penggunaumum/delete/' . $user['id']); ?>" method="post" style="display:inline;">
                                                         <input type="hidden" name="_method" value="DELETE">
                                                         <button type="submit" class="btn btn-outline-danger btn-sm delete ms-2 mb-3" title="Delete" id="sa-warning" onclick="return confirm('Are you sure you want to delete this user?');"><i class="fas fa-trash-alt"></i></button>
                                                     </form>

@@ -1,6 +1,7 @@
 <?= $this->extend('layout/master_dashboard'); ?>
 
 <?= $this->section('content'); ?>
+<?= $this->section('title') ?><title>Dashboard | Rumah Inovasi</title><?= $this->endSection() ?>
 <div class="main-content">
     <div class="page-content">
         <div class="container-fluid">
@@ -59,13 +60,13 @@
                         </div>
                         <div class="card-body">
 
-                            <table id="datatable" class="table table-bordered dt-responsive nowrap w-100 table-hover">
+                            <table id="datatable" class="table table-bordered dt-responsive w-100 table-hover">
                                 <thead>
                                     <tr>
-                                        <th>ID User</th>
-                                        <th>Tanggal</th>
-                                        <th>Aksi</th>
-                                        <th>Jenis Data</th>
+                                        <th style="width: 100px">ID User</th>
+                                        <th style="width: 200px">Waktu</th>
+                                        <th style="width: 80px">Aksi</th>
+                                        <th style="width: 100px">Jenis Data</th>
                                         <th>Keterangan</th>
                                     </tr>
                                 </thead>
@@ -73,30 +74,6 @@
                                     <tr>
                                         <td><a href="#" data-bs-toggle="tooltip" data-bs-placement="right"
                                                 title="Super Admin">234</a></td>
-                                        <td>2012/03/29</td>
-                                        <td>Edit data</td>
-                                        <td>Kelola berita</td>
-                                        <td>menambah berita</td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="#" data-bs-toggle="tooltip" data-bs-placement="right"
-                                                title="Admin OPD">102</a></td>
-                                        <td>2012/03/29</td>
-                                        <td>Login</td>
-                                        <td>Kelola galeri</td>
-                                        <td>masuk ke sistem</td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="#" data-bs-toggle="tooltip" data-bs-placement="right"
-                                                title="Operator">153</a></td>
-                                        <td>2012/03/29</td>
-                                        <td>Login</td>
-                                        <td>Kelola galeri</td>
-                                        <td>masuk ke sistem</td>
-                                    </tr>
-                                    <tr>
-                                        <td><a href="#" data-bs-toggle="tooltip" data-bs-placement="right"
-                                                title="Kepala OPD">123</a></td>
                                         <td>2012/03/29</td>
                                         <td>Edit data</td>
                                         <td>Kelola berita</td>

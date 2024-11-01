@@ -1,5 +1,5 @@
 <?= $this->extend('layout/master_dashboard'); ?>
-
+<?= $this->section('title') ?><title>Data Admin OPD | Rumah Inovasi</title><?= $this->endSection() ?>
 <?= $this->section('content'); ?>
 <div class="main-content">
     <div class="page-content">
@@ -22,7 +22,7 @@
                                     <a href="#">Data Pengguna</a>
                                 </li>
                                 <li class="breadcrumb-item active">
-                                    <a href="data-admin.html">Admin</a>
+                                    <a href="/superadmin/user/list/admin">Admin</a>
                                 </li>
                             </ol>
                         </div>
@@ -40,22 +40,22 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header d-flex justify-content-end">
-                            <button type="button" class="btn btn-light btn-label position-relative me-3" onclick="window.location.href='verifikasi-admin.html'"><i class="bx bx-check-double label-icon"></i>
+                            <button type="button" class="btn btn-light btn-label position-relative me-3" onclick="window.location.href='/useractivation'"><i class="bx bx-check-double label-icon"></i>
                                 Verifikasi Admin <span class="position-absolute top-0 start-100 translate-middle badge border border-light rounded-circle bg-danger p-1"><span class="visually-hidden">unread messages</span></span>
                             </button>
-                            <button type="button" class="btn btn-primary waves-effect btn-label waves-light" onclick="window.location.href='tambah-admin.html'"><i class="bx bx-plus label-icon"></i>Tambah Data</button>
+                            <button type="button" class="btn btn-primary waves-effect btn-label waves-light" onclick="window.location.href='<?= site_url('superadmin/adminopd/create'); ?>'"><i class="bx bx-plus label-icon"></i>Tambah Data</button>
                         </div>
                         <div class="card-body">
                             <?php if (!empty($penggunaOPD)): ?>
                                 <table id="datatable" class="table table-bordered dt-responsive w-100 table-hover">
                                     <thead>
                                         <tr>
-                                            <th class="text-center" style="width: 100px">Nama Admin</th>
+                                            <th class="text-center" style="width: 150px">Nama Admin</th>
                                             <th class="text-center" style="width: 200px">OPD</th>
                                             <th class="text-center" style="width: 90px">NIP</th>
                                             <th class="text-center" style="width: 80px">No. Telepon</th>
                                             <th class="text-center" style="width: 100px">Email</th>
-                                            <th class="text-center" style="width: 70px">Status</th>
+                                            <th class="text-center" style="width: 50px">Status</th>
                                             <th class="text-center" style="width: 70px">Aksi</th>
                                         </tr>
                                     </thead>
@@ -72,12 +72,10 @@
                                                     <a href="<?= site_url('adminopd/edit/' . $user['id']); ?>" class="btn btn-outline-warning btn-sm edit mb-3" title="Edit">
                                                         <i class="fas fa-pencil-alt"></i>
                                                     </a>
-                                                    <a class="btn btn-outline-danger btn-sm delete ms-2 mb-3" title="Delete" id="sa-warning">
-                                                        <i class="fas fa-trash-alt"></i>
-                                                    </a>
-                                                    <form action="<?= site_url('superadmin/user/' . $user['id']); ?>" method="post">
+                                                    <form id="delete-form-<?= $user['id'] ?>" action="<?= site_url('superadmin/user/' . $user['id']); ?>" method="post" style="display:inline;">
                                                         <input type="hidden" name="_method" value="DELETE">
-                                                        <button type="submit" class="btn btn-outline-danger btn-sm delete ms-2 mb-3" title="Delete" id="sa-warning" onclick="return confirm('Are you sure you want to delete this user?');"><i class="fas fa-trash-alt"></i></button>
+                                                        <?= csrf_field() ?>
+                                                        <button type="button" class="btn btn-outline-danger btn-sm delete ms-2 mb-3" title="Hapus"><i class="fas fa-trash-alt"></i></button>
                                                     </form>
                                                 </td>
                                             </tr>
@@ -85,7 +83,7 @@
                                     </tbody>
                                 </table>
                             <?php else: ?>
-                                <p>Tidak ada Pengguna OPD.</p>
+                                <p>Tidak ada Admin OPD.</p>
                             <?php endif; ?>
                         </div>
                     </div>
@@ -96,27 +94,45 @@
 </div>
 
 <!-- Sweet alert init js-->
+<script src="/assets/libs/sweetalert2/sweetalert2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-    document
-        .getElementById("sa-warning")
-        .addEventListener("click", function() {
+    document.querySelectorAll(".delete").forEach(function(button) {
+        button.addEventListener("click", function(event) {
+            event.preventDefault();
+
+            const form = this.closest("form");
+            const formData = new FormData(form);
+
             Swal.fire({
-                title: "Konfirmasi hapus data?",
-                text: "",
+                title: "Konfirmasi hapus?",
+                text: "Anda yakin ingin menghapus data ini?",
                 icon: "warning",
-                showCancelButton: !0,
+                showCancelButton: true,
                 confirmButtonColor: "#2ab57d",
                 cancelButtonColor: "#fd625e",
                 confirmButtonText: "Hapus",
                 cancelButtonText: "Batal",
-            }).then(function(e) {
-                e.value &&
-                    Swal.fire(
-                        "Terhapus!",
-                        "Data telah dihapus",
-                        "success",
-                    );
+            }).then(function(result) {
+                if (result.isConfirmed) {
+                    // Mengirim form menggunakan AJAX
+                    fetch(form.action, {
+                            method: form.method,
+                            body: formData
+                        })
+                        .then(response => {
+                            Swal.fire(
+                                "Terhapus!",
+                                "Data telah dihapus.",
+                                "success"
+                            ).then(() => {
+                                // Refresh atau perbarui halaman jika diperlukan
+                                location.reload();
+                            });
+                        })
+                }
             });
         });
+    });
 </script>
 <?= $this->endSection(); ?>

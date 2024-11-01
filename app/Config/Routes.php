@@ -41,7 +41,11 @@ $routes->post('login', '\App\Controllers\CustomLoginController::loginAction');
 $routes->get('/superadmin/user/list/admin', 'Superadmin\KelolaUser::indexAdmin');
 $routes->get('/superadmin/user/list/pegawai', 'Superadmin\KelolaUser::indexPegawai');
 $routes->get('/superadmin/user/list/umum', 'Superadmin\KelolaUser::indexUmum');
-$routes->get('/superadmin/user/create', 'Superadmin\KelolaUser::create');
+
+$routes->get('/superadmin/adminopd/create', 'Superadmin\KelolaUser::createAdmin');
+$routes->get('/superadmin/pegawaiopd/create', 'Superadmin\KelolaUser::createPegawai');
+$routes->get('/superadmin/umum/create', 'Superadmin\KelolaUser::createUmum');
+
 $routes->post('/superadmin/user/store', 'Superadmin\KelolaUser::store');
 $routes->post('admin/create-account', 'Superadmin\KelolaUser::createAccountAction');
 $routes->get('/superadmin/user/edit/(:num)', 'Superadmin\KelolaUser::edit/$1');
@@ -49,13 +53,13 @@ $routes->post('/superadmin/user/update/(:num)', 'Superadmin\KelolaUser::update/$
 $routes->delete('/superadmin/user/(:num)', 'Superadmin\KelolaUser::delete/$1'); // Change to DELETE
 
 $routes->get('/superadmin/listuser', 'Superadmin\KelolaUser::index');
-$routes->get('/superadmin/user/create', 'Superadmin\KelolaUser::create');
+// $routes->get('/superadmin/user/create', 'Superadmin\KelolaUser::create');
 $routes->post('/superadmin/user/store', 'Superadmin\KelolaUser::store');
 $routes->post('/superadmin/user/update/(:num)', 'Superadmin\KelolaUser::update/$1');
 
 $routes->get('/superadmin/user/list', 'Superadmin\KelolaUser::index');
-$routes->get('/superadmin/user/create', 'Superadmin\KelolaUser::create');
-$routes->post('admin/create-account', 'Superadmin\KelolaUser::createAccountAction');
+// $routes->get('/superadmin/user/create', 'Superadmin\KelolaUser::create');
+// $routes->post('admin/create-account', 'Superadmin\KelolaUser::createAccountAction');
 $routes->get('/superadmin/user/edit/(:num)', 'Superadmin\KelolaUser::edit/$1');
 $routes->post('/superadmin/user/update/(:num)', 'Superadmin\KelolaUser::update/$1');
 $routes->delete('superadmin/user/(:num)', 'Superadmin\KelolaUser::delete/$1'); // Change to DELETE

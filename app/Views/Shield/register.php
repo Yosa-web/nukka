@@ -93,7 +93,6 @@
                             Please Enter Name
                         </div>
                     </div>
-                    <<<<<<< HEAD
                         <!-- NIP -->
                         <div class="mb-3">
                             <label for="floatingNipInput" class="form-label">NIP</label>
