@@ -46,6 +46,9 @@ $routes->get('/superadmin/adminopd/create', 'Superadmin\KelolaUser::createAdmin'
 $routes->get('/superadmin/pegawaiopd/create', 'Superadmin\KelolaUser::createPegawai');
 $routes->get('/superadmin/umum/create', 'Superadmin\KelolaUser::createUmum');
 
+$routes->get('/superadmin/user/edit/admin/(:num)', 'Superadmin\KelolaUser::editAdmin/$1');
+$routes->get('/superadmin/user/edit/pegawai/(:num)', 'Superadmin\KelolaUser::editPegawai/$1');
+
 $routes->post('/superadmin/user/store', 'Superadmin\KelolaUser::store');
 $routes->post('admin/create-account', 'Superadmin\KelolaUser::createAccountAction');
 $routes->get('/superadmin/user/edit/(:num)', 'Superadmin\KelolaUser::edit/$1');

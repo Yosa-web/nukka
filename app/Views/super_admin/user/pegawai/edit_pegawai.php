@@ -78,6 +78,21 @@
                                             value="<?= old('NIP', $user->NIP) ?>" required>
                                     </div>
                                 </div>
+                                <!-- Jabatan -->
+                                <div class="row mb-3">
+                                    <label for="floatingGroupInput" class="col-sm-3 col-form-label">Jabatan</label>
+                                    <div class="col-sm-9">
+                                        <select
+                                            class="form-select" id="floatingGroupInput" name="group" inputmode="text" autocomplete="group" value="<?= old('group', $user->group) ?>" required>
+                                            <option value="" disabled selected>
+                                                Pilih Jabatan
+                                            </option>
+                                            <option value="kepala-opd">Kepala OPD</option>
+                                            <option value="sekertaris-opd">Sekretaris OPD</option>
+                                            <option value="operator">Operator</option>
+                                        </select>
+                                    </div>
+                                </div>
                                 <!-- Telepon -->
                                 <div class="row mb-3">
                                     <label for="floatingNoTeleponInput" class="col-sm-3 col-form-label">No. Telepon</label>
@@ -86,12 +101,77 @@
                                             value="<?= old('no_telepon', $user->no_telepon) ?>" required>
                                     </div>
                                 </div>
+                                <!-- Status -->
+                                <div class="row mb-3">
+                                    <label for="floatingStatusInput" class="col-sm-3 col-form-label">Status Akun</label>
+                                    <div class="col-sm-9">
+                                        <select
+                                            class="form-select" id="floatingStatusInput" name="active" inputmode="text" autocomplete="active" value="<?= old('active', $user->active) ?>" required>
+                                            <option value="" disabled selected>
+                                                Pilih Status
+                                            </option>
+                                            <option value="1">Aktif</option>
+                                            <option value="0">Non Aktif</option>
+                                        </select>
+                                    </div>
+                                </div>
                                 <!-- Email -->
-                                <div class="row mb-5">
+                                <div class="row mb-3">
                                     <label for="floatingEmailInput" class="col-sm-3 col-form-label">Email</label>
                                     <div class="col-sm-9">
                                         <input type="email" class="form-control" id="floatingEmailInput" placeholder="Masukkan email" name="email" inputmode="email" autocomplete="email"
                                             value="<?= old('email', $user->email) ?>" required>
+                                    </div>
+                                </div>
+                                <!-- password -->
+                                <div class="row mb-3">
+                                    <label for="floatingPasswordInput" class="col-sm-3 col-form-label">Password</label>
+                                    <div class="col-sm-9">
+                                        <div class="input-group auth-pass-inputgroup">
+                                            <input
+                                                type="password"
+                                                class="form-control"
+                                                id="floatingPasswordInput"
+                                                name="password"
+                                                inputmode="text"
+                                                autocomplete="new-password"
+                                                placeholder="Masukkan password baru jika ingin mengubah"
+                                                aria-label="Password"
+                                                aria-describedby="password-addon" />
+                                            <button
+                                                class="btn btn-light shadow-none ms-0"
+                                                type="button"
+                                                id="password-addon">
+                                                <i class="mdi mdi-eye-outline"></i>
+                                            </button>
+                                            <div class="invalid-feedback" id="password-error"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- re-password -->
+                                <div class="row mb-5">
+                                    <label for="floatingPasswordConfirmInput" class="col-sm-3 col-form-label">Konfirmasi Password</label>
+                                    <div class="col-sm-9">
+                                        <div class="input-group auth-pass-inputgroup">
+                                            <input
+                                                type="password"
+                                                class="form-control"
+                                                id="floatingPasswordConfirmInput"
+                                                name="password_confirm"
+                                                inputmode="text"
+                                                autocomplete="new-password"
+                                                placeholder="Masukkan kembali password baru"
+                                                aria-label="Re-Password"
+                                                aria-describedby="repassword-addon" />
+                                            <button
+                                                class="btn btn-light shadow-none ms-0"
+                                                type="button"
+                                                id="repassword-addon">
+                                                <i class="mdi mdi-eye-outline"></i>
+                                            </button>
+                                            <div class="invalid-feedback" id="repassword-error"></div>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -112,4 +192,39 @@
     </div>
 </div>
 
+<!-- password addon init -->
+<script src="/assets/js/pages/pass-addon.init.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("password-addon").addEventListener("click", function() {
+            const passwordInput = document.getElementById("floatingPasswordInput");
+            const icon = this.querySelector("i");
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                icon.classList.remove("mdi-eye-outline");
+                icon.classList.add("mdi-eye-off-outline");
+            } else {
+                passwordInput.type = "password";
+                icon.classList.remove("mdi-eye-off-outline");
+                icon.classList.add("mdi-eye-outline");
+            }
+        });
+
+        document.getElementById("repassword-addon").addEventListener("click", function() {
+            const confirmPasswordInput = document.getElementById("floatingPasswordConfirmInput");
+            const icon = this.querySelector("i");
+
+            if (confirmPasswordInput.type === "password") {
+                confirmPasswordInput.type = "text";
+                icon.classList.remove("mdi-eye-outline");
+                icon.classList.add("mdi-eye-off-outline");
+            } else {
+                confirmPasswordInput.type = "password";
+                icon.classList.remove("mdi-eye-off-outline");
+                icon.classList.add("mdi-eye-outline");
+            }
+        });
+    });
+</script>
 <?= $this->endSection(); ?>

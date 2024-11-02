@@ -1,5 +1,5 @@
 <?= $this->extend('layout/master_dashboard'); ?>
-
+<?= $this->section('title') ?><title>Kelola Berita | Rumah Inovasi</title><?= $this->endSection() ?>
 <?= $this->section('content'); ?>
 <div class="main-content">
     <div class="page-content">
@@ -82,10 +82,10 @@
                                         <a href="<?= base_url('superadmin/berita/' . $item['id_berita'] . '/edit') ?>" class="btn btn-outline-warning btn-sm edit" title="Edit">
                                             <i class="fas fa-pencil-alt"></i>
                                         </a>
-                                        <form action="<?= base_url('superadmin/berita/' . $item['id_berita']) ?>" method="post">
+                                        <form id="delete-form-<?= $item['id_berita'] ?>" action="<?= base_url('superadmin/berita/' . $item['id_berita']) ?>" method="post">
                                             <input type="hidden" name="_method" value="DELETE">
                                             <?= csrf_field() ?>
-                                            <button type="submit" class="btn btn-outline-danger btn-sm delete ms-2" title="Delete" id="sa-warning" onclick="return confirm('Apakah Anda yakin ingin menghapus?')"><i class="fas fa-trash-alt"></i></button>
+                                            <button type="button" class="btn btn-outline-danger btn-sm delete ms-2" title="Hapus"><i class="fas fa-trash-alt"></i></button>
                                         </form>
                                     </div>
                                 </div>
@@ -123,30 +123,46 @@
     </div>
 </div>
 
-<!-- Sweet Alerts js -->
-<script src="assets/libs/sweetalert2/sweetalert2.min.js"></script>
 <!-- Sweet alert init js-->
+<script src="/assets/libs/sweetalert2/sweetalert2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-    document
-        .getElementById("sa-warning")
-        .addEventListener("click", function() {
+    document.querySelectorAll(".delete").forEach(function(button) {
+        button.addEventListener("click", function(event) {
+            event.preventDefault();
+
+            const form = this.closest("form");
+            const formData = new FormData(form);
+
             Swal.fire({
-                title: "Konfirmasi hapus data?",
-                text: "",
+                title: "Konfirmasi hapus?",
+                text: "Anda yakin ingin menghapus data ini?",
                 icon: "warning",
-                showCancelButton: !0,
+                showCancelButton: true,
                 confirmButtonColor: "#2ab57d",
                 cancelButtonColor: "#fd625e",
                 confirmButtonText: "Hapus",
                 cancelButtonText: "Batal",
-            }).then(function(e) {
-                e.value &&
-                    Swal.fire(
-                        "Terhapus!",
-                        "Data telah dihapus",
-                        "success",
-                    );
+            }).then(function(result) {
+                if (result.isConfirmed) {
+                    // Mengirim form menggunakan AJAX
+                    fetch(form.action, {
+                            method: form.method,
+                            body: formData
+                        })
+                        .then(response => {
+                            Swal.fire(
+                                "Terhapus!",
+                                "Data telah dihapus.",
+                                "success"
+                            ).then(() => {
+                                // Refresh atau perbarui halaman jika diperlukan
+                                location.reload();
+                            });
+                        })
+                }
             });
         });
+    });
 </script>
 <?= $this->endSection(); ?>

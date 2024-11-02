@@ -49,7 +49,7 @@
 
                     <!-- NIP -->
                     <div class="form-floating mb-4">
-                        <input type="text" class="form-control" id="floatingNipInput" name="NIK" inputmode="text" autocomplete="nik" placeholder="NIK" value="<?= old('NIK', $user->NIK) ?>" required>
+                        <input type="text" class="form-control" id="floatingNikInput" name="NIK" inputmode="text" autocomplete="nik" placeholder="NIK" value="<?= old('NIK', $user->NIK) ?>" required>
                         <label for="floatingNipInput">NIK</label>
                     </div>
 

@@ -1,7 +1,6 @@
 <?= $this->extend('layout/master_dashboard'); ?>
-
-<?= $this->section('content'); ?>
 <?= $this->section('title') ?><title>Data Pegawai OPD | Rumah Inovasi</title><?= $this->endSection() ?>
+<?= $this->section('content'); ?>
 <div class="main-content">
     <div class="page-content">
         <div class="container-fluid">
@@ -69,7 +68,7 @@
                                                 <td class="text-center"><?= esc($user['email']); ?></td>
                                                 <td class="text-center"><span class="badge bg-success rounded-pill">Aktif</span></td>
                                                 <td class="text-center">
-                                                    <a href="<?= site_url('pegawaiopd/edit/' . $user['id']); ?>" class="btn btn-outline-warning btn-sm edit mb-3" title="Edit">
+                                                    <a href="<?= site_url('/superadmin/user/edit/pegawai/' . $user['id']); ?>" class="btn btn-outline-warning btn-sm edit mb-3" title="Edit">
                                                         <i class="fas fa-pencil-alt"></i>
                                                     </a>
                                                     <form action="<?= site_url('pegawaiopd/delete/' . $user['id']); ?>" method="post" style="display:inline;">

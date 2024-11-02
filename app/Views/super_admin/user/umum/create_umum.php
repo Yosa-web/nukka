@@ -1,8 +1,7 @@
 <?= $this->extend('layout/master_dashboard'); ?>
-
+<?= $this->section('title') ?><title>Tambah Pengguna Umum | Rumah Inovasi</title><?= $this->endSection() ?>
 <?= $this->section('content'); ?>
 <div class="main-content">
-    <?= $this->section('title') ?><?= lang('Auth.register') ?> <?= $this->endSection() ?>
     <div class="page-content">
         <div class="container-fluid">
             <!-- start page title -->
@@ -147,7 +146,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="d-flex justify-content-end">
-                                            <button type="button" class="btn btn-secondary w-md">Batal</button>
+                                            <button type="button" class="btn btn-secondary w-md" onclick="window.location.href='/superadmin/user/list/umum'">Batal</button>
                                             <button type="submit" class="btn btn-primary w-md ms-4">Kirim</button>
                                         </div>
                                     </div>
@@ -163,4 +162,37 @@
 
 <!-- password addon init -->
 <script src="/assets/js/pages/pass-addon.init.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("password-addon").addEventListener("click", function () {
+            const passwordInput = document.getElementById("floatingPasswordInput");
+            const icon = this.querySelector("i");
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                icon.classList.remove("mdi-eye-outline");
+                icon.classList.add("mdi-eye-off-outline");
+            } else {
+                passwordInput.type = "password";
+                icon.classList.remove("mdi-eye-off-outline");
+                icon.classList.add("mdi-eye-outline");
+            }
+        });
+
+        document.getElementById("repassword-addon").addEventListener("click", function () {
+            const confirmPasswordInput = document.getElementById("floatingPasswordConfirmInput");
+            const icon = this.querySelector("i");
+
+            if (confirmPasswordInput.type === "password") {
+                confirmPasswordInput.type = "text";
+                icon.classList.remove("mdi-eye-outline");
+                icon.classList.add("mdi-eye-off-outline");
+            } else {
+                confirmPasswordInput.type = "password";
+                icon.classList.remove("mdi-eye-off-outline");
+                icon.classList.add("mdi-eye-outline");
+            }
+        });
+    });
+</script>
 <?= $this->endSection(); ?>

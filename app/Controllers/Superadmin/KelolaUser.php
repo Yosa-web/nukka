@@ -227,7 +227,7 @@ class KelolaUser extends BaseRegisterController
 
 
 
-    public function edit(int $id)
+    public function editAdmin(int $id)
     {
         $users = $this->getUserProvider();
 
@@ -235,7 +235,7 @@ class KelolaUser extends BaseRegisterController
         $user = $users->findById($id);
 
         if (!$user) {
-            return redirect()->to('/superadmin/user/list')
+            return redirect()->to('/superadmin/user/admin_opd/admin_list')
                 ->with('error', 'User tidak ditemukan.');
         }
 
@@ -251,7 +251,7 @@ class KelolaUser extends BaseRegisterController
         $opd = $opdModel->findAll();
 
         // Kirim data user, grup, dan OPD ke view
-        return view('super_admin/user/edit_opd', [
+        return view('super_admin/user/admin_opd/edit_admin', [
             'user' => $user,
             'currentGroup' => $currentGroup, // Kirim grup saat ini ke view
             'opd' => $opd, // Kirim data OPD ke view
@@ -259,7 +259,36 @@ class KelolaUser extends BaseRegisterController
     }
 
 
+    public function editPegawai(int $id)
+    {
+        $users = $this->getUserProvider();
 
+        // Dapatkan user berdasarkan ID
+        $user = $users->findById($id);
+
+        if (!$user) {
+            return redirect()->to('/superadmin/user/pegawai/pegawai_list')
+                ->with('error', 'User tidak ditemukan.');
+        }
+
+        // Ambil grup user saat ini menggunakan GroupModel
+        $groupModel = new GroupModel();
+        $userGroups = $groupModel->getGroupsForUser($user->id);
+
+        // Ambil nama grup, atau jika tidak ada, tetapkan ke 'user' sebagai default
+        $currentGroup = !empty($userGroups) ? $userGroups[0]['group'] : 'user';
+
+        // Ambil data OPD
+        $opdModel = new OpdModel();
+        $opd = $opdModel->findAll();
+
+        // Kirim data user, grup, dan OPD ke view
+        return view('super_admin/user/pegawai/edit_pegawai', [
+            'user' => $user,
+            'currentGroup' => $currentGroup, // Kirim grup saat ini ke view
+            'opd' => $opd, // Kirim data OPD ke view
+        ]);
+    }
 
 
 
@@ -338,9 +367,18 @@ class KelolaUser extends BaseRegisterController
         $logModel = new LogAktivitasModel();
         $logModel->save($logData);
 
-        // Redirect dengan pesan sukses
-        return redirect()->to('/superadmin/user/list')
-            ->with('message', 'Data user berhasil diperbarui.');
+        // Tentukan arah redirect berdasarkan group yang diinputkan
+        if ($group === 'admin-opd') {
+            return redirect()->to('/superadmin/user/list/admin')
+                ->with('message', 'Pendaftaran berhasil! Akun Anda akan diaktivasi oleh superadmin.');
+        } elseif (in_array($group, ['sekertaris-opd', 'kepala-opd', 'operator'])) {
+            return redirect()->to('/superadmin/user/list/pegawai')
+                ->with('message', 'Pendaftaran berhasil! Akun Anda akan diaktivasi oleh superadmin.');
+        }
+
+        // Jika group tidak sesuai dengan kondisi yang ada, tetap redirect ke daftar pengguna admin
+        return redirect()->to('/superadmin/user/list/admin')
+            ->with('message', 'Pendaftaran berhasil! Akun Anda akan diaktivasi oleh superadmin.');
     }
 
 
@@ -436,7 +474,7 @@ class KelolaUser extends BaseRegisterController
 
 
         // Kirim data user, grup, dan OPD ke view
-        return view('super_admin/user/edit_user', [
+        return view('super_admin/user/umum/edit_umum', [
             'user' => $user,
         ]);
     }
@@ -523,7 +561,7 @@ class KelolaUser extends BaseRegisterController
 
 
         // Redirect dengan pesan sukses
-        return redirect()->to('/superadmin/user/list')
+        return redirect()->to('/superadmin/user/list/umum')
             ->with('message', 'Data user berhasil diperbarui.');
     }
 

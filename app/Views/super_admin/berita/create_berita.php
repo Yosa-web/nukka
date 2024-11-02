@@ -1,5 +1,5 @@
 <?= $this->extend('layout/master_dashboard'); ?>
-
+<?= $this->section('title') ?><title>Tambah Berita | Rumah Inovasi</title><?= $this->endSection() ?>
 <?= $this->section('content'); ?>
 <div class="main-content">
     <div class="page-content">
