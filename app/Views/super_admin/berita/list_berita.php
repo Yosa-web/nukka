@@ -1,126 +1,168 @@
-<!DOCTYPE html>
-<html lang="en">
+<?= $this->extend('layout/master_dashboard'); ?>
+<?= $this->section('title') ?><title>Kelola Berita | Rumah Inovasi</title><?= $this->endSection() ?>
+<?= $this->section('content'); ?>
+<div class="main-content">
+    <div class="page-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div
+                        class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h3 class="mb-sm-0">
+                            Kelola Berita
+                        </h3>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar Data Berita</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            margin: 0;
-            padding: 20px;
-        }
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item">
+                                    <a href="javascript: void(0);">Kelola Konten</a>
+                                </li>
+                                <li class="breadcrumb-item active">
+                                    Kelola Berita
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <style>
+                .img-fluid {
+                    aspect-ratio: 3 / 2;
+                    width: 100%;
+                }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
+                .img-fluid img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            </style>
 
-        h1 {
-            text-align: center;
-            color: #333;
-        }
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                </div>
 
-        a {
-            text-decoration: none;
-            color: white;
-            background-color: #28a745;
-            padding: 10px;
-            border-radius: 4px;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
+                <div class="col-md-6">
+                    <div class="d-flex flex-wrap align-items-center justify-content-end gap-2 mb-3">
+                        <div>
+                            <a href="/superadmin/berita/create" class="btn btn-primary waves-effect btn-label waves-light"><i class="bx bx-plus label-icon"></i>Tambah Berita</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
+            <div class="row">
+                <?php foreach ($berita as $item): ?>
+                    <div class="col-xl-4 col-sm-6">
+                        <div class="card">
+                            <div class="">
+                            <?php if ($item['gambar']): ?>
+                                <img src="<?= base_url($item['gambar']) ?>" alt="Gambar Berita" class="img-fluid">
+                            <?php endif; ?>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-9">
+                                        <p class="text-muted mb-2"><?= date('d M Y', strtotime($item['tanggal_post'])) ?>
+                                        </p>
+                                    </div>
+                                    <div class="col-3 d-flex justify-content-end">
+                                        <div>
+                                            <span class="badge rounded-pill <?= $item['status'] === 'published' ? 'bg-success' : ($item['status'] === 'archive' ? 'bg-secondary' : 'bg-warning') ?>"><?= ucfirst($item['status']) ?></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h5 class=""><a href="#" class="text-body"><?= substr($item['judul'], 0, 75) . '...' ?></a></h5>
+                                <p class="mb-0 font-size-15"><?= substr($item['isi'], 0, 150) . '...' ?></p>
+                                <div class="row mt-3">
+                                    <div class="col-8">
+                                        <a href="#" class="align-middle font-size-15">Lihat Detail <i class="mdi mdi-chevron-right"></i></a>
+                                    </div>
+                                    <div class="col-4 d-flex justify-content-end">
+                                        <a href="<?= base_url('superadmin/berita/' . $item['id_berita'] . '/edit') ?>" class="btn btn-outline-warning btn-sm edit" title="Edit">
+                                            <i class="fas fa-pencil-alt"></i>
+                                        </a>
+                                        <form id="delete-form-<?= $item['id_berita'] ?>" action="<?= base_url('superadmin/berita/' . $item['id_berita']) ?>" method="post">
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <?= csrf_field() ?>
+                                            <button type="button" class="btn btn-outline-danger btn-sm delete ms-2" title="Hapus"><i class="fas fa-trash-alt"></i></button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
 
-        table,
-        th,
-        td {
-            border: 1px solid #ccc;
-        }
-
-        th,
-        td {
-            padding: 10px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #007bff;
-            color: white;
-        }
-
-        td a {
-            text-decoration: none;
-            padding: 5px 10px;
-            border-radius: 4px;
-            color: white;
-        }
-
-        .edit-btn {
-            background-color: #007bff;
-        }
-
-        .delete-btn {
-            background-color: #dc3545;
-        }
-
-        .delete-btn:hover {
-            background-color: #c82333;
-        }
-
-        .edit-btn:hover {
-            background-color: #0056b3;
-        }
-    </style>
-</head>
-
-<body>
-    <div class="container">
-        <h1>Daftar Berita</h1>
-        <a href="/superadmin/berita/create">Tambah Berita</a>
-        <table>
-            <thead>
-                <tr>
-                    <th>Judul</th>
-                    <th>Isi</th>
-                    <th>Tanggal Posting</th>
-                    <th>Status</th>
-                    <th>uploaded by</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-            <?php foreach ($berita as $item): ?>
-                <tr>
-                    <td><?= $item['judul'] ?></td>
-                    <td><?= substr($item['isi'], 0, 50) . '...' ?></td> <!-- Menampilkan ringkasan isi -->
-                    <td><?= date('d-m-Y H:i', strtotime($item['tanggal_post'])) ?></td> <!-- Format tanggal -->
-                    <td><?= ucfirst($item['status']) ?></td>
-                    <td><?= $item['uploaded_by_username'] ?></td> <!-- Menampilkan username pengguna yang mengunggah -->
-                    <td>
-                        <a class="edit-btn" href="<?= base_url('superadmin/berita/' . $item['id_berita'] . '/edit') ?>">Edit</a>
-                        <form action="<?= base_url('superadmin/berita/' . $item['id_berita']) ?>" method="post" style="display: inline;">
-                            <input type="hidden" name="_method" value="DELETE">
-                            <?= csrf_field() ?>
-                            <button type="submit" class="delete-btn" onclick="return confirm('Apakah Anda yakin ingin menghapus?')">Delete</button>
-                        </form>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
-        </tbody>
-                </table>
+            <!-- pagination -->
+            <div class="row justify-content-center mb-4">
+                <div class="col-md-3">
+                    <div class="">
+                        <ul class="pagination mb-sm-0">
+                            <li class="page-item disabled">
+                                <a href="#" class="page-link"><i class="mdi mdi-chevron-left"></i></a>
+                            </li>
+                            <li class="page-item active">
+                                <a href="#" class="page-link">1</a>
+                            </li>
+                            <li class="page-item">
+                                <a href="#" class="page-link">2</a>
+                            </li>
+                            <li class="page-item">
+                                <a href="#" class="page-link">3</a>
+                            </li>
+                            <li class="page-item">
+                                <a href="#" class="page-link"><i class="mdi mdi-chevron-right"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</body>
+</div>
 
-</html>
+<!-- Sweet alert init js-->
+<script src="/assets/libs/sweetalert2/sweetalert2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    document.querySelectorAll(".delete").forEach(function(button) {
+        button.addEventListener("click", function(event) {
+            event.preventDefault();
+
+            const form = this.closest("form");
+            const formData = new FormData(form);
+
+            Swal.fire({
+                title: "Konfirmasi hapus?",
+                text: "Anda yakin ingin menghapus data ini?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#2ab57d",
+                cancelButtonColor: "#fd625e",
+                confirmButtonText: "Hapus",
+                cancelButtonText: "Batal",
+            }).then(function(result) {
+                if (result.isConfirmed) {
+                    // Mengirim form menggunakan AJAX
+                    fetch(form.action, {
+                            method: form.method,
+                            body: formData
+                        })
+                        .then(response => {
+                            Swal.fire(
+                                "Terhapus!",
+                                "Data telah dihapus.",
+                                "success"
+                            ).then(() => {
+                                // Refresh atau perbarui halaman jika diperlukan
+                                location.reload();
+                            });
+                        })
+                }
+            });
+        });
+    });
+</script>
+<?= $this->endSection(); ?>

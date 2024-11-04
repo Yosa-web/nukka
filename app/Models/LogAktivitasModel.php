@@ -44,4 +44,12 @@ class LogAktivitasModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+        // Model LogModel.php
+    public function getLogWithUser()
+    {
+        return $this->select('log_aktivitas.*, users.name')
+                    ->join('users', 'users.id = log_aktivitas.id_user')
+                    ->findAll();
+    }
 }

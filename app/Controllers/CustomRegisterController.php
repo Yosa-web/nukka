@@ -108,7 +108,7 @@ class CustomRegisterController extends BaseRegisterController
     $user = $users->findById($users->getInsertID());
 
     $groupModel = new GroupModel();
-    $groupModel->addUserToGroup($user->id, 'admin'); // Menambahkan user ke grup 'admin'
+    $groupModel->addUserToGroup($user->id, 'admin-opd'); // Menambahkan user ke grup 'admin'
 
 
     Events::trigger('register', $user);

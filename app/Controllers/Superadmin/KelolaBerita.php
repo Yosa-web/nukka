@@ -49,7 +49,7 @@ class KelolaBerita extends BaseController
         $name = $foto->getRandomName();
         if ($foto->move($path, $name)) {
             log_message('debug', 'Image moved successfully: ' . $name);
-            $fotoUrl = base_url($path . $name);
+            $fotoUrl = $path . $name;
         } else {
             log_message('debug', 'Image move failed: ' . $foto->getErrorString());
         }
@@ -62,7 +62,7 @@ class KelolaBerita extends BaseController
         'judul'        => $this->request->getVar('judul'),
         'isi'          => $this->request->getVar('isi'),
         'gambar'       => $fotoUrl,
-        'tanggal_post' => $this->request->getVar('tanggal_post'),
+        'tanggal_post' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(),
         'posted_by'    => $user,
         // 'id_user'      => $user,
         'status'       => $this->request->getVar('status'),
@@ -108,7 +108,8 @@ public function edit($id){
         return view('super_admin/berita/edit_berita', $data);
 }
 
-public function update($id){
+public function update($id)
+{
     // Validasi input
     if (!$this->validate($this->beritaModel->getValidationRules(), $this->beritaModel->getValidationMessages())) {
         log_message('debug', 'Validation failed: ' . json_encode($this->validator->getErrors()));
@@ -120,15 +121,25 @@ public function update($id){
     $foto = $this->request->getFile('gambar');
     $fotoUrl = null;
 
-    if ($foto->isValid() && !$foto->hasMoved()) {
+    // Ambil data berita lama
+    $beritaLama = $this->beritaModel->find($id);
+
+    // Jika ada file baru yang diunggah dan valid
+    if ($foto && $foto->isValid() && !$foto->hasMoved()) {
         $name = $foto->getRandomName();
         if ($foto->move($path, $name)) {
             log_message('debug', 'Image moved successfully: ' . $name);
-            $fotoUrl = base_url($path . $name);
+            $fotoUrl = $path . $name;
         } else {
             log_message('debug', 'Image move failed: ' . $foto->getErrorString());
         }
+    } else {
+        // Gunakan URL gambar lama jika tidak ada unggahan baru
+        $fotoUrl = $beritaLama['gambar'];
     }
+
+    // Mengambil tanggal post sebelumnya jika tidak ada input baru
+    $tanggalPost = $this->request->getVar('tanggal_post') ?: $beritaLama['tanggal_post'];
 
     $superAdminId = auth()->user()->id;
     $user = auth()->user()->id;
@@ -136,32 +147,33 @@ public function update($id){
     $data = [
         'judul'        => $this->request->getVar('judul'),
         'isi'          => $this->request->getVar('isi'),
-        'gambar'       => $fotoUrl,
-        'tanggal_post' => $this->request->getVar('tanggal_post'),
+        'gambar'       => $fotoUrl,  // Menyimpan gambar baru atau lama
+        'tanggal_post' => $tanggalPost,
         'posted_by'    => $user,
-        // 'id_user'      => $user,
         'status'       => $this->request->getVar('status'),
     ];
 
+    // Inisialisasi database dan transaksi
     $db = \Config\Database::connect();
     $db->transStart();
-    
-    if ($this->beritaModel->update($id, $data)) {
-        $newBeritaId = $this->beritaModel->insertID();
 
+    // Update data berita
+    if ($this->beritaModel->update($id, $data)) {
+        // Catat log aktivitas
         $logData = [
-            'id_user'          => $superAdminId,
+            'id_user'           => $superAdminId,
             'tanggal_aktivitas' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(),
-            'aksi'             => 'update',
-            'jenis_data'       => 'Berita',
-            'keterangan'       => "SuperAdmin with ID {$superAdminId} update Berita with ID {$newBeritaId}",
+            'aksi'              => 'update',
+            'jenis_data'        => 'Berita',
+            'keterangan'        => "SuperAdmin with ID {$superAdminId} updated Berita with ID {$id}",
         ];
 
         $logModel = new LogAktivitasModel();
         $logModel->save($logData);
 
         $db->transComplete();
-        
+
+        // Cek status transaksi
         if ($db->transStatus() === false) {
             log_message('debug', 'Transaction failed.');
             return redirect()->back()->with('errors', 'Gagal menyimpan data Berita dan mencatat log aktivitas.');
@@ -173,6 +185,7 @@ public function update($id){
         return redirect()->back()->withInput()->with('errors', $this->beritaModel->errors());
     }
 }
+
 
 public function delete($id){
     $superAdminId = auth()->user()->id;

@@ -29,17 +29,17 @@ class BeritaModel extends Model
 
     // Validation
     protected $validationRules      = [
-        'judul' => 'required|max_length[50]',
+        'judul' => 'required|max_length[200]',
         'isi' => 'required',
         // 'gambar' => 'uploaded[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]|max_size[gambar,2048]',
-        'tanggal_post' => 'required',
+        // 'tanggal_post' => 'required',
         // 'posted_by' => 'required|integer',
         'status' => 'in_list[draft,published,archive]'
     ];
     protected $validationMessages   = [
         'judul' => [
             'required'   => 'Judul berita wajib diisi.',
-            'max_length' => 'Judul berita tidak boleh lebih dari 50 karakter.'
+            'max_length' => 'Judul berita tidak boleh lebih dari 200 karakter.'
         ],
         'isi' => [
             'required' => 'Isi berita wajib diisi.',
@@ -49,9 +49,9 @@ class BeritaModel extends Model
         //     'mime_in'  => 'Format gambar harus berupa jpg, jpeg, atau png.',
         //     'max_size' => 'Ukuran gambar tidak boleh lebih dari 2MB.'
         // ],
-        'tanggal_post' => [
-            'required'   => 'Tanggal posting wajib diisi.',
-        ],
+        // 'tanggal_post' => [
+        //     'required'   => 'Tanggal posting wajib diisi.',
+        // ],
         // 'posted_by' => [
         //     'required' => 'ID pengguna yang memposting wajib diisi.',
         //     'integer'  => 'ID pengguna harus berupa angka.'
