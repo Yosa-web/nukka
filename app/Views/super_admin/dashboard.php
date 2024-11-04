@@ -59,28 +59,33 @@
                             <h4 class="">Log Aktivitas</h4>
                         </div>
                         <div class="card-body">
-
-                            <table id="datatable" class="table table-bordered dt-responsive w-100 table-hover">
-                                <thead>
-                                    <tr>
-                                        <th style="width: 100px">ID User</th>
-                                        <th style="width: 200px">Waktu</th>
-                                        <th style="width: 80px">Aksi</th>
-                                        <th style="width: 100px">Jenis Data</th>
-                                        <th>Keterangan</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><a href="#" data-bs-toggle="tooltip" data-bs-placement="right"
-                                                title="Super Admin">234</a></td>
-                                        <td>2012/03/29</td>
-                                        <td>Edit data</td>
-                                        <td>Kelola berita</td>
-                                        <td>menambah berita</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <?php if (empty($log)): ?>
+                                <p>Data log aktivitas kosong.</p>
+                            <?php else: ?>
+                                <table id="datatable" class="table table-bordered dt-responsive w-100 table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 100px">ID User</th>
+                                            <th style="width: 200px">Waktu</th>
+                                            <th style="width: 80px">Aksi</th>
+                                            <th style="width: 100px">Jenis Data</th>
+                                            <th>Keterangan</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach ($log as $item): ?>
+                                            <tr>
+                                                <td><a href="#" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                        title="<?= $item['name'] ?>"><?= $item['id_user'] ?></a></td>
+                                                <td><?= $item['tanggal_aktivitas'] ?></td>
+                                                <td><?= $item['aksi'] ?></td>
+                                                <td><?= $item['jenis_data'] ?></td>
+                                                <td><?= $item['keterangan'] ?></td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    </tbody>
+                                </table>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>

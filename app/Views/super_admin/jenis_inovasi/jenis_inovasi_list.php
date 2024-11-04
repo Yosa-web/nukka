@@ -62,12 +62,14 @@
                                                     style="
 																width: 300px;
 															">
-                                                    <a href="/superadmin/jenis_inovasi/edit/<?= $jenis['id_jenis_inovasi'] ?>"
+                                                    <a href="javascript:void(0)"
                                                         class="btn btn-outline-warning btn-sm edit"
-                                                        title="Edit" data-bs-toggle="modal"
-                                                        data-bs-target="#editModal">
-                                                        <i
-                                                            class="fas fa-pencil-alt"></i>
+                                                        title="Edit"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#editModal"
+                                                        data-id="<?= $jenis['id_jenis_inovasi'] ?>"
+                                                        data-nama="<?= $jenis['nama_jenis'] ?>">
+                                                        <i class="fas fa-pencil-alt"></i>
                                                     </a>
                                                     <a href="/jenis_inovasi/delete/<?= $jenis['id_jenis_inovasi'] ?>"
                                                         class="btn btn-outline-danger btn-sm delete ms-2"
@@ -176,7 +178,7 @@
                     data-bs-dismiss="modal"
                     aria-label="Close"></button>
             </div>
-            <form action="/jenis_inovasi/update/<?= $jenis['id_jenis_inovasi'] ?>" method="post">
+            <form action="" method="post">
                 <div class="modal-body">
                     <div class="mb-3">
                         <label
@@ -187,7 +189,7 @@
                             type="text"
                             class="form-control"
                             id="nama_jenis"
-                            name="nama_jenis" value="<?= $jenis['nama_jenis'] ?>"
+                            name="nama_jenis" value=""
                             required />
                     </div>
                 </div>
@@ -211,16 +213,43 @@
     </div>
 </div>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const editButtons = document.querySelectorAll('.edit');
+    
+    editButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const id = button.getAttribute('data-id');
+            const namaJenis = button.getAttribute('data-nama');
+            
+            // Isi input modal dengan data yang sesuai
+            document.getElementById('nama_jenis').value = namaJenis;
+            
+            // Update form action untuk mengirim ID yang sesuai
+            const form = document.querySelector('#editModal form');
+            form.action = `/superadmin/jenis_inovasi/update/${id}`;
+        });
+    });
+});
+</script>
 <!-- Modal js -->
 <script src="/assets/js/pages/modal.init.js"></script>
 <!-- alertifyjs js -->
 <script src="/assets/libs/alertifyjs/build/alertify.min.js"></script>
 <script>
-    document
-        .getElementById("alert-success")
-        .addEventListener("click", function() {
-            alertify.success("Data berhasil ditambahkan!");
-        });
+    document.getElementById('alert-success').addEventListener('click', function(event) {
+    event.preventDefault();
+    Swal.fire({
+        title: 'Berhasil!',
+        text: 'Data berhasil diperbarui!',
+        icon: 'success',
+        confirmButtonText: 'OK'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            document.querySelector('#editModal form').submit();
+        }
+    });
+});
 </script>
 <!-- Sweet Alerts js -->
 <script src="/assets/libs/sweetalert2/sweetalert2.min.js"></script>

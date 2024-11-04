@@ -69,9 +69,10 @@
 														<i class="fas fa-check"></i>
 													</button>
 												</form>
-												<a class="btn btn-outline-danger btn-sm delete ms-2 mb-3" title="Tolak" id="sa-params">
-													<i class="fas fa-times"></i>
-												</a>
+												<form action="<?= site_url('useractivation/reject/' . $user->id) ?>" method="post" style="display: inline;">
+													<?= csrf_field() ?>
+													<button type="submit" class="btn btn-outline-danger btn-sm delete ms-2 mb-3" title="Tolak" onclick="return confirm('Tolak akun ini?')"><i class="fas fa-times"></i></button>
+												</form>
 											</td>
 										</tr>
 									<?php endforeach; ?>

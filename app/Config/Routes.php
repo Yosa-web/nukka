@@ -140,4 +140,5 @@ $routes->get('berita/detail/(:num)', 'Superadmin\KelolaBerita::show/$1');
 
 $routes->get('/useractivation', 'Superadmin\KelolaUser::nonActiveList');
 $routes->post('/useractivation/activate/(:num)', 'Superadmin\KelolaUser::activate/$1');
+$routes->post('/useractivation/reject/(:num)', 'Superadmin\KelolaUser::reject/$1');
 

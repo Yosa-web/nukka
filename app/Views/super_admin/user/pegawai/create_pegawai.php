@@ -179,4 +179,37 @@
 </div>
 <!-- password addon init -->
 <script src="/assets/js/pages/pass-addon.init.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("password-addon").addEventListener("click", function() {
+            const passwordInput = document.getElementById("floatingPasswordInput");
+            const icon = this.querySelector("i");
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                icon.classList.remove("mdi-eye-outline");
+                icon.classList.add("mdi-eye-off-outline");
+            } else {
+                passwordInput.type = "password";
+                icon.classList.remove("mdi-eye-off-outline");
+                icon.classList.add("mdi-eye-outline");
+            }
+        });
+
+        document.getElementById("repassword-addon").addEventListener("click", function() {
+            const confirmPasswordInput = document.getElementById("floatingPasswordConfirmInput");
+            const icon = this.querySelector("i");
+
+            if (confirmPasswordInput.type === "password") {
+                confirmPasswordInput.type = "text";
+                icon.classList.remove("mdi-eye-outline");
+                icon.classList.add("mdi-eye-off-outline");
+            } else {
+                confirmPasswordInput.type = "password";
+                icon.classList.remove("mdi-eye-off-outline");
+                icon.classList.add("mdi-eye-outline");
+            }
+        });
+    });
+</script>
 <?= $this->endSection(); ?>

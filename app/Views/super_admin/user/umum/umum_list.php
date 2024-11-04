@@ -52,6 +52,7 @@
                                             <th class="text-center" style="width: 100px">NIK</th>
                                             <th class="text-center" style="width: 100px">No. Telepon</th>
                                             <th class="text-center" style="width: 80px">Email</th>
+                                            <th class="text-center" style="width: 50px">Status</th>
                                             <th class="text-center" style="width: 70px">Aksi</th>
                                         </tr>
                                     </thead>
@@ -62,6 +63,15 @@
                                                 <td class="text-center"><?= esc($user['NIK']); ?></td>
                                                 <td class="text-center"><?= esc($user['no_telepon']); ?></td>
                                                 <td class="text-center"><?= esc($user['email']); ?></td>
+                                                <td class="text-center">
+                                                    <?php if (isset($user['active'])) : ?>
+                                                        <span class="badge <?= $user['active'] == 1 ? 'bg-success' : 'bg-secondary'; ?> rounded-pill">
+                                                            <?= $user['active'] == 1 ? 'Aktif' : 'Non Aktif'; ?>
+                                                        </span>
+                                                    <?php else : ?>
+                                                        <span class="badge bg-warning rounded-pill">Status Tidak Diketahui</span>
+                                                    <?php endif; ?>
+                                                </td>
                                                 <td class="text-center">
                                                     <a href="<?= site_url('superadmin/userumum/edit/' . $user['id']); ?>" class="btn btn-outline-warning btn-sm edit mb-3" title="Edit">
                                                         <i class="fas fa-pencil-alt"></i>

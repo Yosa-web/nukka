@@ -58,7 +58,7 @@
                                     <label for="status-input" class="col-sm-2 col-form-label">Status</label>
                                     <select
                                         class="form-select <?= isset(session()->getFlashdata('errors')['status']) ? 'is-invalid' : '' ?>" id="status-input" name="status">
-                                        <option>
+                                        <option value="" disabled selected>
                                             Pilih Status
                                         </option>
                                         <option value="draft" <?= old('status') == 'draft' ? 'selected' : '' ?>>Draft</option>

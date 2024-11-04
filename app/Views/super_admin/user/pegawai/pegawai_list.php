@@ -66,12 +66,20 @@
                                                 <td class="text-center"><?= esc($user['group']); ?></td>
                                                 <td class="text-center"><?= esc($user['no_telepon']); ?></td>
                                                 <td class="text-center"><?= esc($user['email']); ?></td>
-                                                <td class="text-center"><span class="badge bg-success rounded-pill">Aktif</span></td>
+                                                <td class="text-center">
+                                                    <?php if (isset($user['active'])) : ?>
+                                                        <span class="badge <?= $user['active'] == 1 ? 'bg-success' : 'bg-secondary'; ?> rounded-pill">
+                                                            <?= $user['active'] == 1 ? 'Aktif' : 'Non Aktif'; ?>
+                                                        </span>
+                                                    <?php else : ?>
+                                                        <span class="badge bg-warning rounded-pill">Status Tidak Diketahui</span>
+                                                    <?php endif; ?>
+                                                </td>
                                                 <td class="text-center">
                                                     <a href="<?= site_url('/superadmin/user/edit/pegawai/' . $user['id']); ?>" class="btn btn-outline-warning btn-sm edit mb-3" title="Edit">
                                                         <i class="fas fa-pencil-alt"></i>
                                                     </a>
-                                                    <form action="<?= site_url('pegawaiopd/delete/' . $user['id']); ?>" method="post" style="display:inline;">
+                                                    <form action="<?= site_url('superadmin/user/' . $user['id']); ?>" method="post" style="display:inline;">
                                                         <input type="hidden" name="_method" value="DELETE">
                                                         <button type="submit" class="btn btn-outline-danger btn-sm delete ms-2 mb-3" title="Delete" id="sa-warning" onclick="return confirm('Are you sure you want to delete this user?');"><i class="fas fa-trash-alt"></i></button>
                                                     </form>

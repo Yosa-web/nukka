@@ -67,7 +67,15 @@
                                                 <td class="text-center"><?= esc($user['NIP']); ?></td>
                                                 <td class="text-center"><?= esc($user['no_telepon']); ?></td>
                                                 <td class="text-center"><?= esc($user['email']); ?></td>
-                                                <td class="text-center"><span class="badge bg-success rounded-pill">Aktif</span></td>
+                                                <td class="text-center">
+                                                    <?php if (isset($user['active'])) : ?>
+                                                        <span class="badge <?= $user['active'] == 1 ? 'bg-success' : 'bg-secondary'; ?> rounded-pill">
+                                                            <?= $user['active'] == 1 ? 'Aktif' : 'Non Aktif'; ?>
+                                                        </span>
+                                                    <?php else : ?>
+                                                        <span class="badge bg-warning rounded-pill">Status Tidak Diketahui</span>
+                                                    <?php endif; ?>
+                                                </td>
                                                 <td class="text-center">
                                                     <a href="<?= site_url('/superadmin/user/edit/admin/' . $user['id']); ?>" class="btn btn-outline-warning btn-sm edit mb-3" title="Edit">
                                                         <i class="fas fa-pencil-alt"></i>

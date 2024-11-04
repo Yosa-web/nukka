@@ -82,17 +82,18 @@
                                 <div class="row mb-3">
                                     <label for="floatingGroupInput" class="col-sm-3 col-form-label">Jabatan</label>
                                     <div class="col-sm-9">
-                                        <select
-                                            class="form-select" id="floatingGroupInput" name="group" inputmode="text" autocomplete="group" value="<?= old('group', $user->group) ?>" required>
+                                        <select name="group" id="floatingGroupInput" class="form-select <?= isset(session()->getFlashdata('errors')['group']) ? 'is-invalid' : '' ?>" required>
                                             <option value="" disabled selected>
                                                 Pilih Jabatan
                                             </option>
-                                            <option value="kepala-opd">Kepala OPD</option>
-                                            <option value="sekertaris-opd">Sekretaris OPD</option>
-                                            <option value="operator">Operator</option>
+                                            <option value="kepala-opd" <?= (old('group') !== null ? old('group') : $user->group) == 'kepala-opd' ? 'selected' : '' ?>>Kepala OPD</option>
+                                            <option value="sekertaris-opd" <?= (old('group') !== null ? old('group') : $user->group) == 'sekertaris-opd' ? 'selected' : '' ?>>Sekretaris OPD</option>
+                                            <option value="operator" <?= (old('group') !== null ? old('group') : $user->group) == 'operator' ? 'selected' : '' ?>>Operator</option>
                                         </select>
                                     </div>
+                                    <div id="status_error" class="error"><?= isset(session()->getFlashdata('errors')['group']) ? session()->getFlashdata('errors')['group'] : '' ?></div>
                                 </div>
+
                                 <!-- Telepon -->
                                 <div class="row mb-3">
                                     <label for="floatingNoTeleponInput" class="col-sm-3 col-form-label">No. Telepon</label>
@@ -103,17 +104,14 @@
                                 </div>
                                 <!-- Status -->
                                 <div class="row mb-3">
-                                    <label for="floatingStatusInput" class="col-sm-3 col-form-label">Status Akun</label>
+                                    <label for="floatingStatusInput" class="col-sm-3 col-form-label">Status</label>
                                     <div class="col-sm-9">
-                                        <select
-                                            class="form-select" id="floatingStatusInput" name="active" inputmode="text" autocomplete="active" value="<?= old('active', $user->active) ?>" required>
-                                            <option value="" disabled selected>
-                                                Pilih Status
-                                            </option>
-                                            <option value="1">Aktif</option>
-                                            <option value="0">Non Aktif</option>
+                                        <select name="active" id="floatingStatusInput" class="form-select <?= isset(session()->getFlashdata('errors')['active']) ? 'is-invalid' : '' ?>">
+                                            <option value="1" <?= old('active') == '1' ? 'selected' : '' ?>>Aktif</option>
+                                            <option value="0" <?= old('active') == '0' ? 'selected' : '' ?>>Non Aktif</option>
                                         </select>
                                     </div>
+                                    <div id="status_error" class="error"><?= isset(session()->getFlashdata('errors')['active']) ? session()->getFlashdata('errors')['active'] : '' ?></div>
                                 </div>
                                 <!-- Email -->
                                 <div class="row mb-3">

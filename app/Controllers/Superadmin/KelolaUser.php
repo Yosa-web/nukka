@@ -51,6 +51,7 @@ class KelolaUser extends BaseRegisterController
                     'name' => $user->name,
                     'NIP' => $user->NIP,
                     'email' => $user->email,
+                    'active' => $user->active,
                     'group' => 'admin-opd'
                 ];
             }
@@ -92,6 +93,7 @@ class KelolaUser extends BaseRegisterController
                     'name' => $user->name,
                     'NIP' => $user->NIP,
                     'email' => $user->email,
+                    'active' => $user->active,
                     'group' => implode(', ', $groupNames)
                 ];
             }
@@ -121,6 +123,7 @@ class KelolaUser extends BaseRegisterController
                 'NIP' => $user->NIP,
                 'NIK' => $user->NIK,
                 'email' => $user->email,
+                'active' => $user->active,
                 'group' => implode(', ', $groupNames)
             ];
         }
@@ -569,14 +572,14 @@ class KelolaUser extends BaseRegisterController
     {
         $userModel = new UserModel();
 
-        // Check if the user exists
+        // Cek apakah user ada
         $user = $userModel->find($id);
         if (!$user) {
-            return redirect()->to('/superadmin/user/list')->with('error', 'User not found.');
+            return redirect()->back()->with('error', 'User tidak ditemukan.');
         }
 
-        // Delete the user
-        if ($userModel->delete($id)) {
+        // Hapus user secara permanen
+        if ($userModel->delete($id, true)) {
             // Catat log aktivitas
             $superAdminId = auth()->user()->id;
             $logData = [
@@ -584,17 +587,19 @@ class KelolaUser extends BaseRegisterController
                 'tanggal_aktivitas' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(),
                 'aksi'             => 'delete',
                 'jenis_data'       => 'User',
-                'keterangan'       => "SuperAdmin dengan ID {$superAdminId} menghapus User baru dengan ID {$user->id}",
+                'keterangan'       => "SuperAdmin dengan ID {$superAdminId} menghapus User dengan ID {$user->id}",
             ];
 
             $logModel = new LogAktivitasModel();
             $logModel->save($logData);
 
-            return redirect()->to('/superadmin/user/list')->with('success', 'User deleted successfully.');
+            return redirect()->back()->with('success', 'User berhasil dihapus.');
         } else {
-            return redirect()->to('/superadmin/user/list')->with('error', 'Failed to delete user.');
+            return redirect()->back()->with('error', 'Gagal menghapus user.');
         }
     }
+
+
 
 
     public function nonActiveList()
@@ -676,6 +681,58 @@ class KelolaUser extends BaseRegisterController
             return redirect()->back()->with('message', 'Akun berhasil diaktifkan dan email notifikasi telah dikirim.');
         } else {
             return redirect()->back()->with('error', 'Akun berhasil diaktifkan namun email gagal dikirim.');
+        }
+    }
+
+    public function reject($id)
+    {
+        $userModel = new UserModel();
+        $user = $userModel->find($id);
+        
+        // Periksa apakah user ada dan belum aktif
+        if (!$user || $user->active == 1) {
+            return redirect()->back()->with('error', 'User tidak ditemukan atau sudah aktif.');
+        }
+        
+        // Kirim email notifikasi penolakan
+        $email = \Config\Services::email();
+        $email->setTo($user->email);
+        $email->setSubject('Penolakan Aktivasi Akun - Balitbang Pesawaran');
+        
+        $message = "
+            <p>Yth. {$user->name},</p>
+            
+            <p>Kami mohon maaf, pendaftaran Anda tidak dapat kami terima. Silakan mencoba mendaftar kembali dengan data yang sesuai.</p>
+            
+            <p>Terima kasih atas perhatian Anda.</p>
+            
+            <p>Hormat kami,</p>
+            <p>Balitbang Pesawaran</p>
+        ";
+        
+        $email->setMessage($message);
+        $email->setMailType('html');
+        
+        if ($email->send()) {
+            // Jika email berhasil dikirim, hapus akun secara permanen
+            $userModel->delete($id, true); // Parameter true untuk penghapusan permanen
+            
+            // Log aktivitas penolakan
+            $superAdminId = auth()->user()->id;
+            $logData = [
+                'id_user'          => $superAdminId,
+                'tanggal_aktivitas' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(),
+                'aksi'             => 'penolakan',
+                'jenis_data'       => 'User',
+                'keterangan'       => "SuperAdmin dengan ID {$superAdminId} menolak aktivasi User dengan ID {$user->id}",
+            ];
+            
+            $logModel = new LogAktivitasModel();
+            $logModel->save($logData);
+            
+            return redirect()->back()->with('message', 'Akun berhasil ditolak, dihapus secara permanen, dan email notifikasi penolakan telah dikirim.');
+        } else {
+            return redirect()->back()->with('error', 'Email penolakan gagal dikirim. Akun tidak dihapus.');
         }
     }
 }

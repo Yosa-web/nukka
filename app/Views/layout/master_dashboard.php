@@ -209,7 +209,7 @@
                         </li>
 
                         <li>
-                            <a href="pengaturan-web.html">
+                            <a href="/superadmin/optionweb">
                                 <i data-feather="settings"></i>
                                 <span>Pengaturan Website</span>
                             </a>

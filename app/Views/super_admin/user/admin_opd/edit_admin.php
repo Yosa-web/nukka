@@ -86,6 +86,17 @@
                                             value="<?= old('no_telepon', $user->no_telepon) ?>" required>
                                     </div>
                                 </div>
+                                <!-- Status -->
+                                <div class="row mb-3">
+                                    <label for="floatingStatusInput" class="col-sm-3 col-form-label">Status</label>
+                                    <div class="col-sm-9">
+                                        <select name="active" id="floatingStatusInput" class="form-select <?= isset(session()->getFlashdata('errors')['active']) ? 'is-invalid' : '' ?>">
+                                            <option value="1" <?= old('active') == '1' ? 'selected' : '' ?>>Aktif</option>
+                                            <option value="0" <?= old('active') == '0' ? 'selected' : '' ?>>Non Aktif</option>
+                                        </select>
+                                    </div>
+                                    <div id="status_error" class="error"><?= isset(session()->getFlashdata('errors')['active']) ? session()->getFlashdata('errors')['active'] : '' ?></div>
+                                </div>
                                 <!-- Email -->
                                 <div class="row mb-3">
                                     <label for="floatingEmailInput" class="col-sm-3 col-form-label">Email</label>
