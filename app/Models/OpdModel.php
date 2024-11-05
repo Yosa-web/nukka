@@ -80,5 +80,13 @@ class OpdModel extends Model
         return $this->select('opd.*')->findAll();
     }
 
+    public function getAvailableOpd($usedOpdIds)
+    {
+        if (!empty($usedOpdIds)) {
+            return $this->whereNotIn('id_opd', $usedOpdIds)->findAll();
+        }
+        // Jika array kosong, kembalikan semua OPD
+        return $this->findAll();
+    }
     
 }

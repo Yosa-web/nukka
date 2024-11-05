@@ -10,7 +10,7 @@
     <!-- Sweet Alert-->
     <link href="/assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
     <!-- choices css -->
-    <link href="assets/libs/choices.js/public/assets/styles/choices.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/libs/choices.js/public/assets/styles/choices.min.css" rel="stylesheet" type="text/css" />
     <!-- dropzone css -->
     <link href="/assets/libs/dropzone/min/dropzone.min.css" rel="stylesheet" type="text/css" />
     <!-- plugin css -->

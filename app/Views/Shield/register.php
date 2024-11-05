@@ -113,9 +113,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <select required class="form-control" data-trigger name="id_opd"
-                                id="floatingIdOpdInput"
-                                placeholder="Pilih OPD" required>
+                            <select required class="form-control" data-trigger name="id_opd" id="floatingIdOpdInput" placeholder="Pilih OPD" required>
                                 <option value="" disabled selected>Pilih OPD</option>
                                 <?php foreach ($opd as $item): ?>
                                     <option value="<?= esc($item->id_opd) ?>" <?= old('id_opd') == esc($item->id_opd) ? 'selected' : '' ?>><?= esc($item->nama_opd) ?></option>
