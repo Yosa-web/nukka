@@ -158,8 +158,8 @@
                                 <span>Data Inovasi</span>
                             </a>
                             <ul class="sub-menu" aria-expanded="true">
-                                <li><a href="daftar-proposal.html">Daftar Proposal</a></li>
-                                <li><a href="verifikasi-proposal.html">Verifikasi Proposal</a></li>
+                                <li><a href="/superadmin/inovasi/filter">Daftar Proposal</a></li>
+                                <li><a href="/superadmin/inovasi">Verifikasi Proposal</a></li>
                             </ul>
                         </li>
 
