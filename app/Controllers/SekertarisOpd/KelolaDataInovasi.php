@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers\Superadmin;
+namespace App\Controllers\SekertarisOpd;
 
 use App\Controllers\BaseController;
 use App\Models\InovasiModel;
@@ -30,22 +30,25 @@ class KelolaDataInovasi extends BaseController
         $this->litbang = \Config\Database::connect();
     }
 
-
-
     public function index()
     {
         // Mengambil koneksi database
         $litbang = \Config\Database::connect();
 
+        // Mengambil data Kepala OPD yang sedang login
+        $user = auth()->user();
+        $id_opd = $user->id_opd; // Mengambil id_opd Kepala OPD yang sedang login
+
         // Menggunakan inovasiModel untuk mendapatkan data dengan status tertunda atau tertolak
         $data['inovasi'] = $this->inovasiModel
             ->select('inovasi.*, jenis_inovasi.nama_jenis')
             ->join('jenis_inovasi', 'inovasi.kategori = jenis_inovasi.id_jenis_inovasi', 'left')
+            ->where('inovasi.id_opd', $id_opd) // Filter berdasarkan id_opd Kepala OPD yang sedang login
             ->whereIn('status', ['tertunda', 'tertolak'])  // Hanya status tertunda dan tertolak
             ->orderBy('FIELD(status, "tertunda", "draf", "revisi", "terbit", "arsip", "tertolak")') // Mengatur urutan
             ->findAll();
 
-        return view('super_admin/inovasi/index', $data);
+        return view('super_admin/opd/sekertaris/inovasi/index', $data);
     }
 
     public function filterByStatuses()
@@ -53,16 +56,20 @@ class KelolaDataInovasi extends BaseController
         // Mengambil koneksi database
         $litbang = \Config\Database::connect();
 
+        // Mengambil data Kepala OPD yang sedang login
+        $user = auth()->user();
+        $id_opd = $user->id_opd; // Mengambil id_opd Kepala OPD yang sedang login
+
         // Mendapatkan data dengan status selain tertunda dan tertolak
         $data['inovasi'] = $this->inovasiModel
             ->select('inovasi.*, jenis_inovasi.nama_jenis')
             ->join('jenis_inovasi', 'inovasi.kategori = jenis_inovasi.id_jenis_inovasi', 'left')
+            ->where('inovasi.id_opd', $id_opd) // Filter berdasarkan id_opd Kepala OPD yang sedang login
             ->whereNotIn('status', ['tertunda', 'tertolak']) // Hanya status selain tertunda dan tertolak
             ->findAll();
 
-        return view('super_admin/inovasi/filter_by_statuses', $data);
+        return view('super_admin/opd/sekertaris/inovasi/filter_by_statuses', $data);
     }
-
 
 
     // Fungsi untuk menampilkan form tambah proposal
@@ -76,7 +83,7 @@ class KelolaDataInovasi extends BaseController
             ->join('jenis_inovasi', 'inovasi.kategori = jenis_inovasi.id_jenis_inovasi', 'left')
             ->findAll();
 
-        return view('super_admin/inovasi/create', $data); // Tampilkan view form
+        return view('super_admin/opd/sekertaris/inovasi/create', $data); // Tampilkan view form
     }
 
     public function store()
@@ -146,7 +153,7 @@ class KelolaDataInovasi extends BaseController
         ];
         $this->LogAktivitasModel->save($logData);
 
-        return redirect()->to('/superadmin/inovasi/filter')->with('success', 'Proposal berhasil ditambahkan.');
+        return redirect()->to('/sekertaris/inovasi/filter')->with('success', 'Proposal berhasil ditambahkan.');
     }
 
 
@@ -155,7 +162,7 @@ class KelolaDataInovasi extends BaseController
         $data['inovasi'] = $this->inovasiModel->find($id_inovasi);
         $data['jenis_inovasi'] = $this->JenisInovasiModel->findAll();
         $data['opd'] = $this->opdModel->findAll();
-        return view('super_admin/inovasi/edit', $data);
+        return view('super_admin/opd/sekertaris/inovasi/edit', $data);
     }
 
     public function update($id_inovasi)
@@ -231,7 +238,7 @@ class KelolaDataInovasi extends BaseController
         ];
         $this->LogAktivitasModel->save($logData);
 
-        return redirect()->to('/superadmin/inovasi/filter')->with('success', 'Proposal berhasil diperbarui.');
+        return redirect()->to('/sekertaris/inovasi/filter')->with('success', 'Proposal berhasil diperbarui.');
     }
 
     //     return redirect()->to('/superadmin/inovasi')->with('success', 'Proposal berhasil diperbarui.');
@@ -251,7 +258,7 @@ class KelolaDataInovasi extends BaseController
         ];
         $this->LogAktivitasModel->save($logData);
 
-        return redirect()->to('/superadmin/inovasi/filter')->with('success', 'Proposal berhasil dihapus.');
+        return redirect()->to('/sekertaris/inovasi/filter')->with('success', 'Proposal berhasil dihapus.');
     }
     //     return redirect()->to('/superadmin/inovasi')->with('success', 'Proposal berhasil dihapus.');
     // }
@@ -263,7 +270,7 @@ class KelolaDataInovasi extends BaseController
             ->join('jenis_inovasi', 'inovasi.kategori = jenis_inovasi.id_jenis_inovasi', 'left')
             ->where('inovasi.id_inovasi', $id_inovasi)
             ->first();
-        return view('super_admin/inovasi/show', $data);
+        return view('super_admin/opd/sekertaris/inovasi/show', $data);
     }
 
     public function updateStatus($id)
@@ -284,7 +291,7 @@ class KelolaDataInovasi extends BaseController
         }
 
         $this->inovasiModel->update($id, $data);
-        return redirect()->to('/inovasi/detail/' . $id)->with('success', 'Status berhasil diperbarui.');
+        return redirect()->to('/sekertaris/inovasi/detail/' . $id)->with('success', 'Status berhasil diperbarui.');
     }
 
     public function tolak()
@@ -301,7 +308,7 @@ class KelolaDataInovasi extends BaseController
             ]);
 
             // Berikan pesan sukses dan kembali ke halaman index
-            return redirect()->to('/superadmin/inovasi/')->with('success', 'Proposal berhasil ditolak dengan pesan.');
+            return redirect()->to('/sekertaris/inovasi/')->with('success', 'Proposal berhasil ditolak dengan pesan.');
         }
 
         // Jika ada masalah, kembali dengan pesan error
@@ -325,5 +332,33 @@ class KelolaDataInovasi extends BaseController
 
         // Jika gagal
         return $this->response->setJSON(['status' => 'error', 'message' => 'Gagal menyetujui inovasi']);
+    }
+
+    public function revisi()
+    {
+        $id_inovasi = $this->request->getPost('id_inovasi');
+        $pesan_revisi = $this->request->getPost('pesan');
+
+        // Pastikan ID inovasi dan pesan revisi tidak kosong
+        if ($id_inovasi && $pesan_revisi) {
+            // Ambil pesan revisi lama jika ada
+            $inovasi = $this->inovasiModel->find($id_inovasi);
+            $pesan_lama = $inovasi['pesan'];
+
+            // Menggabungkan pesan lama dan baru dengan separator '---'
+            $pesan_baru = empty($pesan_lama) ? $pesan_revisi : $pesan_lama . '---' . $pesan_revisi;
+
+            // Update status menjadi 'revisi' dan simpan pesan revisi
+            $this->inovasiModel->update($id_inovasi, [
+                'status' => 'revisi',
+                'pesan' => $pesan_baru
+            ]);
+
+            // Kembali ke halaman index dengan pesan sukses
+            return redirect()->to('/sekertaris/inovasi/')->with('success', 'Proposal berhasil diminta revisi dengan pesan.');
+        }
+
+        // Jika ada masalah, kembali dengan pesan error
+        return redirect()->back()->withInput()->with('error', 'Pesan wajib diisi untuk meminta revisi.');
     }
 }

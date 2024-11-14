@@ -6,13 +6,25 @@ use CodeIgniter\Model;
 
 class InovasiModel extends Model
 {
-    protected $table            = 'inovasis';
-    protected $primaryKey       = 'id';
+    protected $table            = 'inovasi';
+    protected $primaryKey       = 'id_inovasi';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = [
+        'judul',
+        'deskripsi',
+        'kategori',
+        'tanggal_pengajuan',
+        'status',
+        'kecamatan',
+        'id_user',
+        'id_opd',
+        'pesan',
+        'published_at',
+        'url_file'
+    ];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
