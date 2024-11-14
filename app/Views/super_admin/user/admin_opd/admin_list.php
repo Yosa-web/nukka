@@ -77,11 +77,22 @@
                                                     <?php endif; ?>
                                                 </td>
                                                 <td class="text-center">
-                                                    <a href="<?= site_url('/superadmin/user/edit/admin/' . $user['id']); ?>" class="btn btn-outline-warning btn-sm edit mb-3" title="Edit">
+                                                <?php
+                                                        // Mengambil encrypter dari service
+                                                        $encrypter = \Config\Services::encrypter();
+
+                                                        // Pastikan id dikonversi ke string sebelum dienkripsi
+                                                        $idString = strval($user['id']);
+                                                        $encryptedId = bin2hex($encrypter->encrypt($idString));
+                                                    ?>
+                                                    <a href="<?= site_url('/superadmin/user/edit/admin/' . $encryptedId); ?>" class="btn btn-outline-warning btn-sm edit mb-3" title="Edit">
                                                         <i class="fas fa-pencil-alt"></i>
                                                     </a>
-                                                    <form id="delete-form-<?= $user['id'] ?>" action="<?= site_url('superadmin/user/' . $user['id']); ?>" method="post" style="display:inline;">
+                                                    <form id="delete-form-<?= $user['id'] ?>" action="<?= site_url('superadmin/user/'); ?>" method="post" style="display:inline;">
+                                                        <!-- Input untuk method DELETE -->
                                                         <input type="hidden" name="_method" value="DELETE">
+                                                        <!-- Input tersembunyi untuk ID, tidak ditampilkan pada antarmuka -->
+                                                        <input type="hidden" name="id" value="<?= $user['id']; ?>">
                                                         <?= csrf_field() ?>
                                                         <button type="button" class="btn btn-outline-danger btn-sm delete ms-2 mb-3" title="Hapus"><i class="fas fa-trash-alt"></i></button>
                                                     </form>

@@ -38,11 +38,10 @@
                                     <h4><?= esc($berita['judul']) ?></h4>
                                 </div>
                                 <div class="mb-4">
-                                    <?php if ($berita['gambar']): ?>
-                                        <img src="<?= $berita['gambar'] ?>" alt="Gambar Berita" class="img-thumbnail mx-auto d-block">
-                                    <?php endif; ?>
-                                </div>
-
+                                <?php if ($berita['gambar']): ?>
+                                    <img src="<?= base_url($berita['gambar']) ?>" alt="Gambar Berita" class="img-fluid">
+                                <?php endif; ?>
+                                </div>  
                                 <div class="text-center">
                                     <div class="row">
                                         <div class="col-sm-4">

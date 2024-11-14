@@ -63,16 +63,20 @@
 											<td class="text-center"><?= esc($user->email) ?></td>
 											<td class="text-center"><span class="badge bg-secondary rounded-pill">Non Aktif</span></td>
 											<td class="text-center">
-												<form id="activateForm" action="<?= site_url('useractivation/activate/' . $user->id) ?>" method="post" style="display: inline;">
-													<?= csrf_field() ?>
-													<button type="button" class="btn btn-outline-success btn-sm delete mb-3" title="Verifikasi" id="sa-title">
-														<i class="fas fa-check"></i>
-													</button>
-												</form>
-												<form action="<?= site_url('useractivation/reject/' . $user->id) ?>" method="post" style="display: inline;">
-													<?= csrf_field() ?>
-													<button type="submit" class="btn btn-outline-danger btn-sm delete ms-2 mb-3" title="Tolak" onclick="return confirm('Tolak akun ini?')"><i class="fas fa-times"></i></button>
-												</form>
+											<form id="activateForm" action="<?= site_url('useractivation/activate') ?>" method="post" style="display: inline;">
+												<?= csrf_field() ?>
+												<input type="hidden" name="id" value="<?= $user->id ?>">
+												<button type="button" class="btn btn-outline-success btn-sm mb-3" title="Verifikasi" id="sa-title" onclick="document.getElementById('activateForm').submit();">
+													<i class="fas fa-check"></i>
+												</button>
+											</form>
+											<form action="<?= site_url('useractivation/reject') ?>" method="post" style="display: inline;">
+												<?= csrf_field() ?>
+												<input type="hidden" name="id" value="<?= $user->id ?>">
+												<button type="submit" class="btn btn-outline-danger btn-sm ms-2 mb-3" title="Tolak" onclick="return confirm('Tolak akun ini?');">
+													<i class="fas fa-times"></i>
+												</button>
+											</form>
 											</td>
 										</tr>
 									<?php endforeach; ?>

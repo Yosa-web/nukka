@@ -75,11 +75,11 @@ class OpdModel extends Model
     public function getOpd($id = null)
     {
         if ($id != null) {
-            return $this->select('opd.*')->find($id);
+            // Menggunakan asObject() untuk memastikan pengembalian objek entitas
+            return $this->asObject()->find($id);  // Mengembalikan objek entitas
         }
-        return $this->select('opd.*')->findAll();
+        return $this->asObject()->findAll();  // Mengembalikan semua OPD sebagai objek entitas
     }
-
     public function getAvailableOpd($usedOpdIds)
     {
         if (!empty($usedOpdIds)) {

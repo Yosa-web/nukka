@@ -83,12 +83,10 @@
                                     <label for="floatingGroupInput" class="col-sm-3 col-form-label">Jabatan</label>
                                     <div class="col-sm-9">
                                         <select name="group" id="floatingGroupInput" class="form-select <?= isset(session()->getFlashdata('errors')['group']) ? 'is-invalid' : '' ?>" required>
-                                            <option value="" disabled selected>
-                                                Pilih Jabatan
-                                            </option>
-                                            <option value="kepala-opd" <?= (old('group') !== null ? old('group') : $user->group) == 'kepala-opd' ? 'selected' : '' ?>>Kepala OPD</option>
-                                            <option value="sekertaris-opd" <?= (old('group') !== null ? old('group') : $user->group) == 'sekertaris-opd' ? 'selected' : '' ?>>Sekretaris OPD</option>
-                                            <option value="operator" <?= (old('group') !== null ? old('group') : $user->group) == 'operator' ? 'selected' : '' ?>>Operator</option>
+                                            <option value="" disabled <?= !$currentGroup ? 'selected' : '' ?>>Pilih Jabatan</option>
+                                            <option value="kepala-opd" <?= (old('group', $currentGroup) === 'kepala-opd') ? 'selected' : '' ?>>Kepala OPD</option>
+                                            <option value="sekertaris-opd" <?= (old('group', $currentGroup) === 'sekertaris-opd') ? 'selected' : '' ?>>Sekretaris OPD</option>
+                                            <option value="operator" <?= (old('group', $currentGroup) === 'operator') ? 'selected' : '' ?>>Operator</option>
                                         </select>
                                     </div>
                                     <div id="status_error" class="error"><?= isset(session()->getFlashdata('errors')['group']) ? session()->getFlashdata('errors')['group'] : '' ?></div>

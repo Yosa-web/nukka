@@ -76,16 +76,17 @@
                                 <p class="mb-0 font-size-15"><?= substr($item['isi'], 0, 150) . '...' ?></p>
                                 <div class="row mt-3">
                                     <div class="col-8">
-                                        <a href="#" class="align-middle font-size-15">Lihat Detail <i class="mdi mdi-chevron-right"></i></a>
+                                        <a href="<?= base_url('berita/show/detail/' . $item['slug']) ?>" class="align-middle font-size-15">Lihat Detail <i class="mdi mdi-chevron-right"></i></a>
                                     </div>
                                     <div class="col-4 d-flex justify-content-end">
-                                        <a href="<?= base_url('superadmin/berita/' . $item['id_berita'] . '/edit') ?>" class="btn btn-outline-warning btn-sm edit" title="Edit">
+                                        <a href="<?= base_url('superadmin/berita/' . $item['slug'] . '/edit') ?>" class="btn btn-outline-warning btn-sm edit" title="Edit">
                                             <i class="fas fa-pencil-alt"></i>
                                         </a>
-                                        <form id="delete-form-<?= $item['id_berita'] ?>" action="<?= base_url('superadmin/berita/' . $item['id_berita']) ?>" method="post">
+                                        <form id="delete-form-<?= $item['id_berita'] ?>" action="<?= base_url('superadmin/berita') ?>" method="post">
                                             <input type="hidden" name="_method" value="DELETE">
+                                            <input type="hidden" name="id_berita" value="<?= $item['id_berita'] ?>">
                                             <?= csrf_field() ?>
-                                            <button type="button" class="btn btn-outline-danger btn-sm delete ms-2" title="Hapus"><i class="fas fa-trash-alt"></i></button>
+                                            <button type="button" class="btn btn-outline-danger btn-sm delete ms-2" title="Hapus" onclick="event.preventDefault(); document.getElementById('delete-form-<?= $item['id_berita'] ?>').submit();"><i class="fas fa-trash-alt"></i></button>
                                         </form>
                                     </div>
                                 </div>

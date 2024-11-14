@@ -417,5 +417,48 @@ class Validation extends BaseConfig
                 'max_byte' => 'Auth.errorPasswordTooLongBytes',
             ],
         ],
-    ];    
+    ];
+    
+    
+    // public $opd = [
+    //     'nama_opd' => [
+    //         'label' => 'Nama OPD',
+    //         'rules' => 'required|min_length[3]|max_length[100]|is_unique[opd.nama_opd,id,{id_opd}]',
+    //         'errors' => [
+    //             'required' => 'Nama OPD harus diisi.',
+    //             'min_length' => 'Nama OPD harus memiliki minimal 3 karakter.',
+    //             'max_length' => 'Nama OPD tidak boleh lebih dari 100 karakter.',
+    //             'is_unique' => 'Nama OPD ini sudah terdaftar.',
+    //         ]
+    //     ],
+    //     'alamat' => [
+    //         'label' => 'Alamat',
+    //         'rules' => 'required|min_length[10]|max_length[255]',
+    //         'errors' => [
+    //             'required' => 'Alamat harus diisi.',
+    //             'min_length' => 'Alamat harus memiliki minimal 10 karakter.',
+    //             'max_length' => 'Alamat tidak boleh lebih dari 255 karakter.',
+    //         ]
+    //     ],
+    //     'email' => [
+    //         'label' => 'Email',
+    //         'rules' => 'required|valid_email|max_length[100]',
+    //         'errors' => [
+    //             'required' => 'Email harus diisi.',
+    //             'valid_email' => 'Masukkan email yang valid.',
+    //             'max_length' => 'Email tidak boleh lebih dari 100 karakter.',
+    //         ]
+    //     ],
+    //     'telepon' => [
+    //         'label' => 'No. Telepon',
+    //         'rules' => 'required|numeric|min_length[10]|max_length[15]',
+    //         'errors' => [
+    //             'required' => 'Nomor telepon harus diisi.',
+    //             'numeric' => 'Nomor telepon hanya boleh berupa angka.',
+    //             'min_length' => 'Nomor telepon harus memiliki minimal 10 digit.',
+    //             'max_length' => 'Nomor telepon tidak boleh lebih dari 15 digit.',
+    //         ]
+    //     ],
+    // ];
+    
 }

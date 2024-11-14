@@ -12,7 +12,7 @@ class BeritaModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['judul', 'isi', 'gambar', 'tanggal_post', 'posted_by', 'status'];
+    protected $allowedFields    = ['judul', 'isi', 'gambar', 'tanggal_post', 'posted_by', 'status', 'slug'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
@@ -75,37 +75,48 @@ class BeritaModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-    public function getBerita($id = null)
-{
-    $this->select('berita.*, users.username AS uploaded_by_username');
-    $this->join('users', 'users.id = berita.posted_by'); // Join antara tabel berita dan users
+    public function saveBerita($data)
+    {
+        // Menambahkan slug berdasarkan judul berita
+        $data['slug'] = url_title($data['judul'], '-', true);
 
-    if ($id != null) {
-        return $this->find($id);
+        // Menyimpan data ke dalam database
+        return $this->insert($data);
     }
-
-    return $this->findAll();
-}
-
-public function getPublishedNews($id = null)
-{
-    $query = $this->db->table('berita')
-                      ->select('berita.*, users.username AS uploaded_by_username')
-                      ->join('users', 'users.id = berita.posted_by', 'left')
-                      ->where('berita.status', 'published');
-
-    // Jika $id diberikan, tambahkan kondisi filter berdasarkan id_berita
-    if ($id !== null) {
-        $query->where('berita.id_berita', $id); // Sesuaikan nama kolom 'id_berita'
+    public function getBerita($slug = null)
+    {
+        $this->select('berita.*, users.name AS uploaded_by_username');
+        $this->join('users', 'users.id = berita.posted_by'); // Join antara tabel berita dan users
+    
+        // Jika $slug diberikan, cari berita berdasarkan slug
+        if ($slug != null) {
+            return $this->where('berita.slug', $slug)->first(); // Cari berita berdasarkan slug
+        }
+    
+        return $this->findAll();
     }
+    
 
-    $result = $query->get()->getResultArray();
+    public function getPublishedNews($slug = null)
+    {
+        $query = $this->db->table('berita')
+                          ->select('berita.*, users.username AS uploaded_by_username')
+                          ->join('users', 'users.id = berita.posted_by', 'left')
+                          ->where('berita.status', 'published');
     
-    // Debug: cetak hasilnya untuk pengecekan
-    log_message('debug', 'Published News: ' . print_r($result, true));
+        // Jika $slug diberikan, tambahkan kondisi filter berdasarkan slug
+        if ($slug !== null) {
+            $query->where('berita.slug', $slug); // Cari berita berdasarkan slug
+        }
     
-    return $result;
-}
+        $result = $query->get()->getResultArray();
+        
+        // Debug: cetak hasilnya untuk pengecekan
+        log_message('debug', 'Published News by Slug: ' . print_r($result, true));
+        
+        return $result;
+    }
+    
 
 
 }

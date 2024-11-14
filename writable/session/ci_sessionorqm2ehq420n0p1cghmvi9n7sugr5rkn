@@ -1,1 +1,0 @@
-__ci_last_regenerate|i:1730082290;csrf_test_name|s:32:"f1bc5d9e14072d719f2ce393168781b6";beforeLoginUrl|s:61:"http://localhost:8080/index.php/superadmin/berita/list-berita";__ci_vars|a:1:{s:14:"beforeLoginUrl";i:1730081935;}_ci_previous_url|s:61:"http://localhost:8080/index.php/superadmin/berita/list-berita";user|a:1:{s:2:"id";i:1;}

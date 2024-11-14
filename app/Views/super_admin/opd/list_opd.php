@@ -47,7 +47,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($opd as $jenis): ?>
+                                    <?php foreach ($opds as $jenis): ?>
                                         <tr>
                                             <td class="text-center"><?= $jenis->id_opd ?></td>
                                             <td><?= $jenis->nama_opd ?></td>
@@ -55,11 +55,12 @@
                                             <td class="text-center"><?= $jenis->telepon ?></td>
                                             <td class="text-center"><?= $jenis->email ?></td>
                                             <td class="text-center">
-                                                <a href="<?= base_url('superadmin/opd/' . $jenis->id_opd . '/edit') ?>" class="btn btn-outline-warning btn-sm edit mb-3" title="Edit">
-                                                    <i class="fas fa-pencil-alt"></i>
-                                                </a>
-                                                <form id="delete-form-<?= $jenis->id_opd ?>" action="<?= base_url('superadmin/opd/' . $jenis->id_opd) ?>" method="post" style="display: inline;">
+                                            <a href="<?= base_url('superadmin/opd/edit/' . $jenis->encrypted_id) ?>" class="btn btn-outline-warning btn-sm edit mb-3" title="Edit">
+                                                <i class="fas fa-pencil-alt"></i>
+                                            </a>
+                                                <form id="delete-form-<?= $jenis->id_opd ?>" action="<?= base_url('superadmin/opd') ?>" method="post" style="display: inline;">
                                                     <input type="hidden" name="_method" value="DELETE">
+                                                    <input type="hidden" name="id_opd" value="<?= $jenis->id_opd ?>">
                                                     <?= csrf_field() ?>
                                                     <button type="button" class="btn btn-outline-danger btn-sm delete ms-2 mb-3" title="Delete">
                                                         <i class="fas fa-trash-alt"></i>

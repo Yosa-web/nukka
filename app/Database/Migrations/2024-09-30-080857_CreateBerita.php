@@ -16,11 +16,13 @@ class CreateBerita extends Migration
             'gambar'          => ['type' => 'VARCHAR', 'constraint' => 255],
             'tanggal_post'    => ['type' => 'DATETIME'],
             'posted_by'       => ['type' => 'INT', 'constraint' => 11, 'unsigned' => true],
-            'status' => ['type' => 'ENUM', 'constraint' => ['draft', 'published', 'archive'], 'default' => 'draft']
+            'status' => ['type' => 'ENUM', 'constraint' => ['draft', 'published', 'archive'], 'default' => 'draft'],
+            'slug'            => ['type' => 'VARCHAR', 'constraint' => 255],  // Tambahkan kolom slug
         ]);
         $this->forge->addPrimaryKey('id_berita');
         $this->forge->addForeignKey('posted_by', 'users', tableField: 'id');
         $this->forge->createTable('berita');
+
     }
 
     public function down()

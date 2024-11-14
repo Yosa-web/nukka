@@ -46,8 +46,8 @@ $routes->get('/superadmin/adminopd/create', 'Superadmin\KelolaUser::createAdmin'
 $routes->get('/superadmin/pegawaiopd/create', 'Superadmin\KelolaUser::createPegawai');
 $routes->get('/superadmin/umum/create', 'Superadmin\KelolaUser::createUmum');
 
-$routes->get('/superadmin/user/edit/admin/(:num)', 'Superadmin\KelolaUser::editAdmin/$1');
-$routes->get('/superadmin/user/edit/pegawai/(:num)', 'Superadmin\KelolaUser::editPegawai/$1');
+$routes->get('/superadmin/user/edit/admin/(:any)', 'Superadmin\KelolaUser::editAdmin/$1');
+$routes->get('/superadmin/user/edit/pegawai/(:any)', 'Superadmin\KelolaUser::editPegawai/$1');
 
 $routes->post('/superadmin/user/store', 'Superadmin\KelolaUser::store');
 $routes->post('admin/create-account', 'Superadmin\KelolaUser::createAccountAction');
@@ -65,12 +65,12 @@ $routes->get('/superadmin/user/list', 'Superadmin\KelolaUser::index');
 // $routes->post('admin/create-account', 'Superadmin\KelolaUser::createAccountAction');
 $routes->get('/superadmin/user/edit/(:num)', 'Superadmin\KelolaUser::edit/$1');
 $routes->post('/superadmin/user/update/(:num)', 'Superadmin\KelolaUser::update/$1');
-$routes->delete('superadmin/user/(:num)', 'Superadmin\KelolaUser::delete/$1'); // Change to DELETE
+$routes->delete('superadmin/user', 'Superadmin\KelolaUser::delete'); // Change to DELETE
 
 
-$routes->get('/superadmin/userumum/create', 'Superadmin\KelolaUser::createUserUmum');
+$routes->get('/superadmin/userumum/create', 'Superadmin\KelolaUser::createUmum');
 $routes->post('superadmin/userumum/store', 'Superadmin\KelolaUser::storeUserUmum');
-$routes->get('/superadmin/userumum/edit/(:num)', 'Superadmin\KelolaUser::editUserUmum/$1');
+$routes->get('/superadmin/userumum/edit/(:any)', 'Superadmin\KelolaUser::editUserUmum/$1');
 $routes->post('/superadmin/userumum/update/(:num)', 'Superadmin\KelolaUser::updateUserUmum/$1');
 
 
@@ -80,9 +80,9 @@ $routes->group('', ['filter' => 'group:user'], function ($routes) {
     $routes->get('/superadmin/opd/create', 'Superadmin\KelolaOpd::createOpd');
     $routes->post('/superadmin/opd/store', 'Superadmin\KelolaOpd::storeOpd');
     $routes->get('superadmin/opd', 'Superadmin\KelolaOpd::index');
-    $routes->get('/superadmin/opd/(:num)/edit', 'Superadmin\KelolaOpd::editOpd/$1');
-    $routes->put('/superadmin/opd/update/(:num)', 'Superadmin\KelolaOpd::updateOpd/$1');
-    $routes->delete('/superadmin/opd/(:num)', 'Superadmin\KelolaOpd::deleteOpd/$1');
+    $routes->get('/superadmin/opd/edit/(:any)', 'Superadmin\KelolaOpd::editOpd/$1');
+    $routes->post('/superadmin/opd/update', 'Superadmin\KelolaOpd::updateOpd/$1');
+    $routes->delete('/superadmin/opd', 'Superadmin\KelolaOpd::deleteOpd');
 
     $routes->get('/superadmin/galeri', 'Superadmin\KelolaGaleri::index'); // Menampilkan daftar galeri
     $routes->get('/superadmin/galeri/create', 'Superadmin\KelolaGaleri::create'); // Menampilkan form tambah galeri
@@ -106,14 +106,15 @@ $routes->group('', ['filter' => 'group:user'], function ($routes) {
     $routes->get('/superadmin/berita/list-berita', 'Superadmin\KelolaBerita::index'); // Menampilkan daftar galeri
     $routes->get('/superadmin/berita/create', 'Superadmin\KelolaBerita::create'); // Menampilkan form tambah galeri
     $routes->post('/superadmin/berita/store', 'Superadmin\KelolaBerita::store'); // Menyimpan galeri baru
-    $routes->get('/superadmin/berita/(:num)/edit', 'Superadmin\KelolaBerita::edit/$1'); // Menampilkan form edit
-    $routes->put('/superadmin/berita/update/(:num)', 'Superadmin\KelolaBerita::update/$1'); // Memperbarui galeri
-    $routes->delete('/superadmin/berita/(:num)', 'Superadmin\KelolaBerita::delete/$1'); // Menghapus galeri
+    $routes->get('/superadmin/berita/(:segment)/edit', 'Superadmin\KelolaBerita::edit/$1'); // Menampilkan form edit
+    $routes->put('/superadmin/berita/update/(:segment)', 'Superadmin\KelolaBerita::update/$1'); // Memperbarui galeri
+    $routes->delete('/superadmin/berita', 'Superadmin\KelolaBerita::delete'); // Menghapus galeri
 
 });
 
-$routes->get('/berita', 'Superadmin\KelolaBerita::publishedNews');
-$routes->get('berita/detail/(:num)', 'Superadmin\KelolaBerita::show/$1');
+    $routes->get('/berita', 'Superadmin\KelolaBerita::publishedNews');
+    $routes->get('berita/detail/(:segment)', 'Superadmin\KelolaBerita::show/$1');   
+    $routes->get('berita/show/detail/(:segment)', 'Superadmin\KelolaBerita::detail/$1');
 
 
 // $routes->get('/option_web', 'Superadmin\KelolaOptionWeb::publishedOptions');
@@ -139,6 +140,19 @@ $routes->get('berita/detail/(:num)', 'Superadmin\KelolaBerita::show/$1');
 // });
 
 $routes->get('/useractivation', 'Superadmin\KelolaUser::nonActiveList');
-$routes->post('/useractivation/activate/(:num)', 'Superadmin\KelolaUser::activate/$1');
-$routes->post('/useractivation/reject/(:num)', 'Superadmin\KelolaUser::reject/$1');
+$routes->post('/useractivation/activate', 'Superadmin\KelolaUser::activate');
+$routes->post('/useractivation/reject', 'Superadmin\KelolaUser::reject');
 
+$routes->get('/user/profile/edit', 'Superadmin\KelolaProfile::editProfile', ['as' => 'profile.edit']);
+$routes->post('/user/profile/update', 'Superadmin\KelolaProfile::updateUser', ['as' => 'profile.update']);
+
+
+$routes->get('/profile/edit', 'UserUmum\KelolaProfile::edit');
+$routes->post('/profile/update', 'UserUmum\KelolaProfile::edit');
+
+$routes->get('/adminopd/pegawai/list', 'AdminOpd\KelolaPegawaiOpd::index');
+$routes->get('/adminopd/pegawai/create', 'AdminOpd\KelolaPegawaiOpd::create');
+$routes->post('/adminopd/pegawai/store', 'AdminOpd\KelolaPegawaiOpd::store');
+$routes->get('/adminopd/pegawai/edit/(:any)', 'AdminOpd\KelolaPegawaiOpd::edit/$1');
+$routes->post('/adminopd/pegawai/update', 'AdminOpd\KelolaPegawaiOpd::update');
+$routes->delete('/adminopd/pegawai/delete', 'AdminOpd\KelolaPegawaiOpd::delete');

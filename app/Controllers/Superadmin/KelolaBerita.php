@@ -30,77 +30,84 @@ class KelolaBerita extends BaseController
         return view('super_admin/berita/create_berita');
     }
 
- public function store() {
-    // Debugging: Lihat data yang diterima
-    log_message('debug', print_r($this->request->getPost(), true));
-
-    // Validasi input
-    if (!$this->validate($this->beritaModel->getValidationRules(), $this->beritaModel->getValidationMessages())) {
-        log_message('debug', 'Validation failed: ' . json_encode($this->validator->getErrors()));
-        return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
-    }
-
-    // Path untuk menyimpan file gambar
-    $path = 'assets/uploads/images/berita/';
-    $foto = $this->request->getFile('gambar');
-    $fotoUrl = null;
-
-    if ($foto->isValid() && !$foto->hasMoved()) {
-        $name = $foto->getRandomName();
-        if ($foto->move($path, $name)) {
-            log_message('debug', 'Image moved successfully: ' . $name);
-            $fotoUrl = $path . $name;
-        } else {
-            log_message('debug', 'Image move failed: ' . $foto->getErrorString());
-        }
-    }
-
-    $superAdminId = auth()->user()->id;
-    $user = auth()->user()->id;
-
-    $data = [
-        'judul'        => $this->request->getVar('judul'),
-        'isi'          => $this->request->getVar('isi'),
-        'gambar'       => $fotoUrl,
-        'tanggal_post' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(),
-        'posted_by'    => $user,
-        // 'id_user'      => $user,
-        'status'       => $this->request->getVar('status'),
-    ];
-
-    $db = \Config\Database::connect();
-    $db->transStart();
     
-    if ($this->beritaModel->save($data)) {
-        $newBeritaId = $this->beritaModel->insertID();
 
-        $logData = [
-            'id_user'          => $superAdminId,
-            'tanggal_aktivitas' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(),
-            'aksi'             => 'create',
-            'jenis_data'       => 'Berita',
-            'keterangan'       => "SuperAdmin with ID {$superAdminId} create Berita with ID {$newBeritaId}",
-        ];
-
-        $logModel = new LogAktivitasModel();
-        $logModel->save($logData);
-
-        $db->transComplete();
-        
-        if ($db->transStatus() === false) {
-            log_message('debug', 'Transaction failed.');
-            return redirect()->back()->with('errors', 'Gagal menyimpan data Berita dan mencatat log aktivitas.');
+    public function store()
+    {
+        // Debugging: Lihat data yang diterima
+        log_message('debug', print_r($this->request->getPost(), true));
+    
+        // Validasi input
+        if (!$this->validate($this->beritaModel->getValidationRules(), $this->beritaModel->getValidationMessages())) {
+            log_message('debug', 'Validation failed: ' . json_encode($this->validator->getErrors()));
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
-
-        return redirect()->to('/superadmin/berita/list-berita')->with('success', 'Data Berita berhasil ditambahkan dan log tercatat.');
-    } else {
-        log_message('debug', 'Data save failed: ' . json_encode($this->beritaModel->errors()));
-        return redirect()->back()->withInput()->with('errors', $this->beritaModel->errors());
+    
+        // Path untuk menyimpan file gambar
+        $path = 'assets/uploads/images/berita/';
+        $foto = $this->request->getFile('gambar');
+        $fotoUrl = null;
+    
+        if ($foto->isValid() && !$foto->hasMoved()) {
+            $name = $foto->getRandomName();
+            if ($foto->move($path, $name)) {
+                log_message('debug', 'Image moved successfully: ' . $name);
+                $fotoUrl = $path . $name;
+            } else {
+                log_message('debug', 'Image move failed: ' . $foto->getErrorString());
+            }
+        }
+    
+        // Menyiapkan data
+        $user = auth()->user()->id;
+        $data = [
+            'judul'        => $this->request->getVar('judul'),
+            'isi'          => $this->request->getVar('isi'),
+            'gambar'       => $fotoUrl,
+            'tanggal_post' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(),
+            'posted_by'    => $user,
+            'status'       => $this->request->getVar('status'),
+            'slug'         => url_title($this->request->getVar('judul'), '-', true),  // Menambahkan slug berdasarkan judul
+        ];
+    
+        // Memulai transaksi database
+        $db = \Config\Database::connect();
+        $db->transStart();
+        
+        // Simpan data berita baru
+        if ($this->beritaModel->save($data)) {
+            $newBeritaId = $this->beritaModel->insertID();
+    
+            // Simpan log aktivitas
+            $logData = [
+                'id_user'          => $user,
+                'tanggal_aktivitas' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(),
+                'aksi'             => 'create',
+                'jenis_data'       => 'Berita',
+                'keterangan'       => "User with ID {$user} created Berita with ID {$newBeritaId}",
+            ];
+    
+            $logModel = new LogAktivitasModel();
+            $logModel->save($logData);
+    
+            $db->transComplete();
+            
+            // Mengecek status transaksi
+            if ($db->transStatus() === false) {
+                log_message('debug', 'Transaction failed.');
+                return redirect()->back()->with('errors', 'Gagal menyimpan data Berita dan mencatat log aktivitas.');
+            }
+    
+            return redirect()->to('/superadmin/berita/list-berita')->with('success', 'Data Berita berhasil ditambahkan dan log tercatat.');
+        } else {
+            log_message('debug', 'Data save failed: ' . json_encode($this->beritaModel->errors()));
+            return redirect()->back()->withInput()->with('errors', $this->beritaModel->errors());
+        }
     }
-}
+    
 
-public function edit($id){
-    $berita = $this->beritaModel->getBerita($id);
+public function edit($slug){
+    $berita = $this->beritaModel->getBerita($slug);
         $data = [
             'title' => 'List berita',
             'berita' => $berita,
@@ -144,6 +151,7 @@ public function update($id)
     $superAdminId = auth()->user()->id;
     $user = auth()->user()->id;
 
+    // Menambahkan slug berdasarkan judul
     $data = [
         'judul'        => $this->request->getVar('judul'),
         'isi'          => $this->request->getVar('isi'),
@@ -151,6 +159,7 @@ public function update($id)
         'tanggal_post' => $tanggalPost,
         'posted_by'    => $user,
         'status'       => $this->request->getVar('status'),
+        'slug'         => url_title($this->request->getVar('judul'), '-', true), // Menambahkan slug baru
     ];
 
     // Inisialisasi database dan transaksi
@@ -187,17 +196,22 @@ public function update($id)
 }
 
 
-public function delete($id){
-    $superAdminId = auth()->user()->id;
 
-    if ($this->beritaModel->delete($id)) {
+public function delete()
+{
+    // Ambil ID berita dari data POST
+    $id = $this->request->getPost('id_berita');
+    
+    if ($id && $this->beritaModel->delete($id)) {
+        // Ambil ID super admin dari session
+        $superAdminId = auth()->user()->id;
 
         // Data log aktivitas untuk pencatatan
         $logData = [
             'id_user'          => $superAdminId,
-            'tanggal_aktivitas' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(), // Format tanggal
-            'aksi'             => 'delete', // Tindakan yang dilakukan
-            'jenis_data'       => 'Berita', // Jenis data yang terlibat
+            'tanggal_aktivitas' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(),
+            'aksi'             => 'delete',
+            'jenis_data'       => 'Berita',
             'keterangan'       => "SuperAdmin with ID {$superAdminId} deleted Berita with ID {$id}",
         ];
 
@@ -205,13 +219,13 @@ public function delete($id){
         $logModel = new LogAktivitasModel();
         $logModel->save($logData);
 
-        // Redirect ke halaman list OPD dengan pesan sukses
         return redirect()->to('/superadmin/berita/list-berita')->with('success', 'Data Berita berhasil dihapus!');
     } else {
-        // Jika penghapusan gagal, tampilkan pesan error dari model
-        return redirect()->back()->withInput()->with('errors', $this->beritaModel->errors());
+        // Jika penghapusan gagal, tampilkan pesan error
+        return redirect()->back()->withInput()->with('errors', 'Gagal menghapus berita.');
     }
 }
+
 
 public function publishedNews()
 {
@@ -227,10 +241,29 @@ public function publishedNews()
     }
 }
 
-public function show($id)
+public function detail($slug)
 {
     $beritaModel = new BeritaModel();
-    $publishedBerita = $beritaModel->getPublishedNews($id); // Ambil berita berdasarkan ID
+    $publishedBerita = $beritaModel->getBerita($slug); // Ambil berita berdasarkan slug
+
+    // Pastikan berita ditemukan
+    if ($publishedBerita) {
+        $data = [
+            'title' => 'Detail Berita',
+            'berita' => $publishedBerita, // Hanya satu berita karena menggunakan first()
+        ];
+
+        return view('super_admin/berita/detail_berita', $data);
+    } else {
+        throw new \CodeIgniter\Exceptions\PageNotFoundException('Berita tidak ditemukan');
+    }
+}
+
+
+public function show($slug)
+{
+    $beritaModel = new BeritaModel();
+    $publishedBerita = $beritaModel->getPublishedNews($slug); // Ambil berita berdasarkan slug
 
     // Pastikan berita ditemukan
     if (!empty($publishedBerita)) {

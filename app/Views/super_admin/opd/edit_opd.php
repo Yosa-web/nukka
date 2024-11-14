@@ -7,8 +7,7 @@
             <!-- start page title -->
             <div class="row">
                 <div class="col-12">
-                    <div
-                        class="page-title-box d-sm-flex align-items-center justify-content-between">
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                         <h3 class="mb-sm-0">
                             Edit OPD
                         </h3>
@@ -34,43 +33,55 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <form action="<?= base_url('/superadmin/opd/update/' . $opd->id_opd) ?>" method="post">
-                                <?= csrf_field() ?>
-                                <input type="hidden" name="_method" value="PUT">
+                        <form action="<?= base_url('/superadmin/opd/update') ?>" method="post" enctype="multipart/form-data">
+                        <?= csrf_field() ?>
+                        <!-- Input hidden untuk ID OPD -->
+                        <input type="hidden" name="id_opd" value="<?= $opd->id_opd ?>">
                                 <div class="row mb-3">
                                     <label for="nama_opd" class="col-sm-3 col-form-label">Nama OPD</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="nama_opd" name="nama_opd" placeholder="Masukkan Nama OPD" value="<?= old('nama_opd', $opd->nama_opd) ?>">
-                                        <div id="nama_opd_error" class="error"></div>
+                                        <input type="text" class="form-control <?= session('errors.nama_opd') ? 'is-invalid' : '' ?>" id="nama_opd" name="nama_opd" value="<?= old('nama_opd', $opd->nama_opd) ?>" placeholder="Masukkan Nama OPD">
+                                        <?php if (session('errors.nama_opd')) : ?>
+                                            <div class="invalid-feedback"><?= session('errors.nama_opd') ?></div>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
+
                                 <div class="row mb-3">
                                     <label for="alamat" class="col-sm-3 col-form-label">Alamat</label>
                                     <div class="col-sm-9">
-                                        <textarea class="form-control" id="alamat" name="alamat" rows="4" placeholder="Masukkan Alamat OPD"><?= old('alamat', $opd->alamat) ?></textarea>
+                                        <textarea class="form-control <?= session('errors.alamat') ? 'is-invalid' : '' ?>" id="alamat" name="alamat" rows="4" placeholder="Masukkan Alamat OPD"><?= old('alamat', $opd->alamat) ?></textarea>
+                                        <?php if (session('errors.alamat')) : ?>
+                                            <div class="invalid-feedback"><?= session('errors.alamat') ?></div>
+                                        <?php endif; ?>
                                     </div>
-                                    <div id="alamat_error" class="error"></div>
                                 </div>
+
                                 <div class="row mb-3">
                                     <label for="telepon" class="col-sm-3 col-form-label">No. Telepon</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="telepon" name="telepon" placeholder="Masukkan Nomor Telepon" value="<?= old('telepon', $opd->telepon) ?>">
+                                        <input type="text" class="form-control <?= session('errors.telepon') ? 'is-invalid' : '' ?>" id="telepon" name="telepon" value="<?= old('telepon', $opd->telepon) ?>" placeholder="Masukkan Nomor Telepon OPD">
+                                        <?php if (session('errors.telepon')) : ?>
+                                            <div class="invalid-feedback"><?= session('errors.telepon') ?></div>
+                                        <?php endif; ?>
                                     </div>
-                                    <div id="telepon_error" class="error"></div>
                                 </div>
+
                                 <div class="row mb-5">
                                     <label for="email" class="col-sm-3 col-form-label">Email</label>
                                     <div class="col-sm-9">
-                                        <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan Email OPD" value="<?= old('email', $opd->email) ?>">
+                                        <input type="email" class="form-control <?= session('errors.email') ? 'is-invalid' : '' ?>" id="email" name="email" value="<?= old('email', $opd->email) ?>" placeholder="Masukkan Email OPD">
+                                        <?php if (session('errors.email')) : ?>
+                                            <div class="invalid-feedback"><?= session('errors.email') ?></div>
+                                        <?php endif; ?>
                                     </div>
-                                    <div id="email_error" class="error"></div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="d-flex justify-content-end">
                                             <button type="button" class="btn btn-secondary w-md" onclick="window.location.href='/superadmin/opd'">Batal</button>
-                                            <button type="submit" class="btn btn-warning w-md ms-4">Perbarui</button>
+                                            <button type="submit" class="btn btn-primary w-md ms-4">Kirim</button>
                                         </div>
                                     </div>
                                 </div>
@@ -125,22 +136,16 @@
         $('#email').on('keyup change', function() {
             var email = $(this).val();
             var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-            if (!emailPattern.test(email) || email.length > 100) {
-                $('#email_error').text('Masukkan format email yang valid dan tidak lebih dari 100 karakter.');
+            if (!email.match(emailPattern)) {
+                $('#email_error').text('Format email tidak valid.');
                 $(this).addClass('is-invalid');
             } else {
                 $('#email_error').text('');
                 $(this).removeClass('is-invalid');
             }
         });
-
-        // Prevent form submission if there are errors
-        $('#myForm').on('submit', function(e) {
-            if ($('.is-invalid').length > 0) {
-                e.preventDefault(); // Prevent form from submitting
-                alert('Periksa kembali form yang diisi.');
-            }
-        });
     });
 </script>
+
 <?= $this->endSection(); ?>
+    

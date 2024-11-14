@@ -74,7 +74,7 @@ class KelolaUser extends BaseRegisterController
         $pegawaiOPD = [];
 
         // Ambil semua pengguna yang aktif dengan filter id_opd tidak kosong
-        $users = $userModel->where('active', 1)->where('id_opd !=', null)->findAll();
+        $users = $userModel->where('id_opd !=', null)->findAll();
         foreach ($users as $user) {
             $groups = $groupModel->getGroupsForUser($user->id);
             $groupNames = array_column($groups, 'group');
@@ -108,7 +108,7 @@ class KelolaUser extends BaseRegisterController
         $penggunaUmum = [];
 
         // Ambil semua pengguna yang aktif dengan filter id_opd kosong
-        $users = $userModel->where('active', 1)->where('id_opd', null)->findAll();
+        $users = $userModel->where('id_opd', null)->findAll();
         foreach ($users as $user) {
             $groups = $groupModel->getGroupsForUser($user->id);
             $groupNames = array_column($groups, 'group');
@@ -131,13 +131,32 @@ class KelolaUser extends BaseRegisterController
 
     public function createAdmin()
     {
-        // Ambil data dari tabel opd
-        $opdModel = new OpdModel(); // Inisialisasi model opd
-        $test['opd'] = $opdModel->findAll(); // Ambil semua data opd
-
-        // Kirim data ke view
-        return $this->view('super_admin/user/admin_opd/create_admin', $test);
+        // Inisialisasi model OPD
+        $opdModel = new OpdModel();
+        
+        // Mendapatkan instance database
+        $db = \Config\Database::connect();
+        
+        // Mendapatkan daftar id_opd yang sudah digunakan oleh user dalam grup 'admin-opd'
+        $usedOpdIds = $db->table('auth_groups_users') 
+            ->join('users', 'auth_groups_users.user_id = users.id')
+            ->where('auth_groups_users.group', 'admin-opd')
+            ->select('users.id_opd')
+            ->distinct()
+            ->get()
+            ->getResultArray();
+        
+        // Ekstrak id_opd yang digunakan ke dalam array
+        $usedOpdIdsArray = array_column($usedOpdIds, 'id_opd');
+        
+        // Ambil OPD yang belum digunakan (tidak ada dalam daftar id_opd yang sudah digunakan)
+        $opd = $opdModel->getAvailableOpd($usedOpdIdsArray); // Menggunakan fungsi getAvailableOpd
+    
+        // Kirim data OPD ke view
+        return $this->view('super_admin/user/admin_opd/create_admin', ['opd' => $opd]);
     }
+      
+    
 
     public function createPegawai()
     {
@@ -227,12 +246,28 @@ class KelolaUser extends BaseRegisterController
 
 
 
-    public function editAdmin(int $id)
+    public function editAdmin(string $id)
     {
+
+        // Ambil encrypter dari service untuk dekripsi
+        $encrypter = \Config\Services::encrypter();
+
+        // Dekripsi ID
+        try {
+            // Dekripsi ID terenkripsi (menggunakan hex2bin untuk mengkonversi dari hex)
+            $decryptedId = $encrypter->decrypt(hex2bin($id));
+    
+            // Pastikan ID yang terdekripsi adalah integer
+            $decryptedId = (int) $decryptedId;
+        } catch (\Exception $e) {
+            // Tangani jika dekripsi gagal
+            return redirect()->back()->with('error', 'ID tidak valid.');
+        }
+
         $users = $this->getUserProvider();
 
         // Dapatkan user berdasarkan ID
-        $user = $users->findById($id);
+        $user = $users->findById($decryptedId);
 
         if (!$user) {
             return redirect()->to('/superadmin/user/admin_opd/admin_list')
@@ -259,29 +294,46 @@ class KelolaUser extends BaseRegisterController
     }
 
 
-    public function editPegawai(int $id)
+    public function editPegawai(string $id)
     {
+
+        // Ambil encrypter dari service untuk dekripsi
+        $encrypter = \Config\Services::encrypter();
+
+        // Dekripsi ID
+        try {
+            // Dekripsi ID terenkripsi (menggunakan hex2bin untuk mengkonversi dari hex)
+            $decryptedId = $encrypter->decrypt(hex2bin($id));
+    
+            // Pastikan ID yang terdekripsi adalah integer
+            $decryptedId = (int) $decryptedId;
+        } catch (\Exception $e) {
+            // Tangani jika dekripsi gagal
+            return redirect()->back()->with('error', 'ID tidak valid.');
+        }
+
         $users = $this->getUserProvider();
-
+    
         // Dapatkan user berdasarkan ID
-        $user = $users->findById($id);
-
+        $user = $users->findById($decryptedId);
+    
         if (!$user) {
             return redirect()->to('/superadmin/user/pegawai/pegawai_list')
                 ->with('error', 'User tidak ditemukan.');
         }
-
+    
         // Ambil grup user saat ini menggunakan GroupModel
         $groupModel = new GroupModel();
         $userGroups = $groupModel->getGroupsForUser($user->id);
-
-        // Ambil nama grup, atau jika tidak ada, tetapkan ke 'user' sebagai default
-        $currentGroup = !empty($userGroups) ? $userGroups[0]['group'] : 'user';
-
+    
+        // Ambil nama grup dalam bentuk array, lalu tetapkan ke grup pertama atau 'user' jika tidak ada
+        $groupNames = array_column($userGroups, 'group');
+        $currentGroup = !empty($groupNames) ? $groupNames[0] : 'user';
+    
         // Ambil data OPD
         $opdModel = new OpdModel();
         $opd = $opdModel->findAll();
-
+    
         // Kirim data user, grup, dan OPD ke view
         return view('super_admin/user/pegawai/edit_pegawai', [
             'user' => $user,
@@ -290,71 +342,81 @@ class KelolaUser extends BaseRegisterController
         ]);
     }
     
+    
 
 
 
     public function update(int $id): RedirectResponse
     {
         $users = $this->getUserProvider();
-
+    
         // Dapatkan user berdasarkan ID
         $user = $users->findById($id);
         if (!$user) {
             return redirect()->back()->with('error', 'User tidak ditemukan.');
         }
-
+    
         // Ambil rules dari validation config (misalnya editUser)
         $rules = config('Validation')->editUser;
-
+    
         // Modifikasi aturan agar semua field menjadi opsional
         foreach ($rules as $field => &$rule) {
             $rule['rules'] = array_merge(['permit_empty'], $rule['rules']);
         }
-
+    
         // Menambahkan aturan unik untuk email hanya jika email diubah
         $newEmail = $this->request->getPost('email');
         if ($newEmail && $newEmail !== $user->email) {
             $rules['email']['rules'][] = 'is_unique[auth_identities.secret,id,' . $id . ']';
         }
-
+    
         // Menambahkan aturan unik untuk no_telepon dan NIP hanya jika diubah
         $newNoTelepon = $this->request->getPost('no_telepon');
         if ($newNoTelepon && $newNoTelepon !== $user->no_telepon) {
             $rules['no_telepon']['rules'][] = 'is_unique[users.no_telepon,id,' . $id . ']';
         }
-
+    
         $newNIP = $this->request->getPost('NIP');
         if ($newNIP && $newNIP !== $user->NIP) {
             $rules['NIP']['rules'][] = 'is_unique[users.NIP,id,' . $id . ']';
         }
-
+    
+        // Tambahkan validasi untuk field `active`
+        $rules['active'] = [
+            'rules' => 'required|in_list[0,1]',
+            'label' => 'Status'
+        ];
+    
         // Lakukan validasi
         if (!$this->validateData($this->request->getPost(), $rules, [], config('Auth')->DBGroup)) {
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
-
+    
         // Update data user
         $allowedPostFields = array_keys($rules);
         $user->fill($this->request->getPost($allowedPostFields));
-
+    
+        // Set field `active` sesuai input
+        $user->active = $this->request->getPost('active');
+    
         try {
             $users->save($user);
         } catch (ValidationException $e) {
             return redirect()->back()->withInput()->with('errors', $users->errors());
         }
-
+    
         // Jika grup diubah
         $group = $this->request->getPost('group');
         if ($group) {
             $groupModel = new GroupModel();
-
+    
             // Hapus semua grup yang terkait dengan user saat ini
             $groupModel->removeUserFromAllGroups($user->id);
-
+    
             // Tambahkan user ke grup baru dari form
             $groupModel->addUserToGroup($user->id, $group);
         }
-
+    
         // Catat log aktivitas
         $superAdminId = auth()->user()->id;
         $logData = [
@@ -362,25 +424,26 @@ class KelolaUser extends BaseRegisterController
             'tanggal_aktivitas' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(),
             'aksi'             => 'update',
             'jenis_data'       => 'User',
-            'keterangan'       => "SuperAdmin dengan ID {$superAdminId} mengupdate User baru dengan ID {$user->id} dan grup {$group}",
+            'keterangan'       => "SuperAdmin dengan ID {$superAdminId} mengupdate User dengan ID {$user->id}, status aktif {$user->active}, dan grup {$group}",
         ];
-
+    
         $logModel = new LogAktivitasModel();
         $logModel->save($logData);
-
+    
         // Tentukan arah redirect berdasarkan group yang diinputkan
         if ($group === 'admin-opd') {
             return redirect()->to('/superadmin/user/list/admin')
-                ->with('message', 'Pendaftaran berhasil! Akun Anda akan diaktivasi oleh superadmin.');
+                ->with('message', 'Data user berhasil diperbarui.');
         } elseif (in_array($group, ['sekertaris-opd', 'kepala-opd', 'operator'])) {
             return redirect()->to('/superadmin/user/list/pegawai')
-                ->with('message', 'Pendaftaran berhasil! Akun Anda akan diaktivasi oleh superadmin.');
+                ->with('message', 'Data user berhasil diperbarui.');
         }
-
+    
         // Jika group tidak sesuai dengan kondisi yang ada, tetap redirect ke daftar pengguna admin
         return redirect()->to('/superadmin/user/list/admin')
-            ->with('message', 'Pendaftaran berhasil! Akun Anda akan diaktivasi oleh superadmin.');
+            ->with('message', 'Data user berhasil diperbarui.');
     }
+    
 
 
 
@@ -455,12 +518,27 @@ class KelolaUser extends BaseRegisterController
     }
 
 
-    public function editUserUmum(int $id)
+    public function editUserUmum(string $id)
     {
+        // Ambil encrypter dari service untuk dekripsi
+        $encrypter = \Config\Services::encrypter();
+
+        // Dekripsi ID
+        try {
+            // Dekripsi ID terenkripsi (menggunakan hex2bin untuk mengkonversi dari hex)
+            $decryptedId = $encrypter->decrypt(hex2bin($id));
+    
+            // Pastikan ID yang terdekripsi adalah integer
+            $decryptedId = (int) $decryptedId;
+        } catch (\Exception $e) {
+            // Tangani jika dekripsi gagal
+            return redirect()->back()->with('error', 'ID tidak valid.');
+        }
+
         $users = $this->getUserProvider();
 
         // Dapatkan user berdasarkan ID
-        $user = $users->findById($id);
+        $user = $users->findById($decryptedId);
 
         if (!$user) {
             return redirect()->to('/superadmin/user/list')
@@ -485,66 +563,71 @@ class KelolaUser extends BaseRegisterController
     public function updateUserUmum(int $id): RedirectResponse
     {
         $users = $this->getUserProvider();
-
+    
         // Dapatkan user berdasarkan ID
         $user = $users->findById($id);
         if (!$user) {
             return redirect()->back()->with('error', 'User tidak ditemukan.');
         }
-
+    
         // Ambil rules dari validation config (misalnya editUser)
         $rules = config('Validation')->editUserUmum;
-
+    
         // Modifikasi aturan agar semua field menjadi opsional
         foreach ($rules as $field => &$rule) {
             $rule['rules'] = array_merge(['permit_empty'], $rule['rules']);
         }
-
+    
         // Menambahkan aturan unik untuk email hanya jika email diubah
         $newEmail = $this->request->getPost('email');
         if ($newEmail && $newEmail !== $user->email) {
             $rules['email']['rules'][] = 'is_unique[auth_identities.secret,id,' . $id . ']';
         }
-
+    
         // Menambahkan aturan unik untuk no_telepon dan NIP hanya jika diubah
         $newNoTelepon = $this->request->getPost('no_telepon');
         if ($newNoTelepon && $newNoTelepon !== $user->no_telepon) {
             $rules['no_telepon']['rules'][] = 'is_unique[users.no_telepon,id,' . $id . ']';
         }
-
+    
         $newNIP = $this->request->getPost('NIK');
         if ($newNIP && $newNIP !== $user->NIP) {
             $rules['NIK']['rules'][] = 'is_unique[users.NIK,id,' . $id . ']';
         }
-
+    
+        // Tambahkan aturan untuk active agar menjadi opsional
+        $rules['active'] = [
+            'rules' => 'permit_empty|in_list[0,1]',
+            'label' => 'Status Aktivasi'
+        ];
+    
         // Lakukan validasi
         if (!$this->validateData($this->request->getPost(), $rules, [], config('Auth')->DBGroup)) {
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
-
+    
         // Update data user
         $allowedPostFields = array_keys($rules);
         $user->fill($this->request->getPost($allowedPostFields));
-
+    
         try {
             $users->save($user);
         } catch (ValidationException $e) {
             return redirect()->back()->withInput()->with('errors', $users->errors());
         }
-
+    
         // Jika grup diubah
         $group = $this->request->getPost('group');
         if ($group) {
             $groupModel = new GroupModel();
-
+    
             // Hapus semua grup yang terkait dengan user saat ini
             $groupModel->removeUserFromAllGroups($user->id);
-
+    
             // Tambahkan user ke grup baru dari form
             $groupModel->addUserToGroup($user->id, $group);
         }
-
-
+    
         // Catat log aktivitas
         $superAdminId = auth()->user()->id;
         $logData = [
@@ -554,18 +637,20 @@ class KelolaUser extends BaseRegisterController
             'jenis_data'       => 'User',
             'keterangan'       => "SuperAdmin dengan ID {$superAdminId} mengupdate User baru dengan ID {$user->id} dan grup {$group}",
         ];
-
+    
         $logModel = new LogAktivitasModel();
         $logModel->save($logData);
-
-
+    
         // Redirect dengan pesan sukses
         return redirect()->to('/superadmin/user/list/umum')
             ->with('message', 'Data user berhasil diperbarui.');
     }
+    
 
-    public function delete($id)
+    public function delete()
     {
+        // Ambil ID dari request POST
+        $id = $this->request->getPost('id');
         $userModel = new UserModel();
 
         // Cek apakah user ada
@@ -602,37 +687,41 @@ class KelolaUser extends BaseRegisterController
     {
         $userModel = new UserModel();
         $opdModel = new OpdModel();
-
-        // Ambil semua pengguna yang belum aktif
-        $users = $userModel->where('active', 0)->findAll();
-
+        $groupModel = new GroupModel(); // Model untuk menangani grup pengguna
+    
+        // Ambil semua pengguna yang belum aktif dan memiliki grup 'admin-opd'
+        $users = $userModel
+            ->select('users.*, auth_groups_users.group')
+            ->join('auth_groups_users', 'auth_groups_users.user_id = users.id')
+            ->where('active', 0)
+            ->where('auth_groups_users.group', 'admin-opd')
+            ->findAll();
+    
         foreach ($users as $user) {
             // Ambil data OPD dan email dari tabel masing-masing
             $user->nama_opd = $opdModel->find($user->id_opd)->nama_opd ?? 'Tidak Diketahui';
             $user->email = $user->getEmail(); // Metode getEmail() sesuai entitas email
         }
-
-
-
+    
         return view('super_admin/user/aktivasi', ['users' => $users]);
     }
 
 
-    public function activate($id)
+    public function activate()
     {
         $userModel = new UserModel();
-
-        // Dapatkan data user berdasarkan ID
+    
+        // Dapatkan ID dari input POST
+        $id = $this->request->getPost('id');
         $user = $userModel->find($id);
-
-        // Periksa apakah user ada dan belum aktif
+    
         if (!$user || $user->active == 1) {
             return redirect()->back()->with('error', 'User tidak ditemukan atau sudah aktif.');
         }
-        // Update status active menjadi 1
+    
         $user->active = 1;
         $userModel->save($user);
-
+    
         $superAdminId = auth()->user()->id;
         $logData = [
             'id_user'          => $superAdminId,
@@ -641,76 +730,61 @@ class KelolaUser extends BaseRegisterController
             'jenis_data'       => 'User',
             'keterangan'       => "SuperAdmin dengan ID {$superAdminId} mengaktifkan User baru dengan ID {$user->id}",
         ];
-
+    
         $logModel = new LogAktivitasModel();
         $logModel->save($logData);
-        // Kirim email notifikasi aktivasi
+    
         $email = \Config\Services::email();
         $email->setTo($user->email);
         $email->setSubject('Pemberitahuan Aktivasi Akun - Balitbang Pesawaran');
-
-        // Pesan email formal
+    
         $message = "
             <p>Yth. {$user->name},</p>
-            
             <p>Dengan hormat,</p>
-            
             <p>Sehubungan dengan pendaftaran Anda sebagai pengguna di sistem kami, kami ingin memberitahukan bahwa akun Anda telah berhasil diaktifkan. Anda sekarang dapat masuk ke sistem menggunakan akun Anda.</p>
-            
-            <p>Apabila Anda memerlukan bantuan lebih lanjut, jangan ragu untuk menghubungi kami.</p>
-            
-            <p>Terima kasih atas perhatian dan kerjasama Anda.</p>
-
             <p>Hormat kami,</p>
-            <p>Balitbang Pesawaran<br>
-            [Alamat Instansi]<br>
-            [Nomor Telepon Instansi]<br>
-            [Email Instansi]</p>
+            <p>Balitbang Pesawaran</p>
         ";
-
+    
         $email->setMessage($message);
-        $email->setMailType('html'); // Mengatur jenis email ke HTML
+        $email->setMailType('html');
+    
         if ($email->send()) {
             return redirect()->back()->with('message', 'Akun berhasil diaktifkan dan email notifikasi telah dikirim.');
         } else {
             return redirect()->back()->with('error', 'Akun berhasil diaktifkan namun email gagal dikirim.');
         }
     }
+    
 
-    public function reject($id)
+    public function reject()
     {
         $userModel = new UserModel();
+    
+        $id = $this->request->getPost('id');
         $user = $userModel->find($id);
-        
-        // Periksa apakah user ada dan belum aktif
+    
         if (!$user || $user->active == 1) {
             return redirect()->back()->with('error', 'User tidak ditemukan atau sudah aktif.');
         }
-        
-        // Kirim email notifikasi penolakan
+    
         $email = \Config\Services::email();
         $email->setTo($user->email);
         $email->setSubject('Penolakan Aktivasi Akun - Balitbang Pesawaran');
-        
+    
         $message = "
             <p>Yth. {$user->name},</p>
-            
             <p>Kami mohon maaf, pendaftaran Anda tidak dapat kami terima. Silakan mencoba mendaftar kembali dengan data yang sesuai.</p>
-            
-            <p>Terima kasih atas perhatian Anda.</p>
-            
             <p>Hormat kami,</p>
             <p>Balitbang Pesawaran</p>
         ";
-        
+    
         $email->setMessage($message);
         $email->setMailType('html');
-        
+    
         if ($email->send()) {
-            // Jika email berhasil dikirim, hapus akun secara permanen
-            $userModel->delete($id, true); // Parameter true untuk penghapusan permanen
-            
-            // Log aktivitas penolakan
+            $userModel->delete($id, true);
+    
             $superAdminId = auth()->user()->id;
             $logData = [
                 'id_user'          => $superAdminId,
@@ -719,13 +793,14 @@ class KelolaUser extends BaseRegisterController
                 'jenis_data'       => 'User',
                 'keterangan'       => "SuperAdmin dengan ID {$superAdminId} menolak aktivasi User dengan ID {$user->id}",
             ];
-            
+    
             $logModel = new LogAktivitasModel();
             $logModel->save($logData);
-            
+    
             return redirect()->back()->with('message', 'Akun berhasil ditolak, dihapus secara permanen, dan email notifikasi penolakan telah dikirim.');
         } else {
             return redirect()->back()->with('error', 'Email penolakan gagal dikirim. Akun tidak dihapus.');
         }
     }
+    
 }
