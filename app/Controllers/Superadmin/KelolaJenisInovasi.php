@@ -78,14 +78,14 @@ class KelolaJenisInovasi extends BaseController
 
 
 
-    // Tampilkan form untuk mengedit jenis inovasi
     public function edit($id)
     {
         $model = new JenisInovasiModel();
-        $data['jenis_inovasi'] = $model->find($id);
+        $jenis = $model->find($id); // Ambil data berdasarkan ID
 
-        return view('/super_admin/jenis_inovasi/edit_jenis_inovasi', $data);
+        return view('super_admin/jenis_inovasi/jenis_inovasi_list', ['jenis' => $jenis]);
     }
+
 
     // Update data jenis inovasi di database
     public function update($id)

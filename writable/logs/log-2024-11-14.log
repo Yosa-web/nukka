@@ -1031,3 +1031,474 @@ WARNING - 2024-11-14 03:57:55 --> [DEPRECATED] Creation of dynamic property App\
  8 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\Runov_Litbang\\public\\index.php')
 INFO - 2024-11-14 03:57:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-11-14 03:57:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:25:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:25:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:26:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:26:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:26:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:26:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:26:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:26:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:26:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-11-14 04:26:26 --> [DEPRECATED] Creation of dynamic property App\Controllers\Superadmin\Dashboard::$logModel is deprecated in APPPATH\Controllers\Superadmin\Dashboard.php on line 12.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Superadmin\Dashboard->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\Apps\\Laragon\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-11-14 04:26:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:26:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:26:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-14 04:26:31 --> ErrorException: Undefined array key "slug"
+[Method: GET, Route: superadmin/berita/list-berita]
+in APPPATH\Views\super_admin\berita\list_berita.php on line 79.
+ 1 APPPATH\Views\super_admin\berita\list_berita.php(79): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "slug"', 'D:\\Apps\\Laragon\\laragon\\www\\Runov_Litbang\\app\\Views\\super_admin\\berita\\list_berita.php', 79)
+ 2 SYSTEMPATH\View\View.php(234): include('D:\\Apps\\Laragon\\laragon\\www\\Runov_Litbang\\app\\Views\\super_admin\\berita\\list_berita.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('super_admin/berita/list_berita', [], true)
+ 5 APPPATH\Controllers\Superadmin\KelolaBerita.php(26): view('super_admin/berita/list_berita', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Superadmin\KelolaBerita->index()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Superadmin\KelolaBerita))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('D:\\Apps\\Laragon\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-11-14 04:28:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:28:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:29:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:29:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:29:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-11-14 04:29:25 --> Array
+(
+    [judul] => Dinas PLH Pesawaran Bangun Kesadaran Lingkungan Melalui Sosialisasi Kampung Iklim
+    [isi] => hkhjb nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn  nbjvjjjjjjjjjjjjjjjjjjjj asuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu
+    [status] => draft
+)
+
+DEBUG - 2024-11-14 04:29:25 --> Image moved successfully: 1731558565_2269574d2c0feef4dfbc.png
+INFO - 2024-11-14 04:29:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:29:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:30:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:30:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:30:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:30:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:34:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:34:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:34:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:34:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:34:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:34:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:34:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-11-14 04:34:55 --> [DEPRECATED] Creation of dynamic property App\Controllers\Superadmin\Dashboard::$logModel is deprecated in APPPATH\Controllers\Superadmin\Dashboard.php on line 12.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Superadmin\Dashboard->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\Apps\\Laragon\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-11-14 04:34:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:34:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:35:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:35:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:35:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:35:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:35:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-11-14 04:35:41 --> [DEPRECATED] Creation of dynamic property App\Controllers\Superadmin\KelolaUser::$userModel is deprecated in APPPATH\Controllers\Superadmin\KelolaUser.php on line 20.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Superadmin\KelolaUser->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\Apps\\Laragon\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-11-14 04:35:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:35:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-11-14 04:35:47 --> [DEPRECATED] Creation of dynamic property App\Controllers\Superadmin\KelolaUser::$userModel is deprecated in APPPATH\Controllers\Superadmin\KelolaUser.php on line 20.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Superadmin\KelolaUser->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\Apps\\Laragon\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-11-14 04:35:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:35:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-11-14 04:35:49 --> [DEPRECATED] Creation of dynamic property App\Controllers\Superadmin\KelolaUser::$userModel is deprecated in APPPATH\Controllers\Superadmin\KelolaUser.php on line 20.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Superadmin\KelolaUser->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\Apps\\Laragon\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-11-14 04:35:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:35:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:35:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:35:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:36:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:36:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:36:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:36:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:36:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:36:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:36:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:36:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:36:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:36:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:36:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:36:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:37:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:37:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:37:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:37:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:37:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:37:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:37:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:37:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:37:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:37:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:37:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:37:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:37:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:38:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:38:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:38:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:38:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:38:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:38:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:38:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:38:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:38:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:38:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-11-14 04:42:19 --> [DEPRECATED] Creation of dynamic property App\Controllers\Superadmin\KelolaUser::$userModel is deprecated in APPPATH\Controllers\Superadmin\KelolaUser.php on line 20.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Superadmin\KelolaUser->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\Apps\\Laragon\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-11-14 04:42:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:42:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-11-14 04:42:23 --> [DEPRECATED] Creation of dynamic property App\Controllers\Superadmin\KelolaUser::$userModel is deprecated in APPPATH\Controllers\Superadmin\KelolaUser.php on line 20.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Superadmin\KelolaUser->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\Apps\\Laragon\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-11-14 04:42:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:42:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-11-14 04:42:27 --> [DEPRECATED] Creation of dynamic property App\Controllers\Superadmin\KelolaUser::$userModel is deprecated in APPPATH\Controllers\Superadmin\KelolaUser.php on line 20.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Superadmin\KelolaUser->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\Apps\\Laragon\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-11-14 04:42:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-11-14 04:42:27 --> [DEPRECATED] Creation of dynamic property App\Controllers\Superadmin\KelolaUser::$userModel is deprecated in APPPATH\Controllers\Superadmin\KelolaUser.php on line 20.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Superadmin\KelolaUser->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\Apps\\Laragon\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-11-14 04:42:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:42:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-11-14 04:42:32 --> [DEPRECATED] Creation of dynamic property App\Controllers\Superadmin\KelolaUser::$userModel is deprecated in APPPATH\Controllers\Superadmin\KelolaUser.php on line 20.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Superadmin\KelolaUser->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\Apps\\Laragon\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-11-14 04:42:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:42:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-11-14 04:42:41 --> [DEPRECATED] Creation of dynamic property App\Controllers\Superadmin\KelolaUser::$userModel is deprecated in APPPATH\Controllers\Superadmin\KelolaUser.php on line 20.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Superadmin\KelolaUser->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\Apps\\Laragon\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-11-14 04:42:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-11-14 04:42:47 --> [DEPRECATED] Creation of dynamic property App\Controllers\Superadmin\KelolaUser::$userModel is deprecated in APPPATH\Controllers\Superadmin\KelolaUser.php on line 20.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Superadmin\KelolaUser->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\Apps\\Laragon\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-11-14 04:42:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-11-14 04:42:47 --> [DEPRECATED] Creation of dynamic property App\Controllers\Superadmin\KelolaUser::$userModel is deprecated in APPPATH\Controllers\Superadmin\KelolaUser.php on line 20.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Superadmin\KelolaUser->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\Apps\\Laragon\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-11-14 04:42:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:42:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-11-14 04:42:52 --> [DEPRECATED] Creation of dynamic property App\Controllers\Superadmin\KelolaUser::$userModel is deprecated in APPPATH\Controllers\Superadmin\KelolaUser.php on line 20.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Superadmin\KelolaUser->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\Apps\\Laragon\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-11-14 04:42:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:42:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-11-14 04:42:55 --> [DEPRECATED] Creation of dynamic property App\Controllers\Superadmin\KelolaUser::$userModel is deprecated in APPPATH\Controllers\Superadmin\KelolaUser.php on line 20.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Superadmin\KelolaUser->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\Apps\\Laragon\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-11-14 04:42:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:42:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-11-14 04:43:12 --> [DEPRECATED] Creation of dynamic property App\Controllers\Superadmin\KelolaUser::$userModel is deprecated in APPPATH\Controllers\Superadmin\KelolaUser.php on line 20.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Superadmin\KelolaUser->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\Apps\\Laragon\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-11-14 04:43:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:43:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-11-14 04:43:15 --> [DEPRECATED] Creation of dynamic property App\Controllers\Superadmin\KelolaUser::$userModel is deprecated in APPPATH\Controllers\Superadmin\KelolaUser.php on line 20.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Superadmin\KelolaUser->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\Apps\\Laragon\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-11-14 04:43:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:43:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-11-14 04:43:21 --> [DEPRECATED] Creation of dynamic property App\Controllers\Superadmin\KelolaUser::$userModel is deprecated in APPPATH\Controllers\Superadmin\KelolaUser.php on line 20.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Superadmin\KelolaUser->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\Apps\\Laragon\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-11-14 04:43:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:43:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-11-14 04:43:27 --> [DEPRECATED] Creation of dynamic property App\Controllers\Superadmin\KelolaUser::$userModel is deprecated in APPPATH\Controllers\Superadmin\KelolaUser.php on line 20.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Superadmin\KelolaUser->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\Apps\\Laragon\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-11-14 04:43:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-11-14 04:43:28 --> [DEPRECATED] Creation of dynamic property App\Controllers\Superadmin\KelolaUser::$userModel is deprecated in APPPATH\Controllers\Superadmin\KelolaUser.php on line 20.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Superadmin\KelolaUser->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\Apps\\Laragon\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-11-14 04:43:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:43:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-11-14 04:43:32 --> [DEPRECATED] Creation of dynamic property App\Controllers\Superadmin\KelolaUser::$userModel is deprecated in APPPATH\Controllers\Superadmin\KelolaUser.php on line 20.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Superadmin\KelolaUser->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\Apps\\Laragon\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-11-14 04:43:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:43:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-11-14 04:43:37 --> [DEPRECATED] Creation of dynamic property App\Controllers\Superadmin\KelolaUser::$userModel is deprecated in APPPATH\Controllers\Superadmin\KelolaUser.php on line 20.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Superadmin\KelolaUser->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\Apps\\Laragon\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-11-14 04:43:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-11-14 04:43:37 --> [DEPRECATED] Creation of dynamic property App\Controllers\Superadmin\KelolaUser::$userModel is deprecated in APPPATH\Controllers\Superadmin\KelolaUser.php on line 20.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Superadmin\KelolaUser->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\Apps\\Laragon\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-11-14 04:43:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:43:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:43:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:43:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:43:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:43:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:43:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:43:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:44:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:44:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:44:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:44:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 04:44:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 06:38:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 06:38:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 06:38:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 06:38:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 06:40:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 06:40:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 06:40:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-11-14 06:40:47 --> [DEPRECATED] Creation of dynamic property App\Controllers\Superadmin\Dashboard::$logModel is deprecated in APPPATH\Controllers\Superadmin\Dashboard.php on line 12.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Superadmin\Dashboard->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\Apps\\Laragon\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-11-14 06:40:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 06:40:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-11-14 06:40:54 --> [DEPRECATED] Creation of dynamic property App\Controllers\Superadmin\Dashboard::$logModel is deprecated in APPPATH\Controllers\Superadmin\Dashboard.php on line 12.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Superadmin\Dashboard->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\Apps\\Laragon\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-11-14 06:40:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 06:40:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-11-14 06:41:28 --> [DEPRECATED] Creation of dynamic property App\Controllers\Superadmin\KelolaUser::$userModel is deprecated in APPPATH\Controllers\Superadmin\KelolaUser.php on line 20.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Superadmin\KelolaUser->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\Apps\\Laragon\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-11-14 06:41:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 06:41:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-11-14 06:41:31 --> [DEPRECATED] Creation of dynamic property App\Controllers\Superadmin\KelolaUser::$userModel is deprecated in APPPATH\Controllers\Superadmin\KelolaUser.php on line 20.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Superadmin\KelolaUser->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\Apps\\Laragon\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-11-14 06:41:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 06:41:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 06:42:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 06:42:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 06:42:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 06:42:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 06:42:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 06:42:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 06:43:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 06:43:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 06:43:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 06:43:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 06:45:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 06:45:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 06:45:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 06:46:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 06:46:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 06:46:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 06:46:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-14 06:46:36 --> mysqli_sql_exception: Unknown column 'kecamatan' in 'field list' in D:\Apps\Laragon\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 D:\Apps\Laragon\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `in...', 0)
+#1 D:\Apps\Laragon\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `in...')
+#2 D:\Apps\Laragon\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `in...')
+#3 D:\Apps\Laragon\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `in...', Array, false)
+#4 D:\Apps\Laragon\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 D:\Apps\Laragon\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 D:\Apps\Laragon\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Model.php(802): CodeIgniter\BaseModel->insert(Array, false)
+#7 D:\Apps\Laragon\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\BaseModel.php(751): CodeIgniter\Model->insert(Array, false)
+#8 D:\Apps\Laragon\laragon\www\Runov_Litbang\app\Controllers\Superadmin\KelolaDataInovasi.php(135): CodeIgniter\BaseModel->save(Array)
+#9 D:\Apps\Laragon\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Superadmin\KelolaDataInovasi->store()
+#10 D:\Apps\Laragon\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Superadmin\KelolaDataInovasi))
+#11 D:\Apps\Laragon\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 D:\Apps\Laragon\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#13 D:\Apps\Laragon\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 D:\Apps\Laragon\laragon\www\Runov_Litbang\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 D:\Apps\Laragon\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('D:\\Apps\\Laragon...')
+#16 {main}
+CRITICAL - 2024-11-14 06:46:36 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'kecamatan' in 'field list'
+[Method: POST, Route: superadmin/inovasi/store]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `inovasi` (`judul`, `deskripsi`, `kategori`, `status`, `kecamatan`, `tanggal_pengajuan`, `id_user`, `id_opd`, `url_file`) VALUES (:judul:, :deskripsi:, :kategori:, :status:, :kecamatan:, :tanggal_pengajuan:, :id_user:, :id_opd:, :url_file:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 5 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 6 APPPATH\Controllers\Superadmin\KelolaDataInovasi.php(135): CodeIgniter\BaseModel->save([...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Superadmin\KelolaDataInovasi->store()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Superadmin\KelolaDataInovasi))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('D:\\Apps\\Laragon\\laragon\\www\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-11-14 06:46:36 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'kecamatan' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `inovasi` (`judul`, `deskripsi`, `kategori`, `status`, `kecamatan`, `tanggal_pengajuan`, `id_user`, `id_opd`, `url_file`) VALUES (\'CAP JEMPOL (lanCAr Posyandu dengan menJEMput Pakai Ojek Lansia)\', \'Aplikasi yang dapat digunakan oleh masyarakat umum untuk memberikan akses\', \'22\', \'tertunda\', \'Tegineneng\', \'2024-11-14 13:46:36\', 1, \'1\', \'uploads/1731566796_afa6dccc67edc59b2c93.pdf\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `inovasi` (`judul`, `deskripsi`, `kategori`, `status`, `kecamatan`, `tanggal_pengajuan`, `id_user`, `id_opd`, `url_file`) VALUES (\'CAP JEMPOL (lanCAr Posyandu dengan menJEMput Pakai Ojek Lansia)\', \'Aplikasi yang dapat digunakan oleh masyarakat umum untuk memberikan akses\', \'22\', \'tertunda\', \'Tegineneng\', \'2024-11-14 13:46:36\', 1, \'1\', \'uploads/1731566796_afa6dccc67edc59b2c93.pdf\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `inovasi` (`judul`, `deskripsi`, `kategori`, `status`, `kecamatan`, `tanggal_pengajuan`, `id_user`, `id_opd`, `url_file`) VALUES (:judul:, :deskripsi:, :kategori:, :status:, :kecamatan:, :tanggal_pengajuan:, :id_user:, :id_opd:, :url_file:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 7 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 8 APPPATH\Controllers\Superadmin\KelolaDataInovasi.php(135): CodeIgniter\BaseModel->save([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Superadmin\KelolaDataInovasi->store()
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Superadmin\KelolaDataInovasi))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('D:\\Apps\\Laragon\\laragon\\www\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-11-14 06:46:36 --> [Caused by] mysqli_sql_exception: Unknown column 'kecamatan' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `inovasi` (`judul`, `deskripsi`, `kategori`, `status`, `kecamatan`, `tanggal_pengajuan`, `id_user`, `id_opd`, `url_file`) VALUES (\'CAP JEMPOL (lanCAr Posyandu dengan menJEMput Pakai Ojek Lansia)\', \'Aplikasi yang dapat digunakan oleh masyarakat umum untuk memberikan akses\', \'22\', \'tertunda\', \'Tegineneng\', \'2024-11-14 13:46:36\', 1, \'1\', \'uploads/1731566796_afa6dccc67edc59b2c93.pdf\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `inovasi` (`judul`, `deskripsi`, `kategori`, `status`, `kecamatan`, `tanggal_pengajuan`, `id_user`, `id_opd`, `url_file`) VALUES (\'CAP JEMPOL (lanCAr Posyandu dengan menJEMput Pakai Ojek Lansia)\', \'Aplikasi yang dapat digunakan oleh masyarakat umum untuk memberikan akses\', \'22\', \'tertunda\', \'Tegineneng\', \'2024-11-14 13:46:36\', 1, \'1\', \'uploads/1731566796_afa6dccc67edc59b2c93.pdf\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `inovasi` (`judul`, `deskripsi`, `kategori`, `status`, `kecamatan`, `tanggal_pengajuan`, `id_user`, `id_opd`, `url_file`) VALUES (\'CAP JEMPOL (lanCAr Posyandu dengan menJEMput Pakai Ojek Lansia)\', \'Aplikasi yang dapat digunakan oleh masyarakat umum untuk memberikan akses\', \'22\', \'tertunda\', \'Tegineneng\', \'2024-11-14 13:46:36\', 1, \'1\', \'uploads/1731566796_afa6dccc67edc59b2c93.pdf\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `inovasi` (`judul`, `deskripsi`, `kategori`, `status`, `kecamatan`, `tanggal_pengajuan`, `id_user`, `id_opd`, `url_file`) VALUES (:judul:, :deskripsi:, :kategori:, :status:, :kecamatan:, :tanggal_pengajuan:, :id_user:, :id_opd:, :url_file:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(802): CodeIgniter\BaseModel->insert([...], false)
+ 8 SYSTEMPATH\BaseModel.php(751): CodeIgniter\Model->insert([...], false)
+ 9 APPPATH\Controllers\Superadmin\KelolaDataInovasi.php(135): CodeIgniter\BaseModel->save([...])
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Superadmin\KelolaDataInovasi->store()
+11 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Superadmin\KelolaDataInovasi))
+12 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH\rewrite.php(44): require_once('D:\\Apps\\Laragon\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-11-14 06:46:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 06:46:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 06:46:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 06:46:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 06:46:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 06:46:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 06:46:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-14 06:46:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

@@ -1,7 +1,6 @@
 <?= $this->extend('layout/master_dashboard'); ?>
-
-<?= $this->section('content'); ?>
 <?= $this->section('title') ?><title>Dashboard | Rumah Inovasi</title><?= $this->endSection() ?>
+<?= $this->section('content'); ?>
 <div class="main-content">
     <div class="page-content">
         <div class="container-fluid">

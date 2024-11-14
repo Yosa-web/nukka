@@ -1,7 +1,6 @@
 <?= $this->extend('layout/master_dashboard'); ?>
-
-<?= $this->section('content'); ?>
 <?= $this->section('title') ?><title>Jenis Inovasi | Rumah Inovasi</title><?= $this->endSection() ?>
+<?= $this->section('content'); ?>
 <div class="main-content">
     <div class="page-content">
         <div class="container-fluid">
@@ -52,7 +51,7 @@
                                     </thead>
                                     <tbody>
                                         <?php foreach ($jenis_inovasi as $jenis): ?>
-                                            <tr data-id="1">
+                                            <tr>
                                                 <td
                                                     data-field="id"
                                                     style="width: 80px"><?= $jenis['id_jenis_inovasi'] ?></td>
@@ -143,7 +142,7 @@
                         type="submit"
                         class="btn btn-primary"
                         data-bs-dismiss="modal"
-                        id="alert-success">
+                        id="">
                         Kirim
                     </button>
                 </div>
@@ -178,35 +177,16 @@
                     data-bs-dismiss="modal"
                     aria-label="Close"></button>
             </div>
-            <form action="" method="post">
+            <form action="/jenis_inovasi/update/<?= $jenis['id_jenis_inovasi'] ?>" method="post">
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label
-                            for="nama_jenis"
-                            class="col-form-label">Nama
-                            Jenis</label>
-                        <input
-                            type="text"
-                            class="form-control"
-                            id="nama_jenis"
-                            name="nama_jenis" value=""
-                            required />
+                        <label for="nama_jenis" class="col-form-label">Nama Jenis</label>
+                        <input type="text" class="form-control" id="nama_jenis" name="nama_jenis" value="<?= $jenis['nama_jenis'] ?>" required />
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button
-                        type="button"
-                        class="btn btn-light"
-                        data-bs-dismiss="modal">
-                        Batal
-                    </button>
-                    <button
-                        type="submit"
-                        class="btn btn-warning"
-                        data-bs-dismiss="modal"
-                        id="alert-success">
-                        Perbarui
-                    </button>
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-warning" data-bs-dismiss="modal">Perbarui</button>
                 </div>
             </form>
         </div>
@@ -215,22 +195,27 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-    const editButtons = document.querySelectorAll('.edit');
-    
-    editButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const id = button.getAttribute('data-id');
-            const namaJenis = button.getAttribute('data-nama');
-            
-            // Isi input modal dengan data yang sesuai
-            document.getElementById('nama_jenis').value = namaJenis;
-            
-            // Update form action untuk mengirim ID yang sesuai
-            const form = document.querySelector('#editModal form');
-            form.action = `/superadmin/jenis_inovasi/update/${id}`;
+        const editButtons = document.querySelectorAll('.edit');
+
+        editButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const id = button.getAttribute('data-id');
+                const namaJenis = button.getAttribute('data-nama');
+
+                // Isi input modal dengan data yang sesuai
+                document.getElementById('nama_jenis').value = namaJenis;
+
+                // Update form action untuk mengirim ID yang sesuai
+                const form = document.querySelector('#editModal form');
+                form.action = `/jenis_inovasi/update/${id}`;
+            });
+        });
+
+        // Bersihkan nilai modal saat ditutup
+        document.getElementById('editModal').addEventListener('hidden.bs.modal', function() {
+            document.getElementById('nama_jenis').value = '';
         });
     });
-});
 </script>
 <!-- Modal js -->
 <script src="/assets/js/pages/modal.init.js"></script>
@@ -238,18 +223,18 @@
 <script src="/assets/libs/alertifyjs/build/alertify.min.js"></script>
 <script>
     document.getElementById('alert-success').addEventListener('click', function(event) {
-    event.preventDefault();
-    Swal.fire({
-        title: 'Berhasil!',
-        text: 'Data berhasil diperbarui!',
-        icon: 'success',
-        confirmButtonText: 'OK'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            document.querySelector('#editModal form').submit();
-        }
+        event.preventDefault();
+        Swal.fire({
+            title: 'Berhasil!',
+            text: 'Data berhasil diperbarui!',
+            icon: 'success',
+            confirmButtonText: 'OK'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.querySelector('#editModal form').submit();
+            }
+        });
     });
-});
 </script>
 <!-- Sweet Alerts js -->
 <script src="/assets/libs/sweetalert2/sweetalert2.min.js"></script>
