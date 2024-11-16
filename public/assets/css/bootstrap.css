@@ -13933,13 +13933,13 @@ a {
 }
 
 .btn-soft-primary {
-  color: #5156be;
+  color: #0077C2;
   background-color: rgba(81, 86, 190, 0.1);
   border-color: transparent;
 }
 .btn-soft-primary:hover, .btn-soft-primary:focus, .btn-soft-primary:active {
   color: #fff;
-  background-color: #5156be;
+  background-color: #0077C2;
 }
 .btn-soft-primary:focus {
   -webkit-box-shadow: 0 2px 6px 0 0.15rem rgba(81, 86, 190, 0.5) !important;

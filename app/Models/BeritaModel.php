@@ -100,7 +100,7 @@ class BeritaModel extends Model
     public function getPublishedNews($slug = null)
     {
         $query = $this->db->table('berita')
-                          ->select('berita.*, users.username AS uploaded_by_username')
+                          ->select('berita.*, users.name AS uploaded_by_username')
                           ->join('users', 'users.id = berita.posted_by', 'left')
                           ->where('berita.status', 'published');
     
@@ -117,6 +117,38 @@ class BeritaModel extends Model
         return $result;
     }
     
+    public function getPublishedNewsNew($slug = null)
+    {
+        $query = $this->db->table('berita')
+                          ->select('berita.*, users.name AS uploaded_by_username')
+                          ->join('users', 'users.id = berita.posted_by', 'left')
+                          ->where('berita.status', 'published')
+                          ->orderBy('berita.tanggal_post', 'DESC'); // Urutkan berdasarkan tanggal_post terbaru
+    
+        // Jika $slug diberikan, tambahkan kondisi filter berdasarkan slug
+        if ($slug !== null) {
+            $query->where('berita.slug', $slug); // Cari berita berdasarkan slug
+        }
+    
+        $result = $query->get()->getResultArray();
+        
+        // Debug: cetak hasilnya untuk pengecekan
+        log_message('debug', 'Published News by Slug: ' . print_r($result, true));
+        
+        return $result;
+    }
+
+    public function getPublishedNewsNewOne()
+{
+    return $this->db->table('berita')
+                    ->select('berita.*, users.name AS uploaded_by_username')
+                    ->join('users', 'users.id = berita.posted_by', 'left')
+                    ->where('berita.status', 'published')
+                    ->orderBy('berita.tanggal_post', 'DESC') // Urutkan berdasarkan tanggal_post terbaru
+                    ->limit(1) // Batasi hanya satu data
+                    ->get()
+                    ->getRowArray(); // Mengambil satu record dalam bentuk array
+}
 
 
 }

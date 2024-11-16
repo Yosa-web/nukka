@@ -5,23 +5,23 @@
         <?= $this->renderSection('title'); ?>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<!-- App favicon -->
-		<link rel="shortcut icon" href="assets/images/logo_litbang.png" />
+		<link rel="shortcut icon" href="/assets/images/logo_litbang.png" />
 		<link
 			href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
 			rel="stylesheet" />
 		<!-- Bootstrap Css -->
 		<link
-			href="assets/css/bootstrap.css"
+			href="/assets/css/bootstrap.css"
 			id="bootstrap-style"
 			rel="stylesheet"
 			type="text/css" />
 		<!-- Icons Css -->
 		<link
-			href="assets/css/icons.min.css"
+			href="/assets/css/icons.min.css"
 			rel="stylesheet"
 			type="text/css" />
-		<link rel="stylesheet" href="assets/css/slick.css" />
-		<link rel="stylesheet" href="assets/css/homepage.css" />
+		<link rel="stylesheet" href="/assets/css/slick.css" />
+		<link rel="stylesheet" href="/assets/css/homepage.css" />
 	</head>
 	<body>
 		<div id="layout-wrapper">
@@ -40,7 +40,7 @@
 				<div class="container-fluid justify-content-between">
 					<a class="navbar-brand d-flex align-items-center" href="#">
 						<img
-							src="assets/images/logo_litbang.png"
+							src="/assets/images/logo_litbang.png"
 							alt="Logo Balitbang Pesawaran" />
 						<span
 							style="
@@ -65,17 +65,17 @@
 					<div class="collapse navbar-collapse" id="navbarNav">
 						<ul class="navbar-nav mx-auto">
 							<li class="nav-item">
-								<a class="nav-link" href="beranda.html"
+								<a class="nav-link" href="<?= base_url('beranda') ?>"
 									>Beranda</a
 								>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="tentang.html"
+								<a class="nav-link" href="<?= base_url('tentang') ?>"
 									>Tentang</a
 								>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="visi-misi.html"
+								<a class="nav-link" href="<?= base_url('visi-misi') ?>"
 									>Visi & Misi</a
 								>
 							</li>
@@ -106,12 +106,12 @@
 								</div>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="peta-inovasi.html"
+								<a class="nav-link" href="<?= base_url('peta-inovasi') ?>"
 									>Peta Inovasi</a
 								>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="regulasi.html"
+								<a class="nav-link" href="<?= base_url('regulasi') ?>"
 									>Regulasi</a
 								>
 							</li>
@@ -136,7 +136,7 @@
 				<div class="row align-items-center">
 					<div class="col-md-3 text-center mb-4 mb-md-0">
 						<img
-							src="assets/images/logo_litbang.png"
+							src="/assets/images/logo_litbang.png"
 							alt="Logo Balitbang"
 							class="footer-logo" />
 					</div>
@@ -196,10 +196,10 @@
 		</div>
 
 		<!-- JAVASCRIPT -->
-		<script src="assets/libs/jquery/jquery.min.js"></script>
-		<script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-		<script src="assets/libs/node-waves/waves.min.js"></script>
-		<script src="assets/libs/feather-icons/feather.min.js"></script>
+		<script src="/assets/libs/jquery/jquery.min.js"></script>
+		<script src="/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<script src="/assets/libs/node-waves/waves.min.js"></script>
+		<script src="/assets/libs/feather-icons/feather.min.js"></script>
 		<script>
 			window.addEventListener("scroll", function () {
 				const navbar = document.querySelector(".navbar");
@@ -211,13 +211,13 @@
 			});
 		</script>
 		<!-- Jquery, Popper, Bootstrap -->
-		<script src="assets/js/vendor/jquery-1.12.4.min.js"></script>
+		<script src="/assets/js/vendor/jquery-1.12.4.min.js"></script>
 
 		<!-- Jquery Slick , Owl-Carousel Plugins -->
-		<script src="assets/js/slick.min.js"></script>
+		<script src="/assets/js/slick.min.js"></script>
 
 		<!-- Jquery Plugins, main Jquery -->
-		<script src="assets/js/main.js"></script>
+		<script src="/assets/js/main.js"></script>
 		<script>
 			// Get the modal
 			var modal = document.getElementById("myModal");

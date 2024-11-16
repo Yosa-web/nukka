@@ -92,55 +92,96 @@
 </div>
 
 <!-- Modal edit -->
-<div
-    class="modal fade"
-    id="editModal"
-    data-bs-backdrop="static"
-    data-bs-keyboard="false"
-    tabindex="-1"
-    role="dialog"
-    aria-labelledby="editModalLabel"
-    aria-hidden="true">
-    <div
-        class="modal-dialog modal-dialog-centered"
-        role="document">
+<div class="modal fade" id="editModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5
-                    class="modal-title"
-                    id="editModalLabel">
-                    Edit Pengaturan
-                </h5>
-                <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"></button>
+                <h5 class="modal-title" id="editModalLabel">Edit Pengaturan</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form id="edit-form" action="" method="post" enctype="multipart/form-data">
-                    <div id="edit-field">
-                        <!-- Isi input akan berubah berdasarkan key -->
+                    <!-- Input hidden untuk mengirim tipe -->
+                    <input type="hidden" name="tipe" id="hidden-tipe">
+
+                    <!-- Input untuk Text atau Image -->
+                    <div class="text-input">
+                        <label for="setting-text" class="col-form-label">Teks:</label>
+                        <input type="text" class="form-control" id="setting-text" name="text">
                     </div>
+                    <div class="image-input" style="display: none;">
+                        <label for="setting-image" class="col-form-label">Unggah Gambar:</label>
+                        <input type="file" class="form-control" id="setting-image" name="image">
+                    </div>
+
                 </form>
             </div>
             <div class="modal-footer">
-                <button
-                    type="button"
-                    class="btn btn-light"
-                    data-bs-dismiss="modal">
-                    Batal
-                </button>
-                <button
-                    type="submit"
-                    class="btn btn-warning"
-                    form="edit-form">
-                    Perbarui
-                </button>
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
+                <button type="submit" class="btn btn-warning" form="edit-form">Perbarui</button>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const editButtons = document.querySelectorAll('.edit');
+        const modal = document.getElementById('editModal');
+        const form = modal.querySelector('#edit-form');
+        const colorInputDiv = document.createElement('div'); // Div untuk input warna
+        const textInputDiv = modal.querySelector('.text-input'); // Div untuk input teks
+        const imageInputDiv = modal.querySelector('.image-input'); // Div untuk input gambar
+        const hiddenTipeInput = modal.querySelector('#hidden-tipe');
+
+        editButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const settingId = this.getAttribute('data-setting-id');
+                const type = this.getAttribute('data-type').toLowerCase();
+                const value = this.closest('tr').querySelector('td').innerText.trim();
+
+                // Set form action
+                form.action = `/superadmin/optionweb/update/${settingId}`;
+                hiddenTipeInput.value = type;
+
+                // Reset input warna
+                if (colorInputDiv.parentNode) colorInputDiv.parentNode.removeChild(colorInputDiv);
+
+                // Tampilkan input warna jika tipe pengaturan adalah 'warna'
+                if (type === 'warna' || type === 'kode warna') {
+                    colorInputDiv.className = 'mb-3';
+                    colorInputDiv.innerHTML = `
+                    <label for="setting-warna" class="col-form-label">Warna:</label>
+                    <input
+                        type="color"
+                        class="form-control form-control-color"
+                        id="setting-warna"
+                        name="warna"
+                        value="${value.startsWith('#') ? value : '#000000'}"
+                        title="Pilih warna"
+                    />
+                `;
+                    form.insertBefore(colorInputDiv, form.querySelector('.modal-footer'));
+                    textInputDiv.style.display = 'none'; // Sembunyikan input teks
+                    imageInputDiv.style.display = 'none'; // Sembunyikan input gambar
+
+                    // Tampilkan input gambar jika tipe pengaturan adalah 'image'
+                } else if (type === 'image') {
+                    textInputDiv.style.display = 'none'; // Sembunyikan input teks
+                    imageInputDiv.style.display = 'block'; // Tampilkan input gambar
+                    colorInputDiv.style.display = 'none'; // Sembunyikan input warna
+
+                    // Jika tipe bukan 'warna' atau 'image', tampilkan input teks dan sembunyikan lainnya
+                } else {
+                    textInputDiv.style.display = 'block'; // Tampilkan input teks
+                    imageInputDiv.style.display = 'none'; // Sembunyikan input gambar
+                    colorInputDiv.style.display = 'none'; // Sembunyikan input warna
+                    modal.querySelector('#setting-text').value = value; // Set nilai teks
+                }
+            });
+        });
+    });
+</script>
 
 
 <!-- dropzone js -->
@@ -168,138 +209,6 @@
         }
     });
 </script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Tangkap klik pada tombol edit
-        const editButtons = document.querySelectorAll('.edit');
-        const modal = document.getElementById('editModal');
-        const modalLabel = modal.querySelector('.modal-title');
-        const editField = modal.querySelector('#edit-field');
-        const form = modal.querySelector('#edit-form');
 
-        editButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const key = this.getAttribute('data-key');
-                const settingId = this.getAttribute('data-setting-id');
-                const type = this.getAttribute('data-type');
 
-                // Set form action URL berdasarkan setting ID
-                form.action = `/superadmin/optionweb/edit/${settingId}`;
-
-                // Ubah konten modal berdasarkan key dan type
-                modalLabel.textContent = `Edit ${key}`;
-                editField.innerHTML = ''; // Bersihkan konten sebelumnya
-
-                switch (key) {
-                    case 'Logo':
-                        editField.innerHTML = `
-                            <div class="mb-3">
-                                <label
-                                    for="setting-logo"
-                                    class="col-form-label"
-                                    >Upload Logo</label>
-                                <div class="dropzone" id="imageDropzone">
-                                    <div class="fallback">
-                                        <input name="file" type="file" multiple="multiple">
-                                    </div>
-                                    <div class="dz-message needsclick">
-                                        <div class="mb-3">
-                                            <i class="display-4 text-muted bx bx-cloud-upload"></i>
-                                        </div>
-                                        <h5>Drop files here or click to upload.</h5>
-                                    </div>
-                                </div>
-                            </div>`;
-                        break;
-
-                    case 'Warna':
-                        editField.innerHTML = `
-                            <div class="mb-3">
-                                <label
-                                    for="setting-warna"
-                                    class="col-form-label"
-                                    >Warna</label>
-                                <input
-                                    type="color"
-                                    class="form-control form-control-color mw-100"
-                                    id="setting-warna"
-                                    value="#5156be"
-                                    title="Choose your color"
-                                />
-                            </div>`;
-                        break;
-
-                    case 'Nama':
-                        editField.innerHTML = `
-                            <div class="mb-3">
-                                <label
-                                    for="setting-nama"
-                                    class="col-form-label"
-                                    >Nama Website</label>
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    id="setting-nama"
-                                    required />
-                            </div>`;
-                        break;
-
-                    case 'Regulasi':
-                        editField.innerHTML = `
-                            <div class="mb-3">
-                                <label
-                                    for="setting-regulasi"
-                                    class="col-form-label"
-                                    >Regulasi</label
-                                >
-                                <textarea class="form-control" id="setting-regulasi" rows="4"></textarea>
-                            </div>`;
-                        break;
-
-                    case 'Banner':
-                        editField.innerHTML = `
-                            <div class="mb-3">
-                                <label
-                                    for="setting-banner"
-                                    class="col-form-label"
-                                    >Unggah Banner</label
-                                >
-                                <div class="dropzone" id="bannerDropzone">
-                                    <div class="fallback">
-                                        <input name="file" type="file" multiple="multiple">
-                                    </div>
-                                    <div class="dz-message needsclick">
-                                        <div class="mb-3">
-                                            <i class="display-4 text-muted bx bx-cloud-upload"></i>
-                                        </div>
-                                        <h5>Drop files here or click to upload.</h5>
-                                    </div>
-                                </div>
-                            </div>`;
-                        break;
-
-                    case 'Deskripsi':
-                        editField.innerHTML = `
-                            <div class="mb-3">
-                                <label
-                                    for="setting-deskripsi"
-                                    class="col-form-label"
-                                    >Deskripsi</label
-                                >
-                                <textarea class="form-control" id="setting-deskripsi" rows="4"></textarea>
-                            </div>`;
-                        break;
-
-                    default:
-                        editField.innerHTML = `
-                            <div class="mb-3">
-                                <label for="setting-value" class="col-form-label">Value</label>
-                                <input type="text" class="form-control" name="value" id="setting-value" required>
-                            </div>`;
-                        break;
-                }
-            });
-        });
-    });
-</script>
 <?= $this->endSection(); ?>

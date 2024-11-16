@@ -13,196 +13,84 @@
     <h1 class="pb-4 pt-5 fw-semibold">Berita Terbaru</h1>
     <div class="row row-1">
         <div class="col-sm-8 head-news">
-            <img src="assets/images/small/img-3.jpg" alt="Image" />
+            <?php if ($new_berita['gambar']): ?>
+                <img src="<?= base_url($new_berita['gambar']) ?>" alt="News Image">
+            <?php endif; ?>
             <div class="mb-5">
                 <div class="news-content" style="text-align: justify;">
                     <div class="news-meta">
-                        01 Oct 2024 | Diunggah oleh
-                        <span>Superadmin</span>
+                        <?= date('d M Y', strtotime($new_berita['tanggal_post'])) ?> | Diunggah oleh
+                        <span><?= esc($new_berita['uploaded_by_username']) ?></span>
                     </div>
                     <div class="news-title">
-                        Bupati Dendi Ramadhona Hadiri Peletakan
-                        Batu Pertama Pembangunan Masjid Ash
-                        Shihhah RSUD Pesawaran
+                        <?= substr($new_berita['judul'], 0, 120) . '...' ?>
                     </div>
                     <div class="news-description">
-                        Pesawaran, 31 Oktober 2024 - Bupati
-                        Pesawaran Dendi Ramadhona menghadiri dan
-                        memimpin secara langsung peletakan batu
-                        pertama pembangunan Masjid Ash-Shihah
-                        RSUD Kabupaten Pesawaran pada Kamis,
-                        (31/10/2024). Turut hadir mendampingi
-                        Kepala Dinas Kesehatan Media Apriliana,
-                        Kepala Kantor Kementerian Agama, Kadis
-                        Kominfotiksan yang diwakili Sekretaris
-                        Dinas Apriya, Direktur RSUD Dian
-                        Adhitama, serta para tamu undangan
-                        lainnya....
+                        <?= substr($new_berita['isi'], 0, 530) . '...' ?>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-sm-4">
-            <div class="news-all">
-                <p>01 Oct 2024
-                </p>
-                <h4 class="fw-semibold">
-                    Bupati Dendi Ramadhona Hadiri Peletakan Batu
-                    Pertama Pembangunan Masjid
-                </h4>
-                <p>
-                    Pesawaran, 31 Oktober 2024 - Bupati Pesawaran
-                    Dendi Ramadhona menghadiri dan memimpin secara
-                    langsung peletakan batu pertama pembangunan
-                    Masjid Ash-Shihah RSUD Kabupaten Pesawaran pada
-                    Kamis, (31/10/2024)...
-                </p>
-            </div>
-            <div class="news-all">
-                <p>01 Oct 2024
-                </p>
-                <h4 class="fw-semibold">
-                    Bupati Dendi Ramadhona Hadiri Peletakan Batu
-                    Pertama Pembangunan Masjid
-                </h4>
-                <p>
-                    Pesawaran, 31 Oktober 2024 - Bupati Pesawaran
-                    Dendi Ramadhona menghadiri dan memimpin secara
-                    langsung peletakan batu pertama pembangunan
-                    Masjid Ash-Shihah RSUD Kabupaten Pesawaran pada
-                    Kamis, (31/10/2024)...
-                </p>
-            </div>
-            <div class="news-all">
-                <p>01 Oct 2024
-                </p>
-                <h4 class="fw-semibold">
-                    Bupati Dendi Ramadhona Hadiri Peletakan Batu
-                    Pertama Pembangunan Masjid
-                </h4>
-                <p>
-                    Pesawaran, 31 Oktober 2024 - Bupati Pesawaran
-                    Dendi Ramadhona menghadiri dan memimpin secara
-                    langsung peletakan batu pertama pembangunan
-                    Masjid Ash-Shihah RSUD Kabupaten Pesawaran pada
-                    Kamis, (31/10/2024)...
-                </p>
-            </div>
+            <?php if (!empty($new_beritas) && is_array($new_beritas)): ?>
+                <?php foreach (array_slice($new_beritas, -3) as $berita): ?> <!-- Menampilkan 3 data terakhir -->
+                    <div class="news-all">
+                        <p><?= date('d M Y', strtotime($berita['tanggal_post'])) ?>
+                        </p>
+                        <h4 class="fw-semibold">
+                            <?= substr($berita['judul'], 0, 120) . '...' ?>
+                        </h4>
+                        <p>
+                            <?= substr($berita['isi'], 0, 200) . '...' ?>
+                        </p>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p>Belum ada berita yang dipublikasikan.</p>
+            <?php endif; ?>
         </div>
     </div>
     <div class="row row-2">
         <div class="col-sm-4 pe-5 mt-5 pt-3">
             <h3 class="fw-semibold mb-4">Headline Terbaru</h3>
             <div class="scrollable-headline">
-                <a href="link1.html" class="headline-item">
-                    <span>Lorem ipsum dolor sit amet, consectetur
-                        adipiscing elit.</span>
-                    <i class="bx bx-link-external"></i>
-                </a>
-                <a href="link7.html" class="headline-item">
-                    <span>Lorem ipsum dolor sit amet, consectetur
-                        adipiscing elit. Lorem ipsum dolor sit amet
-                        consectetur adipisicing elit. Fugiat fugit
-                        sit porro hic ea! Ea, pariatur. Quo
-                        assumenda doloribus esse quod fuga ducimus,
-                        adipisci, quisquam in accusamus aperiam quis
-                        optio!</span>
-                    <i class="bx bx-link-external"></i>
-                </a>
-                <a href="link1.html" class="headline-item">
-                    <span>Lorem ipsum dolor sit amet, consectetur
-                        adipiscing elit.</span>
-                    <i class="bx bx-link-external"></i>
-                </a>
-                <a href="link1.html" class="headline-item">
-                    <span>Lorem ipsum dolor sit amet, consectetur
-                        adipiscing elit. Lorem, ipsum dolor sit amet
-                        consectetur adipisicing elit. Voluptate
-                        dolore quaerat tempora accusantium amet?
-                        Sequi praesentium voluptatum adipisci ipsam.
-                        Neque quo omnis unde quidem eos ex adipisci
-                        repellat similique consequuntur.</span>
-                    <i class="bx bx-link-external"></i>
-                </a>
-                <a href="link1.html" class="headline-item">
-                    <span>Lorem ipsum dolor sit amet, consectetur
-                        adipiscing elit.</span>
-                    <i class="bx bx-link-external"></i>
-                </a>
-                <a href="link1.html" class="headline-item">
-                    <span>Lorem ipsum dolor sit amet, consectetur
-                        adipiscing elit.</span>
-                    <i class="bx bx-link-external"></i>
-                </a>
+                <?php if (!empty($new_beritas) && is_array($new_beritas)): ?>
+                    <?php foreach ($new_beritas as $berita): ?> <!-- Menampilkan 3 data terakhir -->
+                        <a href="link1.html" class="headline-item">
+                            <span> <?= substr($berita['judul'], 0, 120) . '...' ?></span>
+                            <i class="bx bx-link-external"></i>
+                        </a>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <p>Belum ada berita yang dipublikasikan.</p>
+                <?php endif; ?>
             </div>
         </div>
         <div class="col-sm-8 mb-5">
-            <div class="news-other mt-5 pt-3">
-                <img
-                    src="assets/images/small/img-3.jpg"
-                    alt="News Image" />
-                <a href="#" class="other-div">
-                    <p>
-                        01 Oct 2024
-                    </p>
-                    <h4 class="fw-semibold mb-2">
-                        Bupati Dendi Ramadhona Hadiri Peletakan Batu
-                        Pertama Pembangunan Masjid Ash Shihhah RSUD
-                        Pesawaran
-                    </h4>
-                    <p>
-                        Pesawaran, 31 Oktober 2024 - Bupati Pesawaran
-                        Dendi Ramadhona menghadiri dan memimpin secara
-                        langsung peletakan batu pertama pembangunan
-                        Masjid Ash-Shihah RSUD Kabupaten Pesawaran pada
-                        Kamis, (31/10/2024). Turut hadir mendampingi Kepala Dinas Kesehatan Media Apriliana,...
-                    </p>
-                </a>
-            </div>
-            <div class="news-other">
-                <img
-                    src="assets/images/small/img-3.jpg"
-                    alt="News Image" />
-                <a href="#" class="other-div">
-                    <p>
-                        01 Oct 2024
-                    </p>
-                    <h4 class="fw-semibold mb-2">
-                        Bupati Dendi Ramadhona Hadiri Peletakan Batu
-                        Pertama Pembangunan Masjid Ash Shihhah RSUD
-                        Pesawaran
-                    </h4>
-                    <p>
-                        Pesawaran, 31 Oktober 2024 - Bupati Pesawaran
-                        Dendi Ramadhona menghadiri dan memimpin secara
-                        langsung peletakan batu pertama pembangunan
-                        Masjid Ash-Shihah RSUD Kabupaten Pesawaran pada
-                        Kamis, (31/10/2024). Turut hadir mendampingi Kepala Dinas Kesehatan Media Apriliana,...
-                    </p>
-                </a>
-            </div>
-            <div class="news-other">
-                <img
-                    src="assets/images/small/img-3.jpg"
-                    alt="News Image" />
-                <a href="#" class="other-div">
-                    <p>
-                        01 Oct 2024
-                    </p>
-                    <h4 class="fw-semibold mb-2">
-                        Bupati Dendi Ramadhona Hadiri Peletakan Batu
-                        Pertama Pembangunan Masjid Ash Shihhah RSUD
-                        Pesawaran
-                    </h4>
-                    <p>
-                        Pesawaran, 31 Oktober 2024 - Bupati Pesawaran
-                        Dendi Ramadhona menghadiri dan memimpin secara
-                        langsung peletakan batu pertama pembangunan
-                        Masjid Ash-Shihah RSUD Kabupaten Pesawaran pada
-                        Kamis, (31/10/2024). Turut hadir mendampingi Kepala Dinas Kesehatan Media Apriliana,...
-                    </p>
-                </a>
-            </div>
+            <?php if (!empty($beritas) && is_array($beritas)): ?>
+                <?php foreach ($beritas as $berita): ?> <!-- Menampilkan 3 data terakhir -->
+                    <div class="news-other pt-3">
+                        <?php if ($berita['gambar']): ?>
+                            <img
+                                src="<?= base_url($berita['gambar']) ?>"
+                                alt="News Image" />
+                        <?php endif; ?>
+                        <a href="#" class="other-div">
+                            <p>
+                                <?= date('d M Y', strtotime($berita['tanggal_post'])) ?>
+                            </p>
+                            <h4 class="fw-semibold mb-2">
+                                <?= substr($berita['judul'], 0, 120) . '...' ?>
+                            </h4>
+                            <p>
+                                <?= substr($berita['isi'], 0, 300) . '...' ?>
+                            </p>
+                        </a>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p>Belum ada berita yang dipublikasikan.</p>
+            <?php endif; ?>
         </div>
     </div>
 </div>

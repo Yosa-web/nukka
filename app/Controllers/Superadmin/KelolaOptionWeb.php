@@ -10,6 +10,13 @@ use CodeIgniter\I18n\Time;
 
 class KelolaOptionWeb extends BaseController
 {
+    protected $optionWebModel;
+
+    public function __construct()
+    {
+        $this->optionWebModel = new OptionWebModel();
+    }
+
     public function index()
     {
         $model = new OptionWebModel();
@@ -32,82 +39,79 @@ class KelolaOptionWeb extends BaseController
 
         return view('super_admin/option_web/edit', $data);
     }
+
     public function update($id)
     {
         $optionWebModel = new \App\Models\OptionWebModel();
         $logModel = new \App\Models\LogAktivitasModel();
 
-        // Path untuk menyimpan file gambar
         $pathImage = 'assets/uploads/images/optionweb/';
         $file = $this->request->getFile('image');
         $text = $this->request->getPost('text');
+        $warna = $this->request->getPost('warna'); // Ambil input warna jika ada
+        $tipe = $this->request->getPost('tipe') ?? $optionWebModel->find($id)['seting_type'];
         $fileNameToSave = null;
 
-        // Validasi input berdasarkan tipe yang dipilih
-        if ($this->request->getPost('tipe') === 'image') {
-            if (!$this->validate([
-                'tipe' => 'required|in_list[image,text]',
-                'image' => 'is_image[image]|max_size[image,10240]', // max 10MB
-            ])) {
+        // Jika tipe adalah 'warna', ambil data warna dari input
+        if ($tipe === 'warna' || $tipe === 'kode warna') {
+            $warna = $this->request->getPost('warna'); // Ambil nilai warna
+            if (!$this->validate(['warna' => 'required'])) { // Validasi warna
                 return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
             }
+            $fileNameToSave = $warna;
 
-            // Jika ada file gambar, proses uploadnya
-            if ($file && $file->isValid()) {
-                if (!$file->hasMoved()) {
-                    $uniqueName = $file->getRandomName(); // Dapatkan nama unik file
-                    if ($file->move($pathImage, $uniqueName)) {
-                        $fileNameToSave = $uniqueName; // Simpan hanya nama file
-                    } else {
-                        return redirect()->back()->with('error', 'Gagal memindahkan gambar.');
-                    }
-                }
+            // Jika tipe adalah 'text', ambil data teks dari input
+        } elseif ($tipe === 'text') {
+            $text = $this->request->getPost('text'); // Ambil nilai teks
+            if (!$this->validate(['text' => 'required'])) { // Validasi teks
+                return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+            }
+            $fileNameToSave = $text;
+
+            // Jika tipe adalah 'image', ambil data gambar dari input file
+        } elseif ($tipe === 'image') {
+            $file = $this->request->getFile('image'); // Ambil file gambar
+            if ($file && $file->isValid() && !$file->hasMoved()) {
+                $uniqueName = $file->getRandomName(); // Buat nama acak untuk file
+                if ($file->move($pathImage, $uniqueName)) {
+                    $fileNameToSave = $uniqueName;
+                } else {
+                    return redirect()->back()->with('error', 'Gagal memindahkan gambar.');
+                } // Simpan nama file untuk update ke database
+            } else {
+                return redirect()->back()->withInput()->with('errors', ['image' => 'Gagal mengunggah gambar.']);
             }
         }
 
-        // Jika tipe adalah "text", gunakan teks yang diinput
-        if ($this->request->getPost('tipe') === 'text') {
-            if (!$this->validate([
-                'tipe' => 'required|in_list[image,text]',
-                'text' => 'required',
-            ])) {
-                return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
-            }
-
-            $fileNameToSave = $text; // Simpan teks ke value
-        }
-
-        // Jika file tidak ada dan URL tidak ada, gunakan data yang sudah ada di database
+        // Jika tidak ada perubahan data, tetap gunakan nilai lama dari database
         if (!$fileNameToSave) {
-            $existingOptionweb = $optionWebModel->find($id);
-            $fileNameToSave = $existingOptionweb['value'];
+            $existingOption = $this->optionWebModel->find($id);
+            $fileNameToSave = $existingOption['value'];
         }
 
-        // Data yang akan diperbarui
+        // Siapkan data untuk update ke database
         $data = [
-            'value' => $fileNameToSave // Simpan hanya kode unik (nama file atau teks)
+            'value' => $fileNameToSave
         ];
 
-        // Memperbarui data di database
         if ($optionWebModel->update($id, $data)) {
-            // Logging aktivitas edit
             $superAdminId = auth()->user()->id;
             $logData = [
                 'id_user'          => $superAdminId,
                 'tanggal_aktivitas' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(),
                 'aksi'             => 'update',
                 'jenis_data'       => 'option_web',
-                'keterangan'       => "SuperAdmin with ID {$superAdminId} updated option with ID {$id}",
+                'keterangan'       => "SuperAdmin dengan ID {$superAdminId} memperbarui option dengan ID {$id}",
             ];
             $logModel->save($logData);
 
-            // Berhasil, kembali ke halaman option web dengan pesan sukses
             return redirect()->to('/superadmin/optionweb')->with('success', 'Data option berhasil diperbarui.');
         } else {
-            // Gagal, kembali ke form dengan pesan error
             return redirect()->back()->withInput()->with('errors', $optionWebModel->errors());
         }
     }
+
+
 
     // // KelolaOptionWeb.php
     // public function showImage($id)

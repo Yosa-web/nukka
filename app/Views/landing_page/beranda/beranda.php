@@ -75,13 +75,13 @@
         <div class="d-flex flex-wrap justify-content-center">
             <div class="col-6 col-md-4 p-2">
                 <img
-                    src="assets/images/bupati.png"
+                    src="/assets/images/bupati.png"
                     alt="Ketua"
                     class="img-fluid" />
             </div>
             <div class="col-6 col-md-4 p-2">
                 <img
-                    src="assets/images/wakil-bupati.png"
+                    src="/assets/images/wakil-bupati.png"
                     alt="Wakil"
                     class="img-fluid" />
             </div>
@@ -101,108 +101,37 @@
                 Tampilkan Semua
             </button>
         </div>
-        <div class="news-item">
-            <div class="news-image">
-                <img
-                    src="assets/images/users/avatar-10.jpg"
-                    alt="News Image" />
-            </div>
-            <div class="news-content">
-                <div class="news-meta">
-                    01 Oct 2024 | Diunggah oleh
-                    <span>Superadmin</span>
+        <?php if (!empty($beritas) && is_array($beritas)): ?>
+            <?php foreach (array_slice($beritas, -3) as $berita): ?> <!-- Menampilkan 3 data terakhir -->
+                <div class="news-item">
+                    <div class="news-image">
+                        <?php if ($berita['gambar']): ?>
+                            <img
+                                src="<?= $berita['gambar'] ?>"
+                                alt="News Image" />
+                        <?php endif; ?>
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <?= date('d M Y', strtotime($berita['tanggal_post'])) ?> | Diunggah oleh
+                            <span> <?= esc($berita['uploaded_by_username']) ?></span>
+                        </div>
+                        <div class="news-title">
+                            <?= substr($berita['judul'], 0, 120) . '...' ?>
+                        </div>
+                        <div class="news-description">
+                            <?= substr($berita['isi'], 0, 530) . '...' ?>
+                        </div>
+                        <div class="mt-2">
+                            <a href="#" class="align-middle">Selengkapnya
+                                <i class="mdi mdi-chevron-right"></i></a>
+                        </div>
+                    </div>
                 </div>
-                <div class="news-title">
-                    Bupati Dendi Ramadhona Hadiri Peletakan Batu
-                    Pertama Pembangunan Masjid Ash Shihhah RSUD
-                    Pesawaran
-                </div>
-                <div class="news-description">
-                    Pesawaran, 31 Oktober 2024 - Bupati Pesawaran
-                    Dendi Ramadhona menghadiri dan memimpin secara
-                    langsung peletakan batu pertama pembangunan
-                    Masjid Ash-Shihah RSUD Kabupaten Pesawaran pada
-                    Kamis, (31/10/2024). Turut hadir mendampingi
-                    Kepala Dinas Kesehatan Media Apriliana, Kepala
-                    Kantor Kementerian Agama, Kadis Kominfotiksan
-                    yang diwakili Sekretaris Dinas Apriya, Direktur
-                    RSUD Dian Adhitama, serta para tamu undangan
-                    lainnya....
-                </div>
-                <div class="mt-2">
-                    <a href="#" class="align-middle">Selengkapnya
-                        <i class="mdi mdi-chevron-right"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="news-item">
-            <div class="news-image">
-                <img
-                    src="assets/images/users/avatar-2.jpg"
-                    alt="News Image" />
-            </div>
-            <div class="news-content">
-                <div class="news-meta">
-                    01 Oct 2024 | Diunggah oleh
-                    <span>Superadmin</span>
-                </div>
-                <div class="news-title">
-                    Bupati Dendi Ramadhona Hadiri Peletakan Batu
-                    Pertama Pembangunan Masjid Ash Shihhah RSUD
-                    Pesawaran
-                </div>
-                <div class="news-description">
-                    Pesawaran, 31 Oktober 2024 - Bupati Pesawaran
-                    Dendi Ramadhona menghadiri dan memimpin secara
-                    langsung peletakan batu pertama pembangunan
-                    Masjid Ash-Shihah RSUD Kabupaten Pesawaran pada
-                    Kamis, (31/10/2024). Turut hadir mendampingi
-                    Kepala Dinas Kesehatan Media Apriliana, Kepala
-                    Kantor Kementerian Agama, Kadis Kominfotiksan
-                    yang diwakili Sekretaris Dinas Apriya, Direktur
-                    RSUD Dian Adhitama, serta para tamu undangan
-                    lainnya...
-                </div>
-                <div class="mt-2">
-                    <a href="#" class="align-middle">Selengkapnya
-                        <i class="mdi mdi-chevron-right"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="news-item">
-            <div class="news-image">
-                <img
-                    src="assets/images/small/img-3.jpg"
-                    alt="News Image" />
-            </div>
-            <div class="news-content">
-                <div class="news-meta">
-                    01 Oct 2024 | Diunggah oleh
-                    <span>Superadmin</span>
-                </div>
-                <div class="news-title">
-                    Bupati Dendi Ramadhona Hadiri Peletakan Batu
-                    Pertama Pembangunan Masjid Ash Shihhah RSUD
-                    Pesawaran
-                </div>
-                <div class="news-description">
-                    Pesawaran, 31 Oktober 2024 - Bupati Pesawaran
-                    Dendi Ramadhona menghadiri dan memimpin secara
-                    langsung peletakan batu pertama pembangunan
-                    Masjid Ash-Shihah RSUD Kabupaten Pesawaran pada
-                    Kamis, (31/10/2024). Turut hadir mendampingi
-                    Kepala Dinas Kesehatan Media Apriliana, Kepala
-                    Kantor Kementerian Agama, Kadis Kominfotiksan
-                    yang diwakili Sekretaris Dinas Apriya, Direktur
-                    RSUD Dian Adhitama, serta para tamu undangan
-                    lainnya...
-                </div>
-                <div class="mt-2">
-                    <a href="#" class="align-middle">Selengkapnya
-                        <i class="mdi mdi-chevron-right"></i></a>
-                </div>
-            </div>
-        </div>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p>Belum ada berita yang dipublikasikan.</p>
+        <?php endif; ?>
     </section>
 
     <!-- Foto Section -->
@@ -228,71 +157,23 @@
                     <div class="col-12">
                         <div
                             class="weekly-news-active dot-style d-flex">
-                            <div class="weekly-single">
-                                <div class="weekly-img">
-                                    <img
-                                        src="assets/images/small/img-5.jpg"
-                                        alt=""
-                                        class="myImg" />
+                            <?php foreach (array_slice($galeri, 3) as $item): ?>
+                                <?php if ($item['tipe'] === 'image'): ?>
+                                <div class="weekly-single">
+                                    <div class="weekly-img">
+                                        <img
+                                            src="<?= base_url(esc($item['url'])) ?>"
+                                            alt="galeri image"
+                                            class="myImg" />
+                                    </div>
+                                    <div class="weekly-caption">
+                                        <h4>
+                                            <a class="captionClick"><?= $item['judul'] ?></a>
+                                        </h4>
+                                    </div>
                                 </div>
-                                <div class="weekly-caption">
-                                    <h4>
-                                        <a class="captionClick">Bupati Dendi Ramadhona
-                                            Hadiri Peletakan Batu
-                                            Pertama Pembangunan
-                                            Masjid Ash Shihh...</a>
-                                    </h4>
-                                </div>
-                            </div>
-                            <div class="weekly-single">
-                                <div class="weekly-img">
-                                    <img
-                                        src="assets/images/small/img-4.jpg"
-                                        alt=""
-                                        class="myImg" />
-                                </div>
-                                <div class="weekly-caption">
-                                    <h4>
-                                        <a class="captionClick">Lorem ipsum dolor sit
-                                            amet consectetur
-                                            adipisicing elit. A
-                                            accusamus dolore in
-                                            animi amet...</a>
-                                    </h4>
-                                </div>
-                            </div>
-                            <div class="weekly-single">
-                                <div class="weekly-img">
-                                    <img
-                                        src="assets/images/small/img-3.jpg"
-                                        alt=""
-                                        class="myImg" />
-                                </div>
-                                <div class="weekly-caption">
-                                    <h4>
-                                        <a class="captionClick">Bawaslu Merekomendasi
-                                            Camat di Pesawaran
-                                            Lampung Dapat Sanksi
-                                            BKN...</a>
-                                    </h4>
-                                </div>
-                            </div>
-                            <div class="weekly-single">
-                                <div class="weekly-img">
-                                    <img
-                                        src="assets/images/small/img-7.jpg"
-                                        alt=""
-                                        class="myImg" />
-                                </div>
-                                <div class="weekly-caption">
-                                    <h4>
-                                        <a class="captionClick">Swasembada Pangan
-                                            Budidaya Peternakan Ikan
-                                            Air Tawar Di
-                                            Pesawaran...</a>
-                                    </h4>
-                                </div>
-                            </div>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
                         </div>
                     </div>
                 </div>
@@ -314,111 +195,21 @@
             </button>
         </div>
         <div class="videos-section">
-            <!-- Card 1 -->
-            <div
-                class="video-card"
-                onclick="goToDetail('https://youtu.be/xTBDsVl9fQQ?si=ucZu_CdzhOwAHFsD')">
-                <i class="fab fa-youtube play-icon"></i>
-                <img alt="Video Thumbnail" />
-                <div class="video-info">
-                    <div class="title">
-                        Perayaan HUT RI Ke-79 Tingkat Kabupaten
-                        Tangerang: Upacara Detik-Detik Proklamasi
-                        (Parade)
+            <?php foreach ($galeri as $item): ?>
+                <?php if ($item['tipe'] === 'video'): ?>
+                    <div
+                        class="video-card"
+                        onclick="goToDetail('<?= $item['url'] ?>')">
+                        <i class="fab fa-youtube play-icon"></i>
+                        <img alt="Video Thumbnail" />
+                        <div class="video-info">
+                            <div class="title">
+                                <?= $item['judul'] ?>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <!-- Card 2 -->
-            <div
-                class="video-card"
-                onclick="goToDetail('https://youtu.be/-IZMJ18x1rM?si=5bJJTHpwcvKq1J3e')">
-                <i class="fab fa-youtube play-icon"></i>
-                <img alt="Video Thumbnail" />
-                <div class="video-info">
-                    <div class="title">
-                        Pj Bupati Tangerang Terima Tim Penilai Lomba
-                        Desa Tingkat Provinsi Banten
-                    </div>
-                </div>
-            </div>
-            <!-- Card 3 -->
-            <div
-                class="video-card"
-                onclick="goToDetail('https://youtu.be/EfWSAzXlvtc?si=vQ8B-jeo88uvJo0G')">
-                <i class="fab fa-youtube play-icon"></i>
-                <img alt="Video Thumbnail" />
-                <div class="video-info">
-                    <div class="title">
-                        1.137 Pelajar Antusias Ikut Invitasi
-                        Olahraga Tradisional
-                    </div>
-                </div>
-            </div>
-            <!-- Card 4 -->
-            <div
-                class="video-card"
-                onclick="goToDetail('https://youtu.be/GPAYzaE-trs?si=Y5J17y70rancexSq')">
-                <i class="fab fa-youtube play-icon"></i>
-                <img alt="Video Thumbnail" />
-                <div class="video-info">
-                    <div class="title">
-                        DPKPP Gelar Gerakan Pangan Murah untuk Tekan
-                        Inflasi
-                    </div>
-                </div>
-            </div>
-            <!-- Card 5 -->
-            <div
-                class="video-card"
-                onclick="goToDetail('https://youtu.be/ThM0EdT1ByU?si=ayLNwlLjlGJW_N4kv')">
-                <i class="fab fa-youtube play-icon"></i>
-                <img alt="Video Thumbnail" />
-                <div class="video-info">
-                    <div class="title">
-                        Pemkab Tangerang Luncurkan Gebrak Tegas
-                        untuk Atasi Kemiskinan Ekstrem dan Stunting
-                    </div>
-                </div>
-            </div>
-            <!-- Card 6 -->
-            <div
-                class="video-card"
-                onclick="goToDetail('https://youtu.be/v-OIspcC-E8?si=ZLVh-UtkaLm3oCoY')">
-                <i class="fab fa-youtube play-icon"></i>
-                <img alt="Video Thumbnail" />
-                <div class="video-info">
-                    <div class="title">
-                        Pemkab Tangerang Luncurkan Gebrak Tegas
-                        untuk Atasi Kemiskinan Ekstrem dan Stunting
-                    </div>
-                </div>
-            </div>
-            <!-- Card 7 -->
-            <div
-                class="video-card"
-                onclick="goToDetail('https://youtu.be/8Ebqe2Dbzls?si=zszMygtSBz16iyhG')">
-                <i class="fab fa-youtube play-icon"></i>
-                <img alt="Video Thumbnail" />
-                <div class="video-info">
-                    <div class="title">
-                        Pemkab Tangerang Luncurkan Gebrak Tegas
-                        untuk Atasi Kemiskinan Ekstrem dan Stunting
-                    </div>
-                </div>
-            </div>
-            <!-- Card 8 -->
-            <div
-                class="video-card"
-                onclick="goToDetail('https://youtu.be/Nt3YH68npW4?si=RO-uPpPIBEzin7pr')">
-                <i class="fab fa-youtube play-icon"></i>
-                <img alt="Video Thumbnail" />
-                <div class="video-info">
-                    <div class="title">
-                        Pemkab Tangerang Luncurkan Gebrak Tegas
-                        untuk Atasi Kemiskinan Ekstrem dan Stunting
-                    </div>
-                </div>
-            </div>
+                <?php endif; ?>
+            <?php endforeach; ?>
         </div>
     </section>
 </div>
