@@ -150,7 +150,7 @@ $routes->group('', ['filter' => 'group:user'], function ($routes) {
 
     $routes->get('/superadmin/optionweb', 'Superadmin\KelolaOptionWeb::index'); // Menampilkan option web
     $routes->post('/superadmin/optionweb/update/(:num)', 'Superadmin\KelolaOptionWeb::update/$1'); // Mengupdate setting berdasarkan ID    
-    $routes->get('/superadmin/optionweb/edit/(:num)', 'Superadmin\KelolaOptionWeb::edit/$1'); // Mengupdate setting berdasarkan ID 
+    $routes->post('/superadmin/optionweb/edit/(:num)', 'Superadmin\KelolaOptionWeb::edit/$1'); // Mengupdate setting berdasarkan ID 
     $routes->get('/superadmin/optionweb/image/(:num)', 'Superadmin\KelolaOptionWeb::showImage/$1');
     $routes->get('/superadmin/optionweb', 'Superadmin\KelolaOptionWeb::showAllOptions');
     $routes->get('/superadmin/optionweb/detail/(:num)', 'Superadmin\KelolaOptionWeb::showOption/$1');
@@ -223,3 +223,15 @@ $routes->post('/adminopd/pegawai/store', 'AdminOpd\KelolaPegawaiOpd::store');
 $routes->get('/adminopd/pegawai/edit/(:any)', 'AdminOpd\KelolaPegawaiOpd::edit/$1');
 $routes->post('/adminopd/pegawai/update', 'AdminOpd\KelolaPegawaiOpd::update');
 $routes->delete('/adminopd/pegawai/delete', 'AdminOpd\KelolaPegawaiOpd::delete');
+
+
+$routes->get('/beranda', 'LandingController::index');
+$routes->get('/tentang', 'LandingController::tentang');
+$routes->get('/visi-misi', 'LandingController::visi');
+$routes->get('/database-inovasi', 'LandingController::databaseInovasi');
+$routes->get('/peta-inovasi', 'LandingController::petaInovasi');
+$routes->get('/database-inovasi', 'LandingController::databaseInovasi');
+$routes->get('/regulasi', 'LandingController::regulasi');
+
+//berita
+$routes->get('/berita/lainnya', 'LandingController::semuaBerita');
