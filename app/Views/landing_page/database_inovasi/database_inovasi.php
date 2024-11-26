@@ -4,7 +4,7 @@
 <div class="page-title-left">
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-            <a href="beranda.html">Beranda</a>
+            <a href="<?= base_url('beranda') ?>">Beranda</a>
         </li>
         <li class="breadcrumb-item active">Inovasi</li>
     </ol>
@@ -37,7 +37,7 @@
                                 </th>
                                 <th
                                     class="text-center"
-                                    style="width: 280px">
+                                    style="width: 250px">
                                     Nama OPD
                                 </th>
                                 <th
@@ -53,111 +53,43 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="text-center">1.</td>
-                                <td>
-                                    Aksi Konsumen Cerdas Ayo Mengadu
-                                    (SI KOMENG)
-                                </td>
-                                <td>
-                                    Dinas Komunikasi dan Informatika
-                                    Pesawaran
-                                </td>
-                                <td class="text-center">2008</td>
-                                <td class="text-center">
-                                    <a
-                                        href="#"
-                                        class="btn btn-outline-primary btn-sm mb-3"
-                                        title="Unduh">
-                                        <i
-                                            class="fas fa-download"></i>
-                                    </a>
-                                    <a
-                                        class="btn btn-outline-secondary btn-sm ms-2 mb-3"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#exampleModalScrollable"
-                                        title="Detail"><i class="fas fa-eye"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">2.</td>
-                                <td>
-                                    Aplikasi JDIH Kaltim Berbasis
-                                    Android
-                                </td>
-                                <td>
-                                    Badan Hukum Kabupaten Pesawaran
-                                </td>
-                                <td class="text-center">2011</td>
-                                <td class="text-center">
-                                    <a
-                                        href="#"
-                                        class="btn btn-outline-primary btn-sm mb-3"
-                                        title="Unduh">
-                                        <i
-                                            class="fas fa-download"></i>
-                                    </a>
-                                    <a
-                                        class="btn btn-outline-secondary btn-sm ms-2 mb-3"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#exampleModalScrollable"
-                                        title="Detail"><i class="fas fa-eye"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">3.</td>
-                                <td>
-                                    Aplikasi Simata Laut Kaltim
-                                    (Sistem Informasi Tata Ruang
-                                    Laut Kaltim)
-                                </td>
-                                <td>
-                                    Dinas Komunikasi dan Informatika
-                                    Pesawaran
-                                </td>
-                                <td class="text-center">2012</td>
-                                <td class="text-center">
-                                    <a
-                                        href="#"
-                                        class="btn btn-outline-primary btn-sm mb-3"
-                                        title="Unduh">
-                                        <i
-                                            class="fas fa-download"></i>
-                                    </a>
-                                    <a
-                                        class="btn btn-outline-secondary btn-sm ms-2 mb-3"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#exampleModalScrollable"
-                                        title="Detail"><i class="fas fa-eye"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">4.</td>
-                                <td>
-                                    CAP JEMPOL (lanCAr Posyandu
-                                    dengan menJEMput Pakai Ojek
-                                    Lansia)
-                                </td>
-                                <td>
-                                    Dinas Komunikasi dan Informatika
-                                    Pesawaran
-                                </td>
-                                <td class="text-center">2012</td>
-                                <td class="text-center">
-                                    <a
-                                        href="#"
-                                        class="btn btn-outline-primary btn-sm mb-3"
-                                        title="Unduh">
-                                        <i
-                                            class="fas fa-download"></i>
-                                    </a>
-                                    <a
-                                        class="btn btn-outline-secondary btn-sm ms-2 mb-3"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#exampleModalScrollable"
-                                        title="Detail"><i class="fas fa-eye"></i></a>
-                                </td>
-                            </tr>
+                            <?php
+
+                            use CodeIgniter\I18n\Time;
+
+                            if (!empty($inovasi)): ?>
+                                <?php $no = 1; ?>
+                                <?php foreach ($inovasi as $row): ?>
+                                    <tr>
+                                        <td class="text-center"><?= $no++; ?></td>
+                                        <td>
+                                            <?= esc($row['judul']); ?>
+                                        </td>
+                                        <td>
+                                            <?= esc($row['nama_opd']); ?>
+                                        </td>
+                                        <td class="text-center"><?= date('Y', strtotime($row['tanggal_pengajuan'])) ?></td>
+                                        <td class="text-center">
+                                            <a
+                                                href="<?= base_url($row['url_file']) ?>"
+                                                class="btn btn-outline-primary btn-sm mb-3"
+                                                title="Unduh">
+                                                <i
+                                                    class="fas fa-download"></i>
+                                            </a>
+                                            <a
+                                                class="btn btn-outline-secondary btn-sm ms-2 mb-3"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#detailModal<?= $row['id_inovasi'] ?>"
+                                                title="Detail"><i class="fas fa-eye"></i></a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <tr>
+                                    <td colspan="7" class="text-center">Tidak ada data inovasi.</td>
+                                </tr>
+                            <?php endif; ?>
                         </tbody>
                     </table>
                 </div>
@@ -165,4 +97,75 @@
         </div>
     </div>
 </div>
+
+<!-- Modal Detail -->
+<?php if (!empty($inovasi)): ?>
+    <?php foreach ($inovasi as $row): ?>
+        <div
+            class="modal fade"
+            id="detailModal<?= $row['id_inovasi'] ?>"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="detailModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4
+                            class="modal-title"
+                            id="detailModalLabel">
+                            Detail Proposal
+                        </h4>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped mb-0">
+                                <!-- <thead>
+									<tr>
+										<th>#</th>
+										<th>First Name</th>
+									</tr>
+								</thead> -->
+                                <tbody>
+                                    <tr>
+                                        <th scope="row" class="modal-detail-row">
+                                            Judul
+                                        </th>
+                                        <td><?= esc($row['judul']); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Deskripsi</th>
+                                        <td><?= esc($row['deskripsi']); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Kategori</th>
+                                        <td><?= esc($row['nama_jenis']); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Kecamatan</th>
+                                        <td><?= esc($row['kecamatan']); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Tanggal Pengajuan</th>
+                                        <td><?= date('d M Y', strtotime($row['tanggal_pengajuan'])) ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Diajukan oleh</th>
+                                        <td><?= esc($row['published_by']); ?></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php endforeach; ?>
+<?php endif; ?>
+
 <?= $this->endSection(); ?>

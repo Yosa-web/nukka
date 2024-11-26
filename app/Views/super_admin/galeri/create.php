@@ -1,109 +1,105 @@
-<!DOCTYPE html>
-<html lang="en">
+<?= $this->extend('layout/master_dashboard'); ?>
+<?= $this->section('title') ?><title>Tambah Galeri | Rumah Inovasi</title><?= $this->endSection() ?>
+<?= $this->section('content'); ?>
+<div class="main-content">
+    <div class="page-content">
+        <div class="container-fluid">
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div
+                        class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h3 class="mb-sm-0">
+                            Tambah Galeri
+                        </h3>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tambah Galeri</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            margin: 0;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 500px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
-
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-
-        label {
-            font-weight: bold;
-        }
-
-        input[type="text"],
-        input[type="url"],
-        input[type="file"],
-        select {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-        }
-
-        button {
-            width: 100%;
-            padding: 10px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #218838;
-        }
-    </style>
-</head>
-
-<body>
-    <div class="container">
-        <h1>Tambah Galeri Baru</h1>
-        <form id="galeriForm" method="post" enctype="multipart/form-data">
-            <label for="judul">Judul:</label>
-            <input type="text" name="judul" required>
-
-            <label for="tipe">Tipe:</label>
-            <select name="tipe" id="tipe" required onchange="toggleInput()">
-                <option value="image">Image</option>
-                <option value="video">Video</option>
-            </select>
-
-            <!-- Input untuk gambar -->
-            <div id="imageInput" style="display: none;">
-                <label for="image">Upload Gambar:</label>
-                <input type="file" name="image">
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item">
+                                    <a href="javascript: void(0);">Kelola Konten</a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a href="<?= base_url('superadmin/galeri') ?>">Kelola Galeri</a>
+                                </li>
+                                <li class="breadcrumb-item active">
+                                    Tambah Galeri
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <!-- Input untuk URL video -->
-            <div id="urlInput" style="display: none;">
-                <label for="url">URL Video:</label>
-                <input type="url" name="url">
+            <!-- end page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <form id="galeriForm" method="post" enctype="multipart/form-data">
+                                <div class="row mb-3">
+                                    <label for="tipe" class="col-sm-3 col-form-label">Tipe</label>
+                                    <div class="col-sm-9">
+                                        <select class="form-select" name="tipe" id="tipe" required onchange="toggleInput()">
+                                            <option value="" disabled selected>Pilih Salah Satu</option>
+                                            <option value="image">Gambar</option>
+                                            <option value="video">Video</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="judul" class="col-sm-3 col-form-label">Judul</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="judul" placeholder="Masukkan judul" required>
+                                    </div>
+                                </div>
+                                <!-- Input untuk gambar -->
+                                <div class="row mb-5" id="imageInput" style="display: none;">
+                                    <label for="image" class="col-sm-3 col-form-label">Upload File Gambar</label>
+                                    <div class="col-sm-9">
+                                        <input type="file" class="form-control" name="image">
+                                    </div>
+                                </div>
+                                <!-- Input untuk URL video -->
+                                <div class="row mb-5" id="urlInput" style="display: none;">
+                                    <label for="url" class="col-sm-3 col-form-label">Tautan Video</label>
+                                    <div class="col-sm-9">
+                                        <input type="url" class="form-control" name="url" placeholder="Masukkan URL video">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="d-flex justify-content-end">
+                                            <button type="button" class="btn btn-secondary w-md" onclick="window.location.href='<?= base_url('superadmin/galeri') ?>'">Batal</button>
+                                            <button type="submit" class="btn btn-primary w-md ms-4">Kirim</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+    </div>
+</div>
 
-            <button type="submit">Simpan</button>
-        </form>
-
-        <script>
-            function toggleInput() {
-                const tipe = document.getElementById('tipe').value;
-                if (tipe === 'image') {
-                    document.getElementById('imageInput').style.display = 'block';
-                    document.getElementById('urlInput').style.display = 'none';
+<script>
+			function toggleInput() {
+				const tipe = document.getElementById("tipe").value;
+				const uploadGambar = document.getElementById("imageInput");
+				const tautanVideo = document.getElementById("urlInput");
+		
+				if (tipe === "image") {
+					uploadGambar.style.display = "flex";
+					tautanVideo.style.display = "none";
                     document.getElementById('galeriForm').setAttribute('action', '/superadmin/galeri/storeImage');
-                } else if (tipe === 'video') {
-                    document.getElementById('imageInput').style.display = 'none';
-                    document.getElementById('urlInput').style.display = 'block';
+				} else if (tipe === "video") {
+					uploadGambar.style.display = "none";
+					tautanVideo.style.display = "flex";
                     document.getElementById('galeriForm').setAttribute('action', '/superadmin/galeri/storeVideo');
-                }
-            }
-
-            // Initialize visibility based on selected type
-            toggleInput();
-        </script>
-
-</body>
-
-</html>
+				} else {
+					uploadGambar.style.display = "none";
+					tautanVideo.style.display = "none";
+				}
+			}
+		</script>
+<?= $this->endSection(); ?>

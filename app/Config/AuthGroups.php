@@ -46,20 +46,24 @@ class AuthGroups extends ShieldAuthGroups
             'title'       => 'Super Admin',
             'description' => 'Complete control of the site.',
         ],
-        'admin' => [
+        'admin-opd' => [
             'title'       => 'Admin',
             'description' => 'Day to day administrators of the site.',
         ],
-        'developer' => [
-            'title'       => 'Developer',
+        'operator' => [
+            'title'       => 'Operator',
             'description' => 'Site programmers.',
         ],
         'user' => [
             'title'       => 'User',
             'description' => 'General users of the site. Often customers.',
         ],
-        'beta' => [
-            'title'       => 'Beta User',
+        'sekertaris-opd' => [
+            'title'       => 'Sekertaris',
+            'description' => 'Has access to beta-level features.',
+        ],
+        'kepala-opd' => [
+            'title'       => 'Kepala OPD',
             'description' => 'Has access to beta-level features.',
         ],
     ];

@@ -150,5 +150,27 @@ class BeritaModel extends Model
                     ->getRowArray(); // Mengambil satu record dalam bentuk array
 }
 
+public function getRandPublishedNews($slug = null)
+{
+    $query = $this->db->table('berita')
+                      ->select('berita.*, users.name AS uploaded_by_username')
+                      ->join('users', 'users.id = berita.posted_by', 'left')
+                      ->where('berita.status', 'published')
+                      ->orderBy('RAND()'); // Mengacak hasil query
+
+    // Jika $slug diberikan, tambahkan kondisi filter berdasarkan slug
+    if ($slug !== null) {
+        $query->where('berita.slug', $slug); // Cari berita berdasarkan slug
+    }
+
+    $result = $query->get()->getResultArray();
+    
+    // Debug: cetak hasilnya untuk pengecekan
+    log_message('debug', 'Published News by Slug: ' . print_r($result, true));
+    
+    return $result;
+}
+
+
 
 }

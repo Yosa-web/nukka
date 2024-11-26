@@ -92,88 +92,92 @@
 </div>
 
 <!-- Modal Detail -->
-<div class="modal fade" id="detailModal<?= $row['id_inovasi'] ?>" tabindex="-1" role="dialog"
-    aria-labelledby="detailModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="detailModalLabel">Detail Proposal</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body card-body">
-                <div class="table-responsive">
-                    <table class="table table-striped mb-0">
-                        <!-- <thead>
+<?php if (!empty($inovasi)): ?>
+    <?php foreach ($inovasi as $row): ?>
+        <div class="modal fade" id="detailModal<?= $row['id_inovasi'] ?>" tabindex="-1" role="dialog"
+            aria-labelledby="detailModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="detailModalLabel">Detail Proposal</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped mb-0">
+                                <!-- <thead>
 									<tr>
 										<th>#</th>
 										<th>First Name</th>
 									</tr>
 								</thead> -->
-                        <tbody>
-                            <tr>
-                                <th scope="row" style="width: 230px">Judul Inovasi</th>
-                                <td><?= esc($row['judul']); ?></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Deskripsi</th>
-                                <td><?= esc($row['deskripsi']); ?></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Kategori</th>
-                                <td><?= esc($row['nama_jenis']); ?></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Kecamatan</th>
-                                <td><?= esc($row['kecamatan']); ?></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Tanggal Pengajuan</th>
-                                <td><?= date('d M Y', strtotime($row['tanggal_pengajuan'])) ?></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Diajukan oleh</th>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Status</th>
-                                <td><?= ucfirst($row['status']); ?></td>
-                            </tr>
-                            <!-- detail proposal TERBIT -->
-                            <?php if ($row['status'] === 'terbit'): ?>
-                                <tr>
-                                    <th scope="row">Tanggal Disetujui</th>
-                                    <td><?= date('d M Y', strtotime($row['published_at'])) ?></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Disetujui oleh</th>
-                                    <td><?= esc($row['published_by']); ?></td>
-                                </tr>
-                            <?php endif; ?>
-                            <!-- detail pesan REVISI -->
-                            <?php if ($row['status'] === 'revisi'): ?>
-                                <div class="pesan-status">
-                                    <p><strong>Pesan Revisi:</strong></p>
-                                    <?php
-                                    $pesanMessages = explode('---', $row['pesan']);
-                                    foreach ($pesanMessages as $message): ?>
-                                        <p class="ml-3">• <?= esc(trim($message)); ?></p>
-                                    <?php endforeach; ?>
-                                </div>
-                                <!-- detail pesan TERTOLAK -->
-                            <?php elseif (in_array($row['status'], ['tertolak', 'arsip'])): ?>
-                                <div class="pesan-status">
-                                    <p><strong>Pesan:</strong> <?= esc($row['pesan']); ?></p>
-                                </div>
-                            <?php endif; ?>
-                            <tr>
-                                <th scope="row">File Proposal</th>
-                                <td><a href="<?= base_url($row['url_file']) ?>" target="_blank" type="button" class="btn btn-soft-primary waves-effect btn-label"><i class="fas fa-download label-icon"></i>Download File</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row" style="width: 230px">Judul Inovasi</th>
+                                        <td><?= esc($row['judul']); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Deskripsi</th>
+                                        <td><?= esc($row['deskripsi']); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Kategori</th>
+                                        <td><?= esc($row['nama_jenis']); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Kecamatan</th>
+                                        <td><?= esc($row['kecamatan']); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Tanggal Pengajuan</th>
+                                        <td><?= date('d M Y', strtotime($row['tanggal_pengajuan'])) ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Diajukan oleh</th>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Status</th>
+                                        <td><?= ucfirst($row['status']); ?></td>
+                                    </tr>
+                                    <!-- detail proposal TERBIT -->
+                                    <?php if ($row['status'] === 'terbit'): ?>
+                                        <tr>
+                                            <th scope="row">Tanggal Disetujui</th>
+                                            <td><?= date('d M Y', strtotime($row['published_at'])) ?></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Disetujui oleh</th>
+                                            <td><?= esc($row['published_by']); ?></td>
+                                        </tr>
+                                    <?php endif; ?>
+                                    <!-- detail pesan REVISI -->
+                                    <?php if ($row['status'] === 'revisi'): ?>
+                                        <div class="pesan-status">
+                                            <p><strong>Pesan Revisi:</strong></p>
+                                            <?php
+                                            $pesanMessages = explode('---', $row['pesan']);
+                                            foreach ($pesanMessages as $message): ?>
+                                                <p class="ml-3">• <?= esc(trim($message)); ?></p>
+                                            <?php endforeach; ?>
+                                        </div>
+                                        <!-- detail pesan TERTOLAK -->
+                                    <?php elseif (in_array($row['status'], ['tertolak', 'arsip'])): ?>
+                                        <div class="pesan-status">
+                                            <p><strong>Pesan:</strong> <?= esc($row['pesan']); ?></p>
+                                        </div>
+                                    <?php endif; ?>
+                                    <tr>
+                                        <th scope="row">File Proposal</th>
+                                        <td><a href="<?= base_url($row['url_file']) ?>" target="_blank" type="button" class="btn btn-soft-primary waves-effect btn-label"><i class="fas fa-download label-icon"></i>Download File</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    <?php endforeach; ?>
+<?php endif; ?>
 <?= $this->endSection(); ?>

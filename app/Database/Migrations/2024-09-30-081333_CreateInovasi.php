@@ -16,7 +16,7 @@ class CreateInovasi extends Migration
             'kategori'        => ['type' => 'ENUM', 'constraint' => ['kategori1', 'kategori2', 'kategori3', 'kategori4', 'kategori5']],
             'tanggal_pengajuan' => ['type' => 'DATETIME'],
             'status'          => ['type' => 'ENUM', 'constraint' => ['terbit', 'draf', 'arsip', 'revisi', 'tertunda', 'tertolak']],
-            'kecamatan'          => ['type' => 'ENUM', 'constraint' => ['Gedong Tataan', 'Kedondong	', 'Marga Punduh', 'Negeri Katon', 'Padang Cermin', 'Punduh Pidada', 'Tegineneng', 'Teluk Pandan', 'Way Lima', 'Way Khilau', 'Way Ratai']],
+            'kecamatan'          => ['type' => 'VARCHAR', 'constraint' => 100],
             'id_user'         => ['type' => 'INT', 'constraint' => 11, 'unsigned' => true],
             'id_opd'          => ['type' => 'INT', 'constraint' => 11, 'null' => true, 'unsigned' => true],
             'pesan'       => ['type' => 'LONGTEXT', 'null' => true],

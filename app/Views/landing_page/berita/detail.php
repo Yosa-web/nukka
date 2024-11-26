@@ -1,74 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= esc($berita['judul']) ?> - Detail Berita</title>
-    <!-- Bootstrap 5 CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .berita-gambar {
-            width: 100%;
-            height: auto;
-            max-height: 500px;
-            object-fit: cover;
-            margin-bottom: 20px;
-        }
-
-        .berita-container {
-            margin-top: 40px;
-        }
-
-        .berita-tanggal {
-            font-size: 0.9em;
-            color: #6c757d;
-        }
-
-        .berita-author {
-            font-size: 1.1em;
-            color: #007bff;
-            margin-bottom: 10px;
-        }
-
-        .berita-content {
-            margin-top: 20px;
-        }
-    </style>
-</head>
-
-<body>
-
-    <div class="container berita-container">
-        <h1 class="mb-4"><?= esc($berita['judul']) ?></h1>
-
-        <!-- Gambar Berita -->
-        <?php if ($berita['gambar']): ?>
-            <img src="<?= $berita['gambar'] ?>" alt="Gambar Berita" class="berita-gambar">
-        <?php endif; ?>
-
-        <!-- Tanggal Post -->
-        <p class="berita-tanggal">
-            Diposting pada: <?= date('d M Y, H:i', strtotime($berita['tanggal_post'])) ?>
-        </p>
-
-        <!-- Penulis/Posted by -->
-        <p class="berita-author">
-            Diposting oleh: <?= esc($berita['uploaded_by_username']) ?>
-        </p>
-
-        <!-- Isi Berita -->
-        <div class="berita-content">
-            <p><?= nl2br(esc($berita['isi'])) ?></p>
+<?= $this->extend('layout/master_landing_page'); ?>
+<?= $this->section('title') ?><title>Detail Berita | Rumah Inovasi</title><?= $this->endSection() ?>
+<?= $this->section('content'); ?>
+<div class="page-title-left">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="<?= base_url('beranda') ?>">Beranda</a>
+        </li>
+        <li class="breadcrumb-item active">Berita</li>
+    </ol>
+</div>
+<div class="container-fluid mb-5">
+    <div class="row">
+        <div class="col-sm-8 head-news">
+            <h2 class="pb-4 fw-semibold">
+                <?= esc($berita['judul']) ?>
+            </h2>
+            <?php if ($berita['gambar']): ?>
+                <img src="<?= base_url($berita['gambar']) ?>" alt="Gambar Berita" />
+            <?php endif; ?>
+            <div class="mb-5">
+                <div
+                    class="news-content"
+                    style="text-align: justify">
+                    <div class="news-date">
+                        <?= date('d M Y', strtotime($berita['tanggal_post'])) ?> | Diunggah oleh
+                        <span><?= esc($berita['uploaded_by_username']) ?></span>
+                    </div>
+                    <div class="news-title"></div>
+                    <div class="news-description">
+                        <?= nl2br(esc($berita['isi'])) ?>
+                    </div>
+                </div>
+            </div>
         </div>
+        <div class="col-sm-4 berita-lainnya">
+            <h3 class="pb-4 fw-semibold">Berita Lainnya</h3>
+            <?php if (!empty($randberita) && is_array($randberita)): ?>
+                <?php
+                // Acak array
+                shuffle($randberita);
+                // Ambil maksimal 3 elemen pertama
+                $beritaLainnya = array_slice($randberita, 0, 3);
+                ?>
+                <?php foreach ($beritaLainnya as $berita): ?>
+                    <div class="news-all pb-3" style="border-bottom: 2px solid #ddd;">
+                        <p><?= date('d M Y', strtotime($berita['tanggal_post'])) ?></p>
+                        <h4><a href="<?= base_url('berita/detail/' . $berita['slug']) ?>"><?= substr($berita['judul'], 0, 120) . '...' ?></a></h4>
+                        <p><?= substr($berita['isi'], 0, 300) . '...' ?></p>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p>Belum ada berita yang dipublikasikan.</p>
+            <?php endif; ?>
 
-        <!-- Tombol Kembali -->
-        <a href="<?= base_url('berita') ?>" class="btn btn-secondary mt-4">Kembali</a>
+        </div>
     </div>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
-</body>
-
-</html>
+</div>
+<?= $this->endSection(); ?>

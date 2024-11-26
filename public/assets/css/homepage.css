@@ -139,7 +139,7 @@ body {
     margin-bottom: 10px;
 }
 
-.news-title {
+.news-title a {
     font-size: 1.4rem;
     font-weight: bold;
     color: #333;
@@ -147,7 +147,7 @@ body {
     cursor: pointer;
 }
 
-.news-title:hover {
+.news-title a:hover {
     color: #0077c2;
 }
 
@@ -719,7 +719,17 @@ body {
     text-align: center;
 }
 
-/* Tablet View */
+/* peta-inovasi */
+.peta-content {
+    position: relative;
+}
+#map {
+    width: 100%;
+    height: 500px; /* Pastikan tinggi sudah ditentukan */
+    margin-top: 20px; /* Atur jarak dari elemen atas jika perlu */
+}
+
+/* Mobile View */
 @media only screen and (max-width: 900px) {
     .container-fluid {
         padding: 0 15px;
@@ -980,6 +990,3 @@ body {
         width: 28px;
     }
 }
-
-/* Mobile View */
-@media (max-width: 600px) {}

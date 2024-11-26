@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers\KepalaOpd;
+namespace App\Controllers\Operator;
 
 use App\Controllers\BaseController;
 use App\Models\InovasiModel;
@@ -50,7 +50,7 @@ class KelolaDataInovasi extends BaseController
             ->orderBy('FIELD(status, "tertunda", "draf", "revisi", "terbit", "arsip", "tertolak")') // Mengatur urutan
             ->findAll();
 
-        return view('super_admin/opd/kepala/inovasi/index', $data);
+        return view('operator_opd/inovasi/index', $data);
     }
 
     public function filterByStatuses()
@@ -70,7 +70,7 @@ class KelolaDataInovasi extends BaseController
             ->whereNotIn('status', ['tertunda', 'tertolak']) // Hanya status selain tertunda dan tertolak
             ->findAll();
 
-        return view('super_admin/opd/kepala/inovasi/filter_by_statuses', $data);
+        return view('operator_opd/inovasi/filter_by_statuses', $data);
     }
 
 
@@ -85,7 +85,7 @@ class KelolaDataInovasi extends BaseController
             ->join('jenis_inovasi', 'inovasi.kategori = jenis_inovasi.id_jenis_inovasi', 'left')
             ->findAll();
 
-        return view('super_admin/opd/kepala/inovasi/create', $data); // Tampilkan view form
+        return view('operator_opd/inovasi/create', $data); // Tampilkan view form
     }
 
     public function store()
@@ -155,7 +155,7 @@ class KelolaDataInovasi extends BaseController
         ];
         $this->LogAktivitasModel->save($logData);
 
-        return redirect()->to('/kepala/inovasi/filter')->with('success', 'Proposal berhasil ditambahkan.');
+        return redirect()->to('/operator/inovasi/filter')->with('success', 'Proposal berhasil ditambahkan.');
     }
 
 
@@ -164,7 +164,7 @@ class KelolaDataInovasi extends BaseController
         $data['inovasi'] = $this->inovasiModel->find($id_inovasi);
         $data['jenis_inovasi'] = $this->JenisInovasiModel->findAll();
         $data['opd'] = $this->opdModel->findAll();
-        return view('super_admin/opd/kepala/inovasi/edit', $data);
+        return view('operator_opd/inovasi/edit', $data);
     }
 
     public function update($id_inovasi)
@@ -240,7 +240,7 @@ class KelolaDataInovasi extends BaseController
         ];
         $this->LogAktivitasModel->save($logData);
 
-        return redirect()->to('/kepala/inovasi/filter')->with('success', 'Proposal berhasil diperbarui.');
+        return redirect()->to('/operator/inovasi/filter')->with('success', 'Proposal berhasil diperbarui.');
     }
 
     //     return redirect()->to('/superadmin/inovasi')->with('success', 'Proposal berhasil diperbarui.');
@@ -260,7 +260,7 @@ class KelolaDataInovasi extends BaseController
         ];
         $this->LogAktivitasModel->save($logData);
 
-        return redirect()->to('/kepala/inovasi/filter')->with('success', 'Proposal berhasil dihapus.');
+        return redirect()->to('/operator/inovasi/filter')->with('success', 'Proposal berhasil dihapus.');
     }
     //     return redirect()->to('/superadmin/inovasi')->with('success', 'Proposal berhasil dihapus.');
     // }
@@ -272,7 +272,7 @@ class KelolaDataInovasi extends BaseController
             ->join('jenis_inovasi', 'inovasi.kategori = jenis_inovasi.id_jenis_inovasi', 'left')
             ->where('inovasi.id_inovasi', $id_inovasi)
             ->first();
-        return view('super_admin/opd/kepala/inovasi/show', $data);
+        return view('operator_opd/inovasi/show', $data);
     }
 
     public function updateStatus($id)
@@ -293,7 +293,7 @@ class KelolaDataInovasi extends BaseController
         }
 
         $this->inovasiModel->update($id, $data);
-        return redirect()->to('/kepala/inovasi/detail/' . $id)->with('success', 'Status berhasil diperbarui.');
+        return redirect()->to('/operator/inovasi/detail/' . $id)->with('success', 'Status berhasil diperbarui.');
     }
 
     public function tolak()
@@ -357,7 +357,7 @@ class KelolaDataInovasi extends BaseController
             ]);
 
             // Kembali ke halaman index dengan pesan sukses
-            return redirect()->to('/kepala/inovasi/')->with('success', 'Proposal berhasil diminta revisi dengan pesan.');
+            return redirect()->to('/operator/inovasi/')->with('success', 'Proposal berhasil diminta revisi dengan pesan.');
         }
 
         // Jika ada masalah, kembali dengan pesan error

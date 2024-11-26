@@ -1,0 +1,258 @@
+INFO - 2024-11-22 03:24:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 03:24:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 03:24:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 03:24:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 03:24:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 03:24:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 03:24:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 03:24:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 03:36:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 03:36:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 03:36:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 03:37:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 03:37:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 03:37:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 03:40:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 03:40:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 03:40:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 03:41:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 03:41:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 03:41:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 03:56:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 03:56:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 03:56:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 03:57:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 03:57:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 03:57:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 03:59:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 03:59:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 03:59:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 03:59:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 03:59:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 03:59:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 04:08:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 04:08:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 04:08:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 04:10:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 04:10:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 04:10:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 04:11:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 04:11:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 04:12:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-11-22 04:13:13 --> Published News by Slug: Array
+(
+    [0] => Array
+        (
+            [id_berita] => 1
+            [judul] => Dinas PLH Pesawaran Bangun Kesadaran Lingkungan Melalui Sosialisasi Kampung Iklim Bupati Dendi Ramadhona Hadiri Masjid Ash Shihhah RSUD Pesawaran
+            [isi] => Pesawaran, 31 Oktober 2024 - Bupati Pesawaran Dendi Ramadhona menghadiri dan memimpin secara langsung peletakan batu pertama pembangunan Masjid Ash-Shihah RSUD Kabupaten Pesawaran pada Kamis, (31/10/2024). Turut hadir mendampingi Kepala Dinas Kesehatan Media Apriliana, Kepala Kantor Kementerian Agama, Kadis Kominfotiksan yang diwakili Sekretaris Dinas Apriya, Direktur RSUD Dian Adhitama, serta para tamu undangan lainnya. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste vel minus porro tenetur, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta!!
+            [gambar] => assets/uploads/images/berita/1731558565_2269574d2c0feef4dfbc.png
+            [tanggal_post] => 2024-11-14 11:29:25
+            [posted_by] => 1
+            [status] => published
+            [slug] => dinas-plh-pesawaran-bangun-kesadaran-lingkungan-melalui-sosialisasi-kampung-iklim-bupati-dendi-ramadhona-hadiri-masjid-ash-shihhah-rsud-pesawaran
+            [uploaded_by_username] => Icha
+        )
+
+    [1] => Array
+        (
+            [id_berita] => 2
+            [judul] => Tampung Aspirasi Masyarakat, Bupati Pesawaran Terima Kunjungan Reses 1 Anggota DPRD Provinsi Lampung Dapil III
+            [isi] => Pesawaran, 14 November 2024 - Bupati Pesawaran Dendi Ramadhona menerima Kunjungan Reses Anggota Dewan Perwakilan Rakyat Daerah (DPRD) Provinsi Lampung Daerah Pemilihan (Dapil) III di Aula Pemkab Pesawaran pada Kamis, (14/11/2024).
+
+Pertemuan tersebut dihadiri oleh 11 anggota DPRD Provinsi Lampung asal Daerah Pemilihan (Dapil) III, yaitu Ahmad Iswan H Caya selaku Koordinator, beserta jajaran anggota lainnya yaitu Hanifah, Elly Wahyuni, Angga Satria Pratama, Mustika Bahrum, Sholihin, Andy Roby, Yudha Al Hadjid, Tondi Nasution, Syukron Muchtar, dan Mohammad Rezza.
+
+Sementara Pemkab Pesawaran dihadiri langsung oleh Bupati Pesawaran Dendi Ramadhona, Sekretaris Daerah Kabupaten Pesawaran Wildan, Para Staf Ahli Bupati, Asisten, Inspektur, serta Kepala Perangkat Daerah terkait. Pertemuan antara Pemerintah Daerah dengan DPRD ini digelar dalam rangka menyerap dan menampung aspirasi masyarakat yang akan menjadi dasar dalam perencanaan pembangunan daerah.
+
+Dalam sambutannya, Bupati Pesawaran Dendi Ramadhona menyampaikan apresiasi atas perhatian dan dukungan yang ditunjukkan melalui kunjungan ini.
+
+“Saya ucapkan terima kasih kepada anggota DPRD Provinsi Lampung Dapil III atas kunjungannya ke Kabupaten Pesawaran. Kami akan bersuara menyampaikan kebutuhan dan aspirasi masyarakat mengingat kebutuhan dan dinamika masyarakat sangat banyak,” ujarnya.
+
+Pada kesempatan itu, Bupati Dendi juga turut menekankan pentingnya realisasi atas aspirasi yang disampaikan masyarakat terkait pembangunan di bidang infrastruktur, pendidikan, kesehatan, dan pariwisata yang dibahas dalam kegiatan ini. Menurutnya, Kabupaten Pesawaran memiliki banyak potensi dan posisi yang strategis terkait hal tersebut.
+
+“Kita semua tahu bahwa Pesawaran merupakan satelit kota yang wilayahnya bersinggungan langsung dengan pusat pemerintahan kota Bandar Lampung. Pesawaran memiliki banyak potensi maka infrastruktur yang memadai menjadi sangat penting untuk mendorong kemajuan ekonomi,” ucapnya.
+
+Bupati Dendi berharap kepada para anggota DPRD yang hadir untuk dapat menyalurkan aspirasi masyarakat dan memohon dukungan agar segala usulan yang diberikan untuk kepentingan masyarakat dapat terealisasikan secara bertahap dan menjadi prioritas.
+
+Menanggapi hal tersebut, Koordinator anggota DPRD Provinsi Lampung Dapil III Ahmad Iswan berkomitmen untuk terus memperjuangkan aspirasi masyarakat Pesawaran. 
+
+“Kami perjuangkan segala aspirasi yang masuk. Kami niat membantu masyarakat dan siap mendukung segala upaya Bapak Bupati dalam membangun Pesawaran. Semoga ini juga menjadi amal untuk kita semua,” ujarnya. (Annisa)
+            [gambar] => assets/uploads/images/berita/1731644440_c64dfa4ef11787c92461.jpg
+            [tanggal_post] => 2024-11-15 11:20:40
+            [posted_by] => 1
+            [status] => published
+            [slug] => tampung-aspirasi-masyarakat-bupati-pesawaran-terima-kunjungan-reses-1-anggota-dprd-provinsi-lampung-dapil-iii
+            [uploaded_by_username] => Icha
+        )
+
+    [2] => Array
+        (
+            [id_berita] => 3
+            [judul] => Bupati Dendi Ramadhona Hadiri Peletakan Batu Pertama Pembangunan Masjid Ash Shihhah RSUD Pesawaran
+            [isi] => Pesawaran, 31 Oktober 2024 - Bupati Pesawaran Dendi Ramadhona menghadiri dan memimpin secara langsung peletakan batu pertama pembangunan Masjid Ash-Shihah RSUD Kabupaten Pesawaran pada Kamis, (31/10/2024). Turut hadir mendampingi Kepala Dinas Kesehatan Media Apriliana, Kepala Kantor Kementerian Agama, Kadis Kominfotiksan yang diwakili Sekretaris Dinas Apriya, Direktur RSUD Dian Adhitama, serta para tamu undangan lainnya. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste vel minus porro tenetur, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta!!
+            [gambar] => assets/uploads/images/berita/1731644466_8fc322b3aee59fe51f9f.png
+            [tanggal_post] => 2024-11-15 11:21:06
+            [posted_by] => 1
+            [status] => published
+            [slug] => bupati-dendi-ramadhona-hadiri-peletakan-batu-pertama-pembangunan-masjid-ash-shihhah-rsud-pesawaran
+            [uploaded_by_username] => Icha
+        )
+
+    [3] => Array
+        (
+            [id_berita] => 4
+            [judul] => Jaring Isu Strategis, Dinas PUPR Kabupaten Pesawaran Gelar Konsultasi Publik 1 Penyusunan Dokumen RDTR
+            [isi] => Pesawaran, 14 November 2024 - Dinas Pekerjaan Umum dan Penataan Ruang (PUPR) Kabupaten Pesawaran jaring isu strategis pada wilayah perencanaan melalui Konsultasi Publik 1 Dokumen Rencana Detail Tata Ruang (RDTR) dan Kajian Lingkungan Hidup Strategis (KLHS) RDTR Kawasan Perkotaan Teluk Pandan yang digelar di Balai Desa Hanura Kecamatan Teluk Pandan pada Rabu, (13/11/2024). 
+
+Kegiatan ini merupakan salah satu persyaratan untuk mendapatkan persetujuan substansi dari Kementerian Agraria dan Tata Ruang (ATR)/Badan Pertanahan Nasional (BPN) dan validasi KLHS dari Dinas Lingkungan Hidup Provinsi Lampung, dan juga sebagai tindak lanjut dari pertemuan FGD RDTR dan KLHS Kawasan Perkotaan Teluk Pandan yang telah dilaksanakan pada tanggal 25 Juli 2024 lalu.
+
+Dalam sambutannya, Bupati Pesawaran yang diwakili oleh Asisten Perekonomian dan Pembangunan Setdakab Pesawaran Marzuki menyampaikan tujuan dari kegiatan ini yaitu untuk melakukan konfirmasi dan updating data sekunder, menyusun konsep pola ruang, struktur ruang dan pengembangan, dan menyepakati isu Pembangunan Berkelanjutan (PB) paling strategis, serta mendapatkan ide, gagasan, masukan untuk penyempurnaan Dokumen KLHS RDTR kawasan perkotaan Teluk Pandan.
+
+Selain perkotaan Teluk Pandan, terdapat empat lokus lainnya yang telah diamanatkan dalam penyusunan RDTR berdasarkan Peraturan Daerah Kabupaten Pesawaran Nomor 6 Tentang Rencana Tata Ruang Wilayah (RTRW) Tahun 2019-2039 yaitu Perkotaan Gedong Tataan, Tegineneng, Padang Cermin, serta Negeri Katon. 
+
+Dengan keterangannya, Marzuki juga menegaskan bahwa penyusunan dokumen RDTR dan KLHS RDTR kawasan perkotaan Teluk Pandan membutuhkan kerjasama semua pihak.
+
+“Penyusunan dokumen ini perlu melibatkan peran serta masyarakat dan pemangku kepentingan melalui konsultasi publik yang dilaksanakan hari ini,” ujarnya. 
+
+Marzuki berharap pihak yang terlibat dapat mendukung dan memberikan aspirasi guna menghasilkan produk rencana detail tata ruang yang berkelanjutan. 
+
+“Saya berharap kita semua bisa mendukung, berperan, berkontribusi aktif dan memberikan masukan terkait proses penyempurnaan penyusunan dokumen RDTR dan KLHS kawasan perkotaan Teluk Pandan,” tambah Marzuki. 
+
+Dalam kesempatan yang sama, Kepala Dinas PUPR Zainal Fikri yang diwakili oleh Plh. David Oktoriandi menyampaikan tentang pentingnya menjaring isu strategis yang menjadi urgensi diadakannya kegiatan konsultasi publik. 
+
+“Kami utamakan menjaring isu sebanyak-banyaknya yang ada di wilayah perencanaan dan harapannya isu atau masukan tersebut dapat membantu menyempurnakan dokumen yang akan disusun ini,” pungkasnya. 
+
+Kegiatan ini dihadiri oleh Perangkat Daerah di lingkungan Pemkab Pesawaran, OPD Provinsi Lampung, perwakilan Lanal Lampung, anggota DPRD Dapil Teluk Pandan, BBWS Mesuji Sekampung, dan tamu undangan lainnya. (Annisa)
+            [gambar] => assets/uploads/images/berita/1731651286_bac1d956a3e7e969a3e6.png
+            [tanggal_post] => 2024-11-15 13:14:46
+            [posted_by] => 1
+            [status] => published
+            [slug] => jaring-isu-strategis-dinas-pupr-kabupaten-pesawaran-gelar-konsultasi-publik-1-penyusunan-dokumen-rdtr
+            [uploaded_by_username] => Icha
+        )
+
+)
+
+INFO - 2024-11-22 04:13:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-11-22 04:13:15 --> Published News by Slug: Array
+(
+    [0] => Array
+        (
+            [id_berita] => 1
+            [judul] => Dinas PLH Pesawaran Bangun Kesadaran Lingkungan Melalui Sosialisasi Kampung Iklim Bupati Dendi Ramadhona Hadiri Masjid Ash Shihhah RSUD Pesawaran
+            [isi] => Pesawaran, 31 Oktober 2024 - Bupati Pesawaran Dendi Ramadhona menghadiri dan memimpin secara langsung peletakan batu pertama pembangunan Masjid Ash-Shihah RSUD Kabupaten Pesawaran pada Kamis, (31/10/2024). Turut hadir mendampingi Kepala Dinas Kesehatan Media Apriliana, Kepala Kantor Kementerian Agama, Kadis Kominfotiksan yang diwakili Sekretaris Dinas Apriya, Direktur RSUD Dian Adhitama, serta para tamu undangan lainnya. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste vel minus porro tenetur, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta!!
+            [gambar] => assets/uploads/images/berita/1731558565_2269574d2c0feef4dfbc.png
+            [tanggal_post] => 2024-11-14 11:29:25
+            [posted_by] => 1
+            [status] => published
+            [slug] => dinas-plh-pesawaran-bangun-kesadaran-lingkungan-melalui-sosialisasi-kampung-iklim-bupati-dendi-ramadhona-hadiri-masjid-ash-shihhah-rsud-pesawaran
+            [uploaded_by_username] => Icha
+        )
+
+    [1] => Array
+        (
+            [id_berita] => 2
+            [judul] => Tampung Aspirasi Masyarakat, Bupati Pesawaran Terima Kunjungan Reses 1 Anggota DPRD Provinsi Lampung Dapil III
+            [isi] => Pesawaran, 14 November 2024 - Bupati Pesawaran Dendi Ramadhona menerima Kunjungan Reses Anggota Dewan Perwakilan Rakyat Daerah (DPRD) Provinsi Lampung Daerah Pemilihan (Dapil) III di Aula Pemkab Pesawaran pada Kamis, (14/11/2024).
+
+Pertemuan tersebut dihadiri oleh 11 anggota DPRD Provinsi Lampung asal Daerah Pemilihan (Dapil) III, yaitu Ahmad Iswan H Caya selaku Koordinator, beserta jajaran anggota lainnya yaitu Hanifah, Elly Wahyuni, Angga Satria Pratama, Mustika Bahrum, Sholihin, Andy Roby, Yudha Al Hadjid, Tondi Nasution, Syukron Muchtar, dan Mohammad Rezza.
+
+Sementara Pemkab Pesawaran dihadiri langsung oleh Bupati Pesawaran Dendi Ramadhona, Sekretaris Daerah Kabupaten Pesawaran Wildan, Para Staf Ahli Bupati, Asisten, Inspektur, serta Kepala Perangkat Daerah terkait. Pertemuan antara Pemerintah Daerah dengan DPRD ini digelar dalam rangka menyerap dan menampung aspirasi masyarakat yang akan menjadi dasar dalam perencanaan pembangunan daerah.
+
+Dalam sambutannya, Bupati Pesawaran Dendi Ramadhona menyampaikan apresiasi atas perhatian dan dukungan yang ditunjukkan melalui kunjungan ini.
+
+“Saya ucapkan terima kasih kepada anggota DPRD Provinsi Lampung Dapil III atas kunjungannya ke Kabupaten Pesawaran. Kami akan bersuara menyampaikan kebutuhan dan aspirasi masyarakat mengingat kebutuhan dan dinamika masyarakat sangat banyak,” ujarnya.
+
+Pada kesempatan itu, Bupati Dendi juga turut menekankan pentingnya realisasi atas aspirasi yang disampaikan masyarakat terkait pembangunan di bidang infrastruktur, pendidikan, kesehatan, dan pariwisata yang dibahas dalam kegiatan ini. Menurutnya, Kabupaten Pesawaran memiliki banyak potensi dan posisi yang strategis terkait hal tersebut.
+
+“Kita semua tahu bahwa Pesawaran merupakan satelit kota yang wilayahnya bersinggungan langsung dengan pusat pemerintahan kota Bandar Lampung. Pesawaran memiliki banyak potensi maka infrastruktur yang memadai menjadi sangat penting untuk mendorong kemajuan ekonomi,” ucapnya.
+
+Bupati Dendi berharap kepada para anggota DPRD yang hadir untuk dapat menyalurkan aspirasi masyarakat dan memohon dukungan agar segala usulan yang diberikan untuk kepentingan masyarakat dapat terealisasikan secara bertahap dan menjadi prioritas.
+
+Menanggapi hal tersebut, Koordinator anggota DPRD Provinsi Lampung Dapil III Ahmad Iswan berkomitmen untuk terus memperjuangkan aspirasi masyarakat Pesawaran. 
+
+“Kami perjuangkan segala aspirasi yang masuk. Kami niat membantu masyarakat dan siap mendukung segala upaya Bapak Bupati dalam membangun Pesawaran. Semoga ini juga menjadi amal untuk kita semua,” ujarnya. (Annisa)
+            [gambar] => assets/uploads/images/berita/1731644440_c64dfa4ef11787c92461.jpg
+            [tanggal_post] => 2024-11-15 11:20:40
+            [posted_by] => 1
+            [status] => published
+            [slug] => tampung-aspirasi-masyarakat-bupati-pesawaran-terima-kunjungan-reses-1-anggota-dprd-provinsi-lampung-dapil-iii
+            [uploaded_by_username] => Icha
+        )
+
+    [2] => Array
+        (
+            [id_berita] => 3
+            [judul] => Bupati Dendi Ramadhona Hadiri Peletakan Batu Pertama Pembangunan Masjid Ash Shihhah RSUD Pesawaran
+            [isi] => Pesawaran, 31 Oktober 2024 - Bupati Pesawaran Dendi Ramadhona menghadiri dan memimpin secara langsung peletakan batu pertama pembangunan Masjid Ash-Shihah RSUD Kabupaten Pesawaran pada Kamis, (31/10/2024). Turut hadir mendampingi Kepala Dinas Kesehatan Media Apriliana, Kepala Kantor Kementerian Agama, Kadis Kominfotiksan yang diwakili Sekretaris Dinas Apriya, Direktur RSUD Dian Adhitama, serta para tamu undangan lainnya. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste vel minus porro tenetur, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta!!
+            [gambar] => assets/uploads/images/berita/1731644466_8fc322b3aee59fe51f9f.png
+            [tanggal_post] => 2024-11-15 11:21:06
+            [posted_by] => 1
+            [status] => published
+            [slug] => bupati-dendi-ramadhona-hadiri-peletakan-batu-pertama-pembangunan-masjid-ash-shihhah-rsud-pesawaran
+            [uploaded_by_username] => Icha
+        )
+
+    [3] => Array
+        (
+            [id_berita] => 4
+            [judul] => Jaring Isu Strategis, Dinas PUPR Kabupaten Pesawaran Gelar Konsultasi Publik 1 Penyusunan Dokumen RDTR
+            [isi] => Pesawaran, 14 November 2024 - Dinas Pekerjaan Umum dan Penataan Ruang (PUPR) Kabupaten Pesawaran jaring isu strategis pada wilayah perencanaan melalui Konsultasi Publik 1 Dokumen Rencana Detail Tata Ruang (RDTR) dan Kajian Lingkungan Hidup Strategis (KLHS) RDTR Kawasan Perkotaan Teluk Pandan yang digelar di Balai Desa Hanura Kecamatan Teluk Pandan pada Rabu, (13/11/2024). 
+
+Kegiatan ini merupakan salah satu persyaratan untuk mendapatkan persetujuan substansi dari Kementerian Agraria dan Tata Ruang (ATR)/Badan Pertanahan Nasional (BPN) dan validasi KLHS dari Dinas Lingkungan Hidup Provinsi Lampung, dan juga sebagai tindak lanjut dari pertemuan FGD RDTR dan KLHS Kawasan Perkotaan Teluk Pandan yang telah dilaksanakan pada tanggal 25 Juli 2024 lalu.
+
+Dalam sambutannya, Bupati Pesawaran yang diwakili oleh Asisten Perekonomian dan Pembangunan Setdakab Pesawaran Marzuki menyampaikan tujuan dari kegiatan ini yaitu untuk melakukan konfirmasi dan updating data sekunder, menyusun konsep pola ruang, struktur ruang dan pengembangan, dan menyepakati isu Pembangunan Berkelanjutan (PB) paling strategis, serta mendapatkan ide, gagasan, masukan untuk penyempurnaan Dokumen KLHS RDTR kawasan perkotaan Teluk Pandan.
+
+Selain perkotaan Teluk Pandan, terdapat empat lokus lainnya yang telah diamanatkan dalam penyusunan RDTR berdasarkan Peraturan Daerah Kabupaten Pesawaran Nomor 6 Tentang Rencana Tata Ruang Wilayah (RTRW) Tahun 2019-2039 yaitu Perkotaan Gedong Tataan, Tegineneng, Padang Cermin, serta Negeri Katon. 
+
+Dengan keterangannya, Marzuki juga menegaskan bahwa penyusunan dokumen RDTR dan KLHS RDTR kawasan perkotaan Teluk Pandan membutuhkan kerjasama semua pihak.
+
+“Penyusunan dokumen ini perlu melibatkan peran serta masyarakat dan pemangku kepentingan melalui konsultasi publik yang dilaksanakan hari ini,” ujarnya. 
+
+Marzuki berharap pihak yang terlibat dapat mendukung dan memberikan aspirasi guna menghasilkan produk rencana detail tata ruang yang berkelanjutan. 
+
+“Saya berharap kita semua bisa mendukung, berperan, berkontribusi aktif dan memberikan masukan terkait proses penyempurnaan penyusunan dokumen RDTR dan KLHS kawasan perkotaan Teluk Pandan,” tambah Marzuki. 
+
+Dalam kesempatan yang sama, Kepala Dinas PUPR Zainal Fikri yang diwakili oleh Plh. David Oktoriandi menyampaikan tentang pentingnya menjaring isu strategis yang menjadi urgensi diadakannya kegiatan konsultasi publik. 
+
+“Kami utamakan menjaring isu sebanyak-banyaknya yang ada di wilayah perencanaan dan harapannya isu atau masukan tersebut dapat membantu menyempurnakan dokumen yang akan disusun ini,” pungkasnya. 
+
+Kegiatan ini dihadiri oleh Perangkat Daerah di lingkungan Pemkab Pesawaran, OPD Provinsi Lampung, perwakilan Lanal Lampung, anggota DPRD Dapil Teluk Pandan, BBWS Mesuji Sekampung, dan tamu undangan lainnya. (Annisa)
+            [gambar] => assets/uploads/images/berita/1731651286_bac1d956a3e7e969a3e6.png
+            [tanggal_post] => 2024-11-15 13:14:46
+            [posted_by] => 1
+            [status] => published
+            [slug] => jaring-isu-strategis-dinas-pupr-kabupaten-pesawaran-gelar-konsultasi-publik-1-penyusunan-dokumen-rdtr
+            [uploaded_by_username] => Icha
+        )
+
+)
+
+INFO - 2024-11-22 04:13:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 04:13:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 04:14:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 04:14:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 04:14:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 04:14:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 04:14:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 04:14:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 04:23:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 04:23:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 04:23:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 04:26:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 04:26:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 04:26:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 04:30:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 04:30:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 04:30:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 04:30:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 04:31:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 04:31:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 04:31:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 04:31:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 04:31:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 04:31:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 04:31:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 04:31:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 04:31:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-22 04:31:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

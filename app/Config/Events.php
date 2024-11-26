@@ -22,6 +22,12 @@ use CodeIgniter\HotReloader\HotReloader;
  * Example:
  *      Events::on('create', [$myInstance, 'myMethod']);
  */
+// Menggunakan event listener setelah login berhasil
+$listeners = [
+    'afterLogin' => [
+        'App\Listeners\RedirectAfterLoginListener',  // Ganti dengan listener custom
+    ],
+];
 
 Events::on('pre_system', static function (): void {
     if (ENVIRONMENT !== 'testing') {

@@ -55,4 +55,11 @@ class InovasiModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getJumlahInovasiPerKecamatan()
+    {
+        return $this->select('kecamatan, COUNT(*) as jumlahInovasi')
+                    ->groupBy('kecamatan')
+                    ->findAll();
+    }
 }

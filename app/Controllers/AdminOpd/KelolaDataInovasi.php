@@ -61,7 +61,7 @@ class KelolaDataInovasi extends BaseController
             ->whereNotIn('status', ['tertunda', 'tertolak']) // Hanya status selain tertunda dan tertolak
             ->findAll();
 
-        return view('super_admin/opd/admin/inovasi/filter_by_statuses', $data);
+        return view('admin_opd/inovasi/filter_by_statuses', $data);
     }
 
 
@@ -69,7 +69,7 @@ class KelolaDataInovasi extends BaseController
     {
         $data['opd'] = $this->opdModel->findAll();
         $data['jenis_inovasi'] = $this->JenisInovasiModel->findAll();
-        return view('super_admin/opd/admin/inovasi/create', $data);
+        return view('admin_opd/inovasi/create', $data);
     }
 
     public function store()
@@ -132,7 +132,7 @@ class KelolaDataInovasi extends BaseController
         $data['inovasi'] = $this->inovasiModel->find($id_inovasi);
         $data['jenis_inovasi'] = $this->JenisInovasiModel->findAll();
         $data['opd'] = $this->opdModel->findAll();
-        return view('super_admin/opd/admin/inovasi/edit', $data);
+        return view('admin_opd/inovasi/edit', $data);
     }
 
     public function update($id_inovasi)

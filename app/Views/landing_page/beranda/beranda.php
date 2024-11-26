@@ -97,7 +97,7 @@
             </h1>
             <button
                 class="btn btn-rounded waves-effect waves-light ms-auto"
-                onclick="window.location.href='berita-all.html'">
+                onclick="window.location.href='<?= base_url('berita/lainnya') ?>'">
                 Tampilkan Semua
             </button>
         </div>
@@ -116,14 +116,13 @@
                             <?= date('d M Y', strtotime($berita['tanggal_post'])) ?> | Diunggah oleh
                             <span> <?= esc($berita['uploaded_by_username']) ?></span>
                         </div>
-                        <div class="news-title">
-                            <?= substr($berita['judul'], 0, 120) . '...' ?>
+                        <div class="news-title"><a href="<?= base_url('berita/detail/' . $berita['slug']) ?>"><?= substr($berita['judul'], 0, 120) . '...' ?></a>
                         </div>
                         <div class="news-description">
                             <?= substr($berita['isi'], 0, 530) . '...' ?>
                         </div>
                         <div class="mt-2">
-                            <a href="#" class="align-middle">Selengkapnya
+                            <a href="<?= base_url('berita/detail/' . $berita['slug']) ?>" class="align-middle">Selengkapnya
                                 <i class="mdi mdi-chevron-right"></i></a>
                         </div>
                     </div>
@@ -159,19 +158,19 @@
                             class="weekly-news-active dot-style d-flex">
                             <?php foreach (array_slice($galeri, 3) as $item): ?>
                                 <?php if ($item['tipe'] === 'image'): ?>
-                                <div class="weekly-single">
-                                    <div class="weekly-img">
-                                        <img
-                                            src="<?= base_url(esc($item['url'])) ?>"
-                                            alt="galeri image"
-                                            class="myImg" />
+                                    <div class="weekly-single">
+                                        <div class="weekly-img">
+                                            <img
+                                                src="<?= base_url(esc($item['url'])) ?>"
+                                                alt="galeri image"
+                                                class="myImg" />
+                                        </div>
+                                        <div class="weekly-caption">
+                                            <h4>
+                                                <a class="captionClick"><?= $item['judul'] ?></a>
+                                            </h4>
+                                        </div>
                                     </div>
-                                    <div class="weekly-caption">
-                                        <h4>
-                                            <a class="captionClick"><?= $item['judul'] ?></a>
-                                        </h4>
-                                    </div>
-                                </div>
                                 <?php endif; ?>
                             <?php endforeach; ?>
                         </div>

@@ -48,7 +48,7 @@ class KelolaDataInovasi extends BaseController
             ->orderBy('FIELD(status, "tertunda", "draf", "revisi", "terbit", "arsip", "tertolak")') // Mengatur urutan
             ->findAll();
 
-        return view('super_admin/opd/sekertaris/inovasi/index', $data);
+        return view('sekertaris_opd/inovasi/index', $data);
     }
 
     public function filterByStatuses()
@@ -68,7 +68,7 @@ class KelolaDataInovasi extends BaseController
             ->whereNotIn('status', ['tertunda', 'tertolak']) // Hanya status selain tertunda dan tertolak
             ->findAll();
 
-        return view('super_admin/opd/sekertaris/inovasi/filter_by_statuses', $data);
+        return view('sekertaris_opd/inovasi/filter_by_statuses', $data);
     }
 
 
@@ -83,7 +83,7 @@ class KelolaDataInovasi extends BaseController
             ->join('jenis_inovasi', 'inovasi.kategori = jenis_inovasi.id_jenis_inovasi', 'left')
             ->findAll();
 
-        return view('super_admin/opd/sekertaris/inovasi/create', $data); // Tampilkan view form
+        return view('sekertaris_opd/inovasi/create', $data); // Tampilkan view form
     }
 
     public function store()
@@ -162,7 +162,7 @@ class KelolaDataInovasi extends BaseController
         $data['inovasi'] = $this->inovasiModel->find($id_inovasi);
         $data['jenis_inovasi'] = $this->JenisInovasiModel->findAll();
         $data['opd'] = $this->opdModel->findAll();
-        return view('super_admin/opd/sekertaris/inovasi/edit', $data);
+        return view('sekertaris_opd/inovasi/edit', $data);
     }
 
     public function update($id_inovasi)
@@ -270,7 +270,7 @@ class KelolaDataInovasi extends BaseController
             ->join('jenis_inovasi', 'inovasi.kategori = jenis_inovasi.id_jenis_inovasi', 'left')
             ->where('inovasi.id_inovasi', $id_inovasi)
             ->first();
-        return view('super_admin/opd/sekertaris/inovasi/show', $data);
+        return view('sekertaris_opd/inovasi/show', $data);
     }
 
     public function updateStatus($id)

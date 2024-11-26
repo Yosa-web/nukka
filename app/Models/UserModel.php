@@ -30,4 +30,14 @@ class UserModel extends ShieldUserModel
                     ->join('opd', 'opd.id_opd = users.id_opd', 'left')
                     ->findAll();
     }
-}
+
+    public function getGroups($userId)
+    {
+        // Mengambil grup berdasarkan user_id dari tabel auth_groups_users
+        return $this->db->table('auth_groups_users')
+                        ->select('group') // Hanya memilih kolom group
+                        ->where('user_id', $userId) // Filter berdasarkan user_id
+                        ->get()
+                        ->getResultArray(); // Mengembalikan hasil sebagai array
+    }
+}    

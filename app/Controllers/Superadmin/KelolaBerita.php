@@ -264,12 +264,13 @@ public function show($slug)
 {
     $beritaModel = new BeritaModel();
     $publishedBerita = $beritaModel->getPublishedNews($slug); // Ambil berita berdasarkan slug
-
+    // $publishedRandBerita = $beritaModel->getRandPublishedNews($slug);
     // Pastikan berita ditemukan
     if (!empty($publishedBerita)) {
         $data = [
             'title' => 'Detail Berita',
             'berita' => $publishedBerita[0], // Ambil item pertama karena getPublishedNews mengembalikan array
+            'randberita' => $publishedBerita,
         ];
 
         return view('landing_page/berita/detail', $data);

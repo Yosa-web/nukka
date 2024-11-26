@@ -1,5 +1,5 @@
 <?= $this->extend('layout/master_dashboard'); ?>
-<?= $this->section('title') ?><title>Kelola | Rumah Inovasi</title><?= $this->endSection() ?>
+<?= $this->section('title') ?><title>Kelola Galeri | Rumah Inovasi</title><?= $this->endSection() ?>
 <?= $this->section('content'); ?>
 <div class="main-content">
     <div class="page-content">
@@ -57,8 +57,8 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="card">
-                        <div class="card-header">
-                            <p class="card-title-desc">Pilih tab berikut yang sesuai untuk mengelola gambar dan video.</p>
+                        <div class="card-header d-flex justify-content-end">
+                            <button type="button" class="btn btn-primary waves-effect btn-label waves-light" onclick="window.location.href='<?= base_url('superadmin/galeri/create') ?>'"><i class="bx bx-plus label-icon"></i>Tambah Data</button>
                         </div>
                         <div class="card-body">
                             <!-- Nav tabs -->
@@ -80,18 +80,7 @@
                             <!-- Tab panes -->
                             <div class="tab-content p-3 text-muted">
                                 <div class="tab-pane active" id="gambar" role="tabpanel">
-                                    <div class="row align-items-center">
-                                        <div class="col-md-6">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="d-flex flex-wrap align-items-center justify-content-end gap-2 mb-3">
-                                                <div>
-                                                    <a href="/superadmin/galeri/create" class="btn btn-primary waves-effect btn-label waves-light"><i class="bx bx-plus label-icon"></i>Tambah Gambar</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
+                                    <div class="row mt-3">
                                         <?php foreach ($galeri as $item): ?>
                                             <?php if ($item['tipe'] === 'image'): ?>
                                                 <div class="col-lg-4">
@@ -155,18 +144,7 @@
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="video" role="tabpanel">
-                                    <div class="row align-items-center">
-                                        <div class="col-md-6">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="d-flex flex-wrap align-items-center justify-content-end gap-2 mb-3">
-                                                <div>
-                                                    <a href="/superadmin/galeri/create" class="btn btn-primary waves-effect btn-label waves-light"><i class="bx bx-plus label-icon"></i>Tambah Video</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
+                                    <div class="row mt-3">
                                         <?php foreach ($galeri as $item): ?>
                                             <?php if ($item['tipe'] === 'video'): ?>
                                                 <div class="col-xl-4 col-sm-6">

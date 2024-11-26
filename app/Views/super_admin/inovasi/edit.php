@@ -1,181 +1,176 @@
-<!DOCTYPE html>
-<html lang="en">
+<?= $this->extend('layout/master_dashboard'); ?>
+<?= $this->section('title') ?><title>Edit Proposal | Rumah Inovasi</title><?= $this->endSection() ?>
+<?= $this->section('content'); ?>
+<div class="main-content">
+    <div class="page-content">
+        <div class="container-fluid">
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div
+                        class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h3 class="mb-sm-0">
+                            Edit Proposal
+                        </h3>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Proposal Inovasi</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            margin: 0;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
-
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-
-        label {
-            margin-top: 10px;
-            font-weight: bold;
-        }
-
-        input[type="text"],
-        textarea,
-        select {
-            padding: 10px;
-            margin-top: 5px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        button {
-            background-color: #007bff;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        .error {
-            color: red;
-            margin-bottom: 10px;
-        }
-    </style>
-</head>
-
-<body>
-    <div class="container">
-        <h1>Edit Proposal Inovasi</h1>
-
-        <?php if (session()->get('errors')): ?>
-            <div class="error">
-                <?= implode('<br>', session()->get('errors')) ?>
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item">
+                                    <a href="javascript: void(0);">Data Inovasi</a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a href="<?= base_url('superadmin/inovasi/filter') ?>">Daftar Proposal</a>
+                                </li>
+                                <li class="breadcrumb-item active">
+                                    Edit Proposal
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
             </div>
-        <?php endif; ?>
-
-        <form action="/superadmin/inovasi/update/<?= $inovasi['id_inovasi'] ?>" method="post" enctype="multipart/form-data">
-            <label for="judul">Judul:</label>
-            <input type="text" name="judul" value="<?= esc($inovasi['judul']); ?>" required>
-
-            <label for="deskripsi">Deskripsi:</label>
-            <textarea name="deskripsi" required><?= esc($inovasi['deskripsi']); ?></textarea>
-
-            <label for="kategori">Kategori:</label>
-            <select name="kategori" required>
-                <?php foreach ($jenis_inovasi as $jenis): ?>
-                    <option value="<?= $jenis['id_jenis_inovasi'] ?>" <?= $inovasi['kategori'] == $jenis['id_jenis_inovasi'] ? 'selected' : '' ?>>
-                        <?= $jenis['nama_jenis'] ?>
-                    </option>
-                <?php endforeach; ?>
-            </select>
-
-            <label for="status">Status:</label>
-            <select name="status" id="status" required>
-                <option value="draf" <?= $inovasi['status'] == 'draf' ? 'selected' : '' ?>>Draf</option>
-                <option value="terbit" <?= $inovasi['status'] == 'terbit' ? 'selected' : '' ?>>Terbit</option>
-                <option value="arsip" <?= $inovasi['status'] == 'arsip' ? 'selected' : '' ?>>Arsip</option>
-                <option value="tertunda" <?= $inovasi['status'] == 'tertunda' ? 'selected' : '' ?>>Tertunda</option>
-                <option value="tertolak" <?= $inovasi['status'] == 'tertolak' ? 'selected' : '' ?>>Tertolak</option>
-                <option value="revisi" <?= $inovasi['status'] == 'revisi' ? 'selected' : '' ?>>Revisi</option>
-            </select>
-
-            <div id="pesan-container" style="display: none;">
-                <label for="pesan">Pesan:</label>
-                <textarea name="pesan" id="pesan"></textarea>
-            </div>
-
-            <label for="id_opd">Pilih OPD:</label>
-            <select name="id_opd" required>
-                <?php foreach ($opd as $row): ?>
-                    <option value="<?= $row->id_opd ?>" <?= $inovasi['id_opd'] == $row->id_opd ? 'selected' : '' ?>>
-                        <?= $row->nama_opd ?>
-                    </option>
-                <?php endforeach; ?>
-            </select>
-
-            <label for="kecamatan">kecamatan:</label>
-            <select name="kecamatan" id="kecamatan" required>
-                <option value="Gedong Tataan" <?= (isset($inovasi['kecamatan']) && $inovasi['kecamatan'] == 'Gedong Tataan') ? 'selected' : '' ?>>Gedong Tataan</option>
-                <option value="'Kedondong" <?= (isset($inovasi['kecamatan']) && $inovasi['kecamatan'] == 'Kedondong') ? 'selected' : '' ?>>Kedondong</option>
-                <option value="Marga Punduh" <?= (isset($inovasi['kecamatan']) && $inovasi['kecamatan'] == 'Marga Punduh') ? 'selected' : '' ?>>Marga Punduh</option>
-                <option value="Negeri Katon" <?= (isset($inovasi['kecamatan']) && $inovasi['kecamatan'] == 'Negeri Katon') ? 'selected' : '' ?>>Negeri Katon</option>
-                <option value="Padang Cermin" <?= (isset($inovasi['kecamatan']) && $inovasi['kecamatan'] == 'Padang Cermin') ? 'selected' : '' ?>>Padang Cermin</option>
-                <option value="Punduh Pidada" <?= (isset($inovasi['kecamatan']) && $inovasi['kecamatan'] == 'Punduh Pidada') ? 'selected' : '' ?>>Punduh Pidada</option>
-                <option value="Tegineneng" <?= (isset($inovasi['kecamatan']) && $inovasi['kecamatan'] == 'Tegineneng') ? 'selected' : '' ?>>Tegineneng</option>
-                <option value="Teluk Pandan" <?= (isset($inovasi['kecamatan']) && $inovasi['kecamatan'] == 'Teluk Pandan') ? 'selected' : '' ?>>Teluk Pandan</option>
-                <option value="Way Lima" <?= (isset($inovasi['kecamatan']) && $inovasi['kecamatan'] == 'Way Lima') ? 'selected' : '' ?>>Way Lima</option>
-                <option value="Way Khilau" <?= (isset($inovasi['kecamatan']) && $inovasi['kecamatan'] == 'Way Khilau') ? 'selected' : '' ?>>Way Khilau</option>
-                <option value="Way Ratai" <?= (isset($inovasi['kecamatan']) && $inovasi['kecamatan'] == 'Way Ratai') ? 'selected' : '' ?>>Way Ratai</option>
-            </select>
-
-            <label for="url_file">Ganti File:</label>
-            <input type="file" name="url_file">
-
-            <?php if (!empty($inovasi['url_file'])): ?>
-                <p>File Saat Ini: <a href="<?= base_url($inovasi['url_file']) ?>" target="_blank">Lihat File</a></p>
+            <!-- end page title -->
+            <?php if (session()->get('errors')): ?>
+                <div class="error">
+                    <?= implode('<br>', session()->get('errors')) ?>
+                </div>
             <?php endif; ?>
-
-            <button type="submit">Update</button>
-        </form>
-
-        <script>
-            const statusSelect = document.getElementById('status');
-            const pesanContainer = document.getElementById('pesan-container');
-
-            statusSelect.addEventListener('change', function() {
-                const selectedStatus = statusSelect.value;
-                if (['tertolak', 'revisi', 'arsip'].includes(selectedStatus)) {
-                    pesanContainer.style.display = 'block';
-                } else {
-                    pesanContainer.style.display = 'none';
-                    document.getElementById('pesan').value = ''; // Reset pesan jika tidak dibutuhkan
-                }
-            });
-
-            // Trigger perubahan saat halaman dimuat (jika status sudah terpilih)
-            window.addEventListener('DOMContentLoaded', function() {
-                statusSelect.dispatchEvent(new Event('change'));
-            });
-        </script>
-
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <form action="/superadmin/inovasi/update/<?= $inovasi['id_inovasi'] ?>" method="post" enctype="multipart/form-data">
+                                <div class="row mb-3">
+                                    <label for="judul" class="col-sm-3 col-form-label">Judul Inovasi</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" name="judul" value="<?= esc($inovasi['judul']); ?>" required>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="deskripsi" class="col-sm-3 col-form-label">Deskripsi</label>
+                                    <div class="col-sm-9">
+                                        <textarea class="form-control" name="deskripsi" required rows="5"><?= esc($inovasi['deskripsi']); ?></textarea>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="kategori" class="col-sm-3 col-form-label">Kategori</label>
+                                    <div class="col-sm-9">
+                                        <select
+                                            class="form-select" name="kategori" required>
+                                            <?php foreach ($jenis_inovasi as $jenis): ?>
+                                                <option value="<?= $jenis['id_jenis_inovasi'] ?>" <?= $inovasi['kategori'] == $jenis['id_jenis_inovasi'] ? 'selected' : '' ?>>
+                                                    <?= $jenis['nama_jenis'] ?>
+                                                </option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="id_opd" class="col-sm-3 col-form-label">OPD</label>
+                                    <div class="col-sm-9">
+                                        <select
+                                            class="form-select" name="id_opd" required>
+                                            <?php foreach ($opd as $row): ?>
+                                                <option value="<?= $row->id_opd ?>" <?= $inovasi['id_opd'] == $row->id_opd ? 'selected' : '' ?>>
+                                                    <?= $row->nama_opd ?>
+                                                </option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="kecamatan" class="col-sm-3 col-form-label">Kecamatan</label>
+                                    <div class="col-sm-9">
+                                        <select
+                                            class="form-select" name="kecamatan" id="kecamatan" required>
+                                            <option value="GEDONG TATAAN" <?= (isset($inovasi['kecamatan']) && $inovasi['kecamatan'] == 'GEDONG TATAAN') ? 'selected' : '' ?>>Gedong Tataan</option>
+                                            <option value="KEDONDONG" <?= (isset($inovasi['kecamatan']) && $inovasi['kecamatan'] == 'KEDONDONG') ? 'selected' : '' ?>>Kedondong</option>
+                                            <option value="MARGA PUNDUH" <?= (isset($inovasi['kecamatan']) && $inovasi['kecamatan'] == 'MARGA PUNDUH') ? 'selected' : '' ?>>Marga Punduh</option>
+                                            <option value="NEGERI KATON" <?= (isset($inovasi['kecamatan']) && $inovasi['kecamatan'] == 'NEGERI KATON') ? 'selected' : '' ?>>Negeri Katon</option>
+                                            <option value="PADANG CERMIN" <?= (isset($inovasi['kecamatan']) && $inovasi['kecamatan'] == 'PADANG CERMIN') ? 'selected' : '' ?>>Padang Cermin</option>
+                                            <option value="PUNDUH PIDADA" <?= (isset($inovasi['kecamatan']) && $inovasi['kecamatan'] == 'PUNDUH PIDADA') ? 'selected' : '' ?>>Punduh Pidada</option>
+                                            <option value="TEGINENENG" <?= (isset($inovasi['kecamatan']) && $inovasi['kecamatan'] == 'TEGINENENG') ? 'selected' : '' ?>>Tegineneng</option>
+                                            <option value="TELUK PANDAN" <?= (isset($inovasi['kecamatan']) && $inovasi['kecamatan'] == 'TELUK PANDAN') ? 'selected' : '' ?>>Teluk Pandan</option>
+                                            <option value="WAY LIMA" <?= (isset($inovasi['kecamatan']) && $inovasi['kecamatan'] == 'WAY LIMA') ? 'selected' : '' ?>>Way Lima</option>
+                                            <option value="WAY KHILAU" <?= (isset($inovasi['kecamatan']) && $inovasi['kecamatan'] == 'WAY KHILAU') ? 'selected' : '' ?>>Way Khilau</option>
+                                            <option value="WAY RATAI" <?= (isset($inovasi['kecamatan']) && $inovasi['kecamatan'] == 'WAY RATAI') ? 'selected' : '' ?>>Way Ratai</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="url_file" class="col-sm-3 col-form-label">File Proposal</label>
+                                    <div class="col-sm-9">
+                                        <input type="file" class="form-control" name="url_file">
+                                        <?php if (!empty($inovasi['url_file'])): ?>
+                                            <p>File Saat Ini: <a href="<?= base_url($inovasi['url_file']) ?>" target="_blank">Lihat File</a></p>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="status" class="col-sm-3 col-form-label">Status</label>
+                                    <div class="col-sm-9">
+                                        <select
+                                            class="form-select" name="status" required>
+                                            <option value="draf" <?= $inovasi['status'] == 'draf' ? 'selected' : '' ?>>Draf</option>
+                                            <option value="terbit" <?= $inovasi['status'] == 'terbit' ? 'selected' : '' ?>>Terbit</option>
+                                            <option value="arsip" <?= $inovasi['status'] == 'arsip' ? 'selected' : '' ?>>Arsip</option>
+                                            <option value="tertunda" <?= $inovasi['status'] == 'tertunda' ? 'selected' : '' ?>>Tertunda</option>
+                                            <option value="tertolak" <?= $inovasi['status'] == 'tertolak' ? 'selected' : '' ?>>Tertolak</option>
+                                            <option value="revisi" <?= $inovasi['status'] == 'revisi' ? 'selected' : '' ?>>Revisi</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-5" id="pesan-container" style="display: none;">
+                                    <label for="pesan" class="col-sm-3 col-form-label">Pesan</label>                                    
+                                    <div class="col-sm-9">
+                                        <textarea class="form-control" name="pesan" id="pesan" rows="4"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="d-flex justify-content-end">
+                                            <button type="button" class="btn btn-secondary w-md" onclick="window.location.href='<?= base_url('superadmin/inovasi/filter') ?>'">Batal</button>
+                                            <button type="submit" class="btn btn-warning w-md ms-4">Perbarui</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php if (session()->getFlashdata('success')): ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <?= session()->getFlashdata('success') ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php elseif (session()->getFlashdata('error')): ?>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <?= session()->getFlashdata('error') ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php endif; ?>
+        </div>
     </div>
-    <?php if (session()->getFlashdata('success')): ?>
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <?= session()->getFlashdata('success') ?>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    <?php elseif (session()->getFlashdata('error')): ?>
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <?= session()->getFlashdata('error') ?>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    <?php endif; ?>
-</body>
+</div>
 
-</html>
+<script>
+    const statusSelect = document.querySelector('[name="status"]');
+    const pesanContainer = document.getElementById('pesan-container');
+
+    statusSelect.addEventListener('change', function() {
+        const selectedStatus = statusSelect.value;
+        if (['tertolak', 'revisi', 'arsip'].includes(selectedStatus)) {
+            pesanContainer.style.display = 'flex';
+        } else {
+            pesanContainer.style.display = 'none';
+            document.getElementById('pesan').value = ''; // Reset pesan jika tidak dibutuhkan
+        }
+    });
+
+    // Trigger perubahan saat halaman dimuat (jika status sudah terpilih)
+    window.addEventListener('DOMContentLoaded', function() {
+        statusSelect.dispatchEvent(new Event('change'));
+    });
+</script>
+<?= $this->endSection(); ?>
