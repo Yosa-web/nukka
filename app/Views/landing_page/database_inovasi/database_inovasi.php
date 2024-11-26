@@ -14,10 +14,19 @@
     <div class="row pb-5">
         <div class="col-12">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header d-flex justify-content-between">
                     <p class="card-title-desc">
                         Berikut daftar data inovasi.
                     </p>
+                    <div class="d-flex">
+                        <label for="kategori-filter" class="me-2">Kategori</label>
+                        <select id="kategori-filter" class="form-select form-select-sm" style="width: auto;">
+                            <option value="all-kategori">Semua Jenis</option>
+                            <?php foreach ($inovasi as $row): ?>
+                                <option value="<?= esc($row['nama_jenis']) ?>"><?= esc($row['nama_jenis']) ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
                 </div>
                 <div class="card-body">
                     <table
@@ -40,6 +49,7 @@
                                     style="width: 250px">
                                     Nama OPD
                                 </th>
+                                <th class="text-center" style="width: 100px">Kategori</th>
                                 <th
                                     class="text-center"
                                     style="width: 120px">
@@ -65,9 +75,10 @@
                                         <td>
                                             <?= esc($row['judul']); ?>
                                         </td>
-                                        <td>
+                                        <td class="text-center">
                                             <?= esc($row['nama_opd']); ?>
                                         </td>
+                                        <td class="text-center"><?= esc($row['nama_jenis']); ?></td>
                                         <td class="text-center"><?= date('Y', strtotime($row['tanggal_pengajuan'])) ?></td>
                                         <td class="text-center">
                                             <a
@@ -168,4 +179,21 @@
     <?php endforeach; ?>
 <?php endif; ?>
 
+<script>
+    document.getElementById('kategori-filter').addEventListener('change', function() {
+        const filterValue = this.value; // Ambil nilai filter
+        const rows = document.querySelectorAll('#datatable tbody tr'); // Ambil semua baris data
+
+        rows.forEach(row => {
+            const status = row.querySelector('td:nth-child(4)').textContent.trim().toLowerCase();
+            if (filterValue === 'all-kategori') {
+                row.style.display = ''; // Tampilkan semua baris
+            } else if (status === filterValue) {
+                row.style.display = ''; // Tampilkan baris yang sesuai
+            } else {
+                row.style.display = 'none'; // Sembunyikan baris yang tidak sesuai
+            }
+        });
+    });
+</script>
 <?= $this->endSection(); ?>

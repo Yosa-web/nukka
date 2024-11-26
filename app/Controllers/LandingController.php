@@ -65,12 +65,11 @@ class LandingController extends BaseController
         // Mengambil koneksi database
         $litbang = \Config\Database::connect();
 
-        // Mendapatkan data dengan status selain tertunda dan tertolak
         $data['inovasi'] = $this->inovasiModel
             ->select('inovasi.*, jenis_inovasi.nama_jenis, opd.nama_opd')
             ->join('jenis_inovasi', 'inovasi.kategori = jenis_inovasi.id_jenis_inovasi', 'left')
             ->join('opd', 'inovasi.id_opd = opd.id_opd', 'left')  // Menggabungkan data OPD
-            ->whereNotIn('status', ['tertunda', 'tertolak'])
+            ->whereNotIn('status', ['tertunda', 'tertolak', 'draf'])
             ->findAll();
         return view('landing_page/database_inovasi/database_inovasi', $data);
     }

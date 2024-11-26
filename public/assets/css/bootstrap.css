@@ -3542,11 +3542,11 @@ textarea.form-control-lg {
 }
 
 .btn-outline-primary {
-  --bs-btn-color: #5156be;
-  --bs-btn-border-color: #5156be;
+  --bs-btn-color: #0077c2;
+  --bs-btn-border-color: #0077c2;
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #5156be;
-  --bs-btn-hover-border-color: #5156be;
+  --bs-btn-hover-bg: #0077c2;
+  --bs-btn-hover-border-color: #0077c2;
   --bs-btn-focus-shadow-rgb: 81, 86, 190;
   --bs-btn-active-color: #fff;
   --bs-btn-active-bg: #5156be;
