@@ -129,7 +129,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="d-flex justify-content-end">
-                                            <button type="button" class="btn btn-secondary w-md" onclick="window.location.href='<?= base_url('superadmin/inovasi/filter') ?>'">Batal</button>
+                                            <button type="button" class="btn btn-secondary w-md" onclick="window.history.back()">Batal</button>
                                             <button type="submit" class="btn btn-warning w-md ms-4">Perbarui</button>
                                         </div>
                                     </div>

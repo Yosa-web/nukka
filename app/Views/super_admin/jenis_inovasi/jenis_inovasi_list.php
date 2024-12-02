@@ -25,6 +25,12 @@
                 </div>
             </div>
             <!-- end page title -->
+            <?php if (session()->getFlashdata('errors') || session()->getFlashdata('success')): ?>
+                <div class="alert alert-dismissible fade show <?= session()->getFlashdata('errors') ? 'alert-danger' : 'alert-success' ?>">
+                    <?= session()->getFlashdata('errors') ?: session()->getFlashdata('success') ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php endif; ?>
             <!-- start table -->
             <div class="row">
                 <div class="col-12">
@@ -50,36 +56,33 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($jenis_inovasi as $jenis): ?>
+                                        <?php if (!empty($jenis_inovasi)): ?>
+                                            <?php foreach ($jenis_inovasi as $jenis): ?>
+                                                <tr>
+                                                    <td data-field="id" style="width: 80px"><?= $jenis['id_jenis_inovasi'] ?></td>
+                                                    <td data-field="nama-jenis"><?= $jenis['nama_jenis'] ?></td>
+                                                    <td style="width: 300px;">
+                                                        <a href="javascript:void(0)" class="btn btn-outline-warning btn-sm edit" title="Edit"
+                                                            data-bs-toggle="modal" data-bs-target="#editModal"
+                                                            data-id="<?= $jenis['id_jenis_inovasi'] ?>"
+                                                            data-nama="<?= $jenis['nama_jenis'] ?>">
+                                                            <i class="fas fa-pencil-alt"></i>
+                                                        </a>
+                                                        <a href="/jenis_inovasi/delete/<?= $jenis['id_jenis_inovasi'] ?>" class="btn btn-outline-danger btn-sm delete ms-2" title="Delete">
+                                                            <i class="fas fa-trash-alt"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            <?php endforeach; ?>
+                                        <?php else: ?>
                                             <tr>
-                                                <td
-                                                    data-field="id"
-                                                    style="width: 80px"><?= $jenis['id_jenis_inovasi'] ?></td>
-                                                <td
-                                                    data-field="nama-jenis"><?= $jenis['nama_jenis'] ?></td>
-                                                <td
-                                                    style="
-																width: 300px;
-															">
-                                                    <a href="javascript:void(0)"
-                                                        class="btn btn-outline-warning btn-sm edit"
-                                                        title="Edit"
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#editModal"
-                                                        data-id="<?= $jenis['id_jenis_inovasi'] ?>"
-                                                        data-nama="<?= $jenis['nama_jenis'] ?>">
-                                                        <i class="fas fa-pencil-alt"></i>
-                                                    </a>
-                                                    <a href="/jenis_inovasi/delete/<?= $jenis['id_jenis_inovasi'] ?>"
-                                                        class="btn btn-outline-danger btn-sm delete ms-2"
-                                                        title="Delete">
-                                                        <i
-                                                            class="fas fa-trash-alt" id="sa-warning"></i>
-                                                    </a>
+                                                <td colspan="3" class="text-center">
+                                                    <em>Tidak ada data jenis inovasi untuk ditampilkan.</em>
                                                 </td>
                                             </tr>
-                                        <?php endforeach; ?>
+                                        <?php endif; ?>
                                     </tbody>
+
                                 </table>
                             </div>
                         </div>
@@ -177,18 +180,19 @@
                     data-bs-dismiss="modal"
                     aria-label="Close"></button>
             </div>
-            <form action="/jenis_inovasi/update/<?= $jenis['id_jenis_inovasi'] ?>" method="post">
+            <form action="" method="post" id="editForm">
                 <div class="modal-body">
                     <div class="mb-3">
                         <label for="nama_jenis" class="col-form-label">Nama Jenis</label>
-                        <input type="text" class="form-control" id="nama_jenis" name="nama_jenis" value="<?= $jenis['nama_jenis'] ?>" required />
+                        <input type="text" class="form-control" id="edit_nama_jenis" name="nama_jenis" value="" required />
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-warning" data-bs-dismiss="modal">Perbarui</button>
+                    <button type="submit" class="btn btn-warning">Perbarui</button>
                 </div>
             </form>
+
         </div>
     </div>
 </div>
@@ -214,6 +218,30 @@
         // Bersihkan nilai modal saat ditutup
         document.getElementById('editModal').addEventListener('hidden.bs.modal', function() {
             document.getElementById('nama_jenis').value = '';
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const editButtons = document.querySelectorAll('.edit');
+
+        editButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const id = button.getAttribute('data-id');
+                const namaJenis = button.getAttribute('data-nama');
+
+                // Isi input modal dengan data yang sesuai
+                document.getElementById('edit_nama_jenis').value = namaJenis;
+
+                // Update form action untuk mengirim ID yang sesuai
+                const form = document.getElementById('editForm');
+                form.action = `/jenis_inovasi/update/${id}`;
+            });
+        });
+
+        // Bersihkan modal ketika ditutup
+        document.getElementById('editModal').addEventListener('hidden.bs.modal', function() {
+            document.getElementById('edit_nama_jenis').value = '';
+            document.getElementById('editForm').action = '';
         });
     });
 </script>

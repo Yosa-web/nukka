@@ -30,12 +30,11 @@
 				</div>
 			</div>
 			<!-- end page title -->
-			<?php if (session()->has('message')) : ?>
-				<p style="color: green;"><?= session('message') ?></p>
-			<?php endif; ?>
-
-			<?php if (session()->has('error')) : ?>
-				<p style="color: red;"><?= session('error') ?></p>
+			<?php if (session()->getFlashdata('error') || session()->getFlashdata('message')): ?>
+				<div class="alert alert-dismissible fade show <?= session()->getFlashdata('error') ? 'alert-danger' : 'alert-success' ?>">
+					<?= session()->getFlashdata('error') ?: session()->getFlashdata('message') ?>
+					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>
 			<?php endif; ?>
 			<div class="row">
 				<div class="col-12">
@@ -63,20 +62,20 @@
 											<td class="text-center"><?= esc($user->email) ?></td>
 											<td class="text-center"><span class="badge bg-secondary rounded-pill">Non Aktif</span></td>
 											<td class="text-center">
-											<form id="activateForm" action="<?= site_url('useractivation/activate') ?>" method="post" style="display: inline;">
-												<?= csrf_field() ?>
-												<input type="hidden" name="id" value="<?= $user->id ?>">
-												<button type="button" class="btn btn-outline-success btn-sm mb-3" title="Verifikasi" id="sa-title" onclick="document.getElementById('activateForm').submit();">
-													<i class="fas fa-check"></i>
-												</button>
-											</form>
-											<form action="<?= site_url('useractivation/reject') ?>" method="post" style="display: inline;">
-												<?= csrf_field() ?>
-												<input type="hidden" name="id" value="<?= $user->id ?>">
-												<button type="submit" class="btn btn-outline-danger btn-sm ms-2 mb-3" title="Tolak" onclick="return confirm('Tolak akun ini?');">
-													<i class="fas fa-times"></i>
-												</button>
-											</form>
+												<form id="activateForm" action="<?= site_url('useractivation/activate') ?>" method="post" style="display: inline;">
+													<?= csrf_field() ?>
+													<input type="hidden" name="id" value="<?= $user->id ?>">
+													<button type="button" class="btn btn-outline-success btn-sm activate mb-3" title="Verifikasi">
+														<i class="fas fa-check"></i>
+													</button>
+												</form>
+												<form action="<?= site_url('useractivation/reject') ?>" method="post" style="display: inline;">
+													<?= csrf_field() ?>
+													<input type="hidden" name="id" value="<?= $user->id ?>">
+													<button type="button" class="btn btn-outline-danger btn-sm reject ms-2 mb-3" title="Tolak">
+														<i class="fas fa-times"></i>
+													</button>
+												</form>
 											</td>
 										</tr>
 									<?php endforeach; ?>
@@ -92,53 +91,57 @@
 
 <!-- Sweet Alerts js -->
 <script src="assets/libs/sweetalert2/sweetalert2.min.js"></script>
-<!-- Sweet alert init js-->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- Sweet alert verifikasi-->
 <script>
-	document.getElementById("sa-title").addEventListener("click", function(event) {
-			event.preventDefault(); // Mencegah form submit langsung
+    document.querySelectorAll(".activate").forEach(function(button) {
+        button.addEventListener("click", function(event) {
+            event.preventDefault();
 
-			Swal.fire({
-				title: "Verifikasi Admin?",
-				text: "Anda yakin akan memverifikasi pengguna ini?",
-				icon: "warning",
-				showCancelButton: true,
-				confirmButtonText: "Verifikasi",
-				cancelButtonText: "Batal",
-				confirmButtonClass: "btn btn-success mt-2",
-				cancelButtonClass: "btn btn-danger ms-2 mt-2",
-				buttonsStyling: false,
-			}).then(function(e) {
-				if (e.value) {
-					// Jika pengguna menekan "Verifikasi", submit form
-					document.getElementById("activateForm").submit();
-					Swal.fire(
-						"Diverifikasi!",
-						"Akun pengguna tersebut telah terverifikasi.",
-						"success",
-					);
-				}
-			});
-		}),
-		document.getElementById("sa-params").addEventListener("click", function() {
-			Swal.fire({
-				title: "Apakah anda yakin?",
-				text: "Anda yakin akan menolak pengguna ini?",
-				icon: "warning",
-				showCancelButton: true,
-				confirmButtonText: "Tolak",
-				cancelButtonText: "Batal",
-				confirmButtonClass: "btn btn-primary mt-2",
-				cancelButtonClass: "btn btn-secondary ms-2 mt-2",
-				buttonsStyling: false,
-			}).then(function(e) {
-				if (e.value) {
-					Swal.fire(
-						"Ditolak!",
-						"Akun tersebut telah ditolak.",
-						"error",
-					);
-				}
-			});
-		});
+            const form = this.closest("form");
+            const formData = new FormData(form);
+
+            Swal.fire({
+                title: "Konfirmasi Verifikasi",
+                text: "Anda yakin ingin mengaktifkan akun ini?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#2ab57d",
+                cancelButtonColor: "#fd625e",
+                confirmButtonText: "Verifikasi",
+                cancelButtonText: "Batal",
+            }).then(function(result) {
+                if (result.isConfirmed) {
+                    form.submit();
+                }
+            });
+        });
+    });
+</script>
+<!-- Sweet alert tolak -->
+<script>
+    document.querySelectorAll(".reject").forEach(function(button) {
+        button.addEventListener("click", function(event) {
+            event.preventDefault();
+
+            const form = this.closest("form");
+            const formData = new FormData(form);
+
+            Swal.fire({
+                title: "Konfirmasi Penolakan",
+                text: "Anda yakin ingin menolak akun ini?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#2ab57d",
+                cancelButtonColor: "#fd625e",
+                confirmButtonText: "Tolak",
+                cancelButtonText: "Batal",
+            }).then(function(result) {
+                if (result.isConfirmed) {
+                    form.submit();
+                }
+            });
+        });
+    });
 </script>
 <?= $this->endSection(); ?>

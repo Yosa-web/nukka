@@ -41,7 +41,7 @@
                                     <input type="text" class="form-control <?= isset(session()->getFlashdata('errors')['judul']) ? 'is-invalid' : '' ?>" id="judul" name="judul" value="<?= old('judul') ?>" placeholder="Masukkan Judul Berita">
                                     <div id="judul_error" class="error"><?= isset(session()->getFlashdata('errors')['judul']) ? session()->getFlashdata('errors')['judul'] : '' ?></div>
                                 </div>
-                                <!-- Isi Berita-->
+                                <!-- CK Editor -->
                                 <div class="form-group mb-3">
                                     <label for="isi" class="form-label">Isi Berita</label>
                                     <textarea id="isi" name="isi" class="form-control <?= isset(session()->getFlashdata('errors')['isi']) ? 'is-invalid' : '' ?>" placeholder="Masukkan Isi Berita" rows="5"><?= old('isi') ?></textarea>
@@ -86,6 +86,20 @@
 
 <!-- init js -->
 <script src="/assets/js/pages/form-editor.init.js"></script>
+<!-- ckeditor -->
+<script src="/assets/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js"></script>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#isi'), {
+            // Optional configuration
+            toolbar: [
+                'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', '|', 'undo', 'redo'
+            ]
+        })
+        .catch(error => {
+            console.error('There was a problem initializing the editor:', error);
+        });
+</script>
 <script>
     document.getElementById('isi').addEventListener('input', function() {
         const minLength = 150;
@@ -98,29 +112,6 @@
         } else {
             errorDiv.textContent = '';
             isiField.classList.remove('is-invalid');
-        }
-    });
-</script>
-<script>
-    // Disable Dropzone auto-discovering all elements with .dropzone class
-    Dropzone.autoDiscover = false;
-    // Initialize Dropzone
-    var myDropzone = new Dropzone("#imageDropzone", {
-        url: "/your-upload-endpoint", // URL untuk mengupload file
-        maxFiles: 5,
-        maxFilesize: 2, // Maksimal ukuran file dalam MB
-        acceptedFiles: "image/*",
-        addRemoveLinks: true,
-        dictRemoveFile: "Remove",
-        thumbnailWidth: 200,
-        thumbnailHeight: 200,
-        init: function() {
-            this.on("success", function(file, response) {
-                console.log("File successfully uploaded!");
-            });
-            this.on("error", function(file, errorMessage) {
-                console.log("Error: " + errorMessage);
-            });
         }
     });
 </script>

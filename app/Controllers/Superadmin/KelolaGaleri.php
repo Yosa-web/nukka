@@ -125,7 +125,7 @@ class KelolaGaleri extends BaseController
                 'tanggal_aktivitas' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(),
                 'aksi'             => 'update',
                 'jenis_data'       => 'galeri',
-                'keterangan'       => "SuperAdmin with ID {$superAdminId} updated galeri with name " . $data['judul'],
+                'keterangan'       => "SuperAdmin dengan ID {$superAdminId} memperbarui data galeri dengan nama " . $data['judul'],
             ];
             $logModel->save($logData);
 
@@ -157,16 +157,16 @@ class KelolaGaleri extends BaseController
             $logData = [
                 'id_user'          => $superAdminId,
                 'tanggal_aktivitas' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(), // Format tanggal
-                'aksi'             => 'delete', // Tindakan yang dilakukan
+                'aksi'             => 'hapus data', // Tindakan yang dilakukan
                 'jenis_data'       => 'galeri', // Jenis data yang terlibat
-                'keterangan'       => "SuperAdmin with ID {$superAdminId} delete galeri ",
+                'keterangan'       => "SuperAdmin dengan ID {$superAdminId} menghapus data galeri ",
             ];
 
             // Simpan log aktivitas ke dalam database
             $logModel->save($logData);
 
             // Jika berhasil, kembali ke halaman dashboard dengan pesan sukses
-            return redirect()->to('/superadmin/galeri')->with('success', 'Data galeri berhasil delete dan log tercatat.');
+            return redirect()->to('/superadmin/galeri')->with('success', 'Data galeri berhasil dihapus.');
         } else {
             // Jika penyimpanan data gagal, kembali ke form dengan pesan error
             return redirect()->back()->withInput()->with('errors', $galeriModel->errors());

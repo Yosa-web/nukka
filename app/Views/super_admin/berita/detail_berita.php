@@ -38,10 +38,10 @@
                                     <h4><?= esc($berita['judul']) ?></h4>
                                 </div>
                                 <div class="mb-4">
-                                <?php if ($berita['gambar']): ?>
-                                    <img src="<?= base_url($berita['gambar']) ?>" alt="Gambar Berita" class="img-fluid">
-                                <?php endif; ?>
-                                </div>  
+                                    <?php if ($berita['gambar']): ?>
+                                        <img src="<?= base_url($berita['gambar']) ?>" alt="Gambar Berita" class="img-fluid">
+                                    <?php endif; ?>
+                                </div>
                                 <div class="text-center">
                                     <div class="row">
                                         <div class="col-sm-4">
@@ -76,7 +76,8 @@
                                 <hr>
                                 <div class="mt-4">
                                     <div class="text-muted font-size-14">
-                                        <p><?= nl2br(esc($berita['isi'])) ?></p>
+                                        <!-- Output langsung tanpa esc() -->
+                                        <?= $berita['isi'] ?>
                                     </div>
                                 </div>
                             </div>

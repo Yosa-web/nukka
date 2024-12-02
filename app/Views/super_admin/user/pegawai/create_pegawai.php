@@ -12,7 +12,6 @@
                         <h3 class="mb-sm-0">
                             Tambah Pengguna Pegawai
                         </h3>
-
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item">
@@ -61,15 +60,18 @@
                                 <div class="row mb-3">
                                     <label for="floatingIdOpdInput" class="col-sm-3 col-form-label">OPD</label>
                                     <div class="col-sm-9">
-                                        <select
-                                            class="form-select" id="floatingIdOpdInput" name="id_opd" required>
-                                            <option value="" disabled selected>
-                                                Pilih OPD
-                                            </option>
+                                        <select class="form-select" id="opdSelect" name="id_opd" inputmode="text" autocomplete="id_opd" required>
+                                            <option value="" disabled selected>Pilih OPD</option>
                                             <?php foreach ($opd as $opd): ?>
-                                                <option value="<?= esc($opd->id_opd) ?>" <?= old('id_opd') == esc($opd->id_opd) ? 'selected' : '' ?>><?= esc($opd->nama_opd) ?></option>
+                                                <option value="<?= esc($opd->id_opd) ?>" data-opd="<?= esc($opd->nama_opd) ?>" <?= old('id_opd') == esc($opd->id_opd) ? 'selected' : '' ?>>
+                                                    <?= esc($opd->nama_opd) ?>
+                                                </option>
                                             <?php endforeach; ?>
                                         </select>
+
+                                        <!-- Tempat untuk menampilkan status apakah sudah ada Kepala OPD -->
+                                        <div id="kepala-opd-status"></div>
+
                                     </div>
                                 </div>
                                 <!-- NIP -->
@@ -83,14 +85,14 @@
                                 <div class="row mb-3">
                                     <label for="floatingGroupInput" class="col-sm-3 col-form-label">Jabatan</label>
                                     <div class="col-sm-9">
-                                        <select
-                                            class="form-select" id="floatingGroupInput" name="group" inputmode="text" autocomplete="group" value="<?= old('group') ?>" required>
-                                            <option value="" disabled selected>
-                                                Pilih Jabatan
-                                            </option>
-                                            <option value="kepala-opd">Kepala OPD</option>
+                                        <select class="form-select" id="jabatanSelect" name="group" inputmode="text" autocomplete="group" required>
+                                            <option value="" disabled selected>Pilih Jabatan</option>
                                             <option value="sekertaris-opd">Sekretaris OPD</option>
                                             <option value="operator">Operator</option>
+                                            <!-- Pastikan hanya menampilkan Kepala OPD jika id_opd yang dipilih belum memiliki Kepala OPD -->
+                                            <?php if (!in_array($opd, $opdWithHead)): ?>
+                                                <option value="kepala-opd">Kepala OPD</option>
+                                            <?php endif; ?>
                                         </select>
                                     </div>
                                 </div>
@@ -177,6 +179,40 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    var opdSelect = document.getElementById('opdSelect');
+    var jabatanSelect = document.getElementById('jabatanSelect');
+    var statusElement = document.getElementById('kepala-opd-status');
+
+    opdSelect.addEventListener('change', function () {
+        var opdId = this.value; // Ambil ID OPD yang dipilih
+
+        // Debugging
+        console.log(<?= json_encode($opdWithHead) ?>);
+        console.log(opdId);
+
+        // Cek apakah OPD sudah memiliki Kepala OPD
+        if (<?= json_encode($opdWithHead) ?>.includes(opdId)) {
+
+            // Sembunyikan opsi "Kepala OPD" di dropdown jabatan
+            var kepalaOpdOption = jabatanSelect.querySelector('option[value="kepala-opd"]');
+            if (kepalaOpdOption) {
+                kepalaOpdOption.style.display = 'none';
+            }
+        } else {
+
+            // Tampilkan opsi "Kepala OPD" di dropdown jabatan
+            var kepalaOpdOption = jabatanSelect.querySelector('option[value="kepala-opd"]');
+            if (kepalaOpdOption) {
+                kepalaOpdOption.style.display = 'block';
+            }
+        }
+    });
+});
+</script>
 <!-- password addon init -->
 <script src="/assets/js/pages/pass-addon.init.js"></script>
 <script>
@@ -212,4 +248,5 @@
         });
     });
 </script>
+
 <?= $this->endSection(); ?>

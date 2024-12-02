@@ -1,7 +1,6 @@
 <?= $this->extend('layout/master_dashboard'); ?>
-
-<?= $this->section('content'); ?>
 <?= $this->section('title') ?><title>Data Pengguna Umum | Rumah Inovasi</title><?= $this->endSection() ?>
+<?= $this->section('content'); ?>
 <div class="main-content">
     <div class="page-content">
         <div class="container-fluid">
@@ -23,7 +22,7 @@
                                     <a href="#">Data Pengguna</a>
                                 </li>
                                 <li class="breadcrumb-item active">
-                                    <a href="data-pengguna-umum.html">Umum</a>
+                                    <a href="/superadmin/user/list/umum">Umum</a>
                                 </li>
                             </ol>
                         </div>
@@ -31,11 +30,11 @@
                 </div>
             </div>
             <!-- end page title -->
-            <?php if (session()->getFlashdata('message')): ?>
-                <div class="alert alert-success"><?= session()->getFlashdata('message') ?></div>
-            <?php endif; ?>
-            <?php if (session()->getFlashdata('error')): ?>
-                <div class="alert alert-danger"><?= session()->getFlashdata('error') ?></div>
+            <?php if (session()->getFlashdata('error') || session()->getFlashdata('message')): ?>
+                <div class="alert alert-dismissible fade show <?= session()->getFlashdata('error') ? 'alert-danger' : 'alert-success' ?>">
+                    <?= session()->getFlashdata('error') ?: session()->getFlashdata('message') ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
             <?php endif; ?>
             <div class="row">
                 <div class="col-12">
@@ -90,7 +89,7 @@
                                                         <!-- Input tersembunyi untuk ID, tidak ditampilkan pada antarmuka -->
                                                         <input type="hidden" name="id" value="<?= $user['id']; ?>">
                                                         <?= csrf_field() ?>
-                                                        <button type="submit" class="btn btn-outline-danger btn-sm delete ms-2 mb-3" title="Delete" id="sa-warning" onclick="return confirm('Are you sure you want to delete this user?');"><i class="fas fa-trash-alt"></i></button>
+                                                        <button type="button" class="btn btn-outline-danger btn-sm delete ms-2 mb-3" title="Hapus"><i class="fas fa-trash-alt"></i></button>
                                                     </form>
                                                 </td>
                                             </tr>
@@ -108,28 +107,30 @@
     </div>
 </div>
 
-<!-- Sweet alert init js-->
+<!-- Sweet alert hapus -->
 <script>
-    document
-        .getElementById("sa-warning")
-        .addEventListener("click", function() {
+    document.querySelectorAll(".delete").forEach(function(button) {
+        button.addEventListener("click", function(event) {
+            event.preventDefault();
+
+            const form = this.closest("form");
+            const formData = new FormData(form);
+
             Swal.fire({
-                title: "Konfirmasi hapus data?",
-                text: "",
+                title: "Konfirmasi hapus?",
+                text: "Anda yakin ingin menghapus data ini?",
                 icon: "warning",
-                showCancelButton: !0,
+                showCancelButton: true,
                 confirmButtonColor: "#2ab57d",
                 cancelButtonColor: "#fd625e",
                 confirmButtonText: "Hapus",
                 cancelButtonText: "Batal",
-            }).then(function(e) {
-                e.value &&
-                    Swal.fire(
-                        "Terhapus!",
-                        "Data telah dihapus",
-                        "success",
-                    );
+            }).then(function(result) {
+                if (result.isConfirmed) {
+                    form.submit();
+                }
             });
         });
+    });
 </script>
 <?= $this->endSection(); ?>

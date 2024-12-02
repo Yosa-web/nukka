@@ -13,7 +13,7 @@ class CreateInovasi extends Migration
             'id_inovasi'      => ['type' => 'INT', 'constraint' => 11, 'auto_increment' => true],
             'judul'           => ['type' => 'VARCHAR', 'constraint' => 100],
             'deskripsi'       => ['type' => 'LONGTEXT'],
-            'kategori'        => ['type' => 'ENUM', 'constraint' => ['kategori1', 'kategori2', 'kategori3', 'kategori4', 'kategori5']],
+            'kategori'        => ['type' => 'INT', 'constraint' => 11],
             'tanggal_pengajuan' => ['type' => 'DATETIME'],
             'status'          => ['type' => 'ENUM', 'constraint' => ['terbit', 'draf', 'arsip', 'revisi', 'tertunda', 'tertolak']],
             'kecamatan'          => ['type' => 'VARCHAR', 'constraint' => 100],

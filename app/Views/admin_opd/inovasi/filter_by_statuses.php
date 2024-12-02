@@ -30,6 +30,12 @@
                 </div>
             </div>
             <!-- end page title -->
+            <?php if (session()->getFlashdata('error') || session()->getFlashdata('success')): ?>
+                <div class="alert alert-dismissible fade show <?= session()->getFlashdata('error') ? 'alert-danger' : 'alert-success' ?>">
+                    <?= session()->getFlashdata('error') ?: session()->getFlashdata('success') ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php endif; ?>
             <div class="row">
                 <div class="col-12">
                     <div class="card">
@@ -67,7 +73,7 @@
                                                     <!-- <a href="/admin/inovasi/edit/<?= $row['id_inovasi']; ?>" class="btn btn-outline-warning btn-sm edit mb-3" title="Edit">
                                                         <i class="fas fa-pencil-alt"></i>
                                                     </a>
-                                                    <a href="/admin/inovasi/delete/<?= $row['id_inovasi']; ?>" class="btn btn-outline-danger btn-sm delete ms-2 mb-3" title="Delete" onclick="return confirm('Yakin ingin menghapus data ini?')">
+                                                    <a href="/admin/inovasi/delete/<?= $row['id_inovasi']; ?>" class="btn btn-outline-danger btn-sm delete ms-2 mb-3" title="Hapus">
                                                         <i class="fas fa-trash-alt"></i>
                                                     </a> -->
                                                     <a class="btn btn-outline-secondary btn-sm ms-2 mb-3" data-bs-toggle="modal"
@@ -179,4 +185,34 @@
         </div>
     <?php endforeach; ?>
 <?php endif; ?>
+
+
+<!-- Sweet Alerts js -->
+<script src="/assets/libs/sweetalert2/sweetalert2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- Sweet alert init js-->
+<script>
+    document.querySelectorAll(".delete").forEach(function(button) {
+        button.addEventListener("click", function(event) {
+            event.preventDefault();
+
+            const href = this.getAttribute("href");
+
+            Swal.fire({
+                title: "Konfirmasi hapus?",
+                text: "Anda yakin ingin menghapus data ini?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#2ab57d",
+                cancelButtonColor: "#fd625e",
+                confirmButtonText: "Hapus",
+                cancelButtonText: "Batal",
+            }).then(function(result) {
+                if (result.isConfirmed) {
+                    window.location.href = href;
+                }
+            });
+        });
+    });
+</script>
 <?= $this->endSection(); ?>

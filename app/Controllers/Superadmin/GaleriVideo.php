@@ -64,9 +64,9 @@ class GaleriVideo extends BaseController
             $logData = [
                 'id_user'          => $superAdminId,
                 'tanggal_aktivitas' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(),
-                'aksi'             => 'create',
+                'aksi'             => 'tambah data',
                 'jenis_data'       => 'galeri',
-                'keterangan'       => "SuperAdmin with ID {$superAdminId} created galeri with name " . $data['judul'],
+                'keterangan'       => "SuperAdmin dengan ID {$superAdminId} menambahkan data galeri dengan nama " . $data['judul'],
             ];
             $logModel->save($logData);
 

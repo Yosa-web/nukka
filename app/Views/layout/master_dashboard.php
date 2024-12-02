@@ -323,7 +323,7 @@
                         <div class="text-sm-end d-none d-sm-block">
                             Developed by
                             <a
-                                href="#"
+                                
                                 class="text-decoration-underline">Tim 2 MSIB 7</a>
                         </div>
                     </div>
@@ -465,6 +465,8 @@
     <script src="/assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
     <!-- Sweet Alerts js -->
     <script src="/assets/libs/sweetalert2/sweetalert2.min.js"></script>
+    <!-- ckeditor -->
+    <script src="/assets/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js"></script>
 </body>
 
 </html>

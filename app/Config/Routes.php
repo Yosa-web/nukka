@@ -42,6 +42,7 @@ $routes->group('', ['filter' => 'group:superadmin'], function ($routes) {
     $routes->get('superadmin/opd', 'Superadmin\KelolaOpd::index');
     $routes->get('/superadmin/opd/edit/(:any)', 'Superadmin\KelolaOpd::editOpd/$1');
     $routes->post('/superadmin/opd/update', 'Superadmin\KelolaOpd::updateOpd/$1');
+    $routes->get('/superadmin/opd/check-delete/(:num)', 'SuperAdmin\KelolaOpd::checkDelete/$1');
     $routes->delete('/superadmin/opd', 'Superadmin\KelolaOpd::deleteOpd');
 
     //kelola galeri
@@ -192,7 +193,7 @@ $routes->group('', ['filter' => 'group:kepala-opd'], function ($routes) {
 
 $routes->group('', ['filter' => 'group:operator'], function ($routes) {
 
-    $routes->get('  ', 'Operator\KelolaDataInovasi::index');
+    $routes->get('operator/inovasi', 'Operator\KelolaDataInovasi::index');
     $routes->get('/operator/inovasi/create', 'Operator\KelolaDataInovasi::create');
     $routes->post('/operator/inovasi/store', 'Operator\KelolaDataInovasi::store');
     $routes->get('/operator/inovasi/edit/(:num)', 'Operator\KelolaDataInovasi::edit/$1');
@@ -249,7 +250,7 @@ $routes->group('', ['filter' => 'group:superadmin,kepala-opd,sekertaris-opd,admi
 
 $routes->group('', ['filter' => 'group:user'], function ($routes) {
     $routes->get('/profile/edit', 'UserUmum\KelolaProfile::edit');
-    $routes->post('/profile/update', 'UserUmum\KelolaProfile::edit');
+    $routes->post('/profile/update', 'UserUmum\KelolaProfile::update');
 });
 
 $routes->get('/beranda', 'LandingController::index');

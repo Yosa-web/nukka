@@ -140,13 +140,13 @@ class KelolaDataInovasi extends BaseController
         $logData = [
             'id_user' => $user,
             'tanggal_aktivitas' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(),
-            'aksi' => 'create',
+            'aksi' => 'tambah data',
             'jenis_data' => 'Inovasi',
-            'keterangan' => "SuperAdmin dengan ID {$user} menambahkan Inovasi dengan ID {$newInovasiId}",
+            'keterangan' => "SuperAdmin dengan ID {$user} menambahkan data Inovasi dengan ID {$newInovasiId}",
         ];
         $this->LogAktivitasModel->save($logData);
 
-        return redirect()->to('/superadmin/inovasi/filter')->with('success', 'Proposal berhasil ditambahkan.');
+        return redirect()->to('/superadmin/inovasi/filter')->with('success', 'Proposal berhasil diajukan.');
     }
 
 
@@ -320,10 +320,12 @@ class KelolaDataInovasi extends BaseController
             ]);
 
             // Kirim respon sukses
-            return $this->response->setJSON(['status' => 'success', 'message' => 'Disetujui']);
+            // return $this->response->setJSON(['status' => 'success', 'message' => 'Proposal berhasil disetujui']);
+            return redirect()->to('/superadmin/inovasi/')->with('success', 'Proposal berhasil disetujui.');
         }
 
         // Jika gagal
-        return $this->response->setJSON(['status' => 'error', 'message' => 'Gagal menyetujui inovasi']);
+        // return $this->response->setJSON(['status' => 'error', 'message' => 'Gagal menyetujui inovasi']);
+        return redirect()->back()->withInput()->with('error', 'Gagal menyetujui proposal!');
     }
 }

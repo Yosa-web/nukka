@@ -12,14 +12,14 @@
                         <h3 class="mb-sm-0">
                             Edit Pegawai
                         </h3>
-                        <p>User Group Debug: <?= isset($user->group) ? esc($user->group) : 'Group tidak ditemukan' ?></p>
+                        <!-- <p>User Group Debug: <?= isset($user->group) ? esc($user->group) : 'Group tidak ditemukan' ?></p> -->
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item">
                                     <a href="javascript: void(0);">Data Pengguna</a>
                                 </li>
                                 <li class="breadcrumb-item">
-                                    <a href="/superadmin/user/list/pegawai">Pegawai</a>
+                                    <a href="/adminopd/pegawai/list">Pegawai</a>
                                 </li>
                                 <li class="breadcrumb-item active">
                                     Edit Pegawai
@@ -175,7 +175,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="d-flex justify-content-end">
-                                            <button type="button" class="btn btn-secondary w-md" onclick="window.location.href='/superadmin/user/list/pegawai'">Batal</button>
+                                            <button type="button" class="btn btn-secondary w-md" onclick="window.location.href='/adminopd/pegawai/list'">Batal</button>
                                             <button type="submit" class="btn btn-primary w-md ms-4">Kirim</button>
                                         </div>
                                     </div>

@@ -18,9 +18,6 @@
                                 <li class="breadcrumb-item">
                                     <a href="javascript: void(0);">Data Pengguna</a>
                                 </li>
-                                <li class="breadcrumb-item">
-                                    <a href="/superadmin/user/list/admin">Admin</a>
-                                </li>
                                 <li class="breadcrumb-item active">
                                     Edit Profil
                                 </li>
@@ -48,7 +45,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <form action="/user/profile/update" method="post">
+                            <form action="/user/profile/update" method="post" id="passwordForm">
                                 <?= csrf_field() ?>
                                 <!-- Nama -->
                                 <div class="row mb-3">
@@ -137,8 +134,8 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="d-flex justify-content-end">
-                                            <button type="button" class="btn btn-secondary w-md" onclick="window.location.href='/superadmin/user/list/admin'">Batal</button>
-                                            <button type="submit" class="btn btn-warning w-md ms-4">Perbarui</button>
+                                            <button type="button" class="btn btn-secondary w-md" onclick="window.history.back()">Batal</button>
+                                            <button type="button" class="btn btn-warning update w-md ms-4">Perbarui</button>
                                         </div>
                                     </div>
                                 </div>
@@ -186,4 +183,78 @@
         });
     });
 </script>
+<script>
+    // Ambil elemen yang diperlukan
+    const passwordInput = document.getElementById('floatingPasswordInput');
+    const confirmPasswordInput = document.getElementById('floatingPasswordConfirmInput');
+    const submitButton = document.querySelector('button[type="submit"]'); // Tombol submit
+
+    // Fungsi untuk memvalidasi input password
+    function validatePassword() {
+        const passwordErrorDiv = document.getElementById('password-error');
+        const confirmPasswordErrorDiv = document.getElementById('repassword-error');
+        let isValid = true;
+
+        // Validasi password tidak diawali dengan spasi
+        if (passwordInput.value.startsWith(' ')) {
+            passwordErrorDiv.textContent = 'Password tidak boleh diawali dengan spasi.';
+            passwordInput.classList.add('is-invalid');
+            isValid = false;
+        } else {
+            passwordErrorDiv.textContent = '';
+            passwordInput.classList.remove('is-invalid');
+        }
+
+        // Validasi apakah konfirmasi password sesuai
+        if (confirmPasswordInput.value && confirmPasswordInput.value !== passwordInput.value) {
+            confirmPasswordErrorDiv.textContent = 'Password dan Konfirmasi Password harus sama.';
+            confirmPasswordInput.classList.add('is-invalid');
+            isValid = false;
+        } else {
+            confirmPasswordErrorDiv.textContent = '';
+            confirmPasswordInput.classList.remove('is-invalid');
+        }
+
+        // Nonaktifkan tombol submit jika ada error
+        submitButton.disabled = !isValid;
+    }
+
+    // Tambahkan event listener pada input password dan konfirmasi password
+    passwordInput.addEventListener('input', validatePassword);
+    confirmPasswordInput.addEventListener('input', validatePassword);
+
+    // Pastikan tombol submit aktif jika password tidak diisi (password tidak wajib)
+    document.addEventListener('DOMContentLoaded', function () {
+        validatePassword(); // Panggil saat halaman dimuat
+    });
+</script>
+<!-- Sweet Alerts js -->
+<script src="/assets/libs/sweetalert2/sweetalert2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    document.querySelectorAll(".update").forEach(function(button) {
+        button.addEventListener("click", function(event) {
+            event.preventDefault();
+
+            const form = this.closest("form");
+            const formData = new FormData(form);
+
+            Swal.fire({
+                title: "Konfirmasi Perbarui Data",
+                text: "Anda yakin ingin mengubah profil?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#2ab57d",
+                cancelButtonColor: "#fd625e",
+                confirmButtonText: "Perbarui",
+                cancelButtonText: "Batal",
+            }).then(function(result) {
+                if (result.isConfirmed) {
+                    form.submit();
+                }
+            });
+        });
+    });
+</script>
+
 <?= $this->endSection(); ?>

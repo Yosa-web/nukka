@@ -30,6 +30,12 @@
                 </div>
             </div>
             <!-- end page title -->
+            <?php if (session()->getFlashdata('error') || session()->getFlashdata('message')): ?>
+                <div class="alert alert-dismissible fade show <?= session()->getFlashdata('error') ? 'alert-danger' : 'alert-success' ?>">
+                    <?= session()->getFlashdata('error') ?: session()->getFlashdata('message') ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php endif; ?>
             <div class="row">
                 <div class="col-12">
                     <div class="card">

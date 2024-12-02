@@ -252,7 +252,7 @@ class KelolaDataInovasi extends BaseController
         $logData = [
             'id_user' => $user,
             'tanggal_aktivitas' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(),
-            'aksi' => 'delete',
+            'aksi' => 'hapus data',
             'jenis_data' => 'Inovasi',
             'keterangan' => "SuperAdmin dengan ID {$user} menghapus Inovasi dengan ID {$id_inovasi}",
         ];

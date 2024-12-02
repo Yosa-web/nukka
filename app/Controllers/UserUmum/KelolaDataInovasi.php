@@ -64,7 +64,7 @@ class KelolaDataInovasi extends BaseController
             // 'status' => 'required',
             'kecamatan' => 'required',
             'id_opd' => 'required',
-            'url_file' => 'uploaded[url_file]|max_size[url_file,2048]|ext_in[url_file,pdf]',
+            'url_file' => 'uploaded[url_file]|max_size[url_file,5000]|ext_in[url_file,pdf]',
         ])) {
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }

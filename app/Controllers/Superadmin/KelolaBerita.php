@@ -82,9 +82,9 @@ class KelolaBerita extends BaseController
             $logData = [
                 'id_user'          => $user,
                 'tanggal_aktivitas' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(),
-                'aksi'             => 'create',
+                'aksi'             => 'tambah data',
                 'jenis_data'       => 'Berita',
-                'keterangan'       => "User with ID {$user} created Berita with ID {$newBeritaId}",
+                'keterangan'       => "SuperAdmin dengan ID {$user} menambahkan data Berita dengan ID {$newBeritaId}",
             ];
     
             $logModel = new LogAktivitasModel();
@@ -98,7 +98,7 @@ class KelolaBerita extends BaseController
                 return redirect()->back()->with('errors', 'Gagal menyimpan data Berita dan mencatat log aktivitas.');
             }
     
-            return redirect()->to('/superadmin/berita/list-berita')->with('success', 'Data Berita berhasil ditambahkan dan log tercatat.');
+            return redirect()->to('/superadmin/berita/list-berita')->with('success', 'Data Berita berhasil ditambahkan.');
         } else {
             log_message('debug', 'Data save failed: ' . json_encode($this->beritaModel->errors()));
             return redirect()->back()->withInput()->with('errors', $this->beritaModel->errors());
@@ -117,8 +117,22 @@ public function edit($slug){
 
 public function update($id)
 {
+    // Ambil data berita lama
+    $beritaLama = $this->beritaModel->find($id);
+
+    // Ambil judul yang dikirimkan pada form
+    $judulBaru = $this->request->getVar('judul');
+
+    // Validasi input dengan pengecekan judul yang berubah
+    $validationRules = $this->beritaModel->getValidationRules();
+    if ($judulBaru !== $beritaLama['judul']) {
+        $validationRules['judul'] = 'required|max_length[200]|is_unique[berita.judul,id_berita,' . $id . ']';
+    } else {
+        $validationRules['judul'] = 'required|max_length[200]';
+    }
+
     // Validasi input
-    if (!$this->validate($this->beritaModel->getValidationRules(), $this->beritaModel->getValidationMessages())) {
+    if (!$this->validate($validationRules, $this->beritaModel->getValidationMessages())) {
         log_message('debug', 'Validation failed: ' . json_encode($this->validator->getErrors()));
         return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
     }
@@ -127,9 +141,6 @@ public function update($id)
     $path = 'assets/uploads/images/berita/';
     $foto = $this->request->getFile('gambar');
     $fotoUrl = null;
-
-    // Ambil data berita lama
-    $beritaLama = $this->beritaModel->find($id);
 
     // Jika ada file baru yang diunggah dan valid
     if ($foto && $foto->isValid() && !$foto->hasMoved()) {
@@ -153,13 +164,13 @@ public function update($id)
 
     // Menambahkan slug berdasarkan judul
     $data = [
-        'judul'        => $this->request->getVar('judul'),
+        'judul'        => $judulBaru,
         'isi'          => $this->request->getVar('isi'),
         'gambar'       => $fotoUrl,  // Menyimpan gambar baru atau lama
         'tanggal_post' => $tanggalPost,
         'posted_by'    => $user,
         'status'       => $this->request->getVar('status'),
-        'slug'         => url_title($this->request->getVar('judul'), '-', true), // Menambahkan slug baru
+        'slug'         => url_title($judulBaru, '-', true), // Menambahkan slug baru
     ];
 
     // Inisialisasi database dan transaksi
@@ -174,7 +185,7 @@ public function update($id)
             'tanggal_aktivitas' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(),
             'aksi'              => 'update',
             'jenis_data'        => 'Berita',
-            'keterangan'        => "SuperAdmin with ID {$superAdminId} updated Berita with ID {$id}",
+            'keterangan'        => "SuperAdmin dengan ID {$superAdminId} updated Berita dengan ID {$id}",
         ];
 
         $logModel = new LogAktivitasModel();
@@ -188,12 +199,13 @@ public function update($id)
             return redirect()->back()->with('errors', 'Gagal menyimpan data Berita dan mencatat log aktivitas.');
         }
 
-        return redirect()->to('/superadmin/berita/list-berita')->with('success', 'Data Berita berhasil diupdate dan log tercatat.');
+        return redirect()->to('/superadmin/berita/list-berita')->with('success', 'Data Berita berhasil diperbarui.');
     } else {
         log_message('debug', 'Data update failed: ' . json_encode($this->beritaModel->errors()));
         return redirect()->back()->withInput()->with('errors', $this->beritaModel->errors());
     }
 }
+
 
 
 
@@ -210,9 +222,9 @@ public function delete()
         $logData = [
             'id_user'          => $superAdminId,
             'tanggal_aktivitas' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(),
-            'aksi'             => 'delete',
+            'aksi'             => 'hapus data',
             'jenis_data'       => 'Berita',
-            'keterangan'       => "SuperAdmin with ID {$superAdminId} deleted Berita with ID {$id}",
+            'keterangan'       => "SuperAdmin dengan ID {$superAdminId} menghapus data Berita with ID {$id}",
         ];
 
         // Simpan log aktivitas

@@ -81,7 +81,7 @@
                                     <div class="col-12">
                                         <div class="d-flex justify-content-end">
                                             <button type="button" class="btn btn-secondary w-md" onclick="window.location.href='/superadmin/opd'">Batal</button>
-                                            <button type="submit" class="btn btn-primary w-md ms-4">Kirim</button>
+                                            <button type="submit" class="btn btn-warning w-md ms-4">Perbarui</button>
                                         </div>
                                     </div>
                                 </div>

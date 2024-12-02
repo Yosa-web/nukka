@@ -94,6 +94,12 @@
                 <?php if (session('message') !== null) : ?>
                     <div class="alert alert-success" role="alert"><?= session('message') ?></div>
                 <?php endif ?>
+                <?php if (isset($_GET['message'])): ?>
+                    <div class="alert alert-success"><?= htmlspecialchars($_GET['message']) ?></div>
+                <?php endif; ?>
+                
+
+
 
                 <form
                     class="needs-validation mt-4 pt-2"
@@ -110,11 +116,11 @@
                             placeholder="Masukkan email anda" value="<?= old('email') ?>"
                             required />
                         <div class="invalid-feedback">
-                            Please Enter Email
+                            Harap masukkan email anda
                         </div>
                     </div>
                     <!-- Password -->
-                    <div class="mb-4">
+                    <div class="mb-5">
                         <div class="d-flex align-items-start">
                             <div class="flex-grow-1">
                                 <label for="floatingPasswordInput" class="form-label">Kata Sandi</label>
@@ -141,28 +147,10 @@
                                 <i class="mdi mdi-eye-outline"></i>
                             </button>
                             <div class="invalid-feedback">
-                                Please Enter Password
+                                Harap masukkan kata sandi
                             </div>
                         </div>
                     </div>
-                    <!-- remember me -->
-                    <?php if (setting('Auth.sessionConfig')['allowRemembering']): ?>
-                        <div class="row mb-4">
-                            <div class="col">
-                                <div class="form-check">
-                                    <input
-                                        class="form-check-input"
-                                        type="checkbox" name="remember"
-                                        id="remember-check" <?php if (old('remember')): ?> checked<?php endif ?> />
-                                    <label
-                                        class="form-check-label"
-                                        for="remember-check">
-                                        Ingat Saya
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    <?php endif; ?>
                     <div class="mb-3">
                         <button
                             class="btn btn-primary w-100 waves-effect waves-light"
@@ -221,32 +209,32 @@
     <script src="/assets/libs/choices.js/public/assets/scripts/choices.min.js"></script>
     <script src="/assets/js/app.js"></script>
     <script>
-			document
-				.getElementById("custom-alert")
-				.addEventListener("click", function () {
-					Swal.fire({
-						title: "Pilih Role",
-						icon: "question",
-						html: "Buat akun sebagai?",
-						showCloseButton: true,
-						showCancelButton: true,
-						confirmButtonClass: "btn btn-primary",
-						cancelButtonClass: "btn btn-info ms-1",
-						confirmButtonColor: "#5156be",
-						cancelButtonColor: "#4ba6ef",
-						confirmButtonText: "Admin OPD",
-						cancelButtonText: "Umum",
-					}).then((result) => {
-						if (result.isConfirmed) {
-							window.location.href = "<?= url_to('register') ?>";
-						} else if (
-							result.dismiss === Swal.DismissReason.cancel
-						) {
-							window.location.href = "<?= url_to('user/register') ?>";
-						}
-					});
-				});
-		</script>
+        document
+            .getElementById("custom-alert")
+            .addEventListener("click", function() {
+                Swal.fire({
+                    title: "Pilih Role",
+                    icon: "question",
+                    html: "Buat akun sebagai?",
+                    showCloseButton: true,
+                    showCancelButton: true,
+                    confirmButtonClass: "btn btn-primary",
+                    cancelButtonClass: "btn btn-info ms-1",
+                    confirmButtonColor: "#5156be",
+                    cancelButtonColor: "#4ba6ef",
+                    confirmButtonText: "Admin OPD",
+                    cancelButtonText: "Umum",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = "<?= url_to('register') ?>";
+                    } else if (
+                        result.dismiss === Swal.DismissReason.cancel
+                    ) {
+                        window.location.href = "<?= url_to('user/register') ?>";
+                    }
+                });
+            });
+    </script>
 </body>
 
 </html>

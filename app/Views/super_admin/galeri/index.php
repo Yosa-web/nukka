@@ -54,6 +54,12 @@
                 }
             </style>
             <!-- End of style -->
+            <?php if (session()->getFlashdata('errors') || session()->getFlashdata('success')): ?>
+                <div class="alert alert-dismissible fade show <?= session()->getFlashdata('errors') ? 'alert-danger' : 'alert-success' ?>">
+                    <?= session()->getFlashdata('errors') ?: session()->getFlashdata('success') ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php endif; ?>
             <div class="row">
                 <div class="col-xl-12">
                     <div class="card">
@@ -98,13 +104,13 @@
                                                                     <form action="<?= base_url('superadmin/galeri/' . $item['id_galeri']) ?>" method="post">
                                                                         <input type="hidden" name="_method" value="DELETE">
                                                                         <?= csrf_field() ?>
-                                                                        <button type="submit" class="btn btn-danger btn-rounded btn-sm delete ms-2" title="Hapus" onclick="return confirm('Apakah Anda yakin ingin menghapus?')"><i class="fas fa-trash-alt"></i></button>
+                                                                        <button type="button" class="btn btn-danger btn-rounded btn-sm delete ms-2" title="Hapus"><i class="fas fa-trash-alt"></i></button>
                                                                     </form>
                                                                 </div>
                                                             </div>
                                                             <div class="row">
                                                                 <p class="card-text">
-                                                                    <small class="text-white">Terakhir diperbarui oleh (User)</small>
+                                                                    <small class="text-white">Diperbarui pada <?= date('d M Y', strtotime($item['uploaded_at'])) ?></small>
                                                                 </p>
                                                             </div>
                                                         </div>
@@ -168,7 +174,9 @@
                                                             <iframe src="<?= $embedUrl ?>" title="YouTube video" allowfullscreen></iframe>
                                                         </div>
                                                         <div class="card-body">
-                                                            <p class="text-muted mb-2">Terakhir diperbarui oleh (User)</p>
+                                                            <p class="card-text">
+                                                                Diperbarui pada <?= date('d M Y', strtotime($item['uploaded_at'])) ?>
+                                                            </p>
                                                             <h4 class="text-body"><?= $item['judul'] ?></h4>
                                                             <div class="row mt-3">
                                                                 <div class="col-12 d-flex justify-content-end">
@@ -178,7 +186,7 @@
                                                                     <form action="<?= base_url('superadmin/galeri/' . $item['id_galeri']) ?>" method="post">
                                                                         <input type="hidden" name="_method" value="DELETE">
                                                                         <?= csrf_field() ?>
-                                                                        <button type="submit" class="btn btn-outline-danger btn-sm delete ms-2" title="Edit" onclick="return confirm('Apakah Anda yakin ingin menghapus?')"><i class="fas fa-trash-alt"></i></button>
+                                                                        <button type="button" class="btn btn-outline-danger btn-sm delete ms-2" title="Edit"><i class="fas fa-trash-alt"></i></button>
                                                                     </form>
                                                                 </div>
                                                             </div>
@@ -229,28 +237,30 @@
 
 <!-- Sweet Alerts js -->
 <script src="/assets/libs/sweetalert2/sweetalert2.min.js"></script>
-<!-- Sweet alert init js-->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-    document
-        .getElementById("sa-warning")
-        .addEventListener("click", function() {
+    document.querySelectorAll(".delete").forEach(function(button) {
+        button.addEventListener("click", function(event) {
+            event.preventDefault();
+
+            const form = this.closest("form");
+            const formData = new FormData(form);
+
             Swal.fire({
-                title: "Konfirmasi hapus data?",
-                text: "",
+                title: "Konfirmasi hapus?",
+                text: "Anda yakin ingin menghapus data ini?",
                 icon: "warning",
-                showCancelButton: !0,
+                showCancelButton: true,
                 confirmButtonColor: "#2ab57d",
                 cancelButtonColor: "#fd625e",
                 confirmButtonText: "Hapus",
                 cancelButtonText: "Batal",
-            }).then(function(e) {
-                e.value &&
-                    Swal.fire(
-                        "Terhapus!",
-                        "Data telah dihapus",
-                        "success",
-                    );
+            }).then(function(result) {
+                if (result.isConfirmed) {
+                    form.submit();
+                }
             });
         });
+    });
 </script>
 <?= $this->endSection(); ?>

@@ -32,6 +32,13 @@ class KelolaJenisInovasi extends BaseController
             'nama_jenis' => $this->request->getPost('nama_jenis')
         ];
 
+        // Cek apakah nama jenis yang dimasukkan sudah ada di database
+        $existingJenis = $jenisInovasiModel->where('nama_jenis', $data['nama_jenis'])->first();
+        if ($existingJenis) {
+            // Jika nama jenis sudah ada, kembalikan error
+            return redirect()->back()->withInput()->with('errors', 'Nama jenis sudah ada, harap gunakan nama lain.');
+        }
+
         // // Insert data jenis inovasi
         // $jenisInovasiModel->insert($data);
 
@@ -65,11 +72,11 @@ class KelolaJenisInovasi extends BaseController
             // Cek apakah transaksi berhasil
             if ($db->transStatus() === false) {
                 // Jika gagal, rollback dan kembali ke form dengan pesan error
-                return redirect()->back()->with('errors', 'Gagal menyimpan data Jenis Inovasi dan mencatat log aktivitas.');
+                return redirect()->back()->with('errors', 'Gagal menyimpan data Jenis Inovasi.');
             }
 
             // Jika berhasil, kembali ke halaman dashboard dengan pesan sukses
-            return redirect()->to('/jenis_inovasi')->with('success', 'Data Jenis Inovasi berhasil ditambahkan dan log tercatat.');
+            return redirect()->to('/jenis_inovasi')->with('success', 'Data berhasil ditambahkan.');
         } else {
             // Jika penyimpanan data gagal, kembali ke form dengan pesan error
             return redirect()->back()->withInput()->with('errors', $jenisInovasiModel->errors());
@@ -106,8 +113,15 @@ class KelolaJenisInovasi extends BaseController
             'nama_jenis' => $this->request->getPost('nama_jenis')
         ];
 
-        // Update data jenis inovasi
-        $jenisInovasiModel->update($id, $data);
+        // Cek apakah nama jenis yang akan diupdate sudah ada di database
+        $existingJenis = $jenisInovasiModel->where('nama_jenis', $data['nama_jenis'])
+            ->where('id_jenis_inovasi !=', $id) // Pastikan tidak mengecek ID yang sedang diupdate
+            ->first();
+
+        if ($existingJenis) {
+            // Jika nama jenis sudah ada, kembalikan error
+            return redirect()->back()->withInput()->with('errors', 'Nama jenis sudah ada, harap gunakan nama lain.');
+        }
 
         // Mendapatkan ID pengguna (SuperAdmin) yang sedang login
         $superAdminId = auth()->user()->id;
@@ -127,7 +141,7 @@ class KelolaJenisInovasi extends BaseController
                 'tanggal_aktivitas' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(), // Format tanggal
                 'aksi'             => 'update', // Tindakan yang dilakukan
                 'jenis_data'       => 'jenis inovasi', // Jenis data yang terlibat
-                'keterangan'       => "SuperAdmin with ID {$superAdminId} edit Jenis Inovasi with name " . $data['nama_jenis'],
+                'keterangan'       => "SuperAdmin dengan ID {$superAdminId} memperbarui data Jenis Inovasi dengan nama " . $data['nama_jenis'],
             ];
 
             // Simpan log aktivitas ke dalam database
@@ -139,11 +153,11 @@ class KelolaJenisInovasi extends BaseController
             // Cek apakah transaksi berhasil
             if ($db->transStatus() === false) {
                 // Jika gagal, rollback dan kembali ke form dengan pesan error
-                return redirect()->back()->with('errors', 'Gagal mengedit data Jenis Inovasi dan mencatat log aktivitas.');
+                return redirect()->back()->with('errors', 'Gagal mengedit data Jenis Inovasi.');
             }
 
             // Jika berhasil, kembali ke halaman dashboard dengan pesan sukses
-            return redirect()->to('/jenis_inovasi')->with('success', 'Data Jenis Inovasi berhasil diedit dan log tercatat.');
+            return redirect()->to('/jenis_inovasi')->with('success', 'Data berhasil diubah.');
         } else {
             // Jika penyimpanan data gagal, kembali ke form dengan pesan error
             return redirect()->back()->withInput()->with('errors', $jenisInovasiModel->errors());
@@ -171,16 +185,16 @@ class KelolaJenisInovasi extends BaseController
             $logData = [
                 'id_user'          => $superAdminId,
                 'tanggal_aktivitas' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(), // Format tanggal
-                'aksi'             => 'delete', // Tindakan yang dilakukan
+                'aksi'             => 'hapus data', // Tindakan yang dilakukan
                 'jenis_data'       => 'jenis inovasi', // Jenis data yang terlibat
-                'keterangan'       => "SuperAdmin with ID {$superAdminId} delete Jenis Inovasi ",
+                'keterangan'       => "SuperAdmin dengan ID {$superAdminId} menghapus data Jenis Inovasi ",
             ];
 
             // Simpan log aktivitas ke dalam database
             $logModel->save($logData);
 
             // Jika berhasil, kembali ke halaman dashboard dengan pesan sukses
-            return redirect()->to('/jenis_inovasi')->with('success', 'Data Jenis Inovasi berhasil delete dan log tercatat.');
+            return redirect()->to('/jenis_inovasi')->with('success', 'Data berhasil dihapus.');
         } else {
             // Jika penyimpanan data gagal, kembali ke form dengan pesan error
             return redirect()->back()->withInput()->with('errors', $jenisInovasiModel->errors());

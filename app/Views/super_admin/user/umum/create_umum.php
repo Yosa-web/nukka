@@ -84,7 +84,7 @@
                                     </div>
                                 </div>
                                 <!-- Email -->
-                                <div class="row mb-5">
+                                <div class="row mb-3">
                                     <label for="floatingEmailInput" class="col-sm-3 col-form-label">Email</label>
                                     <div class="col-sm-9">
                                         <input type="email" class="form-control" id="floatingEmailInput" name="email" inputmode="email" autocomplete="email" placeholder="Masukkan Email Pengguna" value="<?= old('email') ?>" required>

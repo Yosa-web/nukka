@@ -27,40 +27,26 @@ class BeritaModel extends Model
     protected $updatedField  = 'updated_at';
     protected $deletedField  = 'deleted_at';
 
-    // Validation
-    protected $validationRules      = [
-        'judul' => 'required|max_length[200]',
+    protected $validationRules = [
+        'judul' => 'required|max_length[200]', // Ganti dengan id_berita
         'isi' => 'required',
-        // 'gambar' => 'uploaded[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]|max_size[gambar,2048]',
-        // 'tanggal_post' => 'required',
-        // 'posted_by' => 'required|integer',
         'status' => 'in_list[draft,published,archive]'
     ];
-    protected $validationMessages   = [
+    
+    protected $validationMessages = [
         'judul' => [
             'required'   => 'Judul berita wajib diisi.',
-            'max_length' => 'Judul berita tidak boleh lebih dari 200 karakter.'
+            'max_length' => 'Judul berita tidak boleh lebih dari 200 karakter.',
+            'is_unique'  => 'Judul berita sudah ada. Harap pilih judul yang lain.',
         ],
         'isi' => [
             'required' => 'Isi berita wajib diisi.',
         ],
-        // 'gambar' => [
-        //     'uploaded' => 'Gambar wajib diunggah.',
-        //     'mime_in'  => 'Format gambar harus berupa jpg, jpeg, atau png.',
-        //     'max_size' => 'Ukuran gambar tidak boleh lebih dari 2MB.'
-        // ],
-        // 'tanggal_post' => [
-        //     'required'   => 'Tanggal posting wajib diisi.',
-        // ],
-        // 'posted_by' => [
-        //     'required' => 'ID pengguna yang memposting wajib diisi.',
-        //     'integer'  => 'ID pengguna harus berupa angka.'
-        // ],
         'status' => [
             'in_list' => 'Status yang dipilih tidak valid. Pilih antara draft, published, atau archive.',
         ]
-
     ];
+
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;
 

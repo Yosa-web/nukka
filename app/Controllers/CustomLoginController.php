@@ -38,47 +38,55 @@ class CustomLoginController extends BaseLoginController
     {
         // Validate here first
         $rules = $this->getValidationRules();
-    
+
         if (! $this->validateData($this->request->getPost(), $rules, [], config('Auth')->DBGroup)) {
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
-    
+
         /** @var array $credentials */
         $credentials = $this->request->getPost(setting('Auth.validFields')) ?? [];
         $credentials = array_filter($credentials);
         $credentials['password'] = $this->request->getPost('password');
         $remember = (bool) $this->request->getPost('remember');
-    
+
         // Check if the user is active by searching in auth_identities and users table
         $userIdentityModel = new UserIdentityModel();
-        $userIdentity = $userIdentityModel->where('secret', $credentials['email'])->first(); // Cari berdasarkan 'secret' (email)
-    
+        $userIdentity = $userIdentityModel
+            ->where('secret', $credentials['email']) // Cari berdasarkan 'secret' (email)
+            ->first();
+
+        // Validasi jika tidak ditemukan
         if (!$userIdentity) {
-            return redirect()->route('login')->withInput()->with('error', 'User not found.');
+            return redirect()->route('login')->withInput()->with('error', 'Pengguna tidak terdaftar.');
         }
-    
+
         // Ambil data user dari tabel users menggunakan user_id dari objek UserIdentity
         $userModel = new UserModel();
-        $user = $userModel->find($userIdentity->user_id); // Akses user_id sebagai properti objek
-    
+        $user = $userModel->find($userIdentity->user_id);
+
         if (!$user || !$user->active) {
-            return redirect()->route('login')->withInput()->with('error', 'Account is not activated.');
+            return redirect()->route('login')->withInput()->with('error', 'Akun anda belum diaktivasi.');
         }
-    
+
+        // Validasi case-sensitive untuk email
+        if ($userIdentity->secret !== $credentials['email']) {
+            return redirect()->route('login')->withInput()->with('error', 'Email atau password tidak sesuai.');
+        }
+
         /** @var Session $authenticator */
         $authenticator = auth('session')->getAuthenticator();
-    
+
         // Attempt to login
         $result = $authenticator->remember($remember)->attempt($credentials);
         if (! $result->isOK()) {
             return redirect()->route('login')->withInput()->with('error', $result->reason());
         }
-    
+
         // If an action has been defined for login, start it up.
         if ($authenticator->hasAction()) {
             return redirect()->route('auth-action-show')->withCookies();
         }
-    
+
         return redirect()->to(config('Auth')->loginRedirect())->withCookies();
     }
 }

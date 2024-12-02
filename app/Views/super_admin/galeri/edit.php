@@ -30,17 +30,38 @@
                 </div>
             </div>
             <!-- end page title -->
+            <?php if (session()->get('errors')): ?>
+                <div class="error">
+                    <?= implode('<br>', session()->get('errors')) ?>
+                </div>
+            <?php endif; ?>
             <div class="row">
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
                             <form action="/superadmin/galeri/update/<?= $galeri['id_galeri'] ?>" method="post" enctype="multipart/form-data">
+                                <?php
+                                $tipeTersimpan = $galeri['tipe']; // Nilai yang tersimpan, misalnya 'image' atau 'video'
+
+                                // Menentukan opsi yang akan ditampilkan berdasarkan nilai tersimpan
+                                $options = [
+                                    'image' => 'Image',
+                                    'video' => 'Video'
+                                ];
+
+                                // Filter opsi agar hanya menampilkan yang sesuai dengan nilai tersimpan
+                                $filteredOptions = array_filter($options, function ($key) use ($tipeTersimpan) {
+                                    return $key === $tipeTersimpan;
+                                }, ARRAY_FILTER_USE_KEY);
+                                ?>
+
                                 <div class="row mb-3">
                                     <label for="tipe" class="col-sm-3 col-form-label">Tipe</label>
                                     <div class="col-sm-9">
-                                        <select class="form-select" id="tipe" onchange="toggleInput()">
-                                            <option value="image" <?= $galeri['tipe'] == 'image' ? 'selected' : '' ?>>Image</option>
-                                            <option value="video" <?= $galeri['tipe'] == 'video' ? 'selected' : '' ?>>Video</option>
+                                        <select class="form-select" id="tipe" name="tipe">
+                                            <?php foreach ($filteredOptions as $value => $label): ?>
+                                                <option value="<?= $value ?>" selected><?= $label ?></option>
+                                            <?php endforeach; ?>
                                         </select>
                                     </div>
                                 </div>
@@ -50,10 +71,13 @@
                                         <input type="text" class="form-control" name="judul" value="<?= $galeri['judul'] ?>" required>
                                     </div>
                                 </div>
-                                <div class="row mb-5" id="imageInput" style="display: <?= $galeri['tipe'] == 'image' ? 'flex' : 'none' ?>;">
+                                <div class="row mb-4" id="imageInput" style="display: <?= $galeri['tipe'] == 'image' ? 'flex' : 'none' ?>;">
                                     <label for="image" class="col-sm-3 col-form-label">Upload File Gambar</label>
                                     <div class="col-sm-9">
                                         <input type="file" class="form-control" name="image">
+                                        <?php if (!empty($galeri['url'])): ?>
+                                            <p>File Saat Ini: <a href="<?= base_url($galeri['url']) ?>" target="_blank">Lihat File</a></p>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                                 <div class="row mb-5" id="urlInput" style="display: <?= $galeri['tipe'] == 'video' ? 'flex' : 'none' ?>;">
@@ -79,20 +103,20 @@
     </div>
 </div>
 <script>
-        function toggleInput() {
-            const tipe = document.querySelector('select[name="tipe"]').value;
-            const imageInput = document.getElementById('imageInput');
-            const urlInput = document.getElementById('urlInput');
+    function toggleInput() {
+        const tipe = document.querySelector('select[name="tipe"]').value;
+        const imageInput = document.getElementById('imageInput');
+        const urlInput = document.getElementById('urlInput');
 
-            if (tipe === 'image') {
-                imageInput.style.display = 'flex';
-                urlInput.style.display = 'none';
-            } else if (tipe === 'video') {
-                imageInput.style.display = 'none';
-                urlInput.style.display = 'flex';
-            }
+        if (tipe === 'image') {
+            imageInput.style.display = 'flex';
+            urlInput.style.display = 'none';
+        } else if (tipe === 'video') {
+            imageInput.style.display = 'none';
+            urlInput.style.display = 'flex';
         }
-        // Run this to set the correct input visibility on page load
-        toggleInput();
-    </script>
+    }
+    // Run this to set the correct input visibility on page load
+    toggleInput();
+</script>
 <?= $this->endSection(); ?>

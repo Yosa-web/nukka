@@ -28,7 +28,7 @@
                     </div>
                     <div class="news-title"></div>
                     <div class="news-description">
-                        <?= nl2br(esc($berita['isi'])) ?>
+                        <?= $berita['isi'] ?>
                     </div>
                 </div>
             </div>

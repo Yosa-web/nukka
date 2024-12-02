@@ -1,7 +1,6 @@
 <?= $this->extend('layout/master_dashboard'); ?>
-
-<?= $this->section('content'); ?>
 <?= $this->section('title') ?><title>Data OPD | Rumah Inovasi</title><?= $this->endSection() ?>
+<?= $this->section('content'); ?>
 <div class="main-content">
     <div class="page-content">
         <div class="container-fluid">
@@ -28,6 +27,12 @@
                 </div>
             </div>
             <!-- end page title -->
+            <?php if (session()->getFlashdata('errors') || session()->getFlashdata('success')): ?>
+                <div class="alert alert-dismissible fade show <?= session()->getFlashdata('errors') ? 'alert-danger' : 'alert-success' ?>">
+                    <?= session()->getFlashdata('errors') ?: session()->getFlashdata('success') ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php endif; ?>
             <div class="row">
                 <div class="col-12">
                     <div class="card">
@@ -55,9 +60,9 @@
                                             <td class="text-center"><?= $jenis->telepon ?></td>
                                             <td class="text-center"><?= $jenis->email ?></td>
                                             <td class="text-center">
-                                            <a href="<?= base_url('superadmin/opd/edit/' . $jenis->encrypted_id) ?>" class="btn btn-outline-warning btn-sm edit mb-3" title="Edit">
-                                                <i class="fas fa-pencil-alt"></i>
-                                            </a>
+                                                <a href="<?= base_url('superadmin/opd/edit/' . $jenis->encrypted_id) ?>" class="btn btn-outline-warning btn-sm edit mb-3" title="Edit">
+                                                    <i class="fas fa-pencil-alt"></i>
+                                                </a>
                                                 <form id="delete-form-<?= $jenis->id_opd ?>" action="<?= base_url('superadmin/opd') ?>" method="post" style="display: inline;">
                                                     <input type="hidden" name="_method" value="DELETE">
                                                     <input type="hidden" name="id_opd" value="<?= $jenis->id_opd ?>">
@@ -83,13 +88,16 @@
 <script src="/assets/libs/sweetalert2/sweetalert2.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
+    // Tambahkan event listener pada setiap tombol delete
     document.querySelectorAll(".delete").forEach(function(button) {
         button.addEventListener("click", function(event) {
             event.preventDefault();
 
+            // Ambil form delete dan id_opd dari elemen terkait
             const form = this.closest("form");
-            const formData = new FormData(form);
+            const idOpd = form.querySelector("input[name='id_opd']").value;
 
+            // Konfirmasi penghapusan
             Swal.fire({
                 title: "Konfirmasi hapus?",
                 text: "Anda yakin ingin menghapus data ini?",
@@ -101,32 +109,38 @@
                 cancelButtonText: "Batal",
             }).then(function(result) {
                 if (result.isConfirmed) {
-                    // Mengirim form menggunakan AJAX
-                    fetch(form.action, {
-                        method: form.method,
-                        body: formData
+                    // Lakukan permintaan Ajax untuk memeriksa apakah id_opd digunakan
+                    fetch(`/superadmin/opd/check-delete/${idOpd}`, {
+                        method: "GET",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
                     })
-                    .then(response => {
-                        if (response.ok) {
-                            // Tampilkan SweetAlert sukses setelah penghapusan berhasil
-                            Swal.fire(
-                                "Terhapus!",
-                                "Data telah dihapus.",
-                                "success"
-                            ).then(() => {
-                                // Refresh atau perbarui halaman jika diperlukan
-                                location.reload();
-                            });
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.canDelete) {
+                            // Jika boleh dihapus, submit form
+                            form.submit();
                         } else {
-                            throw new Error('Gagal menghapus data');
+                            // Jika tidak boleh dihapus, tampilkan alert
+                            Swal.fire({
+                                title: "Gagal Dihapus!",
+                                text: "OPD tidak dapat dihapus karena memiliki data terkait.",
+                                icon: "error",
+                                confirmButtonColor: "#fd625e",
+                                confirmButtonText: "OK",
+                            });
                         }
                     })
                     .catch(error => {
-                        Swal.fire(
-                            "Error",
-                            "Terjadi kesalahan saat menghapus data.",
-                            "error"
-                        );
+                        console.error("Error:", error);
+                        Swal.fire({
+                            title: "Error!",
+                            text: "Terjadi kesalahan saat menghapus data.",
+                            icon: "error",
+                            confirmButtonColor: "#fd625e",
+                            confirmButtonText: "OK",
+                        });
                     });
                 }
             });

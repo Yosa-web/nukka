@@ -30,11 +30,11 @@
                 </div>
             </div>
             <!-- end page title -->
-            <?php if (session()->getFlashdata('message')): ?>
-                <div class="alert alert-success"><?= session()->getFlashdata('message') ?></div>
-            <?php endif; ?>
-            <?php if (session()->getFlashdata('error')): ?>
-                <div class="alert alert-danger"><?= session()->getFlashdata('error') ?></div>
+            <?php if (session()->getFlashdata('error') || session()->getFlashdata('message')): ?>
+                <div class="alert alert-dismissible fade show <?= session()->getFlashdata('error') ? 'alert-danger' : 'alert-success' ?>">
+                    <?= session()->getFlashdata('error') ?: session()->getFlashdata('message') ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
             <?php endif; ?>
             <div class="row">
                 <div class="col-12">
@@ -77,14 +77,15 @@
                                                 </td>
                                                 <td class="text-center">
                                                     <?php
-                                                        // Mengambil encrypter dari service
-                                                        $encrypter = \Config\Services::encrypter();
+                                                    // Mengambil encrypter dari service
+                                                    $encrypter = \Config\Services::encrypter();
 
-                                                        // Pastikan id dikonversi ke string sebelum dienkripsi
-                                                        $idString = strval($user['id']);
-                                                        $encryptedId = bin2hex($encrypter->encrypt($idString));
+                                                    // Pastikan id dikonversi ke string sebelum dienkripsi
+                                                    $idString = strval($user['id']);
+                                                    $encryptedId = bin2hex($encrypter->encrypt($idString));
                                                     ?>
-                                                    <a href="<?= site_url('/adminopd/pegawai/edit/' . $encryptedId); ?>" class="btn btn-outline-warning btn-sm edit mb-3" title="Edit">Edit</a>
+                                                    <a href="<?= site_url('/adminopd/pegawai/edit/' . $encryptedId); ?>" class="btn btn-outline-warning btn-sm edit mb-3" title="Edit"> <i class="fas fa-pencil-alt"></i>
+                                                    </a>
 
                                                     <form id="delete-form-<?= esc($user['id']); ?>" action="<?= site_url('/adminopd/pegawai/delete'); ?>" method="post" style="display:inline;">
                                                         <!-- Input untuk method DELETE -->
@@ -92,7 +93,7 @@
                                                         <!-- Input tersembunyi untuk ID, tidak ditampilkan pada antarmuka -->
                                                         <input type="hidden" name="id" value="<?= $user['id']; ?>">
                                                         <!-- Tombol untuk submit form -->
-                                                        <button type="button" class="btn btn-outline-danger btn-sm delete ms-2 mb-3" title="Delete" onclick="confirmDelete(<?= esc($user['id']); ?>)">
+                                                        <button type="button" class="btn btn-outline-danger btn-sm delete ms-2 mb-3" title="Hapus">
                                                             <i class="fas fa-trash-alt"></i>
                                                         </button>
                                                     </form>
@@ -115,23 +116,29 @@
 <!-- Sweet alert init js-->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-    function confirmDelete(userId) {
-        Swal.fire({
-            title: "Konfirmasi hapus data?",
-            text: "Data yang dihapus tidak bisa dikembalikan.",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#2ab57d",
-            cancelButtonColor: "#fd625e",
-            confirmButtonText: "Hapus",
-            cancelButtonText: "Batal",
-        }).then((result) => {
-            if (result.isConfirmed) {
-                // Jika user mengkonfirmasi, submit form penghapusan
-                document.getElementById('delete-form-' + userId).submit();
-            }
+    document.querySelectorAll(".delete").forEach(function(button) {
+        button.addEventListener("click", function(event) {
+            event.preventDefault();
+
+            const form = this.closest("form");
+            const formData = new FormData(form);
+
+            Swal.fire({
+                title: "Konfirmasi hapus?",
+                text: "Anda yakin ingin menghapus data ini?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#2ab57d",
+                cancelButtonColor: "#fd625e",
+                confirmButtonText: "Hapus",
+                cancelButtonText: "Batal",
+            }).then(function(result) {
+                if (result.isConfirmed) {
+                    form.submit();
+                }
+            });
         });
-    }
+    });
 </script>
 
 <?= $this->endSection(); ?>

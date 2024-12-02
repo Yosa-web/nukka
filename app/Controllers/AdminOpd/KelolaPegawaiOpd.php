@@ -290,8 +290,8 @@ class KelolaPegawaiOpd extends BaseRegisterController
             return redirect()->to('/adminopd/pegawai/list')
                 ->with('message', 'Pembuatan akun berhasil.');
         } elseif (in_array($group, ['sekertaris-opd', 'kepala-opd', 'operator'])) {
-            return redirect()->to('/superadmin/user/list/pegawai')
-                ->with('message', 'Pembuatan akun berhasil.');
+            return redirect()->to('/adminopd/pegawai/list')
+                ->with('message', 'Data berhasil diubah.');
         }
     
         // Jika group tidak sesuai dengan kondisi yang ada, tetap redirect ke daftar pengguna admin

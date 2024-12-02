@@ -37,7 +37,12 @@
                     object-fit: cover;
                 }
             </style>
-
+            <?php if (session()->getFlashdata('errors') || session()->getFlashdata('success')): ?>
+                <div class="alert alert-dismissible fade show <?= session()->getFlashdata('errors') ? 'alert-danger' : 'alert-success' ?>">
+                    <?= session()->getFlashdata('errors') ?: session()->getFlashdata('success') ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php endif; ?>
             <div class="row align-items-center">
                 <div class="col-md-6">
                 </div>
@@ -56,9 +61,9 @@
                     <div class="col-xl-4 col-sm-6">
                         <div class="card">
                             <div class="">
-                            <?php if ($item['gambar']): ?>
-                                <img src="<?= base_url($item['gambar']) ?>" alt="Gambar Berita" class="img-fluid">
-                            <?php endif; ?>
+                                <?php if ($item['gambar']): ?>
+                                    <img src="<?= base_url($item['gambar']) ?>" alt="Gambar Berita" class="img-fluid">
+                                <?php endif; ?>
                             </div>
                             <div class="card-body">
                                 <div class="row">
@@ -86,7 +91,7 @@
                                             <input type="hidden" name="_method" value="DELETE">
                                             <input type="hidden" name="id_berita" value="<?= $item['id_berita'] ?>">
                                             <?= csrf_field() ?>
-                                            <button type="button" class="btn btn-outline-danger btn-sm delete ms-2" title="Hapus" onclick="event.preventDefault(); document.getElementById('delete-form-<?= $item['id_berita'] ?>').submit();"><i class="fas fa-trash-alt"></i></button>
+                                            <button type="button" class="btn btn-outline-danger btn-sm delete ms-2" title="Hapus"><i class="fas fa-trash-alt"></i></button>
                                         </form>
                                     </div>
                                 </div>
@@ -146,21 +151,7 @@
                 cancelButtonText: "Batal",
             }).then(function(result) {
                 if (result.isConfirmed) {
-                    // Mengirim form menggunakan AJAX
-                    fetch(form.action, {
-                            method: form.method,
-                            body: formData
-                        })
-                        .then(response => {
-                            Swal.fire(
-                                "Terhapus!",
-                                "Data telah dihapus.",
-                                "success"
-                            ).then(() => {
-                                // Refresh atau perbarui halaman jika diperlukan
-                                location.reload();
-                            });
-                        })
+                    form.submit();
                 }
             });
         });

@@ -25,19 +25,19 @@ class KelolaOpd extends BaseController
     {
         // Ambil data OPD
         $opds = $this->opdModel->findAll();
-    
+
         // Ambil encrypter dari service
         $encrypter = \Config\Services::encrypter();
-    
+
         // Enkripsi ID OPD untuk setiap OPD
         foreach ($opds as $opd) {
             $opd->encrypted_id = bin2hex($encrypter->encrypt(strval($opd->id_opd)));
         }
-    
+
         // Kirim data OPD ke view
         return view('super_admin/opd/list_opd', ['opds' => $opds]);
     }
-    
+
     //fungsi untuk menampilkan form create opd
     public function createOpd()
     {
@@ -50,13 +50,44 @@ class KelolaOpd extends BaseController
     {
         // Validasi input form
         if (!$this->validate([
-            'nama_opd' => 'required|min_length[3]|max_length[100]|is_unique[opd.nama_opd]',
-            'alamat'   => 'required|min_length[10]|max_length[255]',
-            'email'    => 'required|valid_email|max_length[100]',
-            'telepon'  => 'required|numeric|min_length[10]|max_length[15]'
+            'nama_opd' => [
+                'rules' => 'required|min_length[3]|max_length[100]|is_unique[opd.nama_opd]',
+                'errors' => [
+                    'required' => 'Nama OPD wajib diisi.',
+                    'min_length' => 'Nama OPD minimal 3 karakter.',
+                    'max_length' => 'Nama OPD maksimal 100 karakter.',
+                    'is_unique' => 'Nama OPD ini sudah terdaftar.',
+                ]
+            ],
+            'alamat' => [
+                'rules' => 'required|min_length[10]|max_length[255]',
+                'errors' => [
+                    'required' => 'Alamat wajib diisi.',
+                    'min_length' => 'Alamat minimal 10 karakter.',
+                    'max_length' => 'Alamat maksimal 255 karakter.',
+                ]
+            ],
+            'email' => [
+                'rules' => 'required|valid_email|max_length[100]',
+                'errors' => [
+                    'required' => 'Email wajib diisi.',
+                    'valid_email' => 'Format email tidak valid.',
+                    'max_length' => 'Email maksimal 100 karakter.',
+                ]
+            ],
+            'telepon' => [
+                'rules' => 'required|numeric|min_length[10]|max_length[15]',
+                'errors' => [
+                    'required' => 'Nomor telepon wajib diisi.',
+                    'numeric' => 'Nomor telepon hanya boleh berisi angka.',
+                    'min_length' => 'Nomor telepon minimal 10 angka.',
+                    'max_length' => 'Nomor telepon maksimal 15 angka.',
+                ]
+            ]
         ])) {
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
+
         // Data OPD yang akan disimpan
         $data = [
             'nama_opd' => esc($this->request->getVar('nama_opd')),
@@ -77,15 +108,15 @@ class KelolaOpd extends BaseController
             // Mendapatkan ID OPD yang baru saja ditambahkan
             $newOpdId = $this->opdModel->insertID();
 
-            
+
 
             // Data untuk log aktivitas
             $logData = [
                 'id_user'          => $superAdminId,
                 'tanggal_aktivitas' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(), // Format tanggal
-                'aksi'             => 'create', // Tindakan yang dilakukan
+                'aksi'             => 'tambah data', // Tindakan yang dilakukan
                 'jenis_data'       => 'OPD', // Jenis data yang terlibat
-                'keterangan'       => "SuperAdmin with ID {$superAdminId} create OPD with ID {$newOpdId}",
+                'keterangan'       => "SuperAdmin dengan ID {$superAdminId} menambahkan data OPD dengan ID {$newOpdId}",
             ];
 
             // Simpan log aktivitas ke dalam database
@@ -98,11 +129,11 @@ class KelolaOpd extends BaseController
             // Cek apakah transaksi berhasil
             if ($db->transStatus() === false) {
                 // Jika gagal, rollback dan kembali ke form dengan pesan error
-                return redirect()->back()->with('errors', 'Gagal menyimpan data OPD dan mencatat log aktivitas.');
+                return redirect()->back()->with('errors', 'Gagal menyimpan data OPD!');
             }
 
             // Jika berhasil, kembali ke halaman dashboard dengan pesan sukses
-            return redirect()->to('/superadmin/opd')->with('success', 'Data OPD berhasil ditambahkan dan log tercatat.');
+            return redirect()->to('/superadmin/opd')->with('success', 'Data OPD berhasil ditambahkan.');
         } else {
             // Jika penyimpanan data OPD gagal, kembali ke form dengan pesan error
             return redirect()->back()->withInput()->with('errors', $this->opdModel->errors());
@@ -113,47 +144,47 @@ class KelolaOpd extends BaseController
     {
         // Ambil encrypter dari service
         $encrypter = \Config\Services::encrypter();
-    
+
         // Dekripsi ID OPD
         $id_opd = $encrypter->decrypt(hex2bin($encrypted_id));
-    
+
         // Cari data OPD berdasarkan ID
         $opd = $this->opdModel->find($id_opd);
-    
+
         // Pastikan OPD ditemukan
         if (!$opd) {
             return redirect()->to('/superadmin/opd')->with('error', 'OPD tidak ditemukan.');
         }
-    
+
         // Kirim data OPD ke view edit
         $data = [
             'title' => 'Edit OPD',
             'opd'   => $opd,
         ];
-    
+
         return view('super_admin/opd/edit_opd', $data);
     }
-    
-    
 
-    
-    
-    
+
+
+
+
+
 
     public function updateOpd()
     {
         $opdModel = new OpdModel();
         $id = $this->request->getPost('id_opd');
         $namaOpd = esc($this->request->getPost('nama_opd'));
-    
+
         // Cek apakah nama_opd sudah digunakan oleh record lain
         $existingOpd = $opdModel->where('nama_opd', $namaOpd)->where('id_opd !=', $id)->first();
-    
+
         if ($existingOpd) {
             // Jika nama_opd sudah digunakan, kembalikan dengan pesan error
             return redirect()->back()->withInput()->with('errors', ['nama_opd' => 'Nama OPD harus unik.']);
         }
-    
+
         // Data yang akan diupdate
         $data = [
             'nama_opd' => $namaOpd,
@@ -161,35 +192,49 @@ class KelolaOpd extends BaseController
             'email'    => esc($this->request->getPost('email')),
             'telepon'  => esc($this->request->getPost('telepon')),
         ];
-    
+
         // Lakukan update data
         if (!$opdModel->update($id, $data)) {
             return redirect()->back()->withInput()->with('errors', $opdModel->errors());
         }
-    
+
         // Ambil ID pengguna (super admin) untuk log aktivitas
         $superAdminId = auth()->user()->id;
-    
+
         // Simpan log aktivitas
         $logData = [
             'id_user'           => $superAdminId,
             'tanggal_aktivitas' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(),
             'aksi'              => 'update',
             'jenis_data'        => 'OPD',
-            'keterangan'        => "SuperAdmin dengan ID {$superAdminId} mengupdate OPD dengan ID {$id}",
+            'keterangan'        => "SuperAdmin dengan ID {$superAdminId} memperbarui data OPD dengan ID {$id}",
         ];
-    
+
         $logModel = new LogAktivitasModel();
         $logModel->save($logData);
-    
-        return redirect()->to('/superadmin/opd')->with('success', 'Data berhasil diperbarui!');
+
+        return redirect()->to('/superadmin/opd')->with('success', 'Data berhasil diperbarui.');
     }
-        
-    
-    
-    
-    
-    
+
+
+
+    public function checkDelete($idOpd)
+    {
+        $inovasiModel = new \App\Models\InovasiModel();
+        $usersModel = new \App\Models\UserModel();
+
+        $inovasiCount = $inovasiModel->where('id_opd', $idOpd)->countAllResults();
+        $usersCount = $usersModel->where('id_opd', $idOpd)->countAllResults();
+
+        if ($inovasiCount > 0 || $usersCount > 0) {
+            return $this->response->setJSON(['canDelete' => false]);
+        }
+        return $this->response->setJSON(['canDelete' => true]);
+    }
+
+
+
+
 
     public function deleteOpd()
     {
@@ -206,9 +251,9 @@ class KelolaOpd extends BaseController
             $logData = [
                 'id_user'          => $superAdminId,
                 'tanggal_aktivitas' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(), // Format tanggal
-                'aksi'             => 'delete', // Tindakan yang dilakukan
+                'aksi'             => 'hapus data', // Tindakan yang dilakukan
                 'jenis_data'       => 'OPD', // Jenis data yang terlibat
-                'keterangan'       => "SuperAdmin with ID {$superAdminId} deleted OPD with ID {$id}",
+                'keterangan'       => "SuperAdmin dengan ID {$superAdminId} menghapus data OPD dengan ID {$id}",
             ];
 
             // Simpan log aktivitas
@@ -216,7 +261,7 @@ class KelolaOpd extends BaseController
             $logModel->save($logData);
 
             // Redirect ke halaman list OPD dengan pesan sukses
-            return redirect()->to('/superadmin/opd')->with('success', 'Data OPD berhasil dihapus!');
+            return redirect()->to('/superadmin/opd')->with('success', 'Data OPD berhasil dihapus.');
         } else {
             // Jika penghapusan gagal, tampilkan pesan error dari model
             return redirect()->back()->withInput()->with('errors', $this->opdModel->errors());

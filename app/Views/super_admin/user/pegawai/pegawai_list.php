@@ -30,11 +30,11 @@
                 </div>
             </div>
             <!-- end page title -->
-            <?php if (session()->getFlashdata('message')): ?>
-                <div class="alert alert-success"><?= session()->getFlashdata('message') ?></div>
-            <?php endif; ?>
-            <?php if (session()->getFlashdata('error')): ?>
-                <div class="alert alert-danger"><?= session()->getFlashdata('error') ?></div>
+            <?php if (session()->getFlashdata('error') || session()->getFlashdata('message')): ?>
+                <div class="alert alert-dismissible fade show <?= session()->getFlashdata('error') ? 'alert-danger' : 'alert-success' ?>">
+                    <?= session()->getFlashdata('error') ?: session()->getFlashdata('message') ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
             <?php endif; ?>
             <div class="row">
                 <div class="col-12">
@@ -63,7 +63,21 @@
                                                 <td class="text-center"><?= esc($user['name']); ?></td>
                                                 <td><?= esc($user['id_opd']); ?></td>
                                                 <td class="text-center"><?= esc($user['NIP']); ?></td>
-                                                <td class="text-center"><?= esc($user['group']); ?></td>
+                                                <td class="text-center">
+                                                    <?php
+                                                    // Mengganti nama group yang tampil
+                                                    $group = $user['group'];
+                                                    if ($group == 'kepala-opd') {
+                                                        echo 'Kepala OPD';
+                                                    } elseif ($group == 'sekertaris-opd') {
+                                                        echo 'Sekretaris OPD';
+                                                    } elseif ($group == 'operator') {
+                                                        echo 'Operator';
+                                                    } else {
+                                                        echo esc($group); // Jika group lainnya, tampilkan sesuai dengan aslinya
+                                                    }
+                                                    ?>
+                                                </td>
                                                 <td class="text-center"><?= esc($user['no_telepon']); ?></td>
                                                 <td class="text-center"><?= esc($user['email']); ?></td>
                                                 <td class="text-center">
@@ -76,13 +90,13 @@
                                                     <?php endif; ?>
                                                 </td>
                                                 <td class="text-center">
-                                                <?php
-                                                        // Mengambil encrypter dari service
-                                                        $encrypter = \Config\Services::encrypter();
+                                                    <?php
+                                                    // Mengambil encrypter dari service
+                                                    $encrypter = \Config\Services::encrypter();
 
-                                                        // Pastikan id dikonversi ke string sebelum dienkripsi
-                                                        $idString = strval($user['id']);
-                                                        $encryptedId = bin2hex($encrypter->encrypt($idString));
+                                                    // Pastikan id dikonversi ke string sebelum dienkripsi
+                                                    $idString = strval($user['id']);
+                                                    $encryptedId = bin2hex($encrypter->encrypt($idString));
                                                     ?>
                                                     <a href="<?= site_url('/superadmin/user/edit/pegawai/' . $encryptedId); ?>" class="btn btn-outline-warning btn-sm edit mb-3" title="Edit">
                                                         <i class="fas fa-pencil-alt"></i>
@@ -93,7 +107,7 @@
                                                         <!-- Input tersembunyi untuk ID, tidak ditampilkan pada antarmuka -->
                                                         <input type="hidden" name="id" value="<?= $user['id']; ?>">
                                                         <?= csrf_field() ?>
-                                                        <button type="submit" class="btn btn-outline-danger btn-sm delete ms-2 mb-3" title="Delete" id="sa-warning" onclick="return confirm('Are you sure you want to delete this user?');"><i class="fas fa-trash-alt"></i></button>
+                                                        <button type="button" class="btn btn-outline-danger btn-sm delete ms-2 mb-3" title="Hapus"><i class="fas fa-trash-alt"></i></button>
                                                     </form>
                                                 </td>
                                             </tr>
@@ -113,26 +127,28 @@
 
 <!-- Sweet alert init js-->
 <script>
-    document
-        .getElementById("sa-warning")
-        .addEventListener("click", function() {
+    document.querySelectorAll(".delete").forEach(function(button) {
+        button.addEventListener("click", function(event) {
+            event.preventDefault();
+
+            const form = this.closest("form");
+            const formData = new FormData(form);
+
             Swal.fire({
-                title: "Konfirmasi hapus data?",
-                text: "",
+                title: "Konfirmasi hapus?",
+                text: "Anda yakin ingin menghapus data ini?",
                 icon: "warning",
-                showCancelButton: !0,
+                showCancelButton: true,
                 confirmButtonColor: "#2ab57d",
                 cancelButtonColor: "#fd625e",
                 confirmButtonText: "Hapus",
                 cancelButtonText: "Batal",
-            }).then(function(e) {
-                e.value &&
-                    Swal.fire(
-                        "Terhapus!",
-                        "Data telah dihapus",
-                        "success",
-                    );
+            }).then(function(result) {
+                if (result.isConfirmed) {
+                    form.submit();
+                }
             });
         });
+    });
 </script>
 <?= $this->endSection(); ?>

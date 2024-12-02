@@ -104,29 +104,41 @@ class KelolaUser extends BaseRegisterController
     {
         $userModel = new UserModel();
         $groupModel = new GroupModel();
-
+        $opdNames = []; // Menyimpan nama OPD jika diperlukan
+    
         $penggunaUmum = [];
-
+    
         // Ambil semua pengguna yang aktif dengan filter id_opd kosong
         $users = $userModel->where('id_opd', null)->findAll();
+    
         foreach ($users as $user) {
+            // Ambil grup pengguna
             $groups = $groupModel->getGroupsForUser($user->id);
             $groupNames = array_column($groups, 'group');
-
-            $penggunaUmum[] = [
-                'id' => $user->id,
-                'no_telepon' => $user->no_telepon,
-                'name' => $user->name,
-                'NIP' => $user->NIP,
-                'NIK' => $user->NIK,
-                'email' => $user->email,
-                'active' => $user->active,
-                'group' => implode(', ', $groupNames)
-            ];
+    
+            // Filter untuk group sekertaris-opd, kepala-opd, atau operator
+            if (array_intersect(['user',], $groupNames)) {
+                // Mendapatkan nama OPD berdasarkan id_opd, jika ada
+                $namaOpd = $opdNames[$user->id_opd] ?? 'Tidak Diketahui'; // Sesuaikan dengan cara kamu mendapatkan nama OPD
+                
+                // Menambahkan data pengguna umum ke dalam array
+                $penggunaUmum[] = [
+                    'id' => $user->id,
+                    'no_telepon' => $user->no_telepon,
+                    'name' => $user->name,
+                    'NIP' => $user->NIP,
+                    'NIK' => $user->NIK,
+                    'email' => $user->email,
+                    'active' => $user->active,
+                    'group' => implode(', ', $groupNames),
+                    'nama_opd' => $namaOpd // Menambahkan nama OPD jika ada
+                ];
+            }
         }
-
+    
         return view('super_admin/user/umum/umum_list', ['penggunaUmum' => $penggunaUmum]);
     }
+    
 
 
     public function createAdmin()
@@ -161,12 +173,37 @@ class KelolaUser extends BaseRegisterController
     public function createPegawai()
     {
         // Ambil data dari tabel opd
-        $opdModel = new OpdModel(); // Inisialisasi model opd
-        $test['opd'] = $opdModel->findAll(); // Ambil semua data opd
-
-        // Kirim data ke view
-        return $this->view('super_admin/user/pegawai/create_pegawai', $test);
+        $opdModel = new OpdModel();
+        $opdData = $opdModel->findAll();
+    
+        // Ambil data kepala-opd
+        $db = \Config\Database::connect();
+        $builder = $db->table('auth_groups_users');
+        $builder->select('auth_groups_users.user_id, auth_groups_users.group, users.id_opd');
+        $builder->join('users', 'users.id = auth_groups_users.user_id');
+        $builder->where('auth_groups_users.group', 'kepala-opd');
+        $query = $builder->get();
+        $usersWithHead = $query->getResult();
+    
+        // Ambil semua opd_id yang sudah memiliki kepala-opd
+        $opdWithHead = [];
+        foreach ($usersWithHead as $user) {
+            $opdWithHead[] = $user->id_opd;
+        }
+    
+        // Debug: Periksa data yang dikirim ke view
+        var_dump($opdWithHead);
+    
+        return $this->view('super_admin/user/pegawai/create_pegawai', [
+            'opd' => $opdData,
+            'opdWithHead' => $opdWithHead,
+            'id_opd' => old('id_opd')
+        ]);
     }
+    
+    
+    
+    
 
     public function createUmum()
     {
@@ -221,7 +258,7 @@ class KelolaUser extends BaseRegisterController
         $logData = [
             'id_user'          => $superAdminId,
             'tanggal_aktivitas' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(),
-            'aksi'             => 'create',
+            'aksi'             => 'tambah data',
             'jenis_data'       => 'User',
             'keterangan'       => "SuperAdmin dengan ID {$superAdminId} membuat User baru dengan ID {$user->id} dan grup {$group}",
         ];
@@ -232,15 +269,15 @@ class KelolaUser extends BaseRegisterController
         // Tentukan arah redirect berdasarkan group yang diinputkan
         if ($group === 'admin-opd') {
             return redirect()->to('/superadmin/user/list/admin')
-                ->with('message', 'Pendaftaran berhasil! Akun Anda akan diaktivasi oleh superadmin.');
+                ->with('message', 'Data user berhasil ditambahkan!');
         } elseif (in_array($group, ['sekertaris-opd', 'kepala-opd', 'operator'])) {
             return redirect()->to('/superadmin/user/list/pegawai')
-                ->with('message', 'Pendaftaran berhasil! Akun Anda akan diaktivasi oleh superadmin.');
+                ->with('message', 'Data user berhasil ditambahkan!');
         }
 
         // Jika group tidak sesuai dengan kondisi yang ada, tetap redirect ke daftar pengguna admin
         return redirect()->to('/superadmin/user/list/admin')
-            ->with('message', 'Pendaftaran berhasil! Akun Anda akan diaktivasi oleh superadmin.');
+            ->with('message', 'Data user berhasil ditambahkan!');
     }
 
 
@@ -514,7 +551,7 @@ class KelolaUser extends BaseRegisterController
 
         // Success - Informasikan bahwa akun akan diaktivasi oleh superadmin
         return redirect()->to('/superadmin/user/list/umum')
-            ->with('message', 'Pendaftaran berhasil! Akun Anda akan diaktivasi oleh superadmin.');
+            ->with('message', 'Data user berhasil ditambahkan!');
     }
 
 
@@ -674,7 +711,7 @@ class KelolaUser extends BaseRegisterController
             $logModel = new LogAktivitasModel();
             $logModel->save($logData);
 
-            return redirect()->back()->with('success', 'User berhasil dihapus.');
+            return redirect()->back()->with('message', 'User berhasil dihapus.');
         } else {
             return redirect()->back()->with('error', 'Gagal menghapus user.');
         }
