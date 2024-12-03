@@ -2151,3 +2151,580 @@ INFO - 2024-12-02 07:53:31 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2024-12-02 07:53:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-12-02 07:53:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-12-02 07:53:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-12-02 07:55:42 --> Published News by Slug: Array
+(
+    [0] => Array
+        (
+            [id_berita] => 3
+            [judul] => Bupati Dendi Ramadhona Hadiri Peletakan Batu Pertama Pembangunan Masjid Ash Shihhah RSUD Pesawaran
+            [isi] => Pesawaran, 31 Oktober 2024 - Bupati Pesawaran Dendi Ramadhona menghadiri dan memimpin secara langsung peletakan batu pertama pembangunan Masjid Ash-Shihah RSUD Kabupaten Pesawaran pada Kamis, (31/10/2024). Turut hadir mendampingi Kepala Dinas Kesehatan Media Apriliana, Kepala Kantor Kementerian Agama, Kadis Kominfotiksan yang diwakili Sekretaris Dinas Apriya, Direktur RSUD Dian Adhitama, serta para tamu undangan lainnya. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste vel minus porro tenetur, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta!!
+            [gambar] => assets/uploads/images/berita/1731644466_8fc322b3aee59fe51f9f.png
+            [tanggal_post] => 2024-11-15 11:21:06
+            [posted_by] => 1
+            [status] => published
+            [slug] => bupati-dendi-ramadhona-hadiri-peletakan-batu-pertama-pembangunan-masjid-ash-shihhah-rsud-pesawaran
+            [uploaded_by_username] => Icha
+        )
+
+    [1] => Array
+        (
+            [id_berita] => 4
+            [judul] => Jaring Isu Strategis, Dinas PUPR Kabupaten Pesawaran Gelar Konsultasi Publik 1 Penyusunan Dokumen RDTR
+            [isi] => Pesawaran, 14 November 2024 - Dinas Pekerjaan Umum dan Penataan Ruang (PUPR) Kabupaten Pesawaran jaring isu strategis pada wilayah perencanaan melalui Konsultasi Publik 1 Dokumen Rencana Detail Tata Ruang (RDTR) dan Kajian Lingkungan Hidup Strategis (KLHS) RDTR Kawasan Perkotaan Teluk Pandan yang digelar di Balai Desa Hanura Kecamatan Teluk Pandan pada Rabu, (13/11/2024). 
+
+Kegiatan ini merupakan salah satu persyaratan untuk mendapatkan persetujuan substansi dari Kementerian Agraria dan Tata Ruang (ATR)/Badan Pertanahan Nasional (BPN) dan validasi KLHS dari Dinas Lingkungan Hidup Provinsi Lampung, dan juga sebagai tindak lanjut dari pertemuan FGD RDTR dan KLHS Kawasan Perkotaan Teluk Pandan yang telah dilaksanakan pada tanggal 25 Juli 2024 lalu.
+
+Dalam sambutannya, Bupati Pesawaran yang diwakili oleh Asisten Perekonomian dan Pembangunan Setdakab Pesawaran Marzuki menyampaikan tujuan dari kegiatan ini yaitu untuk melakukan konfirmasi dan updating data sekunder, menyusun konsep pola ruang, struktur ruang dan pengembangan, dan menyepakati isu Pembangunan Berkelanjutan (PB) paling strategis, serta mendapatkan ide, gagasan, masukan untuk penyempurnaan Dokumen KLHS RDTR kawasan perkotaan Teluk Pandan.
+
+Selain perkotaan Teluk Pandan, terdapat empat lokus lainnya yang telah diamanatkan dalam penyusunan RDTR berdasarkan Peraturan Daerah Kabupaten Pesawaran Nomor 6 Tentang Rencana Tata Ruang Wilayah (RTRW) Tahun 2019-2039 yaitu Perkotaan Gedong Tataan, Tegineneng, Padang Cermin, serta Negeri Katon. 
+
+Dengan keterangannya, Marzuki juga menegaskan bahwa penyusunan dokumen RDTR dan KLHS RDTR kawasan perkotaan Teluk Pandan membutuhkan kerjasama semua pihak.
+
+“Penyusunan dokumen ini perlu melibatkan peran serta masyarakat dan pemangku kepentingan melalui konsultasi publik yang dilaksanakan hari ini,” ujarnya. 
+
+Marzuki berharap pihak yang terlibat dapat mendukung dan memberikan aspirasi guna menghasilkan produk rencana detail tata ruang yang berkelanjutan. 
+
+“Saya berharap kita semua bisa mendukung, berperan, berkontribusi aktif dan memberikan masukan terkait proses penyempurnaan penyusunan dokumen RDTR dan KLHS kawasan perkotaan Teluk Pandan,” tambah Marzuki. 
+
+Dalam kesempatan yang sama, Kepala Dinas PUPR Zainal Fikri yang diwakili oleh Plh. David Oktoriandi menyampaikan tentang pentingnya menjaring isu strategis yang menjadi urgensi diadakannya kegiatan konsultasi publik. 
+
+“Kami utamakan menjaring isu sebanyak-banyaknya yang ada di wilayah perencanaan dan harapannya isu atau masukan tersebut dapat membantu menyempurnakan dokumen yang akan disusun ini,” pungkasnya. 
+
+Kegiatan ini dihadiri oleh Perangkat Daerah di lingkungan Pemkab Pesawaran, OPD Provinsi Lampung, perwakilan Lanal Lampung, anggota DPRD Dapil Teluk Pandan, BBWS Mesuji Sekampung, dan tamu undangan lainnya. (Annisa)
+            [gambar] => assets/uploads/images/berita/1731651286_bac1d956a3e7e969a3e6.png
+            [tanggal_post] => 2024-11-15 13:14:46
+            [posted_by] => 1
+            [status] => published
+            [slug] => jaring-isu-strategis-dinas-pupr-kabupaten-pesawaran-gelar-konsultasi-publik-1-penyusunan-dokumen-rdtr
+            [uploaded_by_username] => Icha
+        )
+
+    [2] => Array
+        (
+            [id_berita] => 5
+            [judul] => Magang MSIB 7 Diskominfotiksan Pesawaran
+            [isi] => <h2>Ini Heading 1</h2><p><i>Pesawaran, 1 Oktober 2024</i> - Bupati Pesawaran <strong>Dendi Ramadhona</strong> menghadiri dan memimpin secara langsung peletakan batu pertama pembangunan Masjid Ash-Shihah RSUD Kabupaten Pesawaran pada Kamis, (31/10/2024). Turut hadir mendampingi Kepala Dinas Kesehatan Media Apriliana, Kepala Kantor Kementerian Agama, Kadis Kominfotiksan yang diwakili Sekretaris Dinas Apriya, Direktur RSUD Dian Adhitama, serta para tamu undangan lainnya. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste vel minus porro tenetur, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta!!<br>&nbsp;</p><h3>Paragraf 2</h3><p><br><i>Pesawaran, 1 Oktober 2024</i> - Bupati Pesawaran Dendi Ramadhona menghadiri dan memimpin secara langsung peletakan batu pertama pembangunan Masjid Ash-Shihah RSUD Kabupaten Pesawaran pada Kamis, (31/10/2024). Turut hadir mendampingi Kepala Dinas Kesehatan Media Apriliana, Kepala Kantor Kementerian Agama, Kadis Kominfotiksan yang diwakili Sekretaris Dinas Apriya, Direktur RSUD Dian Adhitama, serta para tamu undangan lainnya. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste vel minus porro tenetur, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta!!</p>
+            [gambar] => assets/uploads/images/berita/1732774674_12c2d9a78bd432f6d937.png
+            [tanggal_post] => 2024-11-28 13:17:54
+            [posted_by] => 27
+            [status] => published
+            [slug] => magang-msib-7-diskominfotiksan-pesawaran
+            [uploaded_by_username] => Bondan Prakoso
+        )
+
+)
+
+INFO - 2024-12-02 07:55:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 07:55:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 07:55:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-12-02 07:55:55 --> Published News by Slug: Array
+(
+    [0] => Array
+        (
+            [id_berita] => 5
+            [judul] => Magang MSIB 7 Diskominfotiksan Pesawaran
+            [isi] => <h2>Ini Heading 1</h2><p><i>Pesawaran, 1 Oktober 2024</i> - Bupati Pesawaran <strong>Dendi Ramadhona</strong> menghadiri dan memimpin secara langsung peletakan batu pertama pembangunan Masjid Ash-Shihah RSUD Kabupaten Pesawaran pada Kamis, (31/10/2024). Turut hadir mendampingi Kepala Dinas Kesehatan Media Apriliana, Kepala Kantor Kementerian Agama, Kadis Kominfotiksan yang diwakili Sekretaris Dinas Apriya, Direktur RSUD Dian Adhitama, serta para tamu undangan lainnya. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste vel minus porro tenetur, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta!!<br>&nbsp;</p><h3>Paragraf 2</h3><p><br><i>Pesawaran, 1 Oktober 2024</i> - Bupati Pesawaran Dendi Ramadhona menghadiri dan memimpin secara langsung peletakan batu pertama pembangunan Masjid Ash-Shihah RSUD Kabupaten Pesawaran pada Kamis, (31/10/2024). Turut hadir mendampingi Kepala Dinas Kesehatan Media Apriliana, Kepala Kantor Kementerian Agama, Kadis Kominfotiksan yang diwakili Sekretaris Dinas Apriya, Direktur RSUD Dian Adhitama, serta para tamu undangan lainnya. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste vel minus porro tenetur, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta!!</p>
+            [gambar] => assets/uploads/images/berita/1732774674_12c2d9a78bd432f6d937.png
+            [tanggal_post] => 2024-11-28 13:17:54
+            [posted_by] => 27
+            [status] => published
+            [slug] => magang-msib-7-diskominfotiksan-pesawaran
+            [uploaded_by_username] => Bondan Prakoso
+        )
+
+)
+
+INFO - 2024-12-02 07:55:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-12-02 07:56:07 --> Published News by Slug: Array
+(
+    [0] => Array
+        (
+            [id_berita] => 3
+            [judul] => Bupati Dendi Ramadhona Hadiri Peletakan Batu Pertama Pembangunan Masjid Ash Shihhah RSUD Pesawaran
+            [isi] => Pesawaran, 31 Oktober 2024 - Bupati Pesawaran Dendi Ramadhona menghadiri dan memimpin secara langsung peletakan batu pertama pembangunan Masjid Ash-Shihah RSUD Kabupaten Pesawaran pada Kamis, (31/10/2024). Turut hadir mendampingi Kepala Dinas Kesehatan Media Apriliana, Kepala Kantor Kementerian Agama, Kadis Kominfotiksan yang diwakili Sekretaris Dinas Apriya, Direktur RSUD Dian Adhitama, serta para tamu undangan lainnya. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste vel minus porro tenetur, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta!!
+            [gambar] => assets/uploads/images/berita/1731644466_8fc322b3aee59fe51f9f.png
+            [tanggal_post] => 2024-11-15 11:21:06
+            [posted_by] => 1
+            [status] => published
+            [slug] => bupati-dendi-ramadhona-hadiri-peletakan-batu-pertama-pembangunan-masjid-ash-shihhah-rsud-pesawaran
+            [uploaded_by_username] => Icha
+        )
+
+    [1] => Array
+        (
+            [id_berita] => 4
+            [judul] => Jaring Isu Strategis, Dinas PUPR Kabupaten Pesawaran Gelar Konsultasi Publik 1 Penyusunan Dokumen RDTR
+            [isi] => Pesawaran, 14 November 2024 - Dinas Pekerjaan Umum dan Penataan Ruang (PUPR) Kabupaten Pesawaran jaring isu strategis pada wilayah perencanaan melalui Konsultasi Publik 1 Dokumen Rencana Detail Tata Ruang (RDTR) dan Kajian Lingkungan Hidup Strategis (KLHS) RDTR Kawasan Perkotaan Teluk Pandan yang digelar di Balai Desa Hanura Kecamatan Teluk Pandan pada Rabu, (13/11/2024). 
+
+Kegiatan ini merupakan salah satu persyaratan untuk mendapatkan persetujuan substansi dari Kementerian Agraria dan Tata Ruang (ATR)/Badan Pertanahan Nasional (BPN) dan validasi KLHS dari Dinas Lingkungan Hidup Provinsi Lampung, dan juga sebagai tindak lanjut dari pertemuan FGD RDTR dan KLHS Kawasan Perkotaan Teluk Pandan yang telah dilaksanakan pada tanggal 25 Juli 2024 lalu.
+
+Dalam sambutannya, Bupati Pesawaran yang diwakili oleh Asisten Perekonomian dan Pembangunan Setdakab Pesawaran Marzuki menyampaikan tujuan dari kegiatan ini yaitu untuk melakukan konfirmasi dan updating data sekunder, menyusun konsep pola ruang, struktur ruang dan pengembangan, dan menyepakati isu Pembangunan Berkelanjutan (PB) paling strategis, serta mendapatkan ide, gagasan, masukan untuk penyempurnaan Dokumen KLHS RDTR kawasan perkotaan Teluk Pandan.
+
+Selain perkotaan Teluk Pandan, terdapat empat lokus lainnya yang telah diamanatkan dalam penyusunan RDTR berdasarkan Peraturan Daerah Kabupaten Pesawaran Nomor 6 Tentang Rencana Tata Ruang Wilayah (RTRW) Tahun 2019-2039 yaitu Perkotaan Gedong Tataan, Tegineneng, Padang Cermin, serta Negeri Katon. 
+
+Dengan keterangannya, Marzuki juga menegaskan bahwa penyusunan dokumen RDTR dan KLHS RDTR kawasan perkotaan Teluk Pandan membutuhkan kerjasama semua pihak.
+
+“Penyusunan dokumen ini perlu melibatkan peran serta masyarakat dan pemangku kepentingan melalui konsultasi publik yang dilaksanakan hari ini,” ujarnya. 
+
+Marzuki berharap pihak yang terlibat dapat mendukung dan memberikan aspirasi guna menghasilkan produk rencana detail tata ruang yang berkelanjutan. 
+
+“Saya berharap kita semua bisa mendukung, berperan, berkontribusi aktif dan memberikan masukan terkait proses penyempurnaan penyusunan dokumen RDTR dan KLHS kawasan perkotaan Teluk Pandan,” tambah Marzuki. 
+
+Dalam kesempatan yang sama, Kepala Dinas PUPR Zainal Fikri yang diwakili oleh Plh. David Oktoriandi menyampaikan tentang pentingnya menjaring isu strategis yang menjadi urgensi diadakannya kegiatan konsultasi publik. 
+
+“Kami utamakan menjaring isu sebanyak-banyaknya yang ada di wilayah perencanaan dan harapannya isu atau masukan tersebut dapat membantu menyempurnakan dokumen yang akan disusun ini,” pungkasnya. 
+
+Kegiatan ini dihadiri oleh Perangkat Daerah di lingkungan Pemkab Pesawaran, OPD Provinsi Lampung, perwakilan Lanal Lampung, anggota DPRD Dapil Teluk Pandan, BBWS Mesuji Sekampung, dan tamu undangan lainnya. (Annisa)
+            [gambar] => assets/uploads/images/berita/1731651286_bac1d956a3e7e969a3e6.png
+            [tanggal_post] => 2024-11-15 13:14:46
+            [posted_by] => 1
+            [status] => published
+            [slug] => jaring-isu-strategis-dinas-pupr-kabupaten-pesawaran-gelar-konsultasi-publik-1-penyusunan-dokumen-rdtr
+            [uploaded_by_username] => Icha
+        )
+
+    [2] => Array
+        (
+            [id_berita] => 5
+            [judul] => Magang MSIB 7 Diskominfotiksan Pesawaran
+            [isi] => <h2>Ini Heading 1</h2><p><i>Pesawaran, 1 Oktober 2024</i> - Bupati Pesawaran <strong>Dendi Ramadhona</strong> menghadiri dan memimpin secara langsung peletakan batu pertama pembangunan Masjid Ash-Shihah RSUD Kabupaten Pesawaran pada Kamis, (31/10/2024). Turut hadir mendampingi Kepala Dinas Kesehatan Media Apriliana, Kepala Kantor Kementerian Agama, Kadis Kominfotiksan yang diwakili Sekretaris Dinas Apriya, Direktur RSUD Dian Adhitama, serta para tamu undangan lainnya. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste vel minus porro tenetur, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta!!<br>&nbsp;</p><h3>Paragraf 2</h3><p><br><i>Pesawaran, 1 Oktober 2024</i> - Bupati Pesawaran Dendi Ramadhona menghadiri dan memimpin secara langsung peletakan batu pertama pembangunan Masjid Ash-Shihah RSUD Kabupaten Pesawaran pada Kamis, (31/10/2024). Turut hadir mendampingi Kepala Dinas Kesehatan Media Apriliana, Kepala Kantor Kementerian Agama, Kadis Kominfotiksan yang diwakili Sekretaris Dinas Apriya, Direktur RSUD Dian Adhitama, serta para tamu undangan lainnya. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste vel minus porro tenetur, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta!!</p>
+            [gambar] => assets/uploads/images/berita/1732774674_12c2d9a78bd432f6d937.png
+            [tanggal_post] => 2024-11-28 13:17:54
+            [posted_by] => 27
+            [status] => published
+            [slug] => magang-msib-7-diskominfotiksan-pesawaran
+            [uploaded_by_username] => Bondan Prakoso
+        )
+
+)
+
+INFO - 2024-12-02 07:56:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 07:56:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 07:56:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 07:56:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 07:56:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 07:56:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 07:56:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 07:56:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 07:56:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 07:56:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 07:56:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 07:56:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-12-02 07:57:08 --> Published News by Slug: Array
+(
+    [0] => Array
+        (
+            [id_berita] => 3
+            [judul] => Bupati Dendi Ramadhona Hadiri Peletakan Batu Pertama Pembangunan Masjid Ash Shihhah RSUD Pesawaran
+            [isi] => Pesawaran, 31 Oktober 2024 - Bupati Pesawaran Dendi Ramadhona menghadiri dan memimpin secara langsung peletakan batu pertama pembangunan Masjid Ash-Shihah RSUD Kabupaten Pesawaran pada Kamis, (31/10/2024). Turut hadir mendampingi Kepala Dinas Kesehatan Media Apriliana, Kepala Kantor Kementerian Agama, Kadis Kominfotiksan yang diwakili Sekretaris Dinas Apriya, Direktur RSUD Dian Adhitama, serta para tamu undangan lainnya. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste vel minus porro tenetur, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta!!
+            [gambar] => assets/uploads/images/berita/1731644466_8fc322b3aee59fe51f9f.png
+            [tanggal_post] => 2024-11-15 11:21:06
+            [posted_by] => 1
+            [status] => published
+            [slug] => bupati-dendi-ramadhona-hadiri-peletakan-batu-pertama-pembangunan-masjid-ash-shihhah-rsud-pesawaran
+            [uploaded_by_username] => Icha
+        )
+
+    [1] => Array
+        (
+            [id_berita] => 4
+            [judul] => Jaring Isu Strategis, Dinas PUPR Kabupaten Pesawaran Gelar Konsultasi Publik 1 Penyusunan Dokumen RDTR
+            [isi] => Pesawaran, 14 November 2024 - Dinas Pekerjaan Umum dan Penataan Ruang (PUPR) Kabupaten Pesawaran jaring isu strategis pada wilayah perencanaan melalui Konsultasi Publik 1 Dokumen Rencana Detail Tata Ruang (RDTR) dan Kajian Lingkungan Hidup Strategis (KLHS) RDTR Kawasan Perkotaan Teluk Pandan yang digelar di Balai Desa Hanura Kecamatan Teluk Pandan pada Rabu, (13/11/2024). 
+
+Kegiatan ini merupakan salah satu persyaratan untuk mendapatkan persetujuan substansi dari Kementerian Agraria dan Tata Ruang (ATR)/Badan Pertanahan Nasional (BPN) dan validasi KLHS dari Dinas Lingkungan Hidup Provinsi Lampung, dan juga sebagai tindak lanjut dari pertemuan FGD RDTR dan KLHS Kawasan Perkotaan Teluk Pandan yang telah dilaksanakan pada tanggal 25 Juli 2024 lalu.
+
+Dalam sambutannya, Bupati Pesawaran yang diwakili oleh Asisten Perekonomian dan Pembangunan Setdakab Pesawaran Marzuki menyampaikan tujuan dari kegiatan ini yaitu untuk melakukan konfirmasi dan updating data sekunder, menyusun konsep pola ruang, struktur ruang dan pengembangan, dan menyepakati isu Pembangunan Berkelanjutan (PB) paling strategis, serta mendapatkan ide, gagasan, masukan untuk penyempurnaan Dokumen KLHS RDTR kawasan perkotaan Teluk Pandan.
+
+Selain perkotaan Teluk Pandan, terdapat empat lokus lainnya yang telah diamanatkan dalam penyusunan RDTR berdasarkan Peraturan Daerah Kabupaten Pesawaran Nomor 6 Tentang Rencana Tata Ruang Wilayah (RTRW) Tahun 2019-2039 yaitu Perkotaan Gedong Tataan, Tegineneng, Padang Cermin, serta Negeri Katon. 
+
+Dengan keterangannya, Marzuki juga menegaskan bahwa penyusunan dokumen RDTR dan KLHS RDTR kawasan perkotaan Teluk Pandan membutuhkan kerjasama semua pihak.
+
+“Penyusunan dokumen ini perlu melibatkan peran serta masyarakat dan pemangku kepentingan melalui konsultasi publik yang dilaksanakan hari ini,” ujarnya. 
+
+Marzuki berharap pihak yang terlibat dapat mendukung dan memberikan aspirasi guna menghasilkan produk rencana detail tata ruang yang berkelanjutan. 
+
+“Saya berharap kita semua bisa mendukung, berperan, berkontribusi aktif dan memberikan masukan terkait proses penyempurnaan penyusunan dokumen RDTR dan KLHS kawasan perkotaan Teluk Pandan,” tambah Marzuki. 
+
+Dalam kesempatan yang sama, Kepala Dinas PUPR Zainal Fikri yang diwakili oleh Plh. David Oktoriandi menyampaikan tentang pentingnya menjaring isu strategis yang menjadi urgensi diadakannya kegiatan konsultasi publik. 
+
+“Kami utamakan menjaring isu sebanyak-banyaknya yang ada di wilayah perencanaan dan harapannya isu atau masukan tersebut dapat membantu menyempurnakan dokumen yang akan disusun ini,” pungkasnya. 
+
+Kegiatan ini dihadiri oleh Perangkat Daerah di lingkungan Pemkab Pesawaran, OPD Provinsi Lampung, perwakilan Lanal Lampung, anggota DPRD Dapil Teluk Pandan, BBWS Mesuji Sekampung, dan tamu undangan lainnya. (Annisa)
+            [gambar] => assets/uploads/images/berita/1731651286_bac1d956a3e7e969a3e6.png
+            [tanggal_post] => 2024-11-15 13:14:46
+            [posted_by] => 1
+            [status] => published
+            [slug] => jaring-isu-strategis-dinas-pupr-kabupaten-pesawaran-gelar-konsultasi-publik-1-penyusunan-dokumen-rdtr
+            [uploaded_by_username] => Icha
+        )
+
+    [2] => Array
+        (
+            [id_berita] => 5
+            [judul] => Magang MSIB 7 Diskominfotiksan Pesawaran
+            [isi] => <h2>Ini Heading 1</h2><p><i>Pesawaran, 1 Oktober 2024</i> - Bupati Pesawaran <strong>Dendi Ramadhona</strong> menghadiri dan memimpin secara langsung peletakan batu pertama pembangunan Masjid Ash-Shihah RSUD Kabupaten Pesawaran pada Kamis, (31/10/2024). Turut hadir mendampingi Kepala Dinas Kesehatan Media Apriliana, Kepala Kantor Kementerian Agama, Kadis Kominfotiksan yang diwakili Sekretaris Dinas Apriya, Direktur RSUD Dian Adhitama, serta para tamu undangan lainnya. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste vel minus porro tenetur, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta!!<br>&nbsp;</p><h3>Paragraf 2</h3><p><br><i>Pesawaran, 1 Oktober 2024</i> - Bupati Pesawaran Dendi Ramadhona menghadiri dan memimpin secara langsung peletakan batu pertama pembangunan Masjid Ash-Shihah RSUD Kabupaten Pesawaran pada Kamis, (31/10/2024). Turut hadir mendampingi Kepala Dinas Kesehatan Media Apriliana, Kepala Kantor Kementerian Agama, Kadis Kominfotiksan yang diwakili Sekretaris Dinas Apriya, Direktur RSUD Dian Adhitama, serta para tamu undangan lainnya. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste vel minus porro tenetur, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta!!</p>
+            [gambar] => assets/uploads/images/berita/1732774674_12c2d9a78bd432f6d937.png
+            [tanggal_post] => 2024-11-28 13:17:54
+            [posted_by] => 27
+            [status] => published
+            [slug] => magang-msib-7-diskominfotiksan-pesawaran
+            [uploaded_by_username] => Bondan Prakoso
+        )
+
+)
+
+INFO - 2024-12-02 07:57:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 07:57:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-12-02 07:57:13 --> Published News by Slug: Array
+(
+    [0] => Array
+        (
+            [id_berita] => 3
+            [judul] => Bupati Dendi Ramadhona Hadiri Peletakan Batu Pertama Pembangunan Masjid Ash Shihhah RSUD Pesawaran
+            [isi] => Pesawaran, 31 Oktober 2024 - Bupati Pesawaran Dendi Ramadhona menghadiri dan memimpin secara langsung peletakan batu pertama pembangunan Masjid Ash-Shihah RSUD Kabupaten Pesawaran pada Kamis, (31/10/2024). Turut hadir mendampingi Kepala Dinas Kesehatan Media Apriliana, Kepala Kantor Kementerian Agama, Kadis Kominfotiksan yang diwakili Sekretaris Dinas Apriya, Direktur RSUD Dian Adhitama, serta para tamu undangan lainnya. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste vel minus porro tenetur, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta!!
+            [gambar] => assets/uploads/images/berita/1731644466_8fc322b3aee59fe51f9f.png
+            [tanggal_post] => 2024-11-15 11:21:06
+            [posted_by] => 1
+            [status] => published
+            [slug] => bupati-dendi-ramadhona-hadiri-peletakan-batu-pertama-pembangunan-masjid-ash-shihhah-rsud-pesawaran
+            [uploaded_by_username] => Icha
+        )
+
+    [1] => Array
+        (
+            [id_berita] => 4
+            [judul] => Jaring Isu Strategis, Dinas PUPR Kabupaten Pesawaran Gelar Konsultasi Publik 1 Penyusunan Dokumen RDTR
+            [isi] => Pesawaran, 14 November 2024 - Dinas Pekerjaan Umum dan Penataan Ruang (PUPR) Kabupaten Pesawaran jaring isu strategis pada wilayah perencanaan melalui Konsultasi Publik 1 Dokumen Rencana Detail Tata Ruang (RDTR) dan Kajian Lingkungan Hidup Strategis (KLHS) RDTR Kawasan Perkotaan Teluk Pandan yang digelar di Balai Desa Hanura Kecamatan Teluk Pandan pada Rabu, (13/11/2024). 
+
+Kegiatan ini merupakan salah satu persyaratan untuk mendapatkan persetujuan substansi dari Kementerian Agraria dan Tata Ruang (ATR)/Badan Pertanahan Nasional (BPN) dan validasi KLHS dari Dinas Lingkungan Hidup Provinsi Lampung, dan juga sebagai tindak lanjut dari pertemuan FGD RDTR dan KLHS Kawasan Perkotaan Teluk Pandan yang telah dilaksanakan pada tanggal 25 Juli 2024 lalu.
+
+Dalam sambutannya, Bupati Pesawaran yang diwakili oleh Asisten Perekonomian dan Pembangunan Setdakab Pesawaran Marzuki menyampaikan tujuan dari kegiatan ini yaitu untuk melakukan konfirmasi dan updating data sekunder, menyusun konsep pola ruang, struktur ruang dan pengembangan, dan menyepakati isu Pembangunan Berkelanjutan (PB) paling strategis, serta mendapatkan ide, gagasan, masukan untuk penyempurnaan Dokumen KLHS RDTR kawasan perkotaan Teluk Pandan.
+
+Selain perkotaan Teluk Pandan, terdapat empat lokus lainnya yang telah diamanatkan dalam penyusunan RDTR berdasarkan Peraturan Daerah Kabupaten Pesawaran Nomor 6 Tentang Rencana Tata Ruang Wilayah (RTRW) Tahun 2019-2039 yaitu Perkotaan Gedong Tataan, Tegineneng, Padang Cermin, serta Negeri Katon. 
+
+Dengan keterangannya, Marzuki juga menegaskan bahwa penyusunan dokumen RDTR dan KLHS RDTR kawasan perkotaan Teluk Pandan membutuhkan kerjasama semua pihak.
+
+“Penyusunan dokumen ini perlu melibatkan peran serta masyarakat dan pemangku kepentingan melalui konsultasi publik yang dilaksanakan hari ini,” ujarnya. 
+
+Marzuki berharap pihak yang terlibat dapat mendukung dan memberikan aspirasi guna menghasilkan produk rencana detail tata ruang yang berkelanjutan. 
+
+“Saya berharap kita semua bisa mendukung, berperan, berkontribusi aktif dan memberikan masukan terkait proses penyempurnaan penyusunan dokumen RDTR dan KLHS kawasan perkotaan Teluk Pandan,” tambah Marzuki. 
+
+Dalam kesempatan yang sama, Kepala Dinas PUPR Zainal Fikri yang diwakili oleh Plh. David Oktoriandi menyampaikan tentang pentingnya menjaring isu strategis yang menjadi urgensi diadakannya kegiatan konsultasi publik. 
+
+“Kami utamakan menjaring isu sebanyak-banyaknya yang ada di wilayah perencanaan dan harapannya isu atau masukan tersebut dapat membantu menyempurnakan dokumen yang akan disusun ini,” pungkasnya. 
+
+Kegiatan ini dihadiri oleh Perangkat Daerah di lingkungan Pemkab Pesawaran, OPD Provinsi Lampung, perwakilan Lanal Lampung, anggota DPRD Dapil Teluk Pandan, BBWS Mesuji Sekampung, dan tamu undangan lainnya. (Annisa)
+            [gambar] => assets/uploads/images/berita/1731651286_bac1d956a3e7e969a3e6.png
+            [tanggal_post] => 2024-11-15 13:14:46
+            [posted_by] => 1
+            [status] => published
+            [slug] => jaring-isu-strategis-dinas-pupr-kabupaten-pesawaran-gelar-konsultasi-publik-1-penyusunan-dokumen-rdtr
+            [uploaded_by_username] => Icha
+        )
+
+    [2] => Array
+        (
+            [id_berita] => 5
+            [judul] => Magang MSIB 7 Diskominfotiksan Pesawaran
+            [isi] => <h2>Ini Heading 1</h2><p><i>Pesawaran, 1 Oktober 2024</i> - Bupati Pesawaran <strong>Dendi Ramadhona</strong> menghadiri dan memimpin secara langsung peletakan batu pertama pembangunan Masjid Ash-Shihah RSUD Kabupaten Pesawaran pada Kamis, (31/10/2024). Turut hadir mendampingi Kepala Dinas Kesehatan Media Apriliana, Kepala Kantor Kementerian Agama, Kadis Kominfotiksan yang diwakili Sekretaris Dinas Apriya, Direktur RSUD Dian Adhitama, serta para tamu undangan lainnya. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste vel minus porro tenetur, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta!!<br>&nbsp;</p><h3>Paragraf 2</h3><p><br><i>Pesawaran, 1 Oktober 2024</i> - Bupati Pesawaran Dendi Ramadhona menghadiri dan memimpin secara langsung peletakan batu pertama pembangunan Masjid Ash-Shihah RSUD Kabupaten Pesawaran pada Kamis, (31/10/2024). Turut hadir mendampingi Kepala Dinas Kesehatan Media Apriliana, Kepala Kantor Kementerian Agama, Kadis Kominfotiksan yang diwakili Sekretaris Dinas Apriya, Direktur RSUD Dian Adhitama, serta para tamu undangan lainnya. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste vel minus porro tenetur, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta!!</p>
+            [gambar] => assets/uploads/images/berita/1732774674_12c2d9a78bd432f6d937.png
+            [tanggal_post] => 2024-11-28 13:17:54
+            [posted_by] => 27
+            [status] => published
+            [slug] => magang-msib-7-diskominfotiksan-pesawaran
+            [uploaded_by_username] => Bondan Prakoso
+        )
+
+)
+
+INFO - 2024-12-02 07:57:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 07:57:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 07:57:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 07:57:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 07:57:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 07:57:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 07:57:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-12-02 07:57:47 --> Published News by Slug: Array
+(
+    [0] => Array
+        (
+            [id_berita] => 3
+            [judul] => Bupati Dendi Ramadhona Hadiri Peletakan Batu Pertama Pembangunan Masjid Ash Shihhah RSUD Pesawaran
+            [isi] => Pesawaran, 31 Oktober 2024 - Bupati Pesawaran Dendi Ramadhona menghadiri dan memimpin secara langsung peletakan batu pertama pembangunan Masjid Ash-Shihah RSUD Kabupaten Pesawaran pada Kamis, (31/10/2024). Turut hadir mendampingi Kepala Dinas Kesehatan Media Apriliana, Kepala Kantor Kementerian Agama, Kadis Kominfotiksan yang diwakili Sekretaris Dinas Apriya, Direktur RSUD Dian Adhitama, serta para tamu undangan lainnya. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste vel minus porro tenetur, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta!!
+            [gambar] => assets/uploads/images/berita/1731644466_8fc322b3aee59fe51f9f.png
+            [tanggal_post] => 2024-11-15 11:21:06
+            [posted_by] => 1
+            [status] => published
+            [slug] => bupati-dendi-ramadhona-hadiri-peletakan-batu-pertama-pembangunan-masjid-ash-shihhah-rsud-pesawaran
+            [uploaded_by_username] => Icha
+        )
+
+    [1] => Array
+        (
+            [id_berita] => 4
+            [judul] => Jaring Isu Strategis, Dinas PUPR Kabupaten Pesawaran Gelar Konsultasi Publik 1 Penyusunan Dokumen RDTR
+            [isi] => Pesawaran, 14 November 2024 - Dinas Pekerjaan Umum dan Penataan Ruang (PUPR) Kabupaten Pesawaran jaring isu strategis pada wilayah perencanaan melalui Konsultasi Publik 1 Dokumen Rencana Detail Tata Ruang (RDTR) dan Kajian Lingkungan Hidup Strategis (KLHS) RDTR Kawasan Perkotaan Teluk Pandan yang digelar di Balai Desa Hanura Kecamatan Teluk Pandan pada Rabu, (13/11/2024). 
+
+Kegiatan ini merupakan salah satu persyaratan untuk mendapatkan persetujuan substansi dari Kementerian Agraria dan Tata Ruang (ATR)/Badan Pertanahan Nasional (BPN) dan validasi KLHS dari Dinas Lingkungan Hidup Provinsi Lampung, dan juga sebagai tindak lanjut dari pertemuan FGD RDTR dan KLHS Kawasan Perkotaan Teluk Pandan yang telah dilaksanakan pada tanggal 25 Juli 2024 lalu.
+
+Dalam sambutannya, Bupati Pesawaran yang diwakili oleh Asisten Perekonomian dan Pembangunan Setdakab Pesawaran Marzuki menyampaikan tujuan dari kegiatan ini yaitu untuk melakukan konfirmasi dan updating data sekunder, menyusun konsep pola ruang, struktur ruang dan pengembangan, dan menyepakati isu Pembangunan Berkelanjutan (PB) paling strategis, serta mendapatkan ide, gagasan, masukan untuk penyempurnaan Dokumen KLHS RDTR kawasan perkotaan Teluk Pandan.
+
+Selain perkotaan Teluk Pandan, terdapat empat lokus lainnya yang telah diamanatkan dalam penyusunan RDTR berdasarkan Peraturan Daerah Kabupaten Pesawaran Nomor 6 Tentang Rencana Tata Ruang Wilayah (RTRW) Tahun 2019-2039 yaitu Perkotaan Gedong Tataan, Tegineneng, Padang Cermin, serta Negeri Katon. 
+
+Dengan keterangannya, Marzuki juga menegaskan bahwa penyusunan dokumen RDTR dan KLHS RDTR kawasan perkotaan Teluk Pandan membutuhkan kerjasama semua pihak.
+
+“Penyusunan dokumen ini perlu melibatkan peran serta masyarakat dan pemangku kepentingan melalui konsultasi publik yang dilaksanakan hari ini,” ujarnya. 
+
+Marzuki berharap pihak yang terlibat dapat mendukung dan memberikan aspirasi guna menghasilkan produk rencana detail tata ruang yang berkelanjutan. 
+
+“Saya berharap kita semua bisa mendukung, berperan, berkontribusi aktif dan memberikan masukan terkait proses penyempurnaan penyusunan dokumen RDTR dan KLHS kawasan perkotaan Teluk Pandan,” tambah Marzuki. 
+
+Dalam kesempatan yang sama, Kepala Dinas PUPR Zainal Fikri yang diwakili oleh Plh. David Oktoriandi menyampaikan tentang pentingnya menjaring isu strategis yang menjadi urgensi diadakannya kegiatan konsultasi publik. 
+
+“Kami utamakan menjaring isu sebanyak-banyaknya yang ada di wilayah perencanaan dan harapannya isu atau masukan tersebut dapat membantu menyempurnakan dokumen yang akan disusun ini,” pungkasnya. 
+
+Kegiatan ini dihadiri oleh Perangkat Daerah di lingkungan Pemkab Pesawaran, OPD Provinsi Lampung, perwakilan Lanal Lampung, anggota DPRD Dapil Teluk Pandan, BBWS Mesuji Sekampung, dan tamu undangan lainnya. (Annisa)
+            [gambar] => assets/uploads/images/berita/1731651286_bac1d956a3e7e969a3e6.png
+            [tanggal_post] => 2024-11-15 13:14:46
+            [posted_by] => 1
+            [status] => published
+            [slug] => jaring-isu-strategis-dinas-pupr-kabupaten-pesawaran-gelar-konsultasi-publik-1-penyusunan-dokumen-rdtr
+            [uploaded_by_username] => Icha
+        )
+
+    [2] => Array
+        (
+            [id_berita] => 5
+            [judul] => Magang MSIB 7 Diskominfotiksan Pesawaran
+            [isi] => <h2>Ini Heading 1</h2><p><i>Pesawaran, 1 Oktober 2024</i> - Bupati Pesawaran <strong>Dendi Ramadhona</strong> menghadiri dan memimpin secara langsung peletakan batu pertama pembangunan Masjid Ash-Shihah RSUD Kabupaten Pesawaran pada Kamis, (31/10/2024). Turut hadir mendampingi Kepala Dinas Kesehatan Media Apriliana, Kepala Kantor Kementerian Agama, Kadis Kominfotiksan yang diwakili Sekretaris Dinas Apriya, Direktur RSUD Dian Adhitama, serta para tamu undangan lainnya. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste vel minus porro tenetur, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta!!<br>&nbsp;</p><h3>Paragraf 2</h3><p><br><i>Pesawaran, 1 Oktober 2024</i> - Bupati Pesawaran Dendi Ramadhona menghadiri dan memimpin secara langsung peletakan batu pertama pembangunan Masjid Ash-Shihah RSUD Kabupaten Pesawaran pada Kamis, (31/10/2024). Turut hadir mendampingi Kepala Dinas Kesehatan Media Apriliana, Kepala Kantor Kementerian Agama, Kadis Kominfotiksan yang diwakili Sekretaris Dinas Apriya, Direktur RSUD Dian Adhitama, serta para tamu undangan lainnya. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste vel minus porro tenetur, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta!!</p>
+            [gambar] => assets/uploads/images/berita/1732774674_12c2d9a78bd432f6d937.png
+            [tanggal_post] => 2024-11-28 13:17:54
+            [posted_by] => 27
+            [status] => published
+            [slug] => magang-msib-7-diskominfotiksan-pesawaran
+            [uploaded_by_username] => Bondan Prakoso
+        )
+
+)
+
+INFO - 2024-12-02 07:57:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 07:57:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-12-02 07:58:49 --> Published News by Slug: Array
+(
+    [0] => Array
+        (
+            [id_berita] => 3
+            [judul] => Bupati Dendi Ramadhona Hadiri Peletakan Batu Pertama Pembangunan Masjid Ash Shihhah RSUD Pesawaran
+            [isi] => Pesawaran, 31 Oktober 2024 - Bupati Pesawaran Dendi Ramadhona menghadiri dan memimpin secara langsung peletakan batu pertama pembangunan Masjid Ash-Shihah RSUD Kabupaten Pesawaran pada Kamis, (31/10/2024). Turut hadir mendampingi Kepala Dinas Kesehatan Media Apriliana, Kepala Kantor Kementerian Agama, Kadis Kominfotiksan yang diwakili Sekretaris Dinas Apriya, Direktur RSUD Dian Adhitama, serta para tamu undangan lainnya. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste vel minus porro tenetur, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta!!
+            [gambar] => assets/uploads/images/berita/1731644466_8fc322b3aee59fe51f9f.png
+            [tanggal_post] => 2024-11-15 11:21:06
+            [posted_by] => 1
+            [status] => published
+            [slug] => bupati-dendi-ramadhona-hadiri-peletakan-batu-pertama-pembangunan-masjid-ash-shihhah-rsud-pesawaran
+            [uploaded_by_username] => Icha
+        )
+
+    [1] => Array
+        (
+            [id_berita] => 4
+            [judul] => Jaring Isu Strategis, Dinas PUPR Kabupaten Pesawaran Gelar Konsultasi Publik 1 Penyusunan Dokumen RDTR
+            [isi] => Pesawaran, 14 November 2024 - Dinas Pekerjaan Umum dan Penataan Ruang (PUPR) Kabupaten Pesawaran jaring isu strategis pada wilayah perencanaan melalui Konsultasi Publik 1 Dokumen Rencana Detail Tata Ruang (RDTR) dan Kajian Lingkungan Hidup Strategis (KLHS) RDTR Kawasan Perkotaan Teluk Pandan yang digelar di Balai Desa Hanura Kecamatan Teluk Pandan pada Rabu, (13/11/2024). 
+
+Kegiatan ini merupakan salah satu persyaratan untuk mendapatkan persetujuan substansi dari Kementerian Agraria dan Tata Ruang (ATR)/Badan Pertanahan Nasional (BPN) dan validasi KLHS dari Dinas Lingkungan Hidup Provinsi Lampung, dan juga sebagai tindak lanjut dari pertemuan FGD RDTR dan KLHS Kawasan Perkotaan Teluk Pandan yang telah dilaksanakan pada tanggal 25 Juli 2024 lalu.
+
+Dalam sambutannya, Bupati Pesawaran yang diwakili oleh Asisten Perekonomian dan Pembangunan Setdakab Pesawaran Marzuki menyampaikan tujuan dari kegiatan ini yaitu untuk melakukan konfirmasi dan updating data sekunder, menyusun konsep pola ruang, struktur ruang dan pengembangan, dan menyepakati isu Pembangunan Berkelanjutan (PB) paling strategis, serta mendapatkan ide, gagasan, masukan untuk penyempurnaan Dokumen KLHS RDTR kawasan perkotaan Teluk Pandan.
+
+Selain perkotaan Teluk Pandan, terdapat empat lokus lainnya yang telah diamanatkan dalam penyusunan RDTR berdasarkan Peraturan Daerah Kabupaten Pesawaran Nomor 6 Tentang Rencana Tata Ruang Wilayah (RTRW) Tahun 2019-2039 yaitu Perkotaan Gedong Tataan, Tegineneng, Padang Cermin, serta Negeri Katon. 
+
+Dengan keterangannya, Marzuki juga menegaskan bahwa penyusunan dokumen RDTR dan KLHS RDTR kawasan perkotaan Teluk Pandan membutuhkan kerjasama semua pihak.
+
+“Penyusunan dokumen ini perlu melibatkan peran serta masyarakat dan pemangku kepentingan melalui konsultasi publik yang dilaksanakan hari ini,” ujarnya. 
+
+Marzuki berharap pihak yang terlibat dapat mendukung dan memberikan aspirasi guna menghasilkan produk rencana detail tata ruang yang berkelanjutan. 
+
+“Saya berharap kita semua bisa mendukung, berperan, berkontribusi aktif dan memberikan masukan terkait proses penyempurnaan penyusunan dokumen RDTR dan KLHS kawasan perkotaan Teluk Pandan,” tambah Marzuki. 
+
+Dalam kesempatan yang sama, Kepala Dinas PUPR Zainal Fikri yang diwakili oleh Plh. David Oktoriandi menyampaikan tentang pentingnya menjaring isu strategis yang menjadi urgensi diadakannya kegiatan konsultasi publik. 
+
+“Kami utamakan menjaring isu sebanyak-banyaknya yang ada di wilayah perencanaan dan harapannya isu atau masukan tersebut dapat membantu menyempurnakan dokumen yang akan disusun ini,” pungkasnya. 
+
+Kegiatan ini dihadiri oleh Perangkat Daerah di lingkungan Pemkab Pesawaran, OPD Provinsi Lampung, perwakilan Lanal Lampung, anggota DPRD Dapil Teluk Pandan, BBWS Mesuji Sekampung, dan tamu undangan lainnya. (Annisa)
+            [gambar] => assets/uploads/images/berita/1731651286_bac1d956a3e7e969a3e6.png
+            [tanggal_post] => 2024-11-15 13:14:46
+            [posted_by] => 1
+            [status] => published
+            [slug] => jaring-isu-strategis-dinas-pupr-kabupaten-pesawaran-gelar-konsultasi-publik-1-penyusunan-dokumen-rdtr
+            [uploaded_by_username] => Icha
+        )
+
+    [2] => Array
+        (
+            [id_berita] => 5
+            [judul] => Magang MSIB 7 Diskominfotiksan Pesawaran
+            [isi] => <h2>Ini Heading 1</h2><p><i>Pesawaran, 1 Oktober 2024</i> - Bupati Pesawaran <strong>Dendi Ramadhona</strong> menghadiri dan memimpin secara langsung peletakan batu pertama pembangunan Masjid Ash-Shihah RSUD Kabupaten Pesawaran pada Kamis, (31/10/2024). Turut hadir mendampingi Kepala Dinas Kesehatan Media Apriliana, Kepala Kantor Kementerian Agama, Kadis Kominfotiksan yang diwakili Sekretaris Dinas Apriya, Direktur RSUD Dian Adhitama, serta para tamu undangan lainnya. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste vel minus porro tenetur, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta!!<br>&nbsp;</p><h3>Paragraf 2</h3><p><br><i>Pesawaran, 1 Oktober 2024</i> - Bupati Pesawaran Dendi Ramadhona menghadiri dan memimpin secara langsung peletakan batu pertama pembangunan Masjid Ash-Shihah RSUD Kabupaten Pesawaran pada Kamis, (31/10/2024). Turut hadir mendampingi Kepala Dinas Kesehatan Media Apriliana, Kepala Kantor Kementerian Agama, Kadis Kominfotiksan yang diwakili Sekretaris Dinas Apriya, Direktur RSUD Dian Adhitama, serta para tamu undangan lainnya. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste vel minus porro tenetur, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta!!</p>
+            [gambar] => assets/uploads/images/berita/1732774674_12c2d9a78bd432f6d937.png
+            [tanggal_post] => 2024-11-28 13:17:54
+            [posted_by] => 27
+            [status] => published
+            [slug] => magang-msib-7-diskominfotiksan-pesawaran
+            [uploaded_by_username] => Bondan Prakoso
+        )
+
+)
+
+INFO - 2024-12-02 07:58:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 07:58:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-12-02 07:58:55 --> Published News by Slug: Array
+(
+    [0] => Array
+        (
+            [id_berita] => 3
+            [judul] => Bupati Dendi Ramadhona Hadiri Peletakan Batu Pertama Pembangunan Masjid Ash Shihhah RSUD Pesawaran
+            [isi] => Pesawaran, 31 Oktober 2024 - Bupati Pesawaran Dendi Ramadhona menghadiri dan memimpin secara langsung peletakan batu pertama pembangunan Masjid Ash-Shihah RSUD Kabupaten Pesawaran pada Kamis, (31/10/2024). Turut hadir mendampingi Kepala Dinas Kesehatan Media Apriliana, Kepala Kantor Kementerian Agama, Kadis Kominfotiksan yang diwakili Sekretaris Dinas Apriya, Direktur RSUD Dian Adhitama, serta para tamu undangan lainnya. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste vel minus porro tenetur, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta!!
+            [gambar] => assets/uploads/images/berita/1731644466_8fc322b3aee59fe51f9f.png
+            [tanggal_post] => 2024-11-15 11:21:06
+            [posted_by] => 1
+            [status] => published
+            [slug] => bupati-dendi-ramadhona-hadiri-peletakan-batu-pertama-pembangunan-masjid-ash-shihhah-rsud-pesawaran
+            [uploaded_by_username] => Icha
+        )
+
+    [1] => Array
+        (
+            [id_berita] => 4
+            [judul] => Jaring Isu Strategis, Dinas PUPR Kabupaten Pesawaran Gelar Konsultasi Publik 1 Penyusunan Dokumen RDTR
+            [isi] => Pesawaran, 14 November 2024 - Dinas Pekerjaan Umum dan Penataan Ruang (PUPR) Kabupaten Pesawaran jaring isu strategis pada wilayah perencanaan melalui Konsultasi Publik 1 Dokumen Rencana Detail Tata Ruang (RDTR) dan Kajian Lingkungan Hidup Strategis (KLHS) RDTR Kawasan Perkotaan Teluk Pandan yang digelar di Balai Desa Hanura Kecamatan Teluk Pandan pada Rabu, (13/11/2024). 
+
+Kegiatan ini merupakan salah satu persyaratan untuk mendapatkan persetujuan substansi dari Kementerian Agraria dan Tata Ruang (ATR)/Badan Pertanahan Nasional (BPN) dan validasi KLHS dari Dinas Lingkungan Hidup Provinsi Lampung, dan juga sebagai tindak lanjut dari pertemuan FGD RDTR dan KLHS Kawasan Perkotaan Teluk Pandan yang telah dilaksanakan pada tanggal 25 Juli 2024 lalu.
+
+Dalam sambutannya, Bupati Pesawaran yang diwakili oleh Asisten Perekonomian dan Pembangunan Setdakab Pesawaran Marzuki menyampaikan tujuan dari kegiatan ini yaitu untuk melakukan konfirmasi dan updating data sekunder, menyusun konsep pola ruang, struktur ruang dan pengembangan, dan menyepakati isu Pembangunan Berkelanjutan (PB) paling strategis, serta mendapatkan ide, gagasan, masukan untuk penyempurnaan Dokumen KLHS RDTR kawasan perkotaan Teluk Pandan.
+
+Selain perkotaan Teluk Pandan, terdapat empat lokus lainnya yang telah diamanatkan dalam penyusunan RDTR berdasarkan Peraturan Daerah Kabupaten Pesawaran Nomor 6 Tentang Rencana Tata Ruang Wilayah (RTRW) Tahun 2019-2039 yaitu Perkotaan Gedong Tataan, Tegineneng, Padang Cermin, serta Negeri Katon. 
+
+Dengan keterangannya, Marzuki juga menegaskan bahwa penyusunan dokumen RDTR dan KLHS RDTR kawasan perkotaan Teluk Pandan membutuhkan kerjasama semua pihak.
+
+“Penyusunan dokumen ini perlu melibatkan peran serta masyarakat dan pemangku kepentingan melalui konsultasi publik yang dilaksanakan hari ini,” ujarnya. 
+
+Marzuki berharap pihak yang terlibat dapat mendukung dan memberikan aspirasi guna menghasilkan produk rencana detail tata ruang yang berkelanjutan. 
+
+“Saya berharap kita semua bisa mendukung, berperan, berkontribusi aktif dan memberikan masukan terkait proses penyempurnaan penyusunan dokumen RDTR dan KLHS kawasan perkotaan Teluk Pandan,” tambah Marzuki. 
+
+Dalam kesempatan yang sama, Kepala Dinas PUPR Zainal Fikri yang diwakili oleh Plh. David Oktoriandi menyampaikan tentang pentingnya menjaring isu strategis yang menjadi urgensi diadakannya kegiatan konsultasi publik. 
+
+“Kami utamakan menjaring isu sebanyak-banyaknya yang ada di wilayah perencanaan dan harapannya isu atau masukan tersebut dapat membantu menyempurnakan dokumen yang akan disusun ini,” pungkasnya. 
+
+Kegiatan ini dihadiri oleh Perangkat Daerah di lingkungan Pemkab Pesawaran, OPD Provinsi Lampung, perwakilan Lanal Lampung, anggota DPRD Dapil Teluk Pandan, BBWS Mesuji Sekampung, dan tamu undangan lainnya. (Annisa)
+            [gambar] => assets/uploads/images/berita/1731651286_bac1d956a3e7e969a3e6.png
+            [tanggal_post] => 2024-11-15 13:14:46
+            [posted_by] => 1
+            [status] => published
+            [slug] => jaring-isu-strategis-dinas-pupr-kabupaten-pesawaran-gelar-konsultasi-publik-1-penyusunan-dokumen-rdtr
+            [uploaded_by_username] => Icha
+        )
+
+    [2] => Array
+        (
+            [id_berita] => 5
+            [judul] => Magang MSIB 7 Diskominfotiksan Pesawaran
+            [isi] => <h2>Ini Heading 1</h2><p><i>Pesawaran, 1 Oktober 2024</i> - Bupati Pesawaran <strong>Dendi Ramadhona</strong> menghadiri dan memimpin secara langsung peletakan batu pertama pembangunan Masjid Ash-Shihah RSUD Kabupaten Pesawaran pada Kamis, (31/10/2024). Turut hadir mendampingi Kepala Dinas Kesehatan Media Apriliana, Kepala Kantor Kementerian Agama, Kadis Kominfotiksan yang diwakili Sekretaris Dinas Apriya, Direktur RSUD Dian Adhitama, serta para tamu undangan lainnya. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste vel minus porro tenetur, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta!!<br>&nbsp;</p><h3>Paragraf 2</h3><p><br><i>Pesawaran, 1 Oktober 2024</i> - Bupati Pesawaran Dendi Ramadhona menghadiri dan memimpin secara langsung peletakan batu pertama pembangunan Masjid Ash-Shihah RSUD Kabupaten Pesawaran pada Kamis, (31/10/2024). Turut hadir mendampingi Kepala Dinas Kesehatan Media Apriliana, Kepala Kantor Kementerian Agama, Kadis Kominfotiksan yang diwakili Sekretaris Dinas Apriya, Direktur RSUD Dian Adhitama, serta para tamu undangan lainnya. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste vel minus porro tenetur, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta!!</p>
+            [gambar] => assets/uploads/images/berita/1732774674_12c2d9a78bd432f6d937.png
+            [tanggal_post] => 2024-11-28 13:17:54
+            [posted_by] => 27
+            [status] => published
+            [slug] => magang-msib-7-diskominfotiksan-pesawaran
+            [uploaded_by_username] => Bondan Prakoso
+        )
+
+)
+
+INFO - 2024-12-02 07:58:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 07:58:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-12-02 07:59:11 --> Published News by Slug: Array
+(
+    [0] => Array
+        (
+            [id_berita] => 5
+            [judul] => Magang MSIB 7 Diskominfotiksan Pesawaran
+            [isi] => <h2>Ini Heading 1</h2><p><i>Pesawaran, 1 Oktober 2024</i> - Bupati Pesawaran <strong>Dendi Ramadhona</strong> menghadiri dan memimpin secara langsung peletakan batu pertama pembangunan Masjid Ash-Shihah RSUD Kabupaten Pesawaran pada Kamis, (31/10/2024). Turut hadir mendampingi Kepala Dinas Kesehatan Media Apriliana, Kepala Kantor Kementerian Agama, Kadis Kominfotiksan yang diwakili Sekretaris Dinas Apriya, Direktur RSUD Dian Adhitama, serta para tamu undangan lainnya. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste vel minus porro tenetur, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta!!<br>&nbsp;</p><h3>Paragraf 2</h3><p><br><i>Pesawaran, 1 Oktober 2024</i> - Bupati Pesawaran Dendi Ramadhona menghadiri dan memimpin secara langsung peletakan batu pertama pembangunan Masjid Ash-Shihah RSUD Kabupaten Pesawaran pada Kamis, (31/10/2024). Turut hadir mendampingi Kepala Dinas Kesehatan Media Apriliana, Kepala Kantor Kementerian Agama, Kadis Kominfotiksan yang diwakili Sekretaris Dinas Apriya, Direktur RSUD Dian Adhitama, serta para tamu undangan lainnya. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste vel minus porro tenetur, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta!!</p>
+            [gambar] => assets/uploads/images/berita/1732774674_12c2d9a78bd432f6d937.png
+            [tanggal_post] => 2024-11-28 13:17:54
+            [posted_by] => 27
+            [status] => published
+            [slug] => magang-msib-7-diskominfotiksan-pesawaran
+            [uploaded_by_username] => Bondan Prakoso
+        )
+
+    [1] => Array
+        (
+            [id_berita] => 4
+            [judul] => Jaring Isu Strategis, Dinas PUPR Kabupaten Pesawaran Gelar Konsultasi Publik 1 Penyusunan Dokumen RDTR
+            [isi] => Pesawaran, 14 November 2024 - Dinas Pekerjaan Umum dan Penataan Ruang (PUPR) Kabupaten Pesawaran jaring isu strategis pada wilayah perencanaan melalui Konsultasi Publik 1 Dokumen Rencana Detail Tata Ruang (RDTR) dan Kajian Lingkungan Hidup Strategis (KLHS) RDTR Kawasan Perkotaan Teluk Pandan yang digelar di Balai Desa Hanura Kecamatan Teluk Pandan pada Rabu, (13/11/2024). 
+
+Kegiatan ini merupakan salah satu persyaratan untuk mendapatkan persetujuan substansi dari Kementerian Agraria dan Tata Ruang (ATR)/Badan Pertanahan Nasional (BPN) dan validasi KLHS dari Dinas Lingkungan Hidup Provinsi Lampung, dan juga sebagai tindak lanjut dari pertemuan FGD RDTR dan KLHS Kawasan Perkotaan Teluk Pandan yang telah dilaksanakan pada tanggal 25 Juli 2024 lalu.
+
+Dalam sambutannya, Bupati Pesawaran yang diwakili oleh Asisten Perekonomian dan Pembangunan Setdakab Pesawaran Marzuki menyampaikan tujuan dari kegiatan ini yaitu untuk melakukan konfirmasi dan updating data sekunder, menyusun konsep pola ruang, struktur ruang dan pengembangan, dan menyepakati isu Pembangunan Berkelanjutan (PB) paling strategis, serta mendapatkan ide, gagasan, masukan untuk penyempurnaan Dokumen KLHS RDTR kawasan perkotaan Teluk Pandan.
+
+Selain perkotaan Teluk Pandan, terdapat empat lokus lainnya yang telah diamanatkan dalam penyusunan RDTR berdasarkan Peraturan Daerah Kabupaten Pesawaran Nomor 6 Tentang Rencana Tata Ruang Wilayah (RTRW) Tahun 2019-2039 yaitu Perkotaan Gedong Tataan, Tegineneng, Padang Cermin, serta Negeri Katon. 
+
+Dengan keterangannya, Marzuki juga menegaskan bahwa penyusunan dokumen RDTR dan KLHS RDTR kawasan perkotaan Teluk Pandan membutuhkan kerjasama semua pihak.
+
+“Penyusunan dokumen ini perlu melibatkan peran serta masyarakat dan pemangku kepentingan melalui konsultasi publik yang dilaksanakan hari ini,” ujarnya. 
+
+Marzuki berharap pihak yang terlibat dapat mendukung dan memberikan aspirasi guna menghasilkan produk rencana detail tata ruang yang berkelanjutan. 
+
+“Saya berharap kita semua bisa mendukung, berperan, berkontribusi aktif dan memberikan masukan terkait proses penyempurnaan penyusunan dokumen RDTR dan KLHS kawasan perkotaan Teluk Pandan,” tambah Marzuki. 
+
+Dalam kesempatan yang sama, Kepala Dinas PUPR Zainal Fikri yang diwakili oleh Plh. David Oktoriandi menyampaikan tentang pentingnya menjaring isu strategis yang menjadi urgensi diadakannya kegiatan konsultasi publik. 
+
+“Kami utamakan menjaring isu sebanyak-banyaknya yang ada di wilayah perencanaan dan harapannya isu atau masukan tersebut dapat membantu menyempurnakan dokumen yang akan disusun ini,” pungkasnya. 
+
+Kegiatan ini dihadiri oleh Perangkat Daerah di lingkungan Pemkab Pesawaran, OPD Provinsi Lampung, perwakilan Lanal Lampung, anggota DPRD Dapil Teluk Pandan, BBWS Mesuji Sekampung, dan tamu undangan lainnya. (Annisa)
+            [gambar] => assets/uploads/images/berita/1731651286_bac1d956a3e7e969a3e6.png
+            [tanggal_post] => 2024-11-15 13:14:46
+            [posted_by] => 1
+            [status] => published
+            [slug] => jaring-isu-strategis-dinas-pupr-kabupaten-pesawaran-gelar-konsultasi-publik-1-penyusunan-dokumen-rdtr
+            [uploaded_by_username] => Icha
+        )
+
+    [2] => Array
+        (
+            [id_berita] => 3
+            [judul] => Bupati Dendi Ramadhona Hadiri Peletakan Batu Pertama Pembangunan Masjid Ash Shihhah RSUD Pesawaran
+            [isi] => Pesawaran, 31 Oktober 2024 - Bupati Pesawaran Dendi Ramadhona menghadiri dan memimpin secara langsung peletakan batu pertama pembangunan Masjid Ash-Shihah RSUD Kabupaten Pesawaran pada Kamis, (31/10/2024). Turut hadir mendampingi Kepala Dinas Kesehatan Media Apriliana, Kepala Kantor Kementerian Agama, Kadis Kominfotiksan yang diwakili Sekretaris Dinas Apriya, Direktur RSUD Dian Adhitama, serta para tamu undangan lainnya. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste vel minus porro tenetur, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta, voluptatem magni officia neque atque illo eveniet illum exercitationem quas aspernatur animi, ut possimus rem laudantium soluta!!
+            [gambar] => assets/uploads/images/berita/1731644466_8fc322b3aee59fe51f9f.png
+            [tanggal_post] => 2024-11-15 11:21:06
+            [posted_by] => 1
+            [status] => published
+            [slug] => bupati-dendi-ramadhona-hadiri-peletakan-batu-pertama-pembangunan-masjid-ash-shihhah-rsud-pesawaran
+            [uploaded_by_username] => Icha
+        )
+
+)
+
+INFO - 2024-12-02 07:59:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 07:59:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 07:59:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 07:59:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 07:59:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 07:59:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 07:59:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 07:59:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 07:59:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 07:59:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 07:59:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 07:59:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 07:59:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 07:59:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 08:02:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 08:02:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 08:02:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 08:02:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 08:02:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 08:15:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 08:15:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 08:15:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 08:15:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 08:16:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-02 08:16:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

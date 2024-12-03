@@ -28,8 +28,8 @@
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img
-                    src="assets/images/users/avatar-7.jpg"
-                    alt="Los Angeles"
+                    src="assets/images/small/img-1.jpg"
+                    alt=""
                     class="d-block"
                     style="width: 100%" />
             </div>
