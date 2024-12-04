@@ -162,36 +162,50 @@ class KecamatanController extends BaseController
 
         public function delete($id)
         {
-            $kecamatanModel = new \App\Models\JenisInovasiModel();
+            $kecamatanModel = new \App\Models\KecamatanModel();
+            $desaModel = new \App\Models\DesaModel();
             $logModel = new \App\Models\LogAktivitasModel();
-    
-            $kecamatan = $kecamatanModel->find($id);  // Temukan data sebelum dihapus
-            $kecamatanModel->delete($id);
-    
-            // Mendapatkan ID pengguna (SuperAdmin) yang sedang login
-            $superAdminId = auth()->user()->id;
-    
-            // Menghapus data jenis inovasi berdasarkan ID
+        
+            // Cek apakah id_kecamatan ada di tabel desa
+            $desa = $desaModel->where('id_kecamatan', $id)->first();
+            if ($desa) {
+                // Jika ada desa yang terkait, jangan hapus dan beri pesan error
+                return redirect()->back()->with('errors', 'Data Kecamatan tidak dapat dihapus karena ada desa yang terkait.');
+            }
+        
+            // Temukan data kecamatan sebelum dihapus
+            $kecamatan = $kecamatanModel->find($id);
+            
+            if (!$kecamatan) {
+                // Jika kecamatan tidak ditemukan, beri pesan error
+                return redirect()->back()->with('error', 'Kecamatan tidak ditemukan.');
+            }
+        
+            // Hapus data kecamatan
             if ($kecamatanModel->delete($id)) {
-    
+                // Mendapatkan ID pengguna (SuperAdmin) yang sedang login
+                $superAdminId = auth()->user()->id;
+        
                 // Data untuk log aktivitas
                 $logData = [
                     'id_user'          => $superAdminId,
-                    'tanggal_aktivitas' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(), // Format tanggal
-                    'aksi'             => 'hapus data', // Tindakan yang dilakukan
-                    'jenis_data'       => 'jenis inovasi', // Jenis data yang terlibat
-                    'keterangan'       => "SuperAdmin dengan ID {$superAdminId} menghapus data Kecamatan ",
+                    'tanggal_aktivitas' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(),
+                    'aksi'             => 'hapus data',
+                    'jenis_data'       => 'kecamatan',
+                    'keterangan'       => "SuperAdmin dengan ID {$superAdminId} menghapus data Kecamatan dengan ID {$id}",
                 ];
-    
+        
                 // Simpan log aktivitas ke dalam database
                 $logModel->save($logData);
-    
-                // Jika berhasil, kembali ke halaman dashboard dengan pesan sukses
-                return redirect()->to('/superadmin/kecamatan')->with('success', 'Data berhasil dihapus.');
+        
+                // Jika berhasil, kembali ke halaman daftar kecamatan dengan pesan sukses
+                return redirect()->to('/superadmin/kecamatan')->with('success', 'Data Kecamatan berhasil dihapus.');
             } else {
                 // Jika penyimpanan data gagal, kembali ke form dengan pesan error
-                return redirect()->back()->withInput()->with('errors', $kecamatanModel->errors());
+                return redirect()->back()->withInput()->with('error', 'Gagal menghapus data Kecamatan.');
             }
         }
+
+        
 
 }

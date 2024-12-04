@@ -161,9 +161,9 @@ $routes->group('', ['filter' => 'group:superadmin'], function ($routes) {
     $routes->post('/superadmin/kecamatan/update/(:num)', 'Superadmin\KecamatanController::update/$1');
     $routes->get('/superadmin/kecamatan/delete/(:num)', 'Superadmin\KecamatanController::delete/$1');
 
-    $routes->get('/superadmin/desa', 'Superadmin\DesaController::index');
+    $routes->get('/superadmin/desa/(:num)', 'Superadmin\DesaController::index/$1');
     $routes->get('/superadmin/desa/create', 'Superadmin\DesaController::create');
-    $routes->post('/superadmin/desa/store', 'Superadmin\DesaController::store');
+    $routes->post('/superadmin/desa', 'Superadmin\DesaController::store');
     $routes->get('/superadmin/desa/edit/(:num)', 'Superadmin\DesaController::edit/$1');
     $routes->post('/superadmin/desa/update/(:num)', 'Superadmin\DesaController::update/$1');
     $routes->get('/superadmin/desa/delete/(:num)', 'Superadmin\DesaController::delete/$1');
