@@ -1,5 +1,5 @@
 <?= $this->extend('layout/master_dashboard'); ?>
-<?= $this->section('title') ?><title>Desa | Rumah Inovasi</title><?= $this->endSection() ?>
+<?= $this->section('title') ?><title>Kecamatan <?= esc($kecamatan['nama_kecamatan']) ?> | Rumah Inovasi</title><?= $this->endSection() ?>
 <?= $this->section('content'); ?>
 <div class="main-content">
     <div class="page-content">
@@ -9,12 +9,12 @@
                 <div class="col-12">
                     <div
                         class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h3 class="mb-sm-0">Desa</h3>
+                        <h3 class="mb-sm-0">Kecamatan <?= esc($kecamatan['nama_kecamatan']) ?></h3>
 
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item">
-                                    <a href="javascript: void(0);">Desa</a>
+                                    <a href="/superadmin/kecamatan">Kecamatan</a>
                                 </li>
                                 <li class="breadcrumb-item active">
                                     Desa
@@ -27,22 +27,49 @@
             <!-- end page title -->
             <?php if (session()->getFlashdata('errors') || session()->getFlashdata('success')): ?>
                 <div class="alert alert-dismissible fade show <?= session()->getFlashdata('errors') ? 'alert-danger' : 'alert-success' ?>">
-                    <?= session()->getFlashdata('errors') ?: session()->getFlashdata('success') ?>
+                    <?php
+                    if (session()->getFlashdata('errors')) {
+                        // Jika 'errors' berupa array, tampilkan setiap pesan di baris baru
+                        if (is_array(session()->getFlashdata('errors'))) {
+                            foreach (session()->getFlashdata('errors') as $error) {
+                                echo esc($error) . '<br>';
+                            }
+                        } else {
+                            // Jika 'errors' bukan array, cetak langsung
+                            echo esc(session()->getFlashdata('errors'));
+                        }
+                    } else {
+                        // Cetak pesan sukses
+                        echo esc(session()->getFlashdata('success'));
+                    }
+                    ?>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             <?php endif; ?>
+
 
             <!-- start table -->
             <div class="row">
                 <div class="col-12">
                     <div class="card">
                         <div
-                            class="card-header d-flex justify-content-end">
-                            <a href="/superadmin/desa/create" class="btn btn-primary waves-effect btn-label waves-light"
-                                data-bs-toggle="modal"
-                                data-bs-target="#staticBackdrop">
-                                <i class="bx bx-plus label-icon"></i>Tambah Data
-                            </a>
+                            class="card-header d-flex justify-content-start">
+                            <form action="/superadmin/desa" method="post"
+                                class="row gx-3 gy-2 align-items-center">
+                                <?= csrf_field() ?>
+                                <div class="hstack gap-3">
+                                    <input type="hidden" name="id_kecamatan" value="<?= esc($kecamatan['id_kecamatan']) ?>">
+                                    <input
+                                        class="form-control me-auto"
+                                        type="text"
+                                        placeholder="tambah desa baru..." name="nama_desa" id="nama_desa" required />
+                                    <button
+                                        type="submit"
+                                        class="btn btn-primary" style="white-space: nowrap;">
+                                        Tambah Desa
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -53,26 +80,24 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Nama Desa</th>
-                                            <th>Letak Kecamatan</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php if (!empty($desa)): ?>
-                                            <?php foreach ($desa as $jenis): ?>
+                                        <?php if (count($desa) > 0): ?>
+                                            <?php foreach ($desa as $item): ?>
                                                 <tr>
-                                                    <td data-field="id" style="width: 80px"><?= esc($jenis['id_desa']) ?></td>
-                                                    <td data-field="nama-desa"><?= esc($jenis['nama_desa']) ?></td>
-                                                    <td data-field="nama-kecamatan"><?= esc($jenis['nama_kecamatan']) ?></td> <!-- Menampilkan nama kecamatan -->
+                                                    <td data-field="id" style="width: 80px"><?= esc($item['id_desa']) ?></td>
+                                                    <td data-field="nama-desa"><?= esc($item['nama_desa']) ?></td>
                                                     <td style="width: 300px;">
                                                         <a href="javascript:void(0)" class="btn btn-outline-warning btn-sm edit" title="Edit"
                                                             data-bs-toggle="modal" data-bs-target="#editModal"
-                                                            data-id="<?= esc($jenis['id_desa']) ?>"
-                                                            data-nama="<?= esc($jenis['nama_desa']) ?>"
-                                                            data-kecamatan="<?= esc($jenis['id_kecamatan']) ?>">
+                                                            data-id="<?= esc($item['id_desa']) ?>"
+                                                            data-nama="<?= esc($item['nama_desa']) ?>"
+                                                            data-kecamatan="<?= esc($item['id_kecamatan']) ?>">
                                                             <i class="fas fa-pencil-alt"></i>
                                                         </a>
-                                                        <a href="/superadmin/desa/delete/<?= esc($jenis['id_desa']) ?>" class="btn btn-outline-danger btn-sm delete ms-2" title="Delete">
+                                                        <a href="/superadmin/desa/delete/<?= esc($item['id_desa']) ?>" class="btn btn-outline-danger btn-sm delete ms-2" title="Delete">
                                                             <i class="fas fa-trash-alt"></i>
                                                         </a>
                                                     </td>
@@ -81,12 +106,11 @@
                                         <?php else: ?>
                                             <tr>
                                                 <td colspan="3" class="text-center">
-                                                    <em>Tidak ada data desa untuk ditampilkan.</em>
+                                                    <em>Tidak ada desa di kecamatan ini.</em>
                                                 </td>
                                             </tr>
                                         <?php endif; ?>
                                     </tbody>
-
                                 </table>
                             </div>
                         </div>
@@ -97,101 +121,23 @@
     </div>
 </div>
 
-<!-- modal tambah data -->
-<div
-    class="modal fade"
-    id="staticBackdrop"
-    data-bs-backdrop="static"
-    data-bs-keyboard="false"
-    tabindex="-1"
-    role="dialog"
-    aria-labelledby="staticBackdropLabel"
-    aria-hidden="true">
-    <div
-        class="modal-dialog modal-dialog-centered"
-        role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5
-                    class="modal-title"
-                    id="staticBackdropLabel">
-                    Tambah Desa
-                </h5>
-                <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"></button>
-            </div>
-            <form action="/superadmin/desa/store" method="post">
-                <div class="modal-body">
-
-                    <div class="mb-3">
-                        <label for="id_kecamatan" class="col-form-label">Lokasi Kecamatan</label>
-                        <select class="form-control" name="id_kecamatan" id="id_kecamatan" required>
-                            <option value="">-- Pilih Kecamatan --</option>
-                            <?php if (isset($kecamatan)): ?>
-                                <?php foreach ($kecamatan as $row): ?>
-                                    <option value="<?= esc($row['id_kecamatan']) ?>"><?= esc($row['nama_kecamatan']) ?></option>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label
-                            for="nama_desa"
-                            class="col-form-label">Nama
-                            Desa</label>
-                        <input
-                            type="text"
-                            class="form-control"
-                            name="nama_desa"
-                            id="nama_desa"
-                            required />
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button
-                        type="button"
-                        class="btn btn-light"
-                        data-bs-dismiss="modal">
-                        Batal
-                    </button>
-                    <button
-                        type="submit"
-                        class="btn btn-primary"
-                        data-bs-dismiss="modal"
-                        id="">
-                        Kirim
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
 <!-- modal edit -->
-<div class="modal fade" id="editModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+<!-- Modal Edit Desa -->
+<div class="modal fade" id="editModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="staticBackdropLabel">Edit Desa</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="" method="post" id="editForm">
+            <form action="/superadmin/desa/update/<?= esc($item['id_desa']) ?>" method="post">
                 <div class="modal-body">
+                    <!-- Hidden input untuk id_kecamatan -->
+                    <input type="hidden" name="id_kecamatan" value="<?= esc($item['id_kecamatan']) ?>">
+
                     <div class="mb-3">
                         <label for="edit_nama_desa" class="col-form-label">Nama Desa</label>
-                        <input type="text" class="form-control" id="edit_nama_desa" name="nama_desa" required />
-                    </div>
-                    <div class="mb-3">
-                        <label for="edit_kecamatan" class="col-form-label">Lokasi Kecamatan</label>
-                        <select class="form-control" id="edit_kecamatan" name="id_kecamatan" required>
-                            <option value="">-- Pilih Kecamatan --</option>
-                            <?php foreach ($kecamatan as $row): ?>
-                                <option value="<?= esc($row['id_kecamatan']) ?>"><?= esc($row['nama_kecamatan']) ?></option>
-                            <?php endforeach; ?>
-                        </select>
+                        <input type="text" class="form-control" id="edit_nama_desa" name="nama_desa" value="<?= esc($item['nama_desa']) ?>" required />
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -202,6 +148,7 @@
         </div>
     </div>
 </div>
+
 
 
 <script>

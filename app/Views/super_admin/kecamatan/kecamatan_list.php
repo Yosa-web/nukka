@@ -69,13 +69,15 @@
                                                             data-nama="<?= $jenis['nama_kecamatan'] ?>">
                                                             <i class="fas fa-pencil-alt"></i>
                                                         </a>
-                                                        <a href="javascript:void(0)" class="btn btn-outline-primary btn-sm edit ms-2" title="Edit"
-                                                            data-bs-toggle="modal" data-bs-target="#editModal"
+                                                        <a href="#"
+                                                            class="btn btn-outline-primary btn-sm edit ms-2"
+                                                            title="Tambah Desa"
                                                             data-id="<?= $jenis['id_kecamatan'] ?>"
-                                                            data-nama="<?= $jenis['nama_kecamatan'] ?>">
+                                                            onclick="redirectToDesaPage(this)">
                                                             <i class="fas fa-plus"></i>
                                                         </a>
-                                                        <a href="/superadmin/kecamatan/delete/<?= $jenis['id_kecamatan'] ?>" class="btn btn-outline-danger btn-sm delete ms-2" title="Delete">
+
+                                                        <a href="/superadmin/kecamatan/delete/<?= $jenis['id_kecamatan'] ?>" class="btn btn-outline-danger btn-sm delete ms-2" title="Hapus">
                                                             <i class="fas fa-trash-alt"></i>
                                                         </a>
                                                     </td>
@@ -298,4 +300,15 @@
         });
     });
 </script>
+
+<script>
+function redirectToDesaPage(element) {
+    // Ambil ID kecamatan dari data-id
+    const kecamatanId = element.getAttribute("data-id");
+
+    // Redirect ke halaman dengan ID kecamatan
+    window.location.href = `/superadmin/desa/${kecamatanId}`;
+}
+</script>
+
 <?= $this->endSection(); ?>
