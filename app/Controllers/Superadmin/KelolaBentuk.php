@@ -3,38 +3,36 @@
 namespace App\Controllers\Superadmin;
 
 use App\Controllers\BaseController;
-use App\Models\Tahapan;
-use App\Models\TahapanModel;
+use App\Models\BentukModel;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\I18n\Time;
 
-class KelolaTahapan extends BaseController
+class KelolaBentuk extends BaseController
 {
-
     public function index()
     {
         // Inisialisasi model
-        $model = new TahapanModel();
+        $model = new BentukModel();
 
         // Mengambil semua data dari tabel tahapan
-        $data['tahapan'] = $model->findAll();
+        $data['bentuk'] = $model->findAll();
 
         // Melempar data ke view
-        return view('/super_admin/tahapan/tahapan_list', $data);
+        return view('/super_admin/bentuk/bentuk_list', $data);
     }
 
     public function store()
     {
-        $tahapanModel = new \App\Models\TahapanModel();
+        $bentukModel = new \App\Models\BentukModel();
         $logModel = new \App\Models\LogAktivitasModel();
 
         // Data yang diinput dari form
         $data = [
-            'nama_tahapan' => $this->request->getPost('nama_tahapan')
+            'nama_bentuk' => $this->request->getPost('nama_bentuk')
         ];
 
         // Cek apakah nama jenis yang dimasukkan sudah ada di database
-        $existingTahap = $tahapanModel->where('nama_tahapan', $data['nama_tahapan'])->first();
+        $existingTahap = $bentukModel->where('nama_bentuk', $data['nama_bentuk'])->first();
         if ($existingTahap) {
             // Jika nama jenis sudah ada, kembalikan error
             return redirect()->back()->withInput()->with('errors', 'Nama tahapan sudah ada, harap gunakan nama lain.');
@@ -51,17 +49,17 @@ class KelolaTahapan extends BaseController
         $db->transStart(); // Memulai transaksi
 
         // Simpan data jenis inovasi ke dalam database
-        if ($tahapanModel->save($data)) {  // Corrected here
+        if ($bentukModel->save($data)) {  // Corrected here
             // Mendapatkan ID jenis inovasi yang baru saja ditambahkan
-            $newJenisInovasiId = $tahapanModel->insertID();  // Corrected here
+            $newBentukId = $bentukModel->insertID();  // Corrected here
 
             // Data untuk log aktivitas
             $logData = [
                 'id_user'          => $superAdminId,
                 'tanggal_aktivitas' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(), // Format tanggal
                 'aksi'             => 'create', // Tindakan yang dilakukan
-                'jenis_data'       => 'tahapan', // Jenis data yang terlibat
-                'keterangan'       => "SuperAdmin with ID {$superAdminId} create tahapan Inovasi with name " . $data['nama_tahapan'],
+                'jenis_data'       => 'bentuk', // Jenis data yang terlibat
+                'keterangan'       => "SuperAdmin with ID {$superAdminId} create bentuk Inovasi with name " . $data['nama_bentuk'],
             ];
 
             // Simpan log aktivitas ke dalam database
@@ -73,14 +71,14 @@ class KelolaTahapan extends BaseController
             // Cek apakah transaksi berhasil
             if ($db->transStatus() === false) {
                 // Jika gagal, rollback dan kembali ke form dengan pesan error
-                return redirect()->back()->with('errors', 'Gagal menyimpan data Jenis Inovasi.');
+                return redirect()->back()->with('errors', 'Gagal menyimpan data bentuk Inovasi.');
             }
 
             // Jika berhasil, kembali ke halaman dashboard dengan pesan sukses
-            return redirect()->to('/tahapan')->with('success', 'Data berhasil ditambahkan.');
+            return redirect()->to('/bentuk')->with('success', 'Data berhasil ditambahkan.');
         } else {
             // Jika penyimpanan data gagal, kembali ke form dengan pesan error
-            return redirect()->back()->withInput()->with('errors', $tahapanModel->errors());
+            return redirect()->back()->withInput()->with('errors', $bentukModel->errors());
         }
     }
 
@@ -88,40 +86,40 @@ class KelolaTahapan extends BaseController
 
     public function edit($id)
     {
-        $model = new TahapanModel();
-        $tahap = $model->find($id); // Ambil data berdasarkan ID
+        $model = new BentukModel();
+        $bentuk = $model->find($id); // Ambil data berdasarkan ID
 
-        return view('super_admin/tahapan/tahapan_list', ['tahap' => $tahap]);
+        return view('super_admin/bentuk/bentuk_list', ['bentuk' => $bentuk]);
     }
 
 
     // Update data jenis inovasi di database
     public function update($id)
     {
-        $tahapanModel = new \App\Models\TahapanModel();
+        $bentukModel = new \App\Models\BentukModel();
         $logModel = new \App\Models\LogAktivitasModel();
 
         // Ambil data jenis inovasi berdasarkan ID
-        $tahapan = $tahapanModel->find($id);
+        $bentuk = $bentukModel->find($id);
 
         // Jika tidak ditemukan, redirect atau tangani error
-        if (!$tahapan) {
+        if (!$bentuk) {
             return redirect()->to('/tahapan')->with('error', 'tahapan inovasi tidak ditemukan.');
         }
 
         // Data yang diinput dari form
         $data = [
-            'nama_tahapan' => $this->request->getPost('nama_tahapan')
+            'nama_bentuk' => $this->request->getPost('nama_bentuk')
         ];
 
         // Cek apakah nama jenis yang akan diupdate sudah ada di database
-        $existingtahapan = $tahapanModel->where('nama_tahapan', $data['nama_tahapan'])
-            ->where('id_jenis_inovasi !=', $id) // Pastikan tidak mengecek ID yang sedang diupdate
+        $existingbentuk = $bentukModel->where('nama_bentuk', $data['nama_bentuk'])
+            ->where('id_bentuk !=', $id) // Pastikan tidak mengecek ID yang sedang diupdate
             ->first();
 
-        if ($existingtahapan) {
+        if ($existingbentuk) {
             // Jika nama jenis sudah ada, kembalikan error
-            return redirect()->back()->withInput()->with('errors', 'Nama tahapan sudah ada, harap gunakan nama lain.');
+            return redirect()->back()->withInput()->with('errors', 'Nama bentuk sudah ada, harap gunakan nama lain.');
         }
 
         // Mendapatkan ID pengguna (SuperAdmin) yang sedang login
@@ -132,17 +130,17 @@ class KelolaTahapan extends BaseController
         $db->transStart(); // Memulai transaksi
 
         // Simpan data jenis inovasi ke dalam database
-        if ($tahapanModel->update($id, $data)) {  // Corrected here
+        if ($bentukModel->update($id, $data)) {  // Corrected here
             // Mendapatkan ID jenis inovasi yang baru saja ditambahkan
-            $newTahapaniId = $tahapanModel->insertID();  // Corrected here
+            $newTahapaniId = $bentukModel->insertID();  // Corrected here
 
             // Data untuk log aktivitas
             $logData = [
                 'id_user'          => $superAdminId,
                 'tanggal_aktivitas' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(), // Format tanggal
                 'aksi'             => 'update', // Tindakan yang dilakukan
-                'jenis_data'       => 'tahapan', // Jenis data yang terlibat
-                'keterangan'       => "SuperAdmin dengan ID {$superAdminId} memperbarui data tahapan Inovasi dengan nama " . $data['nama_jenis'],
+                'jenis_data'       => 'bentuk', // Jenis data yang terlibat
+                'keterangan'       => "SuperAdmin dengan ID {$superAdminId} memperbarui data bentuk Inovasi dengan nama " . $data['nama_jenis'],
             ];
 
             // Simpan log aktivitas ke dalam database
@@ -158,47 +156,10 @@ class KelolaTahapan extends BaseController
             }
 
             // Jika berhasil, kembali ke halaman dashboard dengan pesan sukses
-            return redirect()->to('/tahapan')->with('success', 'Data berhasil diubah.');
+            return redirect()->to('/bentuk')->with('success', 'Data berhasil diubah.');
         } else {
             // Jika penyimpanan data gagal, kembali ke form dengan pesan error
-            return redirect()->back()->withInput()->with('errors', $tahapanModel->errors());
-        }
-    }
-
-
-
-    // Hapus jenis inovasi dari databases
-    public function delete($id)
-    {
-        $jenisInovasiModel = new \App\Models\JenisInovasiModel();
-        $logModel = new \App\Models\LogAktivitasModel();
-
-        $jenisInovasi = $jenisInovasiModel->find($id);  // Temukan data sebelum dihapus
-        $jenisInovasiModel->delete($id);
-
-        // Mendapatkan ID pengguna (SuperAdmin) yang sedang login
-        $superAdminId = auth()->user()->id;
-
-        // Menghapus data jenis inovasi berdasarkan ID
-        if ($jenisInovasiModel->delete($id)) {
-
-            // Data untuk log aktivitas
-            $logData = [
-                'id_user'          => $superAdminId,
-                'tanggal_aktivitas' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(), // Format tanggal
-                'aksi'             => 'hapus data', // Tindakan yang dilakukan
-                'jenis_data'       => 'jenis inovasi', // Jenis data yang terlibat
-                'keterangan'       => "SuperAdmin dengan ID {$superAdminId} menghapus data Jenis Inovasi ",
-            ];
-
-            // Simpan log aktivitas ke dalam database
-            $logModel->save($logData);
-
-            // Jika berhasil, kembali ke halaman dashboard dengan pesan sukses
-            return redirect()->to('/jenis_inovasi')->with('success', 'Data berhasil dihapus.');
-        } else {
-            // Jika penyimpanan data gagal, kembali ke form dengan pesan error
-            return redirect()->back()->withInput()->with('errors', $jenisInovasiModel->errors());
+            return redirect()->back()->withInput()->with('errors', $bentukModel->errors());
         }
     }
 }

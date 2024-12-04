@@ -6,13 +6,13 @@ use CodeIgniter\Model;
 
 class BentukModel extends Model
 {
-    protected $table            = 'bentuks';
-    protected $primaryKey       = 'id';
+    protected $table            = 'bentuk';
+    protected $primaryKey       = 'id_bentuk';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['nama_bentuk'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
