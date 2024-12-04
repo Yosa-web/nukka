@@ -136,7 +136,7 @@ $routes->group('', ['filter' => 'group:superadmin'], function ($routes) {
     $routes->post('/jenis_inovasi/update/(:num)', 'Superadmin\KelolaJenisInovasi::update/$1');
     $routes->get('/jenis_inovasi/delete/(:num)', 'Superadmin\KelolaJenisInovasi::delete/$1');
 
-    //kelola jenis inovasi
+    //kelola tahapan inovasi
     $routes->get('/dashboard', 'Superadmin\Dashboard::index');
     $routes->get('/tahapan', 'Superadmin\KelolaTahapan::index');
     $routes->get('/tahapan/create', 'Superadmin\KelolaTahapan::create');
@@ -144,6 +144,15 @@ $routes->group('', ['filter' => 'group:superadmin'], function ($routes) {
     $routes->get('/tahapan/edit/(:num)', 'Superadmin\KelolaTahapan::edit/$1');
     $routes->post('/tahapan/update/(:num)', 'Superadmin\KelolaTahapan::update/$1');
     $routes->get('/tahapan/delete/(:num)', 'Superadmin\KelolaTahapan::delete/$1');
+
+    //kelola bentuk inovasi
+    $routes->get('/dashboard', 'Superadmin\Dashboard::index');
+    $routes->get('/bentuk', 'Superadmin\KelolaBentuk::index');
+    $routes->get('/bentuk/create', 'Superadmin\KelolaBentuk::create');
+    $routes->post('/bentuk/store', 'Superadmin\KelolaBentuk::store');
+    $routes->get('/bentuk/edit/(:num)', 'Superadmin\KelolaBentuk::edit/$1');
+    $routes->post('/bentuk/update/(:num)', 'Superadmin\KelolaBentuk::update/$1');
+    $routes->get('/bentuk/delete/(:num)', 'Superadmin\KelolaBentuk::delete/$1');
 
     $routes->get('/superadmin/kecamatan', 'Superadmin\KecamatanController::index');
     $routes->get('/superadmin/kecamatan/create', 'Superadmin\KecamatanController::create');
