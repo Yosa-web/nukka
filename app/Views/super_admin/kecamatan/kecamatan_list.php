@@ -63,11 +63,17 @@
                                                     <td data-field="id" style="width: 80px"><?= $jenis['id_kecamatan'] ?></td>
                                                     <td data-field="nama-jenis"><?= $jenis['nama_kecamatan'] ?></td>
                                                     <td style="width: 300px;">
-                                                        <a href="javascript:void(0)" class="btn btn-outline-warning btn-sm edit" title="Edit"
+                                                        <a href="javascript:void(0)" class="btn btn-outline-warning btn-sm edit " title="Edit"
                                                             data-bs-toggle="modal" data-bs-target="#editModal"
                                                             data-id="<?= $jenis['id_kecamatan'] ?>"
                                                             data-nama="<?= $jenis['nama_kecamatan'] ?>">
                                                             <i class="fas fa-pencil-alt"></i>
+                                                        </a>
+                                                        <a href="javascript:void(0)" class="btn btn-outline-primary btn-sm edit ms-2" title="Edit"
+                                                            data-bs-toggle="modal" data-bs-target="#editModal"
+                                                            data-id="<?= $jenis['id_kecamatan'] ?>"
+                                                            data-nama="<?= $jenis['nama_kecamatan'] ?>">
+                                                            <i class="fas fa-plus"></i>
                                                         </a>
                                                         <a href="/superadmin/kecamatan/delete/<?= $jenis['id_kecamatan'] ?>" class="btn btn-outline-danger btn-sm delete ms-2" title="Delete">
                                                             <i class="fas fa-trash-alt"></i>

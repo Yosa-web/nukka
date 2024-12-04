@@ -162,15 +162,12 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#" class="has-arrow">
+                                <a href="<?= base_url('superadmin/kecamatan') ?>">
                                     <i class="bx bx-world"></i>
-                                    <span>Wilayah</span>
+                                    <span>Kecamatan</span>
                                 </a>
-                                <ul class="sub-menu" aria-expanded="true">
-                                    <li><a href="<?= base_url('superadmin/kecamatan') ?>">Kecamatan</a></li>
-                                    <li><a href="<?= base_url('superadmin/desa') ?>">Desa</a></li>
-                                </ul>
                             </li>
+
                             <li>
                                 <a href="#" class="has-arrow">
                                     <i data-feather="file-text"></i>

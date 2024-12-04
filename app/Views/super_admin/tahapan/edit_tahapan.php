@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Jenis Inovasi</title>
+    <title>Edit Tahapan Inovasi</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -57,10 +57,10 @@
 
 <body>
     <div class="container">
-        <h1>Edit Jenis Inovasi</h1>
-        <form action="/jenis_inovasi/update/<?= $jenis_inovasi['id_jenis_inovasi'] ?>" method="post">
-            <label for="nama_jenis">Nama Jenis:</label>
-            <input type="text" name="nama_jenis" value="<?= $jenis_inovasi['nama_jenis'] ?>" required>
+        <h1>Edit Tahapan Inovasi</h1>
+        <form action="/tahapan/update/<?= $tahapan['id_tahapan'] ?>" method="post">
+            <label for="nama_tahapan">Nama Tahapan:</label>
+            <input type="text" name="nama_tahapan" value="<?= $tahapan['nama_tahapan'] ?>" required>
             <button type="submit">Update</button>
         </form>
     </div>

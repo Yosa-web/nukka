@@ -1,5 +1,5 @@
 <?= $this->extend('layout/master_dashboard'); ?>
-<?= $this->section('title') ?><title>Jenis Inovasi | Rumah Inovasi</title><?= $this->endSection() ?>
+<?= $this->section('title') ?><title>Tahapan | Rumah Inovasi</title><?= $this->endSection() ?>
 <?= $this->section('content'); ?>
 <div class="main-content">
     <div class="page-content">
@@ -9,7 +9,7 @@
                 <div class="col-12">
                     <div
                         class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h3 class="mb-sm-0">Jenis Inovasi</h3>
+                        <h3 class="mb-sm-0">Tahapan</h3>
 
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
@@ -17,7 +17,7 @@
                                     <a href="javascript: void(0);">Inovasi</a>
                                 </li>
                                 <li class="breadcrumb-item active">
-                                    Jenis Inovasi
+                                    Tahapan
                                 </li>
                             </ol>
                         </div>
@@ -37,7 +37,7 @@
                     <div class="card">
                         <div
                             class="card-header d-flex justify-content-end">
-                            <a href="/superadmin/jenis_inovasi/create" class="btn btn-primary waves-effect btn-label waves-light"
+                            <a href="/superadmin/tahapan/create" class="btn btn-primary waves-effect btn-label waves-light"
                                 data-bs-toggle="modal"
                                 data-bs-target="#staticBackdrop">
                                 <i class="bx bx-plus label-icon"></i>Tambah Data
@@ -51,24 +51,24 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Nama Jenis</th>
+                                            <th>Nama Tahapan</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php if (!empty($jenis_inovasi)): ?>
-                                            <?php foreach ($jenis_inovasi as $jenis): ?>
+                                        <?php if (!empty($tahapan)): ?>
+                                            <?php foreach ($tahapan as $tahap): ?>
                                                 <tr>
-                                                    <td data-field="id" style="width: 80px"><?= $jenis['id_jenis_inovasi'] ?></td>
-                                                    <td data-field="nama-jenis"><?= $jenis['nama_jenis'] ?></td>
+                                                    <td data-field="id" style="width: 80px"><?= $tahap['id_tahapan'] ?></td>
+                                                    <td data-field="nama-tahapan"><?= $tahap['nama_tahapan'] ?></td>
                                                     <td style="width: 300px;">
                                                         <a href="javascript:void(0)" class="btn btn-outline-warning btn-sm edit" title="Edit"
                                                             data-bs-toggle="modal" data-bs-target="#editModal"
-                                                            data-id="<?= $jenis['id_jenis_inovasi'] ?>"
-                                                            data-nama="<?= $jenis['nama_jenis'] ?>">
+                                                            data-id="<?= $tahap['id_tahapan'] ?>"
+                                                            data-nama="<?= $tahap['nama_tahapan'] ?>">
                                                             <i class="fas fa-pencil-alt"></i>
                                                         </a>
-                                                        <a href="/jenis_inovasi/delete/<?= $jenis['id_jenis_inovasi'] ?>" class="btn btn-outline-danger btn-sm delete ms-2" title="Delete">
+                                                        <a href="/tahapan/delete/<?= $tahap['id_tahapan'] ?>" class="btn btn-outline-danger btn-sm delete ms-2" title="Delete">
                                                             <i class="fas fa-trash-alt"></i>
                                                         </a>
                                                     </td>
@@ -77,7 +77,7 @@
                                         <?php else: ?>
                                             <tr>
                                                 <td colspan="3" class="text-center">
-                                                    <em>Tidak ada data jenis inovasi untuk ditampilkan.</em>
+                                                    <em>Tidak ada data Tahapan untuk ditampilkan.</em>
                                                 </td>
                                             </tr>
                                         <?php endif; ?>
@@ -111,7 +111,7 @@
                 <h5
                     class="modal-title"
                     id="staticBackdropLabel">
-                    Tambah Jenis Inovasi
+                    Tambah Tahapan Inovasi
                 </h5>
                 <button
                     type="button"
@@ -119,18 +119,18 @@
                     data-bs-dismiss="modal"
                     aria-label="Close"></button>
             </div>
-            <form action="/jenis_inovasi/store" method="post">
+            <form action="/tahapan/store" method="post">
                 <div class="modal-body">
                     <div class="mb-3">
                         <label
-                            for="nama_jenis"
+                            for="nama_tahapan"
                             class="col-form-label">Nama
-                            Jenis</label>
+                            Tahapan</label>
                         <input
                             type="text"
                             class="form-control"
-                            name="nama_jenis"
-                            id="nama_jenis"
+                            name="nama_tahapan"
+                            id="nama_tahapan"
                             required />
                     </div>
                 </div>
@@ -172,7 +172,7 @@
                 <h5
                     class="modal-title"
                     id="staticBackdropLabel">
-                    Edit Jenis Inovasi
+                    Edit Tahapan Inovasi
                 </h5>
                 <button
                     type="button"
@@ -183,8 +183,8 @@
             <form action="" method="post" id="editForm">
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="nama_jenis" class="col-form-label">Nama Jenis</label>
-                        <input type="text" class="form-control" id="edit_nama_jenis" name="nama_jenis" value="" required />
+                        <label for="nama_tahapan" class="col-form-label">Nama Tahapan</label>
+                        <input type="text" class="form-control" id="edit_nama_tahapan" name="nama_tahapan" value="" required />
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -204,20 +204,20 @@
         editButtons.forEach(button => {
             button.addEventListener('click', function() {
                 const id = button.getAttribute('data-id');
-                const namaJenis = button.getAttribute('data-nama');
+                const namaTahap = button.getAttribute('data-nama');
 
                 // Isi input modal dengan data yang sesuai
-                document.getElementById('nama_jenis').value = namaJenis;
+                document.getElementById('nama_tahapan').value = namaTahap;
 
                 // Update form action untuk mengirim ID yang sesuai
                 const form = document.querySelector('#editModal form');
-                form.action = `/jenis_inovasi/update/${id}`;
+                form.action = `/tahapan/update/${id}`;
             });
         });
 
         // Bersihkan nilai modal saat ditutup
         document.getElementById('editModal').addEventListener('hidden.bs.modal', function() {
-            document.getElementById('nama_jenis').value = '';
+            document.getElementById('nama_tahapan').value = '';
         });
     });
 
@@ -227,20 +227,20 @@
         editButtons.forEach(button => {
             button.addEventListener('click', function() {
                 const id = button.getAttribute('data-id');
-                const namaJenis = button.getAttribute('data-nama');
+                const namaTahap = button.getAttribute('data-nama');
 
                 // Isi input modal dengan data yang sesuai
-                document.getElementById('edit_nama_jenis').value = namaJenis;
+                document.getElementById('edit_nama_tahapan').value = namaTahap;
 
                 // Update form action untuk mengirim ID yang sesuai
                 const form = document.getElementById('editForm');
-                form.action = `/jenis_inovasi/update/${id}`;
+                form.action = `/tahapan/update/${id}`;
             });
         });
 
         // Bersihkan modal ketika ditutup
         document.getElementById('editModal').addEventListener('hidden.bs.modal', function() {
-            document.getElementById('edit_nama_jenis').value = '';
+            document.getElementById('edit_nama_tahapan').value = '';
             document.getElementById('editForm').action = '';
         });
     });
