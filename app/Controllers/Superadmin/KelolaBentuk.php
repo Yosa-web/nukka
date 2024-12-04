@@ -140,7 +140,7 @@ class KelolaBentuk extends BaseController
                 'tanggal_aktivitas' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(), // Format tanggal
                 'aksi'             => 'update', // Tindakan yang dilakukan
                 'jenis_data'       => 'bentuk', // Jenis data yang terlibat
-                'keterangan'       => "SuperAdmin dengan ID {$superAdminId} memperbarui data bentuk Inovasi dengan nama " . $data['nama_jenis'],
+                'keterangan'       => "SuperAdmin dengan ID {$superAdminId} memperbarui data bentuk Inovasi dengan nama " . $data['nama_bentuk'],
             ];
 
             // Simpan log aktivitas ke dalam database
@@ -157,6 +157,41 @@ class KelolaBentuk extends BaseController
 
             // Jika berhasil, kembali ke halaman dashboard dengan pesan sukses
             return redirect()->to('/bentuk')->with('success', 'Data berhasil diubah.');
+        } else {
+            // Jika penyimpanan data gagal, kembali ke form dengan pesan error
+            return redirect()->back()->withInput()->with('errors', $bentukModel->errors());
+        }
+    }
+
+    // Hapus jenis inovasi dari databases
+    public function delete($id)
+    {
+        $bentukModel = new \App\Models\BentukModel();
+        $logModel = new \App\Models\LogAktivitasModel();
+
+        $bentuk = $bentukModel->find($id);  // Temukan data sebelum dihapus
+        $bentukModel->delete($id);
+
+        // Mendapatkan ID pengguna (SuperAdmin) yang sedang login
+        $superAdminId = auth()->user()->id;
+
+        // Menghapus data jenis inovasi berdasarkan ID
+        if ($bentukModel->delete($id)) {
+
+            // Data untuk log aktivitas
+            $logData = [
+                'id_user'          => $superAdminId,
+                'tanggal_aktivitas' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(), // Format tanggal
+                'aksi'             => 'hapus data', // Tindakan yang dilakukan
+                'jenis_data'       => 'bentuk', // Jenis data yang terlibat
+                'keterangan'       => "SuperAdmin dengan ID {$superAdminId} menghapus Bentuk Inovasi ",
+            ];
+
+            // Simpan log aktivitas ke dalam database
+            $logModel->save($logData);
+
+            // Jika berhasil, kembali ke halaman dashboard dengan pesan sukses
+            return redirect()->to('/bentuk')->with('success', 'Data berhasil dihapus.');
         } else {
             // Jika penyimpanan data gagal, kembali ke form dengan pesan error
             return redirect()->back()->withInput()->with('errors', $bentukModel->errors());
