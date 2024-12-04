@@ -109,13 +109,13 @@
                                 class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                         </button>
                         <div class="dropdown-menu dropdown-menu-end">
-                        <?php if (auth()->user()->inGroup('user')): ?>
+                            <?php if (auth()->user()->inGroup('user')): ?>
                                 <a class="dropdown-item" href="/profile/edit">
                                     <i class="mdi mdi mdi-face-man font-size-16 align-middle me-1"></i>
                                     Profil
                                 </a>
                             <?php endif; ?>
-                            <?php if (auth()->user()->inGroup('superadmin') || auth()->user()->inGroup('kepala-opd') || auth()->user()->inGroup('sekertaris-opd')|| auth()->user()->inGroup('admin-opd')|| auth()->user()->inGroup('operator')): ?>
+                            <?php if (auth()->user()->inGroup('superadmin') || auth()->user()->inGroup('kepala-opd') || auth()->user()->inGroup('sekertaris-opd') || auth()->user()->inGroup('admin-opd') || auth()->user()->inGroup('operator')): ?>
                                 <a class="dropdown-item" href="/user/profile/edit">
                                     <i class="mdi mdi mdi-face-man font-size-16 align-middle me-1"></i>
                                     Profil
@@ -151,15 +151,30 @@
                                 Inovasi
                             </li>
                             <li>
-                                <a href="<?= base_url('jenis_inovasi') ?>">
-                                    <i class='bx bx-bulb'></i>
-                                    <span>Jenis Inovasi</span>
+                                <a href="#" class="has-arrow">
+                                    <i class="bx bx-bulb"></i>
+                                    <span>Data Inovasi</span>
                                 </a>
+                                <ul class="sub-menu" aria-expanded="true">
+                                    <li><a href="<?= base_url('jenis_inovasi') ?>">Jenis</a></li>
+                                    <li><a href="<?= base_url('tahapan') ?>">Tahapan</a></li>
+                                    <li><a href="<?= base_url('bentuk') ?>">Bentuk</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" class="has-arrow">
+                                    <i class="bx bx-world"></i>
+                                    <span>Wilayah</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="true">
+                                    <li><a href="<?= base_url('superadmin/kecamatan') ?>">Kecamatan</a></li>
+                                    <li><a href="<?= base_url('superadmin/desa') ?>">Desa</a></li>
+                                </ul>
                             </li>
                             <li>
                                 <a href="#" class="has-arrow">
                                     <i data-feather="file-text"></i>
-                                    <span>Data Inovasi</span>
+                                    <span>Proposal</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="true">
                                     <li><a href="<?= base_url('superadmin/inovasi/filter') ?>">Daftar Proposal</a></li>
@@ -323,7 +338,7 @@
                         <div class="text-sm-end d-none d-sm-block">
                             Developed by
                             <a
-                                
+
                                 class="text-decoration-underline">Tim 2 MSIB 7</a>
                         </div>
                     </div>

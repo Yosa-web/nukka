@@ -1,5 +1,5 @@
 <?= $this->extend('layout/master_dashboard'); ?>
-<?= $this->section('title') ?><title>Desa | Rumah Inovasi</title><?= $this->endSection() ?>
+<?= $this->section('title') ?><title>Jenis Inovasi | Rumah Inovasi</title><?= $this->endSection() ?>
 <?= $this->section('content'); ?>
 <div class="main-content">
     <div class="page-content">
@@ -9,15 +9,15 @@
                 <div class="col-12">
                     <div
                         class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h3 class="mb-sm-0">Desa</h3>
+                        <h3 class="mb-sm-0">Jenis Inovasi</h3>
 
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item">
-                                    <a href="javascript: void(0);">Desa</a>
+                                    <a href="javascript: void(0);">Inovasi</a>
                                 </li>
                                 <li class="breadcrumb-item active">
-                                    Desa
+                                    Jenis Inovasi
                                 </li>
                             </ol>
                         </div>
@@ -31,14 +31,13 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             <?php endif; ?>
-
             <!-- start table -->
             <div class="row">
                 <div class="col-12">
                     <div class="card">
                         <div
                             class="card-header d-flex justify-content-end">
-                            <a href="/superadmin/desa/create" class="btn btn-primary waves-effect btn-label waves-light"
+                            <a href="/superadmin/jenis_inovasi/create" class="btn btn-primary waves-effect btn-label waves-light"
                                 data-bs-toggle="modal"
                                 data-bs-target="#staticBackdrop">
                                 <i class="bx bx-plus label-icon"></i>Tambah Data
@@ -52,27 +51,24 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Nama Desa</th>
-                                            <th>Letak Kecamatan</th>
+                                            <th>Nama Jenis</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php if (!empty($desa)): ?>
-                                            <?php foreach ($desa as $jenis): ?>
+                                        <?php if (!empty($jenis_inovasi)): ?>
+                                            <?php foreach ($jenis_inovasi as $jenis): ?>
                                                 <tr>
-                                                    <td data-field="id" style="width: 80px"><?= esc($jenis['id_desa']) ?></td>
-                                                    <td data-field="nama-desa"><?= esc($jenis['nama_desa']) ?></td>
-                                                    <td data-field="nama-kecamatan"><?= esc($jenis['nama_kecamatan']) ?></td> <!-- Menampilkan nama kecamatan -->
+                                                    <td data-field="id" style="width: 80px"><?= $jenis['id_jenis_inovasi'] ?></td>
+                                                    <td data-field="nama-jenis"><?= $jenis['nama_jenis'] ?></td>
                                                     <td style="width: 300px;">
                                                         <a href="javascript:void(0)" class="btn btn-outline-warning btn-sm edit" title="Edit"
                                                             data-bs-toggle="modal" data-bs-target="#editModal"
-                                                            data-id="<?= esc($jenis['id_desa']) ?>"
-                                                            data-nama="<?= esc($jenis['nama_desa']) ?>"
-                                                            data-kecamatan="<?= esc($jenis['id_kecamatan']) ?>">
+                                                            data-id="<?= $jenis['id_jenis_inovasi'] ?>"
+                                                            data-nama="<?= $jenis['nama_jenis'] ?>">
                                                             <i class="fas fa-pencil-alt"></i>
                                                         </a>
-                                                        <a href="/superadmin/desa/delete/<?= esc($jenis['id_desa']) ?>" class="btn btn-outline-danger btn-sm delete ms-2" title="Delete">
+                                                        <a href="/jenis_inovasi/delete/<?= $jenis['id_jenis_inovasi'] ?>" class="btn btn-outline-danger btn-sm delete ms-2" title="Delete">
                                                             <i class="fas fa-trash-alt"></i>
                                                         </a>
                                                     </td>
@@ -81,7 +77,7 @@
                                         <?php else: ?>
                                             <tr>
                                                 <td colspan="3" class="text-center">
-                                                    <em>Tidak ada data desa untuk ditampilkan.</em>
+                                                    <em>Tidak ada data jenis inovasi untuk ditampilkan.</em>
                                                 </td>
                                             </tr>
                                         <?php endif; ?>
@@ -115,7 +111,7 @@
                 <h5
                     class="modal-title"
                     id="staticBackdropLabel">
-                    Tambah Desa
+                    Tambah Jenis Inovasi
                 </h5>
                 <button
                     type="button"
@@ -123,30 +119,18 @@
                     data-bs-dismiss="modal"
                     aria-label="Close"></button>
             </div>
-            <form action="/superadmin/desa/store" method="post">
+            <form action="/jenis_inovasi/store" method="post">
                 <div class="modal-body">
-
-                    <div class="mb-3">
-                        <label for="id_kecamatan" class="col-form-label">Lokasi Kecamatan</label>
-                        <select class="form-control" name="id_kecamatan" id="id_kecamatan" required>
-                            <option value="">-- Pilih Kecamatan --</option>
-                            <?php if (isset($kecamatan)): ?>
-                                <?php foreach ($kecamatan as $row): ?>
-                                    <option value="<?= esc($row['id_kecamatan']) ?>"><?= esc($row['nama_kecamatan']) ?></option>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-                        </select>
-                    </div>
                     <div class="mb-3">
                         <label
-                            for="nama_desa"
+                            for="nama_jenis"
                             class="col-form-label">Nama
-                            Desa</label>
+                            Jenis</label>
                         <input
                             type="text"
                             class="form-control"
-                            name="nama_desa"
-                            id="nama_desa"
+                            name="nama_jenis"
+                            id="nama_jenis"
                             required />
                     </div>
                 </div>
@@ -171,27 +155,36 @@
 </div>
 
 <!-- modal edit -->
-<div class="modal fade" id="editModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+<div
+    class="modal fade"
+    id="editModal"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="staticBackdropLabel"
+    aria-hidden="true">
+    <div
+        class="modal-dialog modal-dialog-centered"
+        role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Edit Desa</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5
+                    class="modal-title"
+                    id="staticBackdropLabel">
+                    Edit Jenis Inovasi
+                </h5>
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"></button>
             </div>
             <form action="" method="post" id="editForm">
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="edit_nama_desa" class="col-form-label">Nama Desa</label>
-                        <input type="text" class="form-control" id="edit_nama_desa" name="nama_desa" required />
-                    </div>
-                    <div class="mb-3">
-                        <label for="edit_kecamatan" class="col-form-label">Lokasi Kecamatan</label>
-                        <select class="form-control" id="edit_kecamatan" name="id_kecamatan" required>
-                            <option value="">-- Pilih Kecamatan --</option>
-                            <?php foreach ($kecamatan as $row): ?>
-                                <option value="<?= esc($row['id_kecamatan']) ?>"><?= esc($row['nama_kecamatan']) ?></option>
-                            <?php endforeach; ?>
-                        </select>
+                        <label for="nama_jenis" class="col-form-label">Nama Jenis</label>
+                        <input type="text" class="form-control" id="edit_nama_jenis" name="nama_jenis" value="" required />
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -199,10 +192,10 @@
                     <button type="submit" class="btn btn-warning">Perbarui</button>
                 </div>
             </form>
+
         </div>
     </div>
 </div>
-
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -211,21 +204,22 @@
         editButtons.forEach(button => {
             button.addEventListener('click', function() {
                 const id = button.getAttribute('data-id');
-                const namaDesa = button.getAttribute('data-nama');
-                const idKecamatan = button.getAttribute('data-kecamatan');
+                const namaJenis = button.getAttribute('data-nama');
 
                 // Isi input modal dengan data yang sesuai
-                document.getElementById('edit_nama_desa').value = namaDesa;
-                document.getElementById('edit_kecamatan').value = idKecamatan;
+                document.getElementById('nama_jenis').value = namaJenis;
 
                 // Update form action untuk mengirim ID yang sesuai
-                const form = document.querySelector('#editForm');
-                form.action = `/superadmin/desa/update/${id}`;
+                const form = document.querySelector('#editModal form');
+                form.action = `/jenis_inovasi/update/${id}`;
             });
         });
+
+        // Bersihkan nilai modal saat ditutup
+        document.getElementById('editModal').addEventListener('hidden.bs.modal', function() {
+            document.getElementById('nama_jenis').value = '';
+        });
     });
-
-
 
     document.addEventListener('DOMContentLoaded', function() {
         const editButtons = document.querySelectorAll('.edit');
@@ -233,20 +227,20 @@
         editButtons.forEach(button => {
             button.addEventListener('click', function() {
                 const id = button.getAttribute('data-id');
-                const namaKecamatan = button.getAttribute('data-nama');
+                const namaJenis = button.getAttribute('data-nama');
 
                 // Isi input modal dengan data yang sesuai
-                document.getElementById('edit_nama_kecamatan').value = namaKecamatan;
+                document.getElementById('edit_nama_jenis').value = namaJenis;
 
                 // Update form action untuk mengirim ID yang sesuai
                 const form = document.getElementById('editForm');
-                form.action = `/superadmin/kecamatan/update/${id}`;
+                form.action = `/jenis_inovasi/update/${id}`;
             });
         });
 
         // Bersihkan modal ketika ditutup
         document.getElementById('editModal').addEventListener('hidden.bs.modal', function() {
-            document.getElementById('edit_nama_kecamatan').value = '';
+            document.getElementById('edit_nama_jenis').value = '';
             document.getElementById('editForm').action = '';
         });
     });

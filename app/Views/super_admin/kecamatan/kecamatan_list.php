@@ -25,19 +25,12 @@
                 </div>
             </div>
             <!-- end page title -->
-            <?php if ($errors = session()->getFlashdata('errors')): ?>
-    <?php if (is_array($errors)): ?>
-        <ul>
-            <?php foreach ($errors as $error): ?>
-                <li><?= esc($error) ?></li>
-            <?php endforeach; ?>
-        </ul>
-    <?php else: ?>
-        <?= esc($errors) ?>
-    <?php endif; ?>
-<?php elseif ($success = session()->getFlashdata('success')): ?>
-    <?= esc($success) ?>
-<?php endif; ?>
+            <?php if (session()->getFlashdata('errors') || session()->getFlashdata('success')): ?>
+                <div class="alert alert-dismissible fade show <?= session()->getFlashdata('errors') ? 'alert-danger' : 'alert-success' ?>">
+                    <?= session()->getFlashdata('errors') ?: session()->getFlashdata('success') ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php endif; ?>
 
             <!-- start table -->
             <div class="row">
@@ -212,7 +205,7 @@
         editButtons.forEach(button => {
             button.addEventListener('click', function() {
                 const id = button.getAttribute('data-id');
-                const namaKecamatan= button.getAttribute('data-nama');
+                const namaKecamatan = button.getAttribute('data-nama');
 
                 // Isi input modal dengan data yang sesuai
                 document.getElementById('nama_kecamatan').value = namaKecamatan;
