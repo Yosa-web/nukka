@@ -135,6 +135,20 @@ $routes->group('', ['filter' => 'group:superadmin'], function ($routes) {
     $routes->get('/jenis_inovasi/edit/(:num)', 'Superadmin\KelolaJenisInovasi::edit/$1');
     $routes->post('/jenis_inovasi/update/(:num)', 'Superadmin\KelolaJenisInovasi::update/$1');
     $routes->get('/jenis_inovasi/delete/(:num)', 'Superadmin\KelolaJenisInovasi::delete/$1');
+
+    $routes->get('/superadmin/kecamatan', 'Superadmin\KecamatanController::index');
+    $routes->get('/superadmin/kecamatan/create', 'Superadmin\KecamatanController::create');
+    $routes->post('/superadmin/kecamatan/store', 'Superadmin\KecamatanController::store');
+    $routes->get('/superadmin/kecamatan/edit/(:num)', 'Superadmin\KecamatanController::edit/$1');
+    $routes->post('/superadmin/kecamatan/update/(:num)', 'Superadmin\KecamatanController::update/$1');
+    $routes->get('/superadmin/kecamatan/delete/(:num)', 'Superadmin\KecamatanController::delete/$1');
+
+    $routes->get('/superadmin/desa', 'Superadmin\DesaController::index');
+    $routes->get('/superadmin/desa/create', 'Superadmin\DesaController::create');
+    $routes->post('/superadmin/desa/store', 'Superadmin\DesaController::store');
+    $routes->get('/superadmin/desa/edit/(:num)', 'Superadmin\DesaController::edit/$1');
+    $routes->post('/superadmin/desa/update/(:num)', 'Superadmin\DesaController::update/$1');
+    $routes->get('/superadmin/desa/delete/(:num)', 'Superadmin\DesaController::delete/$1');
 });
 
 $routes->group('', ['filter' => 'group:admin-opd'], function ($routes) {
