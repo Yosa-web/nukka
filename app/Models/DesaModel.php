@@ -43,4 +43,16 @@ class DesaModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function insertDesa($data)
+    {
+        $data['created_at'] = date('Y-m-d H:i:s');  // Menambahkan created_at sebelum insert
+        return $this->insert($data); // Insert data ke tabel
+    }
+
+    // Fungsi untuk mengambil desa berdasarkan kecamatan
+    public function getDesaByKecamatan($id_kecamatan)
+    {
+        return $this->where('id_kecamatan', $id_kecamatan)->findAll();  // Pastikan kolom kecamatan_id benar
+    }
 }

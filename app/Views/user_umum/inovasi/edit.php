@@ -7,12 +7,10 @@
             <!-- start page title -->
             <div class="row">
                 <div class="col-12">
-                    <div
-                        class="page-title-box d-sm-flex align-items-center justify-content-between">
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                         <h3 class="mb-sm-0">
                             Edit Proposal
                         </h3>
-
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item">
@@ -31,7 +29,7 @@
             </div>
             <!-- end page title -->
             <?php if (session()->get('errors')): ?>
-                <div class="error">
+                <div class="error" style="color: red;">
                     <?= implode('<br>', session()->get('errors')) ?>
                 </div>
             <?php endif; ?>
@@ -53,10 +51,15 @@
                                     </div>
                                 </div>
                                 <div class="row mb-3">
+                                    <label for="deskripsi" class="col-sm-3 col-form-label">Tahun</label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control" name="tahun" value="<?= esc($inovasi['tahun']); ?>" required>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
                                     <label for="kategori" class="col-sm-3 col-form-label">Kategori</label>
                                     <div class="col-sm-9">
-                                        <select
-                                            class="form-select" name="kategori" required>
+                                        <select class="form-select" name="kategori" required>
                                             <?php foreach ($jenis_inovasi as $jenis): ?>
                                                 <option value="<?= $jenis['id_jenis_inovasi'] ?>" <?= $inovasi['kategori'] == $jenis['id_jenis_inovasi'] ? 'selected' : '' ?>>
                                                     <?= $jenis['nama_jenis'] ?>
@@ -66,13 +69,40 @@
                                     </div>
                                 </div>
                                 <div class="row mb-3">
+                                    <label for="bentuk" class="col-sm-3 col-form-label">Bentuk</label>
+                                    <div class="col-sm-9">
+                                        <select class="form-select" name="bentuk" required>
+                                            <?php if (!empty($bentuk)): ?>
+                                                <?php foreach ($bentuk as $item): ?>
+                                                    <option value="<?= $item['id_bentuk'] ?>" <?= $inovasi['bentuk'] == $item['id_bentuk'] ? 'selected' : '' ?>>
+                                                        <?= $item['nama_bentuk'] ?>
+                                                    </option>
+                                                <?php endforeach; ?>
+                                            <?php else: ?>
+                                                <option value="" disabled selected>Tidak ada data bentuk</option>
+                                            <?php endif; ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="bentuk" class="col-sm-3 col-form-label">Tahapan</label>
+                                    <div class="col-sm-9">
+                                        <select class="form-select" name="tahapan" required>
+                                            <?php foreach ($tahapan as $item): ?>
+                                                <option value="<?= $item['id_tahapan'] ?>" <?= $inovasi['tahapan'] == $item['id_tahapan'] ? 'selected' : '' ?>>
+                                                    <?= $item['nama_tahapan'] ?>
+                                                </option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
                                     <label for="id_opd" class="col-sm-3 col-form-label">OPD</label>
                                     <div class="col-sm-9">
-                                        <select
-                                            class="form-select" name="id_opd" required>
+                                        <select class="form-select" name="id_opd" required>
                                             <?php foreach ($opd as $row): ?>
-                                                <option value="<?= esc($row->id_opd) ?>" <?= $inovasi['id_opd'] == $row->id_opd ? 'selected' : '' ?>>
-                                                    <?= esc($row->nama_opd) ?>
+                                                <option value="<?= $row->id_opd ?>" <?= $inovasi['id_opd'] == $row->id_opd ? 'selected' : '' ?>>
+                                                    <?= $row->nama_opd ?>
                                                 </option>
                                             <?php endforeach; ?>
                                         </select>
@@ -81,19 +111,28 @@
                                 <div class="row mb-3">
                                     <label for="kecamatan" class="col-sm-3 col-form-label">Kecamatan</label>
                                     <div class="col-sm-9">
-                                        <select
-                                            class="form-select" name="kecamatan" id="kecamatan" required>
-                                            <option value="GEDONG TATAAN" <?= (isset($inovasi['kecamatan']) && $inovasi['kecamatan'] == 'GEDONG TATAAN') ? 'selected' : '' ?>>Gedong Tataan</option>
-                                            <option value="KEDONDONG" <?= (isset($inovasi['kecamatan']) && $inovasi['kecamatan'] == 'KEDONDONG') ? 'selected' : '' ?>>Kedondong</option>
-                                            <option value="MARGA PUNDUH" <?= (isset($inovasi['kecamatan']) && $inovasi['kecamatan'] == 'MARGA PUNDUH') ? 'selected' : '' ?>>Marga Punduh</option>
-                                            <option value="NEGERI KATON" <?= (isset($inovasi['kecamatan']) && $inovasi['kecamatan'] == 'NEGERI KATON') ? 'selected' : '' ?>>Negeri Katon</option>
-                                            <option value="PADANG CERMIN" <?= (isset($inovasi['kecamatan']) && $inovasi['kecamatan'] == 'PADANG CERMIN') ? 'selected' : '' ?>>Padang Cermin</option>
-                                            <option value="PUNDUH PIDADA" <?= (isset($inovasi['kecamatan']) && $inovasi['kecamatan'] == 'PUNDUH PIDADA') ? 'selected' : '' ?>>Punduh Pidada</option>
-                                            <option value="TEGINENENG" <?= (isset($inovasi['kecamatan']) && $inovasi['kecamatan'] == 'TEGINENENG') ? 'selected' : '' ?>>Tegineneng</option>
-                                            <option value="TELUK PANDAN" <?= (isset($inovasi['kecamatan']) && $inovasi['kecamatan'] == 'TELUK PANDAN') ? 'selected' : '' ?>>Teluk Pandan</option>
-                                            <option value="WAY LIMA" <?= (isset($inovasi['kecamatan']) && $inovasi['kecamatan'] == 'WAY LIMA') ? 'selected' : '' ?>>Way Lima</option>
-                                            <option value="WAY KHILAU" <?= (isset($inovasi['kecamatan']) && $inovasi['kecamatan'] == 'WAY KHILAU') ? 'selected' : '' ?>>Way Khilau</option>
-                                            <option value="WAY RATAI" <?= (isset($inovasi['kecamatan']) && $inovasi['kecamatan'] == 'WAY RATAI') ? 'selected' : '' ?>>Way Ratai</option>
+                                        <select class="form-select" name="kecamatan" id="kecamatan" required>
+                                            <?php foreach ($kecamatan as $kecamatan_item): ?>
+                                                <option value="<?= $kecamatan_item['id_kecamatan'] ?>" <?= $inovasi['kecamatan'] == $kecamatan_item['id_kecamatan'] ? 'selected' : '' ?>>
+                                                    <?= $kecamatan_item['nama_kecamatan'] ?>
+                                                </option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <label for="desa" class="col-sm-3 col-form-label">Desa</label>
+                                    <div class="col-sm-9">
+                                        <select class="form-select" name="desa" id="desa" required>
+                                            <?php if (!empty($desa)): ?>
+                                                <?php foreach ($desa as $desa_item): ?>
+                                                    <option value="<?= $desa_item['id_desa'] ?>" <?= $inovasi['desa'] == $desa_item['id_desa'] ? 'selected' : '' ?>>
+                                                        <?= $desa_item['nama_desa'] ?>
+                                                    </option>
+                                                <?php endforeach; ?>
+                                            <?php else: ?>
+                                                <option value="" disabled selected>Tidak ada data desa</option>
+                                            <?php endif; ?>
                                         </select>
                                     </div>
                                 </div>
@@ -106,10 +145,29 @@
                                         <?php endif; ?>
                                     </div>
                                 </div>
+                                <div class="row mb-3">
+                                    <label for="status" class="col-sm-3 col-form-label">Status</label>
+                                    <div class="col-sm-9">
+                                        <select class="form-select" name="status" required>
+                                            <option value="tertunda" <?= $inovasi['status'] == 'tertunda' ? 'selected' : '' ?>>Tertunda</option>
+                                            <option value="draf" <?= $inovasi['status'] == 'draf' ? '' : '' ?>>Draf</option>
+                                            <option value="terbit" <?= $inovasi['status'] == 'terbit' ? '' : '' ?>>Terbit</option>
+                                            <option value="arsip" <?= $inovasi['status'] == 'arsip' ? '' : '' ?>>Arsip</option>
+                                            <option value="tertolak" <?= $inovasi['status'] == 'tertolak' ? '' : '' ?>>Tertolak</option>
+                                            <option value="revisi" <?= $inovasi['status'] == 'revisi' ? '' : '' ?>>Revisi</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row mb-5" id="pesan-container" style="display: none;">
+                                    <label for="pesan" class="col-sm-3 col-form-label">Pesan</label>
+                                    <div class="col-sm-9">
+                                        <textarea name="pesan" id="pesan" class="form-control">{{ old('pesan', $inovasi->pesan) }}</textarea>
+                                    </div>
+                                </div>
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="d-flex justify-content-end">
-                                            <button type="button" class="btn btn-secondary w-md" onclick="window.location.href='<?= base_url('userumum/inovasi/filter') ?>'">Batal</button>
+                                            <button type="button" class="btn btn-secondary w-md" onclick="window.history.back()">Batal</button>
                                             <button type="submit" class="btn btn-warning w-md ms-4">Perbarui</button>
                                         </div>
                                     </div>
@@ -119,12 +177,69 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Alerts -->
             <?php if (session()->getFlashdata('success')): ?>
-                <div class="alert alert-success"><?= session()->getFlashdata('success') ?></div>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <?= session()->getFlashdata('success') ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
             <?php elseif (session()->getFlashdata('error')): ?>
-                <div class="alert alert-danger"><?= session()->getFlashdata('error') ?></div>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <?= session()->getFlashdata('error') ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
             <?php endif; ?>
         </div>
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#kecamatan').change(function() {
+            var id_kecamatan = $(this).val();
+            if (id_kecamatan) {
+                $.ajax({
+                    url: '/userumum/inovasi/getDesa', // Sesuaikan dengan endpoint yang akan dibuat
+                    type: 'GET',
+                    data: {
+                        id_kecamatan: id_kecamatan
+                    },
+                    success: function(response) {
+                        console.log(response); // Cek respons dari server
+                        var desaOptions = '<option value="" disabled selected>Pilih Desa</option>';
+                        $.each(response, function(index, desa) {
+                            desaOptions += '<option value="' + desa.id_desa + '">' + desa.nama_desa + '</option>';
+                        });
+                        $('#desa').html(desaOptions); // Update dropdown Desa
+                    },
+                    error: function() {
+                        alert('Terjadi kesalahan saat memuat data desa');
+                    }
+                });
+            } else {
+                $('#desa').html('<option value="" disabled selected>Pilih Desa</option>');
+            }
+        });
+    });
+</script>
+<script>
+    const statusSelect = document.querySelector('[name="status"]');
+    const pesanContainer = document.getElementById('pesan-container');
+
+    statusSelect.addEventListener('change', function() {
+        const selectedStatus = statusSelect.value;
+        if (['tertolak', 'revisi', 'arsip'].includes(selectedStatus)) {
+            pesanContainer.style.display = 'flex';
+        } else {
+            pesanContainer.style.display = 'none';
+            document.getElementById('pesan').value = ''; // Reset pesan jika tidak dibutuhkan
+        }
+    });
+
+    // Trigger perubahan saat halaman dimuat (jika status sudah terpilih)
+    window.addEventListener('DOMContentLoaded', function() {
+        statusSelect.dispatchEvent(new Event('change'));
+    });
+</script>
 <?= $this->endSection(); ?>

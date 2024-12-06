@@ -12,19 +12,8 @@ class InovasiModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [
-        'judul',
-        'deskripsi',
-        'kategori',
-        'tanggal_pengajuan',
-        'status',
-        'kecamatan',
-        'id_user',
-        'id_opd',
-        'pesan',
-        'published_at',
-        'url_file'
-    ];
+    protected $allowedFields = ['judul', 'deskripsi', 'tahun', 'kategori', 'status', 'kecamatan', 'desa', 'tahapan', 'bentuk', 'tanggal_pengajuan', 'id_user', 'id_opd', 'pesan', 'url_file'];
+
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
@@ -33,7 +22,7 @@ class InovasiModel extends Model
     protected array $castHandlers = [];
 
     // Dates
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
@@ -59,7 +48,7 @@ class InovasiModel extends Model
     public function getJumlahInovasiPerKecamatan()
     {
         return $this->select('kecamatan, COUNT(*) as jumlahInovasi')
-                    ->groupBy('kecamatan')
-                    ->findAll();
+            ->groupBy('kecamatan')
+            ->findAll();
     }
 }

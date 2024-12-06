@@ -13,16 +13,22 @@ class CreateInovasi extends Migration
             'id_inovasi'      => ['type' => 'INT', 'constraint' => 11, 'auto_increment' => true],
             'judul'           => ['type' => 'VARCHAR', 'constraint' => 100],
             'deskripsi'       => ['type' => 'LONGTEXT'],
-            'kategori'        => ['type' => 'INT', 'constraint' => 11],
+            'kategori'        => ['type' => 'INT', 'constraint' => 11, 'null' => true],
+            'bentuk'        => ['type' => 'INT', 'constraint' => 11, 'null' => true],
+            'tahapan'        => ['type' => 'INT', 'constraint' => 11, 'null' => true],
             'tanggal_pengajuan' => ['type' => 'DATETIME'],
             'status'          => ['type' => 'ENUM', 'constraint' => ['terbit', 'draf', 'arsip', 'revisi', 'tertunda', 'tertolak']],
-            'kecamatan'          => ['type' => 'VARCHAR', 'constraint' => 100],
+            'kecamatan'          => ['type' => 'VARCHAR', 'constraint' => 100, 'null' => true],
+            'desa'          => ['type' => 'VARCHAR', 'constraint' => 100, 'null' => true],
             'id_user'         => ['type' => 'INT', 'constraint' => 11, 'unsigned' => true],
             'id_opd'          => ['type' => 'INT', 'constraint' => 11, 'null' => true, 'unsigned' => true],
             'pesan'       => ['type' => 'LONGTEXT', 'null' => true],
-            'published_by'    => ['type' => 'VARCHAR', 'constraint' => 255, 'null' => true],
-            'published_at'    => ['type' => 'DATETIME'],
-            'url_file'        => ['type' => 'VARCHAR', 'constraint' => 255]
+            'tahun'    => ['type' => 'INT', 'constraint' => 11, 'null' => true],
+            'published_by'    => ['type' => 'INT', 'constraint' => 11, 'null' => true],
+            'published_at'    => ['type' => 'DATETIME', 'null' => true],
+            'url_file'        => ['type' => 'VARCHAR', 'constraint' => 255],
+            'created_at'      => ['type' => 'DATETIME', 'null' => true],
+            'updated_at'      => ['type' => 'DATETIME', 'null' => true],
         ]);
         $this->forge->addPrimaryKey('id_inovasi');
         $this->forge->addForeignKey('id_user', 'users', 'id');

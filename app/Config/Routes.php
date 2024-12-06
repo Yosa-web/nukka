@@ -76,6 +76,8 @@ $routes->group('', ['filter' => 'group:superadmin'], function ($routes) {
     $routes->get('/superadmin/inovasi/filter', 'SuperAdmin\KelolaDataInovasi::filterByStatuses');
     $routes->post('/superadmin/inovasi/tolak', 'Superadmin\KelolaDataInovasi::tolak');
     $routes->post('/superadmin/inovasi/setujui', 'Superadmin\KelolaDataInovasi::setujui');
+    $routes->get('/superadmin/inovasi/getDesa', 'Superadmin\KelolaDataInovasi::getDesa');
+
 
     //kelola berita
     $routes->get('/superadmin/berita/list-berita', 'Superadmin\KelolaBerita::index');
@@ -188,6 +190,7 @@ $routes->group('', ['filter' => 'group:admin-opd'], function ($routes) {
     $routes->get('/admin/inovasi/delete/(:num)', 'AdminOpd\KelolaDataInovasi::delete/$1');
     $routes->get('/admin/inovasi/show/(:num)', 'AdminOpd\KelolaDataInovasi::show/$1');
     $routes->get('/admin/inovasi/filter', 'AdminOpd\KelolaDataInovasi::filterByStatuses');
+    $routes->get('/admin/inovasi/getDesa', 'AdminOpd\KelolaDataInovasi::getDesa');
 });
 
 
@@ -205,6 +208,7 @@ $routes->group('', ['filter' => 'group:sekertaris-opd'], function ($routes) {
     $routes->post('/sekertaris/inovasi/tolak', 'SekertarisOpd\KelolaDataInovasi::tolak');
     $routes->post('/sekertaris/inovasi/setujui', 'SekertarisOpd\KelolaDataInovasi::setujui');
     $routes->post('sekertaris/inovasi/revisi', 'SekertarisOpd\KelolaDataInovasi::revisi');
+    $routes->get('/sekertaris/inovasi/getDesa', 'SekertarisOpd\KelolaDataInovasi::getDesa');
 });
 
 $routes->group('', ['filter' => 'group:kepala-opd'], function ($routes) {
@@ -221,6 +225,7 @@ $routes->group('', ['filter' => 'group:kepala-opd'], function ($routes) {
     $routes->post('/kepala/inovasi/tolak', 'KepalaOpd\KelolaDataInovasi::tolak');
     $routes->post('/kepala/inovasi/setujui', 'KepalaOpd\KelolaDataInovasi::setujui');
     $routes->post('kepala/inovasi/revisi', 'KepalaOpd\KelolaDataInovasi::revisi');
+    $routes->get('/kepala/inovasi/getDesa', 'KepalaOpd\KelolaDataInovasi::getDesa');
 });
 
 $routes->group('', ['filter' => 'group:operator'], function ($routes) {
@@ -233,6 +238,7 @@ $routes->group('', ['filter' => 'group:operator'], function ($routes) {
     $routes->get('/operator/inovasi/delete/(:num)', 'Operator\KelolaDataInovasi::delete/$1');
     $routes->get('/operator/inovasi/show/(:num)', 'Operator\KelolaDataInovasi::show/$1');
     $routes->get('/operator/inovasi/filter', 'Operator\KelolaDataInovasi::filterByStatuses');
+    $routes->get('/operator/inovasi/getDesa', 'Operator\KelolaDataInovasi::getDesa');
 });
 
 $routes->group('', ['filter' => 'group:user'], function ($routes) {
@@ -245,6 +251,7 @@ $routes->group('', ['filter' => 'group:user'], function ($routes) {
     $routes->get('/userumum/inovasi/delete/(:num)', 'UserUmum\KelolaDataInovasi::delete/$1');
     $routes->get('/userumum/inovasi/show/(:num)', 'UserUmum\KelolaDataInovasi::show/$1');
     $routes->get('/userumum/inovasi/filter', 'UserUmum\KelolaDataInovasi::filterByStatuses');
+    $routes->get('/userumum/inovasi/getDesa', 'UserUmum\KelolaDataInovasi::getDesa');
 });
 
 // $routes->get('/berita', 'Superadmin\KelolaBerita::publishedNews');

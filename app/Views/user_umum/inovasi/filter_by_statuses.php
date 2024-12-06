@@ -30,9 +30,9 @@
                 </div>
             </div>
             <!-- end page title -->
-            <?php if (session()->getFlashdata('error') || session()->getFlashdata('message')): ?>
+            <?php if (session()->getFlashdata('error') || session()->getFlashdata('success')): ?>
                 <div class="alert alert-dismissible fade show <?= session()->getFlashdata('error') ? 'alert-danger' : 'alert-success' ?>">
-                    <?= session()->getFlashdata('error') ?: session()->getFlashdata('message') ?>
+                    <?= session()->getFlashdata('error') ?: session()->getFlashdata('success') ?>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             <?php endif; ?>
@@ -48,10 +48,10 @@
                                     <tr class="align-middle">
                                         <th class="text-center" style="width: 220px">Judul Inovasi</th>
                                         <th class="text-center" style="width: 250px">Deskripsi</th>
-                                        <th class="text-center" style="width: 120px">Kategori</th>
+                                        <th class="text-center" style="width: 100px">Kategori</th>
                                         <th class="text-center" style="width: 120px">Tanggal Pengajuan</th>
                                         <th class="text-center" style="width: 70px">Status</th>
-                                        <th class="text-center" style="width: 100px">Aksi</th>
+                                        <th class="text-center" style="width: 120px">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -63,19 +63,20 @@
                                         <?php foreach ($inovasi as $row): ?>
                                             <tr>
                                                 <td><?= esc($row['judul']); ?></td>
-                                                <td><?= esc(substr($row['deskripsi'], 0, 100)) . '...'; ?></td>
+                                                <td><?= esc(substr($row['deskripsi'], 0, 100)) . '...'; ?>
+                                                </td>
                                                 <td class="text-center"><?= esc($row['nama_jenis']); ?></td>
                                                 <td class="text-center"><?= date('d M Y', strtotime($row['tanggal_pengajuan'])) ?></td>
                                                 <td class="text-center">
                                                     <span class="badge rounded-pill <?= $row['status'] === 'terbit' ? 'bg-success' : ($row['status'] === 'draf' ? 'bg-secondary' : ($row['status'] === 'arsip' ? 'bg-warning' : ($row['status'] === 'revisi' ? 'bg-info' : ($row['status'] === 'tertunda' ? 'bg-secondary' : ($row['status'] === 'tertolak' ? 'bg-danger' : ''))))) ?>"><?= ucfirst($row['status']) ?></span>
                                                 </td>
                                                 <td class="text-center">
-                                                    <!-- <a href="/userumum/inovasi/edit/<?= $row['id_inovasi']; ?>" class="btn btn-outline-warning btn-sm edit mb-3" title="Edit">
+                                                    <a href="/userumum/inovasi/edit/<?= $row['id_inovasi']; ?>" class="btn btn-outline-warning btn-sm edit mb-3" title="Edit">
                                                         <i class="fas fa-pencil-alt"></i>
                                                     </a>
-                                                    <a href="/userumum/inovasi/delete/<?= $row['id_inovasi']; ?>" class="btn btn-outline-danger btn-sm delete ms-2 mb-3" title="Delete" onclick="return confirm('Yakin ingin menghapus data ini?')">
+                                                    <a href="/userumum/inovasi/delete/<?= $row['id_inovasi']; ?>" class="btn btn-outline-danger btn-sm delete ms-2 mb-3" title="Hapus">
                                                         <i class="fas fa-trash-alt"></i>
-                                                    </a> -->
+                                                    </a>
                                                     <a class="btn btn-outline-secondary btn-sm ms-2 mb-3" data-bs-toggle="modal"
                                                         data-bs-target="#detailModal<?= $row['id_inovasi'] ?>" title="Detail"><i class="fas fa-eye"></i></a>
                                                 </td>
@@ -100,22 +101,16 @@
 <?php if (!empty($inovasi)): ?>
     <?php foreach ($inovasi as $row): ?>
         <div class="modal fade" id="detailModal<?= $row['id_inovasi'] ?>" tabindex="-1" role="dialog"
-            aria-labelledby="detailModalLabel" aria-hidden="true">
+            aria-labelledby="detailModalLabel<?= $row['id_inovasi'] ?>" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title" id="detailModalLabel">Detail Proposal</h4>
+                        <h4 class="modal-title" id="detailModalLabel<?= $row['id_inovasi'] ?>">Detail Proposal</h4>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body card-body">
                         <div class="table-responsive">
                             <table class="table table-striped mb-0">
-                                <!-- <thead>
-									<tr>
-										<th>#</th>
-										<th>First Name</th>
-									</tr>
-								</thead> -->
                                 <tbody>
                                     <tr>
                                         <th scope="row" style="width: 230px">Judul Inovasi</th>
@@ -126,12 +121,32 @@
                                         <td><?= esc($row['deskripsi']); ?></td>
                                     </tr>
                                     <tr>
+                                        <th scope="row">Tahun</th>
+                                        <td><?= esc($row['tahun']); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Nama OPD</th>
+                                        <td><?= esc($row['nama_opd']); ?></td> <!-- Menampilkan nama OPD -->
+                                    </tr>
+                                    <tr>
                                         <th scope="row">Kategori</th>
                                         <td><?= esc($row['nama_jenis']); ?></td>
                                     </tr>
                                     <tr>
+                                        <th scope="row">Bentuk</th>
+                                        <td><?= esc($row['nama_bentuk']); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Tahapan</th>
+                                        <td><?= esc($row['nama_tahapan']); ?></td>
+                                    </tr>
+                                    <tr>
                                         <th scope="row">Kecamatan</th>
-                                        <td><?= esc($row['kecamatan']); ?></td>
+                                        <td><?= esc($row['nama_kecamatan']); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Desa</th>
+                                        <td><?= esc($row['nama_desa']); ?></td>
                                     </tr>
                                     <tr>
                                         <th scope="row">Tanggal Pengajuan</th>
@@ -139,38 +154,36 @@
                                     </tr>
                                     <tr>
                                         <th scope="row">Diajukan oleh</th>
-                                        <td></td>
+                                        <td><?= esc($row['diajukan_oleh']); ?></td> <!-- Ganti sesuai dengan data pengaju -->
                                     </tr>
                                     <tr>
                                         <th scope="row">Status</th>
                                         <td><?= ucfirst($row['status']); ?></td>
                                     </tr>
-                                    <!-- detail proposal TERBIT -->
                                     <?php if ($row['status'] === 'terbit'): ?>
                                         <tr>
                                             <th scope="row">Tanggal Disetujui</th>
-                                            <td><?= date('d M Y', strtotime($row['published_at'])) ?></td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row">Disetujui oleh</th>
-                                            <td><?= esc($row['published_by']); ?></td>
+                                            <td><?= date('d M Y', strtotime($row['updated_at'])) ?></td>
                                         </tr>
                                     <?php endif; ?>
-                                    <!-- detail pesan REVISI -->
-                                    <?php if ($row['status'] === 'revisi'): ?>
-                                        <div class="pesan-status">
-                                            <p><strong>Pesan Revisi:</strong></p>
-                                            <?php
-                                            $pesanMessages = explode('---', $row['pesan']);
-                                            foreach ($pesanMessages as $message): ?>
-                                                <p class="ml-3">• <?= esc(trim($message)); ?></p>
-                                            <?php endforeach; ?>
-                                        </div>
-                                        <!-- detail pesan TERTOLAK -->
-                                    <?php elseif (in_array($row['status'], ['tertolak', 'arsip'])): ?>
-                                        <div class="pesan-status">
-                                            <p><strong>Pesan:</strong> <?= esc($row['pesan']); ?></p>
-                                        </div>
+                                    <?php if (in_array($row['status'], ['revisi', 'tertolak', 'arsip'])): ?>
+                                        <tr>
+                                            <th scope="row">Pesan</th>
+                                            <td>
+                                                <?php if (!empty($row['pesan'])): ?>
+                                                    <ul>
+                                                        <?php
+                                                        // Pisahkan pesan berdasarkan baris baru dan tampilkan sebagai list item
+                                                        $pesanArray = explode("\n", $row['pesan']);
+                                                        foreach ($pesanArray as $pesanItem): ?>
+                                                            <li><?= esc($pesanItem); ?></li>
+                                                        <?php endforeach; ?>
+                                                    </ul>
+                                                <?php else: ?>
+                                                    <p>No pesan available.</p>
+                                                <?php endif; ?>
+                                            </td>
+                                        </tr>
                                     <?php endif; ?>
                                     <tr>
                                         <th scope="row">File Proposal</th>
@@ -185,4 +198,33 @@
         </div>
     <?php endforeach; ?>
 <?php endif; ?>
+
+<!-- Sweet Alerts js -->
+<script src="/assets/libs/sweetalert2/sweetalert2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- Sweet alert init js-->
+<script>
+    document.querySelectorAll(".delete").forEach(function(button) {
+        button.addEventListener("click", function(event) {
+            event.preventDefault();
+
+            const href = this.getAttribute("href");
+
+            Swal.fire({
+                title: "Konfirmasi hapus?",
+                text: "Anda yakin ingin menghapus data ini?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#2ab57d",
+                cancelButtonColor: "#fd625e",
+                confirmButtonText: "Hapus",
+                cancelButtonText: "Batal",
+            }).then(function(result) {
+                if (result.isConfirmed) {
+                    window.location.href = href;
+                }
+            });
+        });
+    });
+</script>
 <?= $this->endSection(); ?>

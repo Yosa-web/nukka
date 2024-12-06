@@ -123,33 +123,35 @@
 
 <!-- modal edit -->
 <!-- Modal Edit Desa -->
-<div class="modal fade" id="editModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Edit Desa</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form action="/superadmin/desa/update/<?= esc($item['id_desa']) ?>" method="post">
-                <div class="modal-body">
-                    <!-- Hidden input untuk id_kecamatan -->
-                    <input type="hidden" name="id_kecamatan" value="<?= esc($item['id_kecamatan']) ?>">
-
-                    <div class="mb-3">
-                        <label for="edit_nama_desa" class="col-form-label">Nama Desa</label>
-                        <input type="text" class="form-control" id="edit_nama_desa" name="nama_desa" value="<?= esc($item['nama_desa']) ?>" required />
+<?php if (count($desa) > 0): ?>
+    <?php foreach ($desa as $item): ?>
+        <div class="modal fade" id="editModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Edit Desa</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
+                    <form action="/superadmin/desa/update/<?= esc($item['id_desa']) ?>" method="post">
+                        <div class="modal-body">
+                            <!-- Hidden input untuk id_kecamatan -->
+                            <input type="hidden" name="id_kecamatan" value="<?= esc($item['id_kecamatan']) ?>">
+
+                            <div class="mb-3">
+                                <label for="edit_nama_desa" class="col-form-label">Nama Desa</label>
+                                <input type="text" class="form-control" id="edit_nama_desa" name="nama_desa" value="<?= esc($item['nama_desa']) ?>" required />
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
+                            <button type="submit" class="btn btn-warning">Perbarui</button>
+                        </div>
+                    </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-warning">Perbarui</button>
-                </div>
-            </form>
+            </div>
         </div>
-    </div>
-</div>
-
-
+    <?php endforeach; ?>
+<?php endif; ?>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -221,26 +223,35 @@
 <script src="/assets/libs/sweetalert2/sweetalert2.min.js"></script>
 <!-- Sweet alert init js-->
 <script>
-    document.querySelectorAll(".delete").forEach(function(button) {
-        button.addEventListener("click", function(event) {
-            event.preventDefault();
-
-            const href = this.getAttribute("href");
-
-            Swal.fire({
-                title: "Konfirmasi hapus?",
-                text: "Anda yakin ingin menghapus data ini?",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#2ab57d",
-                cancelButtonColor: "#fd625e",
-                confirmButtonText: "Hapus",
-                cancelButtonText: "Batal",
-            }).then(function(result) {
-                if (result.isConfirmed) {
-                    window.location.href = href;
-                }
-            });
+    $(document).ready(function() {
+        $('#kecamatan').change(function() {
+            var id_kecamatan = $(this).val();
+            if (id_kecamatan) {
+                $.ajax({
+                    url: '/superadmin/inovasi/getDesa', // Sesuaikan dengan endpoint yang benar
+                    type: 'GET',
+                    data: {
+                        id_kecamatan: id_kecamatan
+                    },
+                    success: function(response) {
+                        console.log(response); // Cek respons dari server
+                        var desaOptions = '<option value="" disabled selected>Pilih Desa</option>';
+                        if (response.length > 0) {
+                            $.each(response, function(index, desa) {
+                                desaOptions += '<option value="' + desa.id_desa + '">' + desa.nama_desa + '</option>';
+                            });
+                        } else {
+                            desaOptions += '<option value="" disabled>Tidak ada desa</option>';
+                        }
+                        $('#desa').html(desaOptions); // Update dropdown Desa
+                    },
+                    error: function() {
+                        alert('Terjadi kesalahan saat memuat data desa');
+                    }
+                });
+            } else {
+                $('#desa').html('<option value="" disabled selected>Pilih Desa</option>');
+            }
         });
     });
 </script>

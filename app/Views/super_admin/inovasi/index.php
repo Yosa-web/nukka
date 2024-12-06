@@ -158,11 +158,11 @@
 <?php if (!empty($inovasi)): ?>
     <?php foreach ($inovasi as $row): ?>
         <div class="modal fade" id="detailModal<?= $row['id_inovasi'] ?>" tabindex="-1" role="dialog"
-            aria-labelledby="detailModalLabel" aria-hidden="true">
+            aria-labelledby="detailModalLabel<?= $row['id_inovasi'] ?>" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title" id="detailModalLabel">Detail Proposal</h4>
+                        <h4 class="modal-title" id="detailModalLabel<?= $row['id_inovasi'] ?>">Detail Proposal</h4>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body card-body">
@@ -178,12 +178,32 @@
                                         <td><?= esc($row['deskripsi']); ?></td>
                                     </tr>
                                     <tr>
+                                        <th scope="row">Tahun</th>
+                                        <td><?= esc($row['tahun']); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Nama OPD</th>
+                                        <td><?= esc($row['nama_opd']); ?></td> <!-- Menampilkan nama OPD -->
+                                    </tr>
+                                    <tr>
                                         <th scope="row">Kategori</th>
                                         <td><?= esc($row['nama_jenis']); ?></td>
                                     </tr>
                                     <tr>
+                                        <th scope="row">Bentuk</th>
+                                        <td><?= esc($row['nama_bentuk']); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Tahapan</th>
+                                        <td><?= esc($row['nama_tahapan']); ?></td>
+                                    </tr>
+                                    <tr>
                                         <th scope="row">Kecamatan</th>
-                                        <td><?= esc($row['kecamatan']); ?></td>
+                                        <td><?= esc($row['nama_kecamatan']); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Desa</th>
+                                        <td><?= esc($row['nama_desa']); ?></td>
                                     </tr>
                                     <tr>
                                         <th scope="row">Tanggal Pengajuan</th>
@@ -191,7 +211,7 @@
                                     </tr>
                                     <tr>
                                         <th scope="row">Diajukan oleh</th>
-                                        <td></td>
+                                        <td><?= esc($row['diajukan_oleh']); ?></td> <!-- Ganti sesuai dengan data pengaju -->
                                     </tr>
                                     <tr>
                                         <th scope="row">Status</th>
@@ -280,7 +300,16 @@
                 $.post('/superadmin/inovasi/setujui', {
                     id_inovasi: id,
                     <?= csrf_token() ?>: '<?= csrf_hash() ?>'
-                })
+                }, function(response) {
+                    // Refresh halaman setelah setuju
+                    location.reload();
+                }).fail(function(xhr, status, error) {
+                    Swal.fire(
+                        'Gagal!',
+                        'Terjadi kesalahan saat menyetujui proposal.',
+                        'error'
+                    );
+                });
             }
         });
     }
