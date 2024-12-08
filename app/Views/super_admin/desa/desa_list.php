@@ -121,7 +121,6 @@
     </div>
 </div>
 
-<!-- modal edit -->
 <!-- Modal Edit Desa -->
 <?php if (count($desa) > 0): ?>
     <?php foreach ($desa as $item): ?>
@@ -174,8 +173,6 @@
         });
     });
 
-
-
     document.addEventListener('DOMContentLoaded', function() {
         const editButtons = document.querySelectorAll('.edit');
 
@@ -202,26 +199,33 @@
 </script>
 <!-- Modal js -->
 <script src="/assets/js/pages/modal.init.js"></script>
-<!-- alertifyjs js -->
-<script src="/assets/libs/alertifyjs/build/alertify.min.js"></script>
+<!-- Sweet Alerts js -->
+<script src="/assets/libs/sweetalert2/sweetalert2.min.js"></script>
+<!-- Sweet alert hapus -->
 <script>
-    document.getElementById('alert-success').addEventListener('click', function(event) {
-        event.preventDefault();
-        Swal.fire({
-            title: 'Berhasil!',
-            text: 'Data berhasil diperbarui!',
-            icon: 'success',
-            confirmButtonText: 'OK'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                document.querySelector('#editModal form').submit();
-            }
+    document.querySelectorAll(".delete").forEach(function(button) {
+        button.addEventListener("click", function(event) {
+            event.preventDefault();
+
+            const href = this.getAttribute("href");
+
+            Swal.fire({
+                title: "Konfirmasi hapus?",
+                text: "Anda yakin ingin menghapus data ini?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#2ab57d",
+                cancelButtonColor: "#fd625e",
+                confirmButtonText: "Hapus",
+                cancelButtonText: "Batal",
+            }).then(function(result) {
+                if (result.isConfirmed) {
+                    window.location.href = href;
+                }
+            });
         });
     });
 </script>
-<!-- Sweet Alerts js -->
-<script src="/assets/libs/sweetalert2/sweetalert2.min.js"></script>
-<!-- Sweet alert init js-->
 <script>
     $(document).ready(function() {
         $('#kecamatan').change(function() {

@@ -132,6 +132,7 @@
                             name="nama_jenis"
                             id="nama_jenis"
                             required />
+                        <div class="invalid-feedback" id="namajenis-error"></div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -185,6 +186,7 @@
                     <div class="mb-3">
                         <label for="nama_jenis" class="col-form-label">Nama Jenis</label>
                         <input type="text" class="form-control" id="edit_nama_jenis" name="nama_jenis" value="" required />
+                        <div class="invalid-feedback" id="editnamajenis-error"></div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -192,7 +194,6 @@
                     <button type="submit" class="btn btn-warning">Perbarui</button>
                 </div>
             </form>
-
         </div>
     </div>
 </div>
@@ -247,26 +248,9 @@
 </script>
 <!-- Modal js -->
 <script src="/assets/js/pages/modal.init.js"></script>
-<!-- alertifyjs js -->
-<script src="/assets/libs/alertifyjs/build/alertify.min.js"></script>
-<script>
-    document.getElementById('alert-success').addEventListener('click', function(event) {
-        event.preventDefault();
-        Swal.fire({
-            title: 'Berhasil!',
-            text: 'Data berhasil diperbarui!',
-            icon: 'success',
-            confirmButtonText: 'OK'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                document.querySelector('#editModal form').submit();
-            }
-        });
-    });
-</script>
 <!-- Sweet Alerts js -->
 <script src="/assets/libs/sweetalert2/sweetalert2.min.js"></script>
-<!-- Sweet alert init js-->
+<!-- Sweet alert hapus -->
 <script>
     document.querySelectorAll(".delete").forEach(function(button) {
         button.addEventListener("click", function(event) {
@@ -290,5 +274,43 @@
             });
         });
     });
+</script>
+
+<!-- validasi input -->
+<script>
+    const namaJenisInput = document.getElementById('nama_jenis');
+    const editNamaJenisInput = document.getElementById('edit_nama_jenis');
+    const submitButton = document.querySelector('button[type="submit"]'); // Tombol submit
+
+    function validateNamaJenis() {
+        const namaJenisErrorDiv = document.getElementById('namajenis-error');
+        const editNamaJenisErrorDiv = document.getElementById('editnamajenis-error');
+        let isValid = true;
+
+        // Validasi nama_jenis tidak diawali dengan spasi/kosong
+        if (namaJenisInput.value.startsWith(' ')) {
+            namaJenisErrorDiv.textContent = 'Nama Jenis tidak boleh diawali dengan spasi dan atau kosong.';
+            namaJenisInput.classList.add('is-invalid');
+            isValid = false;
+        } else {
+            namaJenisErrorDiv.textContent = '';
+            namaJenisInput.classList.remove('is-invalid');
+        }
+
+        // Validasi edit_nama_jenis tidak diawali dengan spasi/kosong
+        if (editNamaJenisInput.value.startsWith(' ')) {
+            editNamaJenisErrorDiv.textContent = 'Nama Jenis tidak boleh diawali dengan spasi dan atau kosong.';
+            editNamaJenisInput.classList.add('is-invalid');
+            isValid = false;
+        } else {
+            editNamaJenisErrorDiv.textContent = '';
+            editNamaJenisInput.classList.remove('is-invalid');
+        }
+
+        // Nonaktifkan tombol submit jika ada error
+        submitButton.disabled = !isValid;
+    }
+    namaJenisInput.addEventListener('input', validateNamaJenis);
+    editNamaJenisInput.addEventListener('input', validateNamaJenis);
 </script>
 <?= $this->endSection(); ?>

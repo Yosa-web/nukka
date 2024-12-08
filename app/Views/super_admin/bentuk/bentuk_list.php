@@ -132,6 +132,7 @@
                             name="nama_bentuk"
                             id="nama_bentuk"
                             required />
+                        <div class="invalid-feedback" id="nama_bentuk_error"></div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -185,6 +186,7 @@
                     <div class="mb-3">
                         <label for="nama_bentuk" class="col-form-label">Nama Bentuk</label>
                         <input type="text" class="form-control" id="edit_nama_bentuk" name="nama_bentuk" value="" required />
+                        <div class="invalid-feedback" id="edit_nama_bentuk_error"></div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -290,5 +292,43 @@
             });
         });
     });
+</script>
+
+<!-- validasi input -->
+<script>
+    const bentukInput = document.getElementById('nama_bentuk');
+    const editbentukInput = document.getElementById('edit_nama_bentuk');
+    const submitButton = document.querySelector('button[type="submit"]'); // Tombol submit
+
+    function validateBentuk() {
+        const bentukErrorDiv = document.getElementById('nama_bentuk_error');
+        const editbentukErrorDiv = document.getElementById('edit_nama_bentuk_error');
+        let isValid = true;
+
+        // Validasi nama_jenis tidak diawali dengan spasi/kosong
+        if (bentukInput.value.startsWith(' ')) {
+            bentukErrorDiv.textContent = 'Nama bentuk tidak boleh diawali dengan spasi dan atau kosong.';
+            bentukInput.classList.add('is-invalid');
+            isValid = false;
+        } else {
+            bentukErrorDiv.textContent = '';
+            bentukInput.classList.remove('is-invalid');
+        }
+
+        // Validasi edit_nama_jenis tidak diawali dengan spasi/kosong
+        if (editbentukInput.value.startsWith(' ')) {
+            editbentukErrorDiv.textContent = 'Nama bentuk tidak boleh diawali dengan spasi dan atau kosong.';
+            editbentukInput.classList.add('is-invalid');
+            isValid = false;
+        } else {
+            editbentukErrorDiv.textContent = '';
+            editbentukInput.classList.remove('is-invalid');
+        }
+
+        // Nonaktifkan tombol submit jika ada error
+        submitButton.disabled = !isValid;
+    }
+    bentukInput.addEventListener('input', validateBentuk);
+    editbentukInput.addEventListener('input', validateBentuk);
 </script>
 <?= $this->endSection(); ?>

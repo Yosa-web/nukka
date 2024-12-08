@@ -164,7 +164,7 @@
                             <li>
                                 <a href="<?= base_url('superadmin/kecamatan') ?>">
                                     <i class="bx bx-world"></i>
-                                    <span>Kecamatan</span>
+                                    <span>Wilayah</span>
                                 </a>
                             </li>
 

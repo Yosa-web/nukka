@@ -132,6 +132,7 @@
                             name="nama_tahapan"
                             id="nama_tahapan"
                             required />
+                        <div class="invalid-feedback" id="nama_tahapan_error"></div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -185,6 +186,7 @@
                     <div class="mb-3">
                         <label for="nama_tahapan" class="col-form-label">Nama Tahapan</label>
                         <input type="text" class="form-control" id="edit_nama_tahapan" name="nama_tahapan" value="" required />
+                        <div class="invalid-feedback" id="edit_nama_tahapan_error"></div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -247,23 +249,6 @@
 </script>
 <!-- Modal js -->
 <script src="/assets/js/pages/modal.init.js"></script>
-<!-- alertifyjs js -->
-<script src="/assets/libs/alertifyjs/build/alertify.min.js"></script>
-<script>
-    document.getElementById('alert-success').addEventListener('click', function(event) {
-        event.preventDefault();
-        Swal.fire({
-            title: 'Berhasil!',
-            text: 'Data berhasil diperbarui!',
-            icon: 'success',
-            confirmButtonText: 'OK'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                document.querySelector('#editModal form').submit();
-            }
-        });
-    });
-</script>
 <!-- Sweet Alerts js -->
 <script src="/assets/libs/sweetalert2/sweetalert2.min.js"></script>
 <!-- Sweet alert init js-->
@@ -290,5 +275,43 @@
             });
         });
     });
+</script>
+
+<!-- validasi input -->
+<script>
+    const tahapanInput = document.getElementById('nama_tahapan');
+    const editTahapanInput = document.getElementById('edit_nama_tahapan');
+    const submitButton = document.querySelector('button[type="submit"]'); // Tombol submit
+
+    function validateTahapan() {
+        const tahapanErrorDiv = document.getElementById('nama_tahapan_error');
+        const editTahapanErrorDiv = document.getElementById('edit_nama_tahapan_error');
+        let isValid = true;
+
+        // Validasi nama_jenis tidak diawali dengan spasi/kosong
+        if (tahapanInput.value.startsWith(' ')) {
+            tahapanErrorDiv.textContent = 'Nama Tahapan tidak boleh diawali dengan spasi dan atau kosong.';
+            tahapanInput.classList.add('is-invalid');
+            isValid = false;
+        } else {
+            tahapanErrorDiv.textContent = '';
+            tahapanInput.classList.remove('is-invalid');
+        }
+
+        // Validasi edit_nama_jenis tidak diawali dengan spasi/kosong
+        if (editTahapanInput.value.startsWith(' ')) {
+            editTahapanErrorDiv.textContent = 'Nama Tahapan tidak boleh diawali dengan spasi dan atau kosong.';
+            editTahapanInput.classList.add('is-invalid');
+            isValid = false;
+        } else {
+            editTahapanErrorDiv.textContent = '';
+            editTahapanInput.classList.remove('is-invalid');
+        }
+
+        // Nonaktifkan tombol submit jika ada error
+        submitButton.disabled = !isValid;
+    }
+    tahapanInput.addEventListener('input', validateTahapan);
+    editTahapanInput.addEventListener('input', validateTahapan);
 </script>
 <?= $this->endSection(); ?>
