@@ -8,6 +8,7 @@ use App\Models\DesaModel;
 use App\Models\KecamatanModel;
 use App\Models\LogAktivitasModel;
 use CodeIgniter\I18n\Time;
+use App\Models\InovasiModel;
 
 class DesaController extends BaseController
 {
@@ -107,18 +108,18 @@ class DesaController extends BaseController
     
         // Ambil data desa beserta nama kecamatan melalui join
         $desa = $model
-            ->select('desa.*, kecamatan.nama_kecamatan') // Pilih kolom yang dibutuhkan
-            ->join('kecamatan', 'kecamatan.id_kecamatan = desa.id_kecamatan') // Join tabel kecamatan
-            ->where('desa.id_desa', $id) // Filter berdasarkan ID desa
-            ->first(); // Ambil satu data
+        ->select('desa.*, kecamatan.nama_kecamatan')
+        ->join('kecamatan', 'kecamatan.id_kecamatan = desa.id_kecamatan')
+        ->where('desa.id_desa', $id)
+        ->get()
+        ->getRowArray();  // Mengambil data sebagai array
+        var_dump($desa); // atau gunakan log jika perlu
     
-        if (!$desa) {
-            // Jika data tidak ditemukan, tampilkan error atau redirect
-            return redirect()->to('/superadmin/desa')->with('error', 'Data tidak ditemukan.');
-        }
+    if (!$desa) {
+        return redirect()->to('/superadmin/desa')->with('error', 'Data tidak ditemukan.');
+    }
     
-        // Kirim data ke view
-        return view('super_admin/desa/edit_desa', ['desa' => $desa]);
+    return view('super_admin/desa/edit_desa', ['desa' => $desa]);
     }
     
 
@@ -155,37 +156,47 @@ public function update($id)
 
     
 
-    public function delete($id)
-    {
-        $desaModel = new DesaModel();
-        $logModel = new LogAktivitasModel();
+public function delete($id)
+{
+    $desaModel = new DesaModel();
+    $inovasiModel = new InovasiModel(); // Tambahkan model Inovasi jika diperlukan
+    $logModel = new LogAktivitasModel();
 
-        $desa = $desaModel->find($id);  // Temukan data sebelum dihapus
-        $desaModel->delete($id);
+    // Temukan data desa sebelum dihapus
+    $desa = $desaModel->find($id);
+    if (!$desa) {
+        return redirect()->back()->with('errors', 'Data Desa tidak ditemukan.');
+    }
 
+    // Periksa apakah desa terkait dengan data inovasi
+    $inovasi = $inovasiModel->where('desa', $id)->first();
+    if ($inovasi) {
+        return redirect()->back()->with('errors', 'Data Desa tidak dapat dihapus karena ada inovasi yang terkait.');
+    }
+
+    // Menghapus data desa
+    if ($desaModel->delete($id)) {
         // Mendapatkan ID pengguna (SuperAdmin) yang sedang login
         $superAdminId = auth()->user()->id;
 
-        // Menghapus data jenis inovasi berdasarkan ID
-        if ($desaModel->delete($id)) {
+        // Data untuk log aktivitas
+        $logData = [
+            'id_user'          => $superAdminId,
+            'tanggal_aktivitas' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(), // Format tanggal
+            'aksi'             => 'hapus data', // Tindakan yang dilakukan
+            'jenis_data'       => 'desa', // Jenis data yang terlibat
+            'keterangan'       => "SuperAdmin dengan ID {$superAdminId} menghapus data Desa dengan ID {$id}",
+        ];
 
-            // Data untuk log aktivitas
-            $logData = [
-                'id_user'          => $superAdminId,
-                'tanggal_aktivitas' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(), // Format tanggal
-                'aksi'             => 'hapus data', // Tindakan yang dilakukan
-                'jenis_data'       => 'jenis inovasi', // Jenis data yang terlibat
-                'keterangan'       => "SuperAdmin dengan ID {$superAdminId} menghapus data Desa ",
-            ];
+        // Simpan log aktivitas ke dalam database
+        $logModel->save($logData);
 
-            // Simpan log aktivitas ke dalam database
-            $logModel->save($logData);
-
-            // Jika berhasil, kembali ke halaman dashboard dengan pesan sukses
-            return redirect()->back()->with('success', 'Data berhasil dihapus.');
-        } else {
-            // Jika penyimpanan data gagal, kembali ke form dengan pesan error
-            return redirect()->back()->withInput()->with('errors', $desaModel->errors());
-        }
+        // Jika berhasil, kembali ke halaman dashboard dengan pesan sukses
+        return redirect()->back()->with('success', 'Data Desa berhasil dihapus.');
+    } else {
+        // Jika penghapusan data gagal
+        return redirect()->back()->withInput()->with('errors', 'Gagal menghapus data Desa.');
     }
+}
+
 }

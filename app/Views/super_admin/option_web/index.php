@@ -62,7 +62,8 @@
                                                         <?php if ($option['seting_type'] === 'Image'): ?>
                                                             <img class="rounded me-2" alt="Option Image" width="200" src="<?= base_url('assets/uploads/images/optionweb/' . esc($option['value'])) ?>" data-holder-rendered="true">
                                                         <?php else: ?>
-                                                            <?= esc($option['value']) ?>
+                                                            <!-- Menampilkan teks yang telah difilter dengan tag HTML yang diizinkan -->
+                                                            <?= $option['clean_text'] ?>
                                                         <?php endif; ?>
                                                     </td>
                                                     <td class="text-center">
@@ -107,12 +108,13 @@
                     <!-- Input untuk Text atau Image -->
                     <div class="text-input">
                         <label for="setting-text" class="col-form-label">Teks:</label>
-                        <input type="text" class="form-control" id="setting-text" name="text">
+                        <textarea id="setting-text" name="text" class="form-control" placeholder="" rows="5"></textarea>
                     </div>
                     <div class="image-input" style="display: none;">
                         <label for="setting-image" class="col-form-label">Unggah Gambar:</label>
                         <input type="file" class="form-control" id="setting-image" name="image">
                     </div>
+
 
                 </form>
             </div>
@@ -125,32 +127,32 @@
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const editButtons = document.querySelectorAll('.edit');
-        const modal = document.getElementById('editModal');
-        const form = modal.querySelector('#edit-form');
-        const colorInputDiv = document.createElement('div'); // Div untuk input warna
-        const textInputDiv = modal.querySelector('.text-input'); // Div untuk input teks
-        const imageInputDiv = modal.querySelector('.image-input'); // Div untuk input gambar
-        const hiddenTipeInput = modal.querySelector('#hidden-tipe');
+    document.addEventListener('DOMContentLoaded', function () {
+    const editButtons = document.querySelectorAll('.edit');
+    const modal = document.getElementById('editModal');
+    const form = modal.querySelector('#edit-form');
+    const colorInputDiv = document.createElement('div'); // Div untuk input warna
+    const textInputDiv = modal.querySelector('.text-input'); // Div untuk input teks
+    const imageInputDiv = modal.querySelector('.image-input'); // Div untuk input gambar
+    const hiddenTipeInput = modal.querySelector('#hidden-tipe');
 
-        editButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const settingId = this.getAttribute('data-setting-id');
-                const type = this.getAttribute('data-type').toLowerCase();
-                const value = this.closest('tr').querySelector('td').innerText.trim();
+    editButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const settingId = this.getAttribute('data-setting-id');
+            const type = this.getAttribute('data-type').toLowerCase();
+            const value = this.closest('tr').querySelector('td').innerText.trim();
 
-                // Set form action
-                form.action = `/superadmin/optionweb/update/${settingId}`;
-                hiddenTipeInput.value = type;
+            // Set form action
+            form.action = `/superadmin/optionweb/update/${settingId}`;
+            hiddenTipeInput.value = type;
 
-                // Reset input warna
-                if (colorInputDiv.parentNode) colorInputDiv.parentNode.removeChild(colorInputDiv);
+            // Reset input warna
+            if (colorInputDiv.parentNode) colorInputDiv.parentNode.removeChild(colorInputDiv);
 
-                // Tampilkan input warna jika tipe pengaturan adalah 'warna'
-                if (type === 'warna' || type === 'kode warna') {
-                    colorInputDiv.className = 'mb-3';
-                    colorInputDiv.innerHTML = `
+            // Tampilkan input warna jika tipe pengaturan adalah 'warna'
+            if (type === 'warna' || type === 'kode warna') {
+                colorInputDiv.className = 'mb-3';
+                colorInputDiv.innerHTML = `
                     <label for="setting-warna" class="col-form-label">Warna:</label>
                     <input
                         type="color"
@@ -161,52 +163,50 @@
                         title="Pilih warna"
                     />
                 `;
-                    form.insertBefore(colorInputDiv, form.querySelector('.modal-footer'));
-                    textInputDiv.style.display = 'none'; // Sembunyikan input teks
-                    imageInputDiv.style.display = 'none'; // Sembunyikan input gambar
+                form.insertBefore(colorInputDiv, form.querySelector('.modal-footer'));
+                textInputDiv.style.display = 'none'; // Sembunyikan input teks
+                imageInputDiv.style.display = 'none'; // Sembunyikan input gambar
 
-                    // Tampilkan input gambar jika tipe pengaturan adalah 'image'
-                } else if (type === 'image') {
-                    textInputDiv.style.display = 'none'; // Sembunyikan input teks
-                    imageInputDiv.style.display = 'block'; // Tampilkan input gambar
-                    colorInputDiv.style.display = 'none'; // Sembunyikan input warna
+                // Tampilkan input gambar jika tipe pengaturan adalah 'image'
+            } else if (type === 'image') {
+                textInputDiv.style.display = 'none'; // Sembunyikan input teks
+                imageInputDiv.style.display = 'block'; // Tampilkan input gambar
+                colorInputDiv.style.display = 'none'; // Sembunyikan input warna
 
-                    // Jika tipe bukan 'warna' atau 'image', tampilkan input teks dan sembunyikan lainnya
-                } else {
-                    textInputDiv.style.display = 'block'; // Tampilkan input teks
-                    imageInputDiv.style.display = 'none'; // Sembunyikan input gambar
-                    colorInputDiv.style.display = 'none'; // Sembunyikan input warna
-                    modal.querySelector('#setting-text').value = value; // Set nilai teks
+                // Jika tipe bukan 'warna' atau 'image', tampilkan input teks dan sembunyikan lainnya
+            } else {
+                textInputDiv.style.display = 'block'; // Tampilkan input teks
+                imageInputDiv.style.display = 'none'; // Sembunyikan input gambar
+                colorInputDiv.style.display = 'none'; // Sembunyikan input warna
+                modal.querySelector('#setting-text').value = value; // Set nilai teks
+                if (window.ckEditorInstance) {
+                    window.ckEditorInstance.setData(value); // Set data CKEditor
                 }
-            });
+            }
         });
     });
+
+    // Sinkronisasi data CKEditor sebelum form dikirimkan
+    form.addEventListener('submit', function () {
+        if (window.ckEditorInstance) {
+            modal.querySelector('#setting-text').value = window.ckEditorInstance.getData(); // Sinkronisasi data CKEditor
+        }
+    });
+});
 </script>
 
-
-<!-- dropzone js -->
-<script src="/assets/libs/dropzone/min/dropzone.min.js"></script>
+<!-- init js -->
+<script src="/assets/js/pages/form-editor.init.js"></script>
+<!-- ckeditor -->
+<script src="/assets/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js"></script>
 <script>
-    // Disable Dropzone auto-discovering all elements with .dropzone class
-    Dropzone.autoDiscover = false;
-    // Initialize Dropzone
-    var myDropzone = new Dropzone("#imageDropzone", {
-        url: "/your-upload-endpoint", // URL untuk mengupload file
-        maxFiles: 5,
-        maxFilesize: 2, // Maksimal ukuran file dalam MB
-        acceptedFiles: "image/*",
-        addRemoveLinks: true,
-        dictRemoveFile: "Remove",
-        thumbnailWidth: 200,
-        thumbnailHeight: 200,
-        init: function() {
-            this.on("success", function(file, response) {
-                console.log("File successfully uploaded!");
-            });
-            this.on("error", function(file, errorMessage) {
-                console.log("Error: " + errorMessage);
-            });
-        }
+    ClassicEditor
+    .create(document.querySelector('#setting-text'))
+    .then(editor => {
+        window.ckEditorInstance = editor; // Simpan referensi editor global untuk akses nanti
+    })
+    .catch(error => {
+        console.error(error);
     });
 </script>
 

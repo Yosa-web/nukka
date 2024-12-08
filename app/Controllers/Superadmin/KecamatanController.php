@@ -164,6 +164,7 @@ class KecamatanController extends BaseController
         {
             $kecamatanModel = new \App\Models\KecamatanModel();
             $desaModel = new \App\Models\DesaModel();
+            $inovasiModel = new \App\Models\InovasiModel(); // Tambahkan model Inovasi
             $logModel = new \App\Models\LogAktivitasModel();
         
             // Cek apakah id_kecamatan ada di tabel desa
@@ -171,6 +172,13 @@ class KecamatanController extends BaseController
             if ($desa) {
                 // Jika ada desa yang terkait, jangan hapus dan beri pesan error
                 return redirect()->back()->with('errors', 'Data Kecamatan tidak dapat dihapus karena ada desa yang terkait.');
+            }
+        
+            // Cek apakah id_kecamatan ada di tabel inovasi
+            $inovasi = $inovasiModel->where('kecamatan', $id)->first();
+            if ($inovasi) {
+                // Jika ada inovasi yang terkait, jangan hapus dan beri pesan error
+                return redirect()->back()->with('errors', 'Data Kecamatan tidak dapat dihapus karena ada inovasi yang terkait.');
             }
         
             // Temukan data kecamatan sebelum dihapus
@@ -205,6 +213,7 @@ class KecamatanController extends BaseController
                 return redirect()->back()->withInput()->with('error', 'Gagal menghapus data Kecamatan.');
             }
         }
+        
 
         
 

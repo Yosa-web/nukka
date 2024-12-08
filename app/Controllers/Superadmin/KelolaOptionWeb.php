@@ -20,13 +20,25 @@ class KelolaOptionWeb extends BaseController
     public function index()
     {
         $model = new OptionWebModel();
-
+    
         // Mengambil semua data dari tabel option_web
-        $data['options'] = $model->findAll();
-
-        // Load view dan kirim data options
+        $options = $model->findAll();
+    
+        // Proses data untuk membersihkan tag HTML, namun izinkan beberapa tag HTML
+        foreach ($options as &$option) {
+            // Izinkan tag HTML seperti <b>, <i>, <u>, <strong>, <em>, <p>, <h1>, <h2>, dll
+            $allowed_tags = '<b><i><u><strong><em><p><h1><h2><h3><h4><h5><h6><ul><ol><li><br>';
+            $option['clean_text'] = strip_tags($option['value'], $allowed_tags); // Membersihkan tag HTML kecuali yang diizinkan
+        }
+    
+        // Kirim data ke view
+        $data['options'] = $options;
+    
         return view('super_admin/option_web/index', $data);
     }
+    
+    
+
 
     public function edit($id)
     {

@@ -51,4 +51,37 @@ class InovasiModel extends Model
             ->groupBy('kecamatan')
             ->findAll();
     }
+
+    public function getAllData($filters = [])
+    {
+        $builder = $this->db->table($this->table)
+            ->select('inovasi.*, jenis_inovasi.nama_jenis, bentuk.nama_bentuk, tahapan.nama_tahapan, kecamatan.nama_kecamatan, desa.nama_desa, opd.nama_opd')
+            ->join('jenis_inovasi', 'inovasi.kategori = jenis_inovasi.id_jenis_inovasi', 'left')
+            ->join('bentuk', 'inovasi.bentuk = bentuk.id_bentuk', 'left')
+            ->join('tahapan', 'inovasi.tahapan = tahapan.id_tahapan', 'left')
+            ->join('kecamatan', 'inovasi.kecamatan = kecamatan.id_kecamatan', 'left')
+            ->join('desa', 'inovasi.desa = desa.id_desa', 'left')
+            ->join('opd', 'inovasi.id_opd = opd.id_opd', 'left');
+    
+        // Filter data berdasarkan input
+        if (!empty($filters['jenis_inovasi'])) {
+            $builder->where('jenis_inovasi.id_jenis_inovasi', $filters['jenis_inovasi']);
+        }
+        if (!empty($filters['tahun'])) {
+            $builder->where('inovasi.tahun', $filters['tahun']);
+        }
+        if (!empty($filters['bentuk'])) {
+            $builder->where('bentuk.id_bentuk', $filters['bentuk']);
+        }
+        if (!empty($filters['tahapan'])) {
+            $builder->where('tahapan.id_tahapan', $filters['tahapan']);
+        }
+        if (!empty($filters['status'])) {
+            $builder->where('inovasi.status', $filters['status']); // Tambahkan filter status
+        }
+    
+        return $builder->get()->getResultArray();
+    }
+    
+    
 }

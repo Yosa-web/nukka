@@ -304,3 +304,7 @@ $routes->get('/regulasi', 'LandingController::regulasi');
 $routes->get('/berita/lainnya', 'LandingController::semuaBerita');
 
 $routes->get('handleLogin', 'AuthController::handleLogin');
+
+$routes->get('export', 'Superadmin\ExportController::showExportForm');
+$routes->get('export/csv', 'Superadmin\ExportController::exportToCSV');
+

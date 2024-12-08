@@ -85,23 +85,21 @@
                                     </thead>
                                     <tbody>
                                         <?php if (count($desa) > 0): ?>
+                                            <!-- Tombol Edit -->
                                             <?php foreach ($desa as $item): ?>
-                                                <tr>
-                                                    <td data-field="id" style="width: 80px"><?= esc($item['id_desa']) ?></td>
-                                                    <td data-field="nama-desa"><?= esc($item['nama_desa']) ?></td>
-                                                    <td style="width: 300px;">
-                                                        <a href="javascript:void(0)" class="btn btn-outline-warning btn-sm edit" title="Edit"
-                                                            data-bs-toggle="modal" data-bs-target="#editModal"
-                                                            data-id="<?= esc($item['id_desa']) ?>"
-                                                            data-nama="<?= esc($item['nama_desa']) ?>"
-                                                            data-kecamatan="<?= esc($item['id_kecamatan']) ?>">
-                                                            <i class="fas fa-pencil-alt"></i>
-                                                        </a>
-                                                        <a href="/superadmin/desa/delete/<?= esc($item['id_desa']) ?>" class="btn btn-outline-danger btn-sm delete ms-2" title="Delete">
-                                                            <i class="fas fa-trash-alt"></i>
-                                                        </a>
-                                                    </td>
-                                                </tr>
+                                            <tr>
+                                                <td data-field="id" style="width: 80px"><?= esc($item['id_desa']) ?></td>
+                                                <td data-field="nama-desa"><?= esc($item['nama_desa']) ?></td>
+                                                <td style="width: 300px;">
+                                                    <a href="javascript:void(0)" class="btn btn-outline-warning btn-sm edit" title="Edit"
+                                                    data-bs-toggle="modal" data-bs-target="#editModal<?= esc($item['id_desa']) ?>">
+                                                        <i class="fas fa-pencil-alt"></i>
+                                                    </a>
+                                                    <a href="/superadmin/desa/delete/<?= esc($item['id_desa']) ?>" class="btn btn-outline-danger btn-sm delete ms-2" title="Delete">
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
                                             <?php endforeach; ?>
                                         <?php else: ?>
                                             <tr>
@@ -124,33 +122,32 @@
 <!-- Modal Edit Desa -->
 <?php if (count($desa) > 0): ?>
     <?php foreach ($desa as $item): ?>
-        <div class="modal fade" id="editModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Edit Desa</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <form action="/superadmin/desa/update/<?= esc($item['id_desa']) ?>" method="post">
-                        <div class="modal-body">
-                            <!-- Hidden input untuk id_kecamatan -->
-                            <input type="hidden" name="id_kecamatan" value="<?= esc($item['id_kecamatan']) ?>">
-
-                            <div class="mb-3">
-                                <label for="edit_nama_desa" class="col-form-label">Nama Desa</label>
-                                <input type="text" class="form-control" id="edit_nama_desa" name="nama_desa" value="<?= esc($item['nama_desa']) ?>" required />
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
-                            <button type="submit" class="btn btn-warning">Perbarui</button>
-                        </div>
-                    </form>
+    <div class="modal fade" id="editModal<?= esc($item['id_desa']) ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editModalLabel<?= esc($item['id_desa']) ?>" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel<?= esc($item['id_desa']) ?>">Edit Desa</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+                <form action="/superadmin/desa/update/<?= esc($item['id_desa']) ?>" method="post">
+                    <div class="modal-body">
+                        <input type="hidden" name="id_kecamatan" value="<?= esc($item['id_kecamatan']) ?>">
+                        <div class="mb-3">
+                            <label for="edit_nama_desa_<?= esc($item['id_desa']) ?>" class="col-form-label">Nama Desa</label>
+                            <input type="text" class="form-control" id="edit_nama_desa_<?= esc($item['id_desa']) ?>" name="nama_desa" value="<?= esc($item['nama_desa']) ?>" required />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-warning">Perbarui</button>
+                    </div>
+                </form>
             </div>
         </div>
+    </div>
     <?php endforeach; ?>
 <?php endif; ?>
+
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
