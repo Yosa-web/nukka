@@ -77,13 +77,13 @@
                 <img
                     src="/assets/images/bupati.png"
                     alt="Ketua"
-                    class="img-fluid" />
+                    class="img-fluid hidden" />
             </div>
             <div class="col-6 col-md-4 p-2">
                 <img
                     src="/assets/images/wakil-bupati.png"
                     alt="Wakil"
-                    class="img-fluid" />
+                    class="img-fluid hidden" />
             </div>
         </div>
     </section>
@@ -103,7 +103,7 @@
         </div>
         <?php if (!empty($beritas) && is_array($beritas)): ?>
             <?php foreach (array_slice($beritas, -3) as $berita): ?> <!-- Menampilkan 3 data terakhir -->
-                <div class="news-item">
+                <div class="news-item hidden">
                     <div class="news-image">
                         <?php if ($berita['gambar']): ?>
                             <img

@@ -102,7 +102,7 @@
                             placeholder="Masukkan Nama Anda" value="<?= old('name') ?>"
                             required />
                         <div class="invalid-feedback">
-                            Please Enter Name
+                            Mohon masukkan nama anda
                         </div>
                     </div>
                     <!-- NIK -->
@@ -114,7 +114,8 @@
                             id="floatingNikInput" name="NIK" inputmode="text" autocomplete="nik"
                             placeholder="Masukkan NIK Anda" value="<?= old('NIK') ?>"
                             required />
-                        <div class="invalid-feedback">Please Enter NIK</div>
+                        <div class="invalid-feedback"> Mohon masukkan NIK anda
+                        </div>
                     </div>
                     <!-- Email -->
                     <div class="mb-3">
@@ -126,7 +127,7 @@
                             placeholder="Masukkan Email Anda" value="<?= old('email') ?>"
                             required />
                         <div class="invalid-feedback">
-                            Please Enter Email
+                            Mohon masukkan email anda
                         </div>
                     </div>
                     <!-- Telepon -->
@@ -139,7 +140,7 @@
                             placeholder="Masukkan Nomor Telepon" value="<?= old('no_telepon') ?>"
                             required />
                         <div class="invalid-feedback">
-                            Please Enter Phone Number
+                            Mohon masukkan nomor telepon anda
                         </div>
                     </div>
                     <!-- Password -->
@@ -160,7 +161,7 @@
                             </button>
                             <div
                                 class="invalid-feedback"
-                                id="password-error">
+                                id="password-error"> Mohon masukkan kata sandi anda
                             </div>
                         </div>
                     </div>
@@ -182,7 +183,8 @@
                             </button>
                             <div
                                 class="invalid-feedback"
-                                id="repassword-error">
+                                id="repassword-error"> Mohon masukkan kembali kata sandi anda
+
                             </div>
                         </div>
                     </div>

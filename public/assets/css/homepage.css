@@ -87,6 +87,33 @@ body {
     color: #0077c2;
 }
 
+/* Animasi Slide Up */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(70px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Awal elemen yang tersembunyi */
+.hidden {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.6s ease-in-out;
+}
+
+/* Elemen yang muncul */
+.animate-on-scroll {
+    animation: slideUp 0.8s ease-in-out forwards;
+}
+
+/* Animasi Slide Up */
+
 .carousel-inner img {
     width: 100%;
     height: 550px;
@@ -476,7 +503,7 @@ body {
 }
 
 .content-row {
-    margin-top: 48px;
+    margin-top: 28px;
 }
 
 .page-title-left {
@@ -723,10 +750,13 @@ body {
 .peta-content {
     position: relative;
 }
+
 #map {
     width: 100%;
-    height: 500px; /* Pastikan tinggi sudah ditentukan */
-    margin-top: 20px; /* Atur jarak dari elemen atas jika perlu */
+    height: 500px;
+    /* Pastikan tinggi sudah ditentukan */
+    margin-top: 20px;
+    /* Atur jarak dari elemen atas jika perlu */
 }
 
 /* Mobile View */
@@ -978,14 +1008,17 @@ body {
     .head-news h2 {
         padding-top: 25px;
     }
+
     .dot-style .slick-dots {
         bottom: -60px;
     }
+
     .dot-style .slick-dots button {
         height: 6px;
         width: 6px;
         margin-right: 8px;
     }
+
     .dot-style .slick-active button {
         width: 28px;
     }

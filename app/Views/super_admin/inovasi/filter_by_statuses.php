@@ -49,9 +49,9 @@
                                         <th class="text-center" style="width: 220px">Judul Inovasi</th>
                                         <th class="text-center" style="width: 250px">Deskripsi</th>
                                         <th class="text-center" style="width: 100px">Kategori</th>
-                                        <th class="text-center" style="width: 120px">Tanggal Pengajuan</th>
+                                        <th class="text-center" style="width: 100px">Tanggal Pengajuan</th>
                                         <th class="text-center" style="width: 70px">Status</th>
-                                        <th class="text-center" style="width: 120px">Aksi</th>
+                                        <th class="text-center" style="width: 150px">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>

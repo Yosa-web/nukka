@@ -10,7 +10,7 @@
     </ol>
 </div>
 <div class="container-fluid mb-5">
-    <h1 class="pb-4 pt-5 fw-semibold">Berita Terbaru</h1>
+    <h1 class="pb-4 pt-4 fw-semibold">Berita Terbaru</h1>
     <div class="row row-1">
         <div class="col-sm-8 head-news">
             <?php if ($new_berita['gambar']): ?>
@@ -23,7 +23,7 @@
                         <span><?= esc($new_berita['uploaded_by_username']) ?></span>
                     </div>
                     <div class="news-title">
-                        <?= substr($new_berita['judul'], 0, 120) . '...' ?>
+                        <a href="<?= base_url('berita/detail/' . $new_berita['slug']) ?>"><?= substr($new_berita['judul'], 0, 120) . '...' ?></a>
                     </div>
                     <div class="news-description">
                         <?= substr($new_berita['isi'], 0, 530) . '...' ?>
@@ -69,7 +69,7 @@
         <div class="col-sm-8 mb-5">
             <?php if (!empty($beritas) && is_array($beritas)): ?>
                 <?php foreach ($beritas as $berita): ?> <!-- Menampilkan 3 data terakhir -->
-                    <div class="news-other pt-3">
+                    <div class="news-other pt-3 hidden">
                         <?php if ($berita['gambar']): ?>
                             <img
                                 src="<?= base_url($berita['gambar']) ?>"

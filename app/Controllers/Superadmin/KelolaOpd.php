@@ -182,7 +182,7 @@ class KelolaOpd extends BaseController
 
         if ($existingOpd) {
             // Jika nama_opd sudah digunakan, kembalikan dengan pesan error
-            return redirect()->back()->withInput()->with('errors', ['nama_opd' => 'Nama OPD harus unik.']);
+            return redirect()->back()->withInput()->with('errors', ['nama_opd' => 'Nama OPD sudah terpakai.']);
         }
 
         // Data yang akan diupdate

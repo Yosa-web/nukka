@@ -1,0 +1,248 @@
+INFO - 2024-12-09 04:23:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:23:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:23:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:23:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:23:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:23:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:23:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-12-09 04:23:51 --> [DEPRECATED] Creation of dynamic property App\Controllers\Superadmin\Dashboard::$logModel is deprecated in APPPATH\Controllers\Superadmin\Dashboard.php on line 12.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Superadmin\Dashboard->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\Apps\\Laragon\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-12-09 04:23:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:28:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:28:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:28:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:28:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:29:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:29:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:29:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:30:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:30:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:30:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:30:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:31:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:31:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:32:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2024-12-09 04:32:01 --> Array
+(
+    [judul] => Bupati Dendi Ramadhona Hadiri Peletakan Batu Pertama Pembangunan Masjid
+    [isi] => <p>Bupati Dendi Ramadhona Hadiri Peletakan Batu Pertama Pembangunan Masji...Bupati Dendi Ramadhona Hadiri Peletakan Batu Pertama Pembangunan Masji...Bupati Dendi Ramadhona Hadiri Peletakan Batu Pertama Pembangunan Masji...Bupati Dendi Ramadhona Hadiri Peletakan Batu Pertama Pembangunan Masji...Bupati Dendi Ramadhona Hadiri Peletakan Batu Pertama Pembangunan Masji...Bupati Dendi Ramadhona Hadiri Peletakan Batu Pertama Pembangunan Masji...Bupati Dendi Ramadhona Hadiri Peletakan Batu Pertama Pembangunan Masji...Bupati Dendi Ramadhona Hadiri Peletakan Batu Pertama Pembangunan Masji...Bupati Dendi Ramadhona Hadiri Peletakan Batu Pertama Pembangunan Masji...</p>
+    [status] => draft
+)
+
+DEBUG - 2024-12-09 04:32:01 --> Image moved successfully: 1733718721_2119c738c3866d477570.png
+INFO - 2024-12-09 04:32:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:32:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:32:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:32:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:32:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:32:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:32:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:36:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:36:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:36:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:36:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:36:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:40:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:40:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:43:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:43:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:44:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:44:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:44:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:44:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:44:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:44:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:44:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:44:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:44:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:44:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:47:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:47:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:48:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:48:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:48:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:50:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-12-09 04:50:31 --> [DEPRECATED] Creation of dynamic property App\Controllers\Superadmin\KelolaUser::$userModel is deprecated in APPPATH\Controllers\Superadmin\KelolaUser.php on line 20.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Superadmin\KelolaUser->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\Apps\\Laragon\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-12-09 04:50:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:50:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-12-09 04:50:44 --> [DEPRECATED] Creation of dynamic property App\Controllers\Superadmin\KelolaUser::$userModel is deprecated in APPPATH\Controllers\Superadmin\KelolaUser.php on line 20.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Superadmin\KelolaUser->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\Apps\\Laragon\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-12-09 04:50:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 04:50:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-12-09 04:50:55 --> [DEPRECATED] Creation of dynamic property App\Controllers\Superadmin\KelolaUser::$userModel is deprecated in APPPATH\Controllers\Superadmin\KelolaUser.php on line 20.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Superadmin\KelolaUser->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\Apps\\Laragon\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-12-09 04:50:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-12-09 04:50:55 --> [DEPRECATED] Creation of dynamic property App\Controllers\Superadmin\KelolaUser::$userModel is deprecated in APPPATH\Controllers\Superadmin\KelolaUser.php on line 20.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Superadmin\KelolaUser->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\Apps\\Laragon\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-12-09 04:50:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 06:22:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-12-09 06:22:57 --> [DEPRECATED] Creation of dynamic property App\Controllers\Superadmin\KelolaUser::$userModel is deprecated in APPPATH\Controllers\Superadmin\KelolaUser.php on line 20.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Superadmin\KelolaUser->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\Apps\\Laragon\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-12-09 06:22:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 06:23:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-12-09 06:23:00 --> [DEPRECATED] Creation of dynamic property App\Controllers\Superadmin\KelolaUser::$userModel is deprecated in APPPATH\Controllers\Superadmin\KelolaUser.php on line 20.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Superadmin\KelolaUser->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\Apps\\Laragon\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-12-09 06:23:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 06:23:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2024-12-09 06:23:05 --> [DEPRECATED] Creation of dynamic property App\Controllers\Superadmin\KelolaUser::$userModel is deprecated in APPPATH\Controllers\Superadmin\KelolaUser.php on line 20.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Superadmin\KelolaUser->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('D:\\Apps\\Laragon\\laragon\\www\\Runov_Litbang\\public\\index.php')
+INFO - 2024-12-09 06:23:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-12-09 06:58:09 --> mysqli_sql_exception: Server shutdown in progress in D:\Apps\Laragon\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 D:\Apps\Laragon\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT *\nFROM `...', 0)
+#1 D:\Apps\Laragon\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 D:\Apps\Laragon\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 D:\Apps\Laragon\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\Apps\Laragon\laragon\www\Runov_Litbang\vendor\codeigniter4\settings\src\Handlers\DatabaseHandler.php(186): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Apps\Laragon\laragon\www\Runov_Litbang\vendor\codeigniter4\settings\src\Handlers\DatabaseHandler.php(51): CodeIgniter\Settings\Handlers\DatabaseHandler->hydrate(NULL)
+#6 D:\Apps\Laragon\laragon\www\Runov_Litbang\vendor\codeigniter4\settings\src\Settings.php(59): CodeIgniter\Settings\Handlers\DatabaseHandler->has('Config\\Auth', 'sessionConfig', NULL)
+#7 D:\Apps\Laragon\laragon\www\Runov_Litbang\vendor\codeigniter4\settings\src\Helpers\setting_helper.php(25): CodeIgniter\Settings\Settings->get('Auth.sessionCon...')
+#8 D:\Apps\Laragon\laragon\www\Runov_Litbang\vendor\codeigniter4\shield\src\Authentication\Authenticators\Session.php(685): setting('Auth.sessionCon...')
+#9 D:\Apps\Laragon\laragon\www\Runov_Litbang\vendor\codeigniter4\shield\src\Authentication\Authenticators\Session.php(703): CodeIgniter\Shield\Authentication\Authenticators\Session->getSessionUserInfo()
+#10 D:\Apps\Laragon\laragon\www\Runov_Litbang\vendor\codeigniter4\shield\src\Authentication\Authenticators\Session.php(390): CodeIgniter\Shield\Authentication\Authenticators\Session->getSessionUserKey('id')
+#11 D:\Apps\Laragon\laragon\www\Runov_Litbang\vendor\codeigniter4\shield\src\Authentication\Authenticators\Session.php(374): CodeIgniter\Shield\Authentication\Authenticators\Session->checkUserState()
+#12 D:\Apps\Laragon\laragon\www\Runov_Litbang\vendor\codeigniter4\shield\src\Auth.php(191): CodeIgniter\Shield\Authentication\Authenticators\Session->loggedIn()
+#13 D:\Apps\Laragon\laragon\www\Runov_Litbang\vendor\codeigniter4\shield\src\Filters\AbstractAuthFilter.php(40): CodeIgniter\Shield\Auth->__call('loggedIn', Array)
+#14 D:\Apps\Laragon\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Filters\Filters.php(203): CodeIgniter\Shield\Filters\AbstractAuthFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), Array)
+#15 D:\Apps\Laragon\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Filters\Filters.php(184): CodeIgniter\Filters\Filters->runBefore(Array)
+#16 D:\Apps\Laragon\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(481): CodeIgniter\Filters\Filters->run('superadmin/user...', 'before')
+#17 D:\Apps\Laragon\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#18 D:\Apps\Laragon\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#19 D:\Apps\Laragon\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#20 D:\Apps\Laragon\laragon\www\Runov_Litbang\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#21 D:\Apps\Laragon\laragon\www\Runov_Litbang\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('D:\\Apps\\Laragon...')
+#22 {main}
+CRITICAL - 2024-12-09 06:58:09 --> CodeIgniter\Database\Exceptions\DatabaseException: Server shutdown in progress
+[Method: GET, Route: superadmin/user/list/admin]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `settings`
+WHERE `context` IS NULL', [], false)
+ 2 VENDORPATH\codeigniter4\settings\src\Handlers\DatabaseHandler.php(186): CodeIgniter\Database\BaseBuilder->get()
+ 3 VENDORPATH\codeigniter4\settings\src\Handlers\DatabaseHandler.php(51): CodeIgniter\Settings\Handlers\DatabaseHandler->hydrate(null)
+ 4 VENDORPATH\codeigniter4\settings\src\Settings.php(59): CodeIgniter\Settings\Handlers\DatabaseHandler->has('Config\\Auth', 'sessionConfig', null)
+ 5 VENDORPATH\codeigniter4\settings\src\Helpers\setting_helper.php(25): CodeIgniter\Settings\Settings->get('Auth.sessionConfig')
+ 6 VENDORPATH\codeigniter4\shield\src\Authentication\Authenticators\Session.php(685): setting('Auth.sessionConfig')
+ 7 VENDORPATH\codeigniter4\shield\src\Authentication\Authenticators\Session.php(703): CodeIgniter\Shield\Authentication\Authenticators\Session->getSessionUserInfo()
+ 8 VENDORPATH\codeigniter4\shield\src\Authentication\Authenticators\Session.php(390): CodeIgniter\Shield\Authentication\Authenticators\Session->getSessionUserKey('id')
+ 9 VENDORPATH\codeigniter4\shield\src\Authentication\Authenticators\Session.php(374): CodeIgniter\Shield\Authentication\Authenticators\Session->checkUserState()
+10 VENDORPATH\codeigniter4\shield\src\Auth.php(191): CodeIgniter\Shield\Authentication\Authenticators\Session->loggedIn()
+11 VENDORPATH\codeigniter4\shield\src\Filters\AbstractAuthFilter.php(40): CodeIgniter\Shield\Auth->__call('loggedIn', [])
+12 SYSTEMPATH\Filters\Filters.php(203): CodeIgniter\Shield\Filters\AbstractAuthFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+13 SYSTEMPATH\Filters\Filters.php(184): CodeIgniter\Filters\Filters->runBefore([...])
+14 SYSTEMPATH\CodeIgniter.php(481): CodeIgniter\Filters\Filters->run('superadmin/user/list/admin', 'before')
+15 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+16 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+17 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+18 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+19 SYSTEMPATH\rewrite.php(44): require_once('D:\\Apps\\Laragon\\laragon\\www\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-12-09 06:58:09 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Server shutdown in progress
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `settings`
+WHERE `context` IS NULL')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `settings`
+WHERE `context` IS NULL')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `settings`
+WHERE `context` IS NULL', [], false)
+ 4 VENDORPATH\codeigniter4\settings\src\Handlers\DatabaseHandler.php(186): CodeIgniter\Database\BaseBuilder->get()
+ 5 VENDORPATH\codeigniter4\settings\src\Handlers\DatabaseHandler.php(51): CodeIgniter\Settings\Handlers\DatabaseHandler->hydrate(null)
+ 6 VENDORPATH\codeigniter4\settings\src\Settings.php(59): CodeIgniter\Settings\Handlers\DatabaseHandler->has('Config\\Auth', 'sessionConfig', null)
+ 7 VENDORPATH\codeigniter4\settings\src\Helpers\setting_helper.php(25): CodeIgniter\Settings\Settings->get('Auth.sessionConfig')
+ 8 VENDORPATH\codeigniter4\shield\src\Authentication\Authenticators\Session.php(685): setting('Auth.sessionConfig')
+ 9 VENDORPATH\codeigniter4\shield\src\Authentication\Authenticators\Session.php(703): CodeIgniter\Shield\Authentication\Authenticators\Session->getSessionUserInfo()
+10 VENDORPATH\codeigniter4\shield\src\Authentication\Authenticators\Session.php(390): CodeIgniter\Shield\Authentication\Authenticators\Session->getSessionUserKey('id')
+11 VENDORPATH\codeigniter4\shield\src\Authentication\Authenticators\Session.php(374): CodeIgniter\Shield\Authentication\Authenticators\Session->checkUserState()
+12 VENDORPATH\codeigniter4\shield\src\Auth.php(191): CodeIgniter\Shield\Authentication\Authenticators\Session->loggedIn()
+13 VENDORPATH\codeigniter4\shield\src\Filters\AbstractAuthFilter.php(40): CodeIgniter\Shield\Auth->__call('loggedIn', [])
+14 SYSTEMPATH\Filters\Filters.php(203): CodeIgniter\Shield\Filters\AbstractAuthFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+15 SYSTEMPATH\Filters\Filters.php(184): CodeIgniter\Filters\Filters->runBefore([...])
+16 SYSTEMPATH\CodeIgniter.php(481): CodeIgniter\Filters\Filters->run('superadmin/user/list/admin', 'before')
+17 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+18 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+19 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+20 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+21 SYSTEMPATH\rewrite.php(44): require_once('D:\\Apps\\Laragon\\laragon\\www\\Runov_Litbang\\public\\index.php')
+CRITICAL - 2024-12-09 06:58:09 --> [Caused by] mysqli_sql_exception: Server shutdown in progress
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT *
+FROM `settings`
+WHERE `context` IS NULL', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `settings`
+WHERE `context` IS NULL')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `settings`
+WHERE `context` IS NULL')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `settings`
+WHERE `context` IS NULL', [], false)
+ 5 VENDORPATH\codeigniter4\settings\src\Handlers\DatabaseHandler.php(186): CodeIgniter\Database\BaseBuilder->get()
+ 6 VENDORPATH\codeigniter4\settings\src\Handlers\DatabaseHandler.php(51): CodeIgniter\Settings\Handlers\DatabaseHandler->hydrate(null)
+ 7 VENDORPATH\codeigniter4\settings\src\Settings.php(59): CodeIgniter\Settings\Handlers\DatabaseHandler->has('Config\\Auth', 'sessionConfig', null)
+ 8 VENDORPATH\codeigniter4\settings\src\Helpers\setting_helper.php(25): CodeIgniter\Settings\Settings->get('Auth.sessionConfig')
+ 9 VENDORPATH\codeigniter4\shield\src\Authentication\Authenticators\Session.php(685): setting('Auth.sessionConfig')
+10 VENDORPATH\codeigniter4\shield\src\Authentication\Authenticators\Session.php(703): CodeIgniter\Shield\Authentication\Authenticators\Session->getSessionUserInfo()
+11 VENDORPATH\codeigniter4\shield\src\Authentication\Authenticators\Session.php(390): CodeIgniter\Shield\Authentication\Authenticators\Session->getSessionUserKey('id')
+12 VENDORPATH\codeigniter4\shield\src\Authentication\Authenticators\Session.php(374): CodeIgniter\Shield\Authentication\Authenticators\Session->checkUserState()
+13 VENDORPATH\codeigniter4\shield\src\Auth.php(191): CodeIgniter\Shield\Authentication\Authenticators\Session->loggedIn()
+14 VENDORPATH\codeigniter4\shield\src\Filters\AbstractAuthFilter.php(40): CodeIgniter\Shield\Auth->__call('loggedIn', [])
+15 SYSTEMPATH\Filters\Filters.php(203): CodeIgniter\Shield\Filters\AbstractAuthFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), [...])
+16 SYSTEMPATH\Filters\Filters.php(184): CodeIgniter\Filters\Filters->runBefore([...])
+17 SYSTEMPATH\CodeIgniter.php(481): CodeIgniter\Filters\Filters->run('superadmin/user/list/admin', 'before')
+18 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+19 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+20 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+21 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+22 SYSTEMPATH\rewrite.php(44): require_once('D:\\Apps\\Laragon\\laragon\\www\\Runov_Litbang\\public\\index.php')

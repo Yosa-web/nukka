@@ -46,16 +46,15 @@ $jenis_inovasi = $jenisInovasiModel->findAll();
 		<div class="topbar">
 			<span>Kabupaten Pesawaran</span>
 			<div class="topbar-social">
-				<a href="#"><i class="fab fa-facebook"></i></a>
-				<a href="#"><i class="fab fa-twitter"></i></a>
-				<a href="#"><i class="fab fa-instagram"></i></a>
-				<a href="#"><i class="fab fa-youtube"></i></a>
+				<a href="https://www.facebook.com/arisapriyadiking/" target="_blank"><i class="fab fa-facebook"></i></a>
+				<a href="https://www.instagram.com/balitbangpesawaran" target="_blank"><i class="fab fa-instagram"></i></a>
+				<a href="https://youtube.com/@balitbangpesawaran3884?si=x9v-nndnx2ER7KjH" target="_blank"><i class="fab fa-youtube"></i></a>
 			</div>
 		</div>
 		<!-- Navbar -->
 		<nav class="navbar navbar-expand-lg" id="mainNavbar">
 			<div class="container-fluid justify-content-between">
-				<a class="navbar-brand d-flex align-items-center" href="#">
+				<a class="navbar-brand d-flex align-items-center" href="<?= base_url('beranda') ?>">
 					<img
 						src="/assets/images/logo_litbang.png"
 						alt="Logo Balitbang Pesawaran" />
@@ -91,32 +90,6 @@ $jenis_inovasi = $jenisInovasiModel->findAll();
 						<li class="nav-item">
 							<a class="nav-link" href="<?= base_url('database-inovasi') ?>">Database Inovasi</a>
 						</li>
-						<!-- <li class="nav-item dropdown">
-							<a
-								class="nav-link dropdown-toggle"
-								href="#"
-								id="databaseInovasiDropdown"
-								role="button"
-								data-bs-toggle="dropdown"
-								aria-expanded="false">
-								Database Inovasi
-								<i class="bx bxs-chevron-down ms-1"></i>
-							</a>
-							<div class="dropdown-menu" aria-labelledby="databaseInovasiDropdown">
-								<?php if (isset($jenis_inovasi) && count($jenis_inovasi) > 0) : ?>
-									<?php foreach ($jenis_inovasi as $jenis) : ?>
-										<a
-											class="dropdown-item"
-											href="#"
-											onclick="fetchInovasi(<?= $jenis['id_jenis_inovasi'] ?>)">
-											<?= $jenis['nama_jenis'] ?>
-										</a>
-									<?php endforeach; ?>
-								<?php else : ?>
-									<p class="dropdown-item">No data available</p>
-								<?php endif; ?>
-							</div>
-						</li> -->
 						<li class="nav-item">
 							<a class="nav-link" href="<?= base_url('peta-inovasi') ?>">Peta Inovasi</a>
 						</li>
@@ -206,6 +179,30 @@ $jenis_inovasi = $jenisInovasiModel->findAll();
 	<script src="/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="/assets/libs/node-waves/waves.min.js"></script>
 	<script src="/assets/libs/feather-icons/feather.min.js"></script>
+	<script>
+		document.addEventListener("DOMContentLoaded", () => {
+			const elements = document.querySelectorAll(".hidden");
+
+			const observer = new IntersectionObserver(
+				(entries, observer) => {
+					entries.forEach(entry => {
+						if (entry.isIntersecting) {
+							// Menambahkan kelas animasi setiap kali elemen terlihat
+							entry.target.classList.add("animate-on-scroll");
+							// Elemen tetap diamati untuk animasi berikutnya
+							entry.target.classList.remove("animate-on-scroll");
+							void entry.target.offsetWidth; // Force reflow untuk reset animasi
+							entry.target.classList.add("animate-on-scroll");
+						}
+					});
+				}, {
+					threshold: 0.2 // Persentase elemen yang terlihat di viewport
+				}
+			);
+
+			elements.forEach(element => observer.observe(element));
+		});
+	</script>
 	<!-- pace js -->
 	<script src="/assets/libs/pace-js/pace.min.js"></script>
 	<!-- Plugins js-->
@@ -226,7 +223,7 @@ $jenis_inovasi = $jenisInovasiModel->findAll();
 		});
 	</script>
 	<!-- Buttons examples -->
-    <script src="/assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+	<script src="/assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
 	<script>
 		window.addEventListener("scroll", function() {
 			const navbar = document.querySelector(".navbar");
@@ -328,35 +325,24 @@ $jenis_inovasi = $jenisInovasiModel->findAll();
 	</script>
 	<script>
 		document.addEventListener("DOMContentLoaded", function() {
-			const currentUrl = window.location.pathname; // Mendapatkan URL path saat ini
-			const navLinks = document.querySelectorAll(".nav-link"); // Mendapatkan semua elemen nav-link
+			// Mendapatkan path URL saat ini tanpa query string
+			const currentUrl = window.location.pathname;
 
-			// Menambahkan kelas active pada setiap nav-link yang cocok dengan halaman saat ini
+			// Mendapatkan semua elemen nav-link
+			const navLinks = document.querySelectorAll(".nav-link");
+
 			navLinks.forEach((link) => {
-				if (currentUrl.includes(link.getAttribute("href"))) {
+				// Mendapatkan path dari atribut href
+				const linkPath = new URL(link.href).pathname;
+
+				// Memeriksa kecocokan URL
+				if (currentUrl === linkPath) {
 					link.classList.add("active");
 				}
 			});
-
-			// Menangani kasus khusus untuk dropdown 'Database Inovasi'
-			const dropdownMenu = document.getElementById(
-				"databaseInovasiDropdown",
-			);
-			if (dropdownMenu) {
-				if (currentUrl.includes("database-riset")) {
-					dropdownMenu.classList.add("active");
-					document
-						.querySelector('a[href="database-riset.html"]')
-						.classList.add("active");
-				} else if (currentUrl.includes("database-inovasi")) {
-					dropdownMenu.classList.add("active");
-					document
-						.querySelector('a[href="database-inovasi.html"]')
-						.classList.add("active");
-				}
-			}
 		});
 	</script>
+
 </body>
 
 </html>

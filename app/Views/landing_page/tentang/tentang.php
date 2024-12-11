@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="col-sm-4 headline-content">
-            <h3 class="fw-semibold mb-4">Headline Terbaru</h3>
+            <h3 class="fw-semibold mb-2">Headline Terbaru</h3>
             <div class="scrollable-headline">
             <?php if (!empty($beritas) && is_array($beritas)): ?>
             <?php foreach ($beritas as $berita): ?>
