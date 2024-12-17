@@ -22,7 +22,7 @@
                                     <a href="#">Data Pengguna</a>
                                 </li>
                                 <li class="breadcrumb-item active">
-                                    <a href="/superadmin/user/list/admin">Admin</a>
+                                    <a href="<?= base_url('superadmin/user/list/admin') ?>">Admin</a>
                                 </li>
                             </ol>
                         </div>
@@ -40,10 +40,14 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header d-flex justify-content-end">
-                            <button type="button" class="btn btn-light btn-label position-relative me-3" onclick="window.location.href='/useractivation'"><i class="bx bx-check-double label-icon"></i>
-                                Verifikasi Admin <span class="position-absolute top-0 start-100 translate-middle badge border border-light rounded-circle bg-danger p-1"><span class="visually-hidden">unread messages</span></span>
+                            <button type="button" class="btn btn-light btn-label position-relative me-3" onclick="window.location.href='<?= base_url('useractivation') ?>'">
+                                <i class="bx bx-check-double label-icon"></i>
+                                Verifikasi Admin
+                                <span id="badge-indicator" class="position-absolute top-0 start-100 translate-middle badge border border-light rounded-circle bg-danger p-1 d-none">
+                                    <span class="visually-hidden">unread messages</span>
+                                </span>
                             </button>
-                            <button type="button" class="btn btn-primary waves-effect btn-label waves-light" onclick="window.location.href='<?= site_url('superadmin/adminopd/create'); ?>'"><i class="bx bx-plus label-icon"></i>Tambah Data</button>
+                            <button type="button" class="btn btn-primary waves-effect btn-label waves-light" onclick="window.location.href='<?= base_url('superadmin/adminopd/create') ?>'"><i class="bx bx-plus label-icon"></i>Tambah Data</button>
                         </div>
                         <div class="card-body">
                             <?php if (!empty($penggunaOPD)): ?>
@@ -77,13 +81,13 @@
                                                     <?php endif; ?>
                                                 </td>
                                                 <td class="text-center">
-                                                <?php
-                                                        // Mengambil encrypter dari service
-                                                        $encrypter = \Config\Services::encrypter();
+                                                    <?php
+                                                    // Mengambil encrypter dari service
+                                                    $encrypter = \Config\Services::encrypter();
 
-                                                        // Pastikan id dikonversi ke string sebelum dienkripsi
-                                                        $idString = strval($user['id']);
-                                                        $encryptedId = bin2hex($encrypter->encrypt($idString));
+                                                    // Pastikan id dikonversi ke string sebelum dienkripsi
+                                                    $idString = strval($user['id']);
+                                                    $encryptedId = bin2hex($encrypter->encrypt($idString));
                                                     ?>
                                                     <a href="<?= site_url('/superadmin/user/edit/admin/' . $encryptedId); ?>" class="btn btn-outline-warning btn-sm edit mb-3" title="Edit">
                                                         <i class="fas fa-pencil-alt"></i>
@@ -140,4 +144,28 @@
         });
     });
 </script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        function checkNonActiveAdmins() {
+            fetch('<?= base_url('useractivation/count') ?>')
+                .then(response => response.json())
+                .then(data => {
+                    const badgeIndicator = document.getElementById('badge-indicator');
+                    if (data.count > 0) {
+                        badgeIndicator.classList.remove('d-none'); // Tampilkan badge jika ada data
+                    } else {
+                        badgeIndicator.classList.add('d-none'); // Sembunyikan badge jika tidak ada data
+                    }
+                })
+                .catch(error => console.error('Error fetching non-active admins:', error));
+        }
+
+        // Panggil fungsi saat halaman dimuat
+        checkNonActiveAdmins();
+
+        // Refresh otomatis setiap interval tertentu (opsional)
+        setInterval(checkNonActiveAdmins, 60000); // 60 detik
+    });
+</script>
+
 <?= $this->endSection(); ?>

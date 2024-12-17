@@ -4,7 +4,7 @@
 <div class="page-title-left">
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-            <a href="beranda.html">Beranda</a>
+            <a href="<?= base_url('beranda') ?>">Beranda</a>
         </li>
         <li class="breadcrumb-item active">Foto</li>
     </ol>
@@ -12,78 +12,21 @@
 <div class="container-fluid mb-5">
     <h1 class="pb-4 pt-5 fw-semibold">Galeri Foto</h1>
     <div class="row">
-        <div class="col-sm-4">
-            <div class="galeri-content">
-                <img
-                    src="assets/images/small/img-3.jpg"
-                    alt="Image"
-                    class="myImg" />
-                <h4 class="fw-semibold mb-2 captionClick">
-                    Bupati Dendi Ramadhona Hadiri Peletakan Batu Pertama
-                    Pembangunan Masjid Ash...
-                </h4>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="galeri-content">
-                <img
-                    src="assets/images/small/img-3.jpg"
-                    alt="Image"
-                    class="myImg" />
-                <h4 class="fw-semibold mb-2 captionClick">
-                    Bupati Dendi Ramadhona Hadiri Peletakan Batu Pertama
-                    Pembangunan Masjid Ash...
-                </h4>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="galeri-content">
-                <img
-                    src="assets/images/small/img-3.jpg"
-                    alt="Image"
-                    class="myImg" />
-                <h4 class="fw-semibold mb-2 captionClick">
-                    Bupati Dendi Ramadhona Hadiri Peletakan Batu Pertama
-                    Pembangunan Masjid Ash...
-                </h4>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="galeri-content">
-                <img
-                    src="assets/images/small/img-3.jpg"
-                    alt="Image"
-                    class="myImg" />
-                <h4 class="fw-semibold mb-2 captionClick">
-                    Bupati Dendi Ramadhona Hadiri Peletakan Batu Pertama
-                    Pembangunan Masjid Ash...
-                </h4>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="galeri-content">
-                <img
-                    src="assets/images/small/img-3.jpg"
-                    alt="Image"
-                    class="myImg" />
-                <h4 class="fw-semibold mb-2 captionClick">
-                    Bupati Dendi Ramadhona Hadiri Peletakan Batu Pertama
-                    Pembangunan Masjid Ash...
-                </h4>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="galeri-content">
-                <img
-                    src="assets/images/small/img-3.jpg"
-                    alt="Image"
-                    class="myImg" />
-                <h4 class="fw-semibold mb-2 captionClick">
-                    Bupati Dendi Ramadhona Hadiri Peletakan Batu Pertama
-                    Pembangunan Masjid Ash...
-                </h4>
-            </div>
-        </div>
+        <?php foreach (array_slice($galeri, 3) as $item): ?>
+            <?php if ($item['tipe'] === 'image'): ?>
+                <div class="col-sm-4">
+                    <div class="galeri-content">
+                        <img
+                            src="<?= base_url(esc($item['url'])) ?>"
+                            alt="Image"
+                            class="myImg" />
+                        <h4 class="fw-semibold mb-2 captionClick">
+                            <?= $item['judul'] ?>
+                        </h4>
+                    </div>
+                </div>
+            <?php endif; ?>
+        <?php endforeach; ?>
     </div>
     <!-- pagination -->
     <div class="row justify-content-center mt-4">

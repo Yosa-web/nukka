@@ -146,7 +146,7 @@
                             </h1>
                             <button
                                 class="btn btn-rounded waves-effect waves-light ms-auto"
-                                onclick="window.location.href='foto-all.html'">
+                                onclick="window.location.href='<?= base_url('/foto/lainnya') ?>'">
                                 Tampilkan Semua
                             </button>
                         </div>
@@ -189,7 +189,7 @@
             </h1>
             <button
                 class="btn btn-rounded waves-effect waves-light ms-auto"
-                onclick="window.location.href='video-all.html'">
+                onclick="window.location.href='<?= base_url('/video/lainnya') ?>'">
                 Tampilkan Semua
             </button>
         </div>

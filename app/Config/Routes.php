@@ -126,6 +126,7 @@ $routes->group('', ['filter' => 'group:superadmin'], function ($routes) {
     $routes->post('/superadmin/userumum/update/(:num)', 'Superadmin\KelolaUser::updateUserUmum/$1');
 
     $routes->get('/useractivation', 'Superadmin\KelolaUser::nonActiveList');
+    $routes->get('/useractivation/count', 'Superadmin\KelolaUser::countNonActiveAdmins');
     $routes->post('/useractivation/activate', 'Superadmin\KelolaUser::activate');
     $routes->post('/useractivation/reject', 'Superadmin\KelolaUser::reject');
 
@@ -302,9 +303,10 @@ $routes->get('/regulasi', 'LandingController::regulasi');
 
 //berita
 $routes->get('/berita/lainnya', 'LandingController::semuaBerita');
+$routes->get('/foto/lainnya', 'LandingController::semuaFoto');
+$routes->get('/video/lainnya', 'LandingController::semuaVideo');
 
 $routes->get('handleLogin', 'AuthController::handleLogin');
 
 $routes->get('export', 'Superadmin\ExportController::showExportForm');
 $routes->get('export/csv', 'Superadmin\ExportController::exportToCSV');
-

@@ -84,14 +84,18 @@
                                     <div class="col-sm-9">
                                         <select name="group" id="floatingGroupInput" class="form-select <?= isset(session()->getFlashdata('errors')['group']) ? 'is-invalid' : '' ?>" required>
                                             <option value="" disabled <?= !$currentGroup ? 'selected' : '' ?>>Pilih Jabatan</option>
-                                            <option value="kepala-opd" <?= (old('group', $currentGroup) === 'kepala-opd') ? 'selected' : '' ?>>Kepala OPD</option>
+                                            
+                                            <!-- Hanya tampilkan "Kepala OPD" jika OPD ini belum memiliki kepala atau user saat ini adalah kepala OPD -->
+                                            <?php if (!in_array($user->id_opd, $opdWithHead) || $currentGroup === 'kepala-opd'): ?>
+                                                <option value="kepala-opd" <?= (old('group', $currentGroup) === 'kepala-opd') ? 'selected' : '' ?>>Kepala OPD</option>
+                                            <?php endif; ?>
+
                                             <option value="sekertaris-opd" <?= (old('group', $currentGroup) === 'sekertaris-opd') ? 'selected' : '' ?>>Sekretaris OPD</option>
                                             <option value="operator" <?= (old('group', $currentGroup) === 'operator') ? 'selected' : '' ?>>Operator</option>
                                         </select>
                                     </div>
                                     <div id="status_error" class="error"><?= isset(session()->getFlashdata('errors')['group']) ? session()->getFlashdata('errors')['group'] : '' ?></div>
                                 </div>
-
                                 <!-- Telepon -->
                                 <div class="row mb-3">
                                     <label for="floatingNoTeleponInput" class="col-sm-3 col-form-label">No. Telepon</label>
@@ -111,6 +115,7 @@
                                     </div>
                                     <div id="status_error" class="error"><?= isset(session()->getFlashdata('errors')['active']) ? session()->getFlashdata('errors')['active'] : '' ?></div>
                                 </div>
+
                                 <!-- Email -->
                                 <div class="row mb-3">
                                     <label for="floatingEmailInput" class="col-sm-3 col-form-label">Email</label>
@@ -222,5 +227,8 @@
             }
         });
     });
+
+    
 </script>
+
 <?= $this->endSection(); ?>

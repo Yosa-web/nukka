@@ -9,7 +9,6 @@ use App\Models\GaleriModel;
 use App\Models\OptionWebModel;
 use App\Models\InovasiModel;
 
-
 class LandingController extends BaseController
 {
     protected $inovasiModel;
@@ -123,5 +122,29 @@ class LandingController extends BaseController
         ];
 
         return view('landing_page/berita/berita_lainnya', $data);
+    }
+
+    public function semuaFoto()
+    {
+
+        $galeriModel = new GaleriModel();
+
+        $data = [
+            'galeri' => $galeriModel->findAll(),
+        ];
+
+        return view('landing_page/galeri/galeri_foto', $data);
+    }
+
+    public function semuaVideo()
+    {
+
+        $galeriModel = new GaleriModel();
+
+        $data = [
+            'galeri' => $galeriModel->findAll(),
+        ];
+
+        return view('landing_page/galeri/galeri_video', $data);
     }
 }

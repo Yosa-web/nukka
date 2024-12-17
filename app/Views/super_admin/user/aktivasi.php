@@ -19,7 +19,7 @@
 									<a href="javascript: void(0);">Data Pengguna</a>
 								</li>
 								<li class="breadcrumb-item">
-									<a href="/superadmin/user/list/admin">Admin</a>
+									<a href="<?= base_url('superadmin/user/list/admin') ?>">Admin</a>
 								</li>
 								<li class="breadcrumb-item active">
 									Verifikasi Admin

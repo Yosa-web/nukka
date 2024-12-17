@@ -333,7 +333,6 @@ class KelolaUser extends BaseRegisterController
 
     public function editPegawai(string $id)
     {
-
         // Ambil encrypter dari service untuk dekripsi
         $encrypter = \Config\Services::encrypter();
 
@@ -371,11 +370,33 @@ class KelolaUser extends BaseRegisterController
         $opdModel = new OpdModel();
         $opd = $opdModel->findAll();
 
-        // Kirim data user, grup, dan OPD ke view
+        // Ambil data kepala-opd
+        $db = \Config\Database::connect();
+        $builder = $db->table('auth_groups_users');
+        $builder->select('auth_groups_users.user_id, auth_groups_users.group, users.id_opd');
+        $builder->join('users', 'users.id = auth_groups_users.user_id');
+        $builder->where('auth_groups_users.group', 'kepala-opd');
+        $query = $builder->get();
+        $usersWithHead = $query->getResult();
+
+        // Ambil semua id_opd yang sudah memiliki kepala-opd
+        $opdWithHead = [];
+        foreach ($usersWithHead as $head) {
+            $opdWithHead[] = $head->id_opd;
+        }
+
+        // Jika user yang sedang diedit adalah kepala OPD, tambahkan id_opd-nya ke dalam daftar
+        if ($currentGroup === 'kepala-opd' && !in_array($user->id_opd, $opdWithHead)) {
+            $opdWithHead[] = $user->id_opd;
+        }
+
+
+        // Kirim data user, grup, OPD, dan status ke view
         return view('super_admin/user/pegawai/edit_pegawai', [
             'user' => $user,
             'currentGroup' => $currentGroup, // Kirim grup saat ini ke view
             'opd' => $opd, // Kirim data OPD ke view
+            'opdWithHead' => $opdWithHead, // Kirim daftar OPD yang sudah memiliki kepala
         ]);
     }
 
@@ -742,6 +763,22 @@ class KelolaUser extends BaseRegisterController
 
         return view('super_admin/user/aktivasi', ['users' => $users]);
     }
+
+    public function countNonActiveAdmins()
+    {
+        $userModel = new UserModel();
+
+        // Hitung jumlah pengguna dengan kondisi yang sesuai
+        $count = $userModel
+            ->join('auth_groups_users', 'auth_groups_users.user_id = users.id')
+            ->where('active', 0)
+            ->where('auth_groups_users.group', 'admin-opd')
+            ->countAllResults();
+
+        // Kembalikan response dalam format JSON
+        return $this->response->setJSON(['count' => $count]);
+    }
+
 
 
     public function activate()
