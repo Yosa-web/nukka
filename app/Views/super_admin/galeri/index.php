@@ -7,12 +7,8 @@
             <!-- start page title -->
             <div class="row">
                 <div class="col-12">
-                    <div
-                        class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h3 class="mb-sm-0">
-                            Kelola Galeri
-                        </h3>
-
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h3 class="mb-sm-0">Kelola Galeri</h3>
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item">
@@ -26,40 +22,15 @@
                     </div>
                 </div>
             </div>
-            <!-- Style added here -->
-            <style>
-                .card-img-overlay {
-                    opacity: 0;
-                    transition: opacity 0.3s ease-in-out;
-                    background-color: rgba(0, 0, 0, 0.5);
-                }
 
-                .card-img:hover {
-                    filter: brightness(75%);
-                }
-
-                .card-img-overlay:hover {
-                    opacity: 1;
-                }
-
-                .card-img {
-                    aspect-ratio: 3 / 2;
-                    width: 100%;
-                }
-
-                .card-img img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
-            </style>
-            <!-- End of style -->
+            <!-- Flash messages -->
             <?php if (session()->getFlashdata('errors') || session()->getFlashdata('success')): ?>
                 <div class="alert alert-dismissible fade show <?= session()->getFlashdata('errors') ? 'alert-danger' : 'alert-success' ?>">
                     <?= session()->getFlashdata('errors') ?: session()->getFlashdata('success') ?>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             <?php endif; ?>
+
             <div class="row">
                 <div class="col-xl-12">
                     <div class="card">
@@ -89,7 +60,7 @@
                                     <div class="row mt-3">
                                         <?php foreach ($galeri as $item): ?>
                                             <?php if ($item['tipe'] === 'image'): ?>
-                                                <div class="col-lg-4">
+                                                <div class="col-md-4 col-sm-6 mb-4">
                                                     <div class="card">
                                                         <img class="card-img img-fluid" src="<?= base_url(esc($item['url'])) ?>" alt="galeri image">
                                                         <div class="card-img-overlay">
@@ -119,59 +90,25 @@
                                             <?php endif; ?>
                                         <?php endforeach; ?>
                                     </div>
-                                    <div class="row justify-content-center mt-2">
-                                        <div class="col-md-3">
-                                            <div class="">
-                                                <ul class="pagination mb-sm-0">
-                                                    <li class="page-item disabled">
-                                                        <a href="#" class="page-link"><i class="mdi mdi-chevron-left"></i></a>
-                                                    </li>
-                                                    <li class="page-item active">
-                                                        <a href="#" class="page-link">1</a>
-                                                    </li>
-                                                    <li class="page-item">
-                                                        <a href="#" class="page-link">2</a>
-                                                    </li>
-                                                    <li class="page-item">
-                                                        <a href="#" class="page-link">3</a>
-                                                    </li>
-                                                    <li class="page-item">
-                                                        <a href="#" class="page-link">4</a>
-                                                    </li>
-                                                    <li class="page-item">
-                                                        <a href="#" class="page-link">5</a>
-                                                    </li>
-                                                    <li class="page-item">
-                                                        <a href="#" class="page-link"><i class="mdi mdi-chevron-right"></i></a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                                 <div class="tab-pane" id="video" role="tabpanel">
                                     <div class="row mt-3">
                                         <?php foreach ($galeri as $item): ?>
                                             <?php if ($item['tipe'] === 'video'): ?>
-                                                <div class="col-xl-4 col-sm-6">
+                                                <div class="col-md-4 col-sm-6 mb-4">
                                                     <div class="card">
                                                         <div class="ratio ratio-16x9">
                                                             <?php
                                                             $youtubeUrl = htmlspecialchars($item['url']);
-
-                                                            // Ekstrak ID video dari URL
                                                             preg_match('/(?:youtu\.be\/|youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=))([a-zA-Z0-9_-]{11})/', $youtubeUrl, $matches);
                                                             $videoId = isset($matches[1]) ? $matches[1] : null;
-
-                                                            // Buat URL embed
                                                             if ($videoId) {
                                                                 $embedUrl = "https://www.youtube.com/embed/" . $videoId;
-                                                                echo $embedUrl; // Menampilkan URL embed
+                                                                echo "<iframe src=\"$embedUrl\" title=\"YouTube video\" allowfullscreen></iframe>";
                                                             } else {
                                                                 echo "Invalid YouTube URL.";
                                                             }
                                                             ?>
-                                                            <iframe src="<?= $embedUrl ?>" title="YouTube video" allowfullscreen></iframe>
                                                         </div>
                                                         <div class="card-body">
                                                             <p class="card-text">
@@ -196,33 +133,28 @@
                                             <?php endif; ?>
                                         <?php endforeach; ?>
                                     </div>
-                                    <div class="row justify-content-center mt-2">
-                                        <div class="col-md-3">
-                                            <div class="">
-                                                <ul class="pagination mb-sm-0">
-                                                    <li class="page-item disabled">
-                                                        <a href="#" class="page-link"><i class="mdi mdi-chevron-left"></i></a>
-                                                    </li>
-                                                    <li class="page-item active">
-                                                        <a href="#" class="page-link">1</a>
-                                                    </li>
-                                                    <li class="page-item">
-                                                        <a href="#" class="page-link">2</a>
-                                                    </li>
-                                                    <li class="page-item">
-                                                        <a href="#" class="page-link">3</a>
-                                                    </li>
-                                                    <li class="page-item">
-                                                        <a href="#" class="page-link">4</a>
-                                                    </li>
-                                                    <li class="page-item">
-                                                        <a href="#" class="page-link">5</a>
-                                                    </li>
-                                                    <li class="page-item">
-                                                        <a href="#" class="page-link"><i class="mdi mdi-chevron-right"></i></a>
-                                                    </li>
-                                                </ul>
-                                            </div>
+                                </div>
+                                <!-- pagination -->
+                                <div class="row justify-content-center mb-4">
+                                    <div class="col-md-3">
+                                        <div class="">
+                                            <ul class="pagination mb-sm-0">
+                                                <li class="page-item disabled">
+                                                    <a href="#" class="page-link"><i class="mdi mdi-chevron-left"></i></a>
+                                                </li>
+                                                <li class="page-item active">
+                                                    <a href="#" class="page-link">1</a>
+                                                </li>
+                                                <li class="page-item">
+                                                    <a href="#" class="page-link">2</a>
+                                                </li>
+                                                <li class="page-item">
+                                                    <a href="#" class="page-link">3</a>
+                                                </li>
+                                                <li class="page-item">
+                                                    <a href="#" class="page-link"><i class="mdi mdi-chevron-right"></i></a>
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
@@ -234,18 +166,42 @@
         </div>
     </div>
 </div>
+</div>
 
-<!-- Sweet Alerts js -->
+<!-- CSS Internal -->
+<style>
+    .card {
+        height: 100%;
+    }
+
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .card-img {
+        height: 250px;
+        /* Tentukan tinggi gambar jika perlu */
+        object-fit: cover;
+    }
+
+    .card-title,
+    .card-text {
+        margin-bottom: 10px;
+    }
+
+    .card-footer {
+        margin-top: auto;
+    }
+</style>
+
 <script src="/assets/libs/sweetalert2/sweetalert2.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     document.querySelectorAll(".delete").forEach(function(button) {
         button.addEventListener("click", function(event) {
             event.preventDefault();
-
             const form = this.closest("form");
-            const formData = new FormData(form);
-
             Swal.fire({
                 title: "Konfirmasi hapus?",
                 text: "Anda yakin ingin menghapus data ini?",

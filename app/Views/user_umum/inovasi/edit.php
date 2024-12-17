@@ -53,7 +53,7 @@
                                 <div class="row mb-3">
                                     <label for="deskripsi" class="col-sm-3 col-form-label">Tahun</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" name="tahun" value="<?= esc($inovasi['tahun']); ?>" required>
+                                        <input class="form-control" name="tahun" value="<?= esc($inovasi['tahun']); ?>" required oninput="validateYear(this)">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -145,25 +145,7 @@
                                         <?php endif; ?>
                                     </div>
                                 </div>
-                                <div class="row mb-3">
-                                    <label for="status" class="col-sm-3 col-form-label">Status</label>
-                                    <div class="col-sm-9">
-                                        <select class="form-select" name="status" required>
-                                            <option value="tertunda" <?= $inovasi['status'] == 'tertunda' ? 'selected' : '' ?>>Tertunda</option>
-                                            <option value="draf" <?= $inovasi['status'] == 'draf' ? '' : '' ?>>Draf</option>
-                                            <option value="terbit" <?= $inovasi['status'] == 'terbit' ? '' : '' ?>>Terbit</option>
-                                            <option value="arsip" <?= $inovasi['status'] == 'arsip' ? '' : '' ?>>Arsip</option>
-                                            <option value="tertolak" <?= $inovasi['status'] == 'tertolak' ? '' : '' ?>>Tertolak</option>
-                                            <option value="revisi" <?= $inovasi['status'] == 'revisi' ? '' : '' ?>>Revisi</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="row mb-5" id="pesan-container" style="display: none;">
-                                    <label for="pesan" class="col-sm-3 col-form-label">Pesan</label>
-                                    <div class="col-sm-9">
-                                        <textarea name="pesan" id="pesan" class="form-control">{{ old('pesan', $inovasi->pesan) }}</textarea>
-                                    </div>
-                                </div>
+
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="d-flex justify-content-end">
@@ -242,4 +224,19 @@
         statusSelect.dispatchEvent(new Event('change'));
     });
 </script>
+<script>
+    function validateYear(input) {
+        // Hanya menerima angka
+        var regex = /^[0-9]+$/;
+        if (!regex.test(input.value)) {
+            // Mengosongkan input jika tidak berupa angka
+            input.setCustomValidity("Tahun hanya bisa berupa angka.");
+            input.reportValidity();
+        } else {
+            // Menghapus validasi jika input berupa angka
+            input.setCustomValidity("");
+        }
+    }
+</script>
+
 <?= $this->endSection(); ?>

@@ -8,14 +8,18 @@ use App\Models\BeritaModel;
 use App\Models\GaleriModel;
 use App\Models\OptionWebModel;
 use App\Models\InovasiModel;
+use App\Models\JenisInovasiModel;
 
 class LandingController extends BaseController
 {
     protected $inovasiModel;
+    protected $JenisInovasiModel;
+
 
     public function __construct()
     {
         $this->inovasiModel = new InovasiModel();
+        $this->JenisInovasiModel = new JenisInovasiModel();
     }
 
     public function index()
@@ -64,14 +68,33 @@ class LandingController extends BaseController
         // Mengambil koneksi database
         $litbang = \Config\Database::connect();
 
+        // Mengambil data dengan status terbit untuk tampil di index.php
         $data['inovasi'] = $this->inovasiModel
-            ->select('inovasi.*, jenis_inovasi.nama_jenis, opd.nama_opd')
+            ->select('inovasi.*, 
+            jenis_inovasi.nama_jenis, 
+            bentuk.nama_bentuk, 
+            tahapan.nama_tahapan, 
+            kecamatan.nama_kecamatan, 
+            desa.nama_desa, 
+            opd.nama_opd,
+            users.name as diajukan_oleh') // Menambahkan nama pengguna yang mengajukan
+            ->join('opd', 'inovasi.id_opd = opd.id_opd', 'left')
             ->join('jenis_inovasi', 'inovasi.kategori = jenis_inovasi.id_jenis_inovasi', 'left')
-            ->join('opd', 'inovasi.id_opd = opd.id_opd', 'left')  // Menggabungkan data OPD
-            ->whereNotIn('status', ['tertunda', 'tertolak', 'draf'])
+            ->join('bentuk', 'inovasi.bentuk = bentuk.id_bentuk', 'left') // Join dengan tabel bentuk
+            ->join('tahapan', 'inovasi.tahapan = tahapan.id_tahapan', 'left') // Join dengan tabel tahapan
+            ->join('kecamatan', 'inovasi.kecamatan = kecamatan.id_kecamatan', 'left') // Join dengan tabel kecamatan
+            ->join('desa', 'inovasi.desa = desa.id_desa', 'left') // Join dengan tabel desa
+            ->join('users', 'inovasi.id_user = users.id', 'left') // Join dengan tabel users untuk mendapatkan name
+            ->where('inovasi.status', 'terbit')  // Menampilkan hanya status 'terbit'
+            ->orderBy('FIELD(inovasi.status, "terbit", "tertunda", "draf", "revisi", "arsip", "tertolak")') // Mengatur urutan
             ->findAll();
+
+        // Mengambil data jenis_inovasi untuk kategori filter
+        $data['jenis_inovasi'] = $this->JenisInovasiModel->findAll();
+
         return view('landing_page/database_inovasi/database_inovasi', $data);
     }
+
 
     public function petaInovasi()
     {

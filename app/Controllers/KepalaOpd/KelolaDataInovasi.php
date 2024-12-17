@@ -277,7 +277,7 @@ class KelolaDataInovasi extends BaseController
         // Debug untuk memastikan data tahapan ada dan valid
         // var_dump($data['tahapan']); // Uncomment jika ingin debug
 
-        return view('kepala/inovasi/edit', $data);
+        return view('kepala_opd/inovasi/edit', $data);
     }
 
     public function update($id_inovasi)

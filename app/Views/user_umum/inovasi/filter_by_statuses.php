@@ -71,15 +71,22 @@
                                                     <span class="badge rounded-pill <?= $row['status'] === 'terbit' ? 'bg-success' : ($row['status'] === 'draf' ? 'bg-secondary' : ($row['status'] === 'arsip' ? 'bg-warning' : ($row['status'] === 'revisi' ? 'bg-info' : ($row['status'] === 'tertunda' ? 'bg-secondary' : ($row['status'] === 'tertolak' ? 'bg-danger' : ''))))) ?>"><?= ucfirst($row['status']) ?></span>
                                                 </td>
                                                 <td class="text-center">
-                                                    <a href="/userumum/inovasi/edit/<?= $row['id_inovasi']; ?>" class="btn btn-outline-warning btn-sm edit mb-3" title="Edit">
-                                                        <i class="fas fa-pencil-alt"></i>
+                                                    <?php if ($row['status'] === 'revisi'): ?>
+                                                        <!-- Tombol Edit dan Hapus hanya ditampilkan jika status adalah "revisi" -->
+                                                        <a href="/userumum/inovasi/edit/<?= $row['id_inovasi']; ?>" class="btn btn-outline-warning btn-sm edit mb-3" title="Edit">
+                                                            <i class="fas fa-pencil-alt"></i>
+                                                        </a>
+                                                        <a href="/userumum/inovasi/delete/<?= $row['id_inovasi']; ?>" class="btn btn-outline-danger btn-sm delete ms-2 mb-3" title="Hapus">
+                                                            <i class="fas fa-trash-alt"></i>
+                                                        </a>
+                                                    <?php endif; ?>
+
+                                                    <!-- Tombol Detail akan selalu ditampilkan -->
+                                                    <a class="btn btn-outline-secondary btn-sm ms-2 mb-3" data-bs-toggle="modal" data-bs-target="#detailModal<?= $row['id_inovasi'] ?>" title="Detail">
+                                                        <i class="fas fa-eye"></i>
                                                     </a>
-                                                    <a href="/userumum/inovasi/delete/<?= $row['id_inovasi']; ?>" class="btn btn-outline-danger btn-sm delete ms-2 mb-3" title="Hapus">
-                                                        <i class="fas fa-trash-alt"></i>
-                                                    </a>
-                                                    <a class="btn btn-outline-secondary btn-sm ms-2 mb-3" data-bs-toggle="modal"
-                                                        data-bs-target="#detailModal<?= $row['id_inovasi'] ?>" title="Detail"><i class="fas fa-eye"></i></a>
                                                 </td>
+
                                             </tr>
                                         <?php endforeach; ?>
                                     <?php else: ?>

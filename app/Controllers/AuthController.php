@@ -23,7 +23,7 @@ class AuthController extends BaseController
         } elseif (auth()->user()->inGroup('kepala-opd')) {
             return redirect()->to('/kepala/inovasi');
         } elseif (auth()->user()->inGroup('operator')) {
-            return redirect()->to('/operator/inovasi');
+            return redirect()->to('/operator/inovasi/filter');
         } elseif (auth()->user()->inGroup('user')) {
             return redirect()->to('/userumum/inovasi/filter');
         } else {

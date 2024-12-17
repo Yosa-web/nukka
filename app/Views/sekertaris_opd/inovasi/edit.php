@@ -53,7 +53,7 @@
                                 <div class="row mb-3">
                                     <label for="deskripsi" class="col-sm-3 col-form-label">Tahun</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" name="tahun" value="<?= esc($inovasi['tahun']); ?>" required>
+                                        <input class="form-control" name="tahun" value="<?= esc($inovasi['tahun']); ?>" required oninput="validateYear(this)">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -242,4 +242,20 @@
         statusSelect.dispatchEvent(new Event('change'));
     });
 </script>
+
+<script>
+    function validateYear(input) {
+        // Hanya menerima angka
+        var regex = /^[0-9]+$/;
+        if (!regex.test(input.value)) {
+            // Mengosongkan input jika tidak berupa angka
+            input.setCustomValidity("Tahun hanya bisa berupa angka.");
+            input.reportValidity();
+        } else {
+            // Menghapus validasi jika input berupa angka
+            input.setCustomValidity("");
+        }
+    }
+</script>
+
 <?= $this->endSection(); ?>

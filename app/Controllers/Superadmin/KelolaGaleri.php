@@ -14,8 +14,8 @@ class KelolaGaleri extends BaseController
 {
     public function index()
     {
-        $model = new GaleriModel();
-        $data['galeri'] = $model->findAll();
+        $galeriModel = new GaleriModel();
+        $data['galeri'] = $galeriModel->findAll();  // Mengambil semua data galeri
 
         return view('super_admin/galeri/index', $data);
     }
@@ -45,98 +45,105 @@ class KelolaGaleri extends BaseController
 
     public function edit($id)
     {
-        $model = new GaleriModel();
-        $data['galeri'] = $model->find($id);
+        $galeriModel = new GaleriModel();
+        $data['galeri'] = $galeriModel->find($id);
 
-        return view('/super_admin/galeri/edit', $data);
+        if (!$data['galeri']) {
+            return redirect()->to('/superadmin/galeri')->with('error', 'Data galeri tidak ditemukan.');
+        }
+
+        // Tampilkan halaman edit berdasarkan tipe (image/video)
+        if ($data['galeri']['tipe'] === 'image') {
+            return view('super_admin/galeri/edit_image', $data);
+        } elseif ($data['galeri']['tipe'] === 'video') {
+            return view('super_admin/galeri/edit_video', $data);
+        }
+
+        return redirect()->to('/superadmin/galeri');
     }
 
     public function update($id)
     {
-        $galeriModel = new \App\Models\GaleriModel();
-        $logModel = new \App\Models\LogAktivitasModel();
+        $galeriModel = new GaleriModel();
+        $logModel = new LogAktivitasModel();
 
-        // Path untuk menyimpan file gambar
-        $pathImage = 'assets/uploads/images/galeri/';
-        $file = $this->request->getFile('image');
-        $url = $this->request->getPost('url');
-        $urlToSave = null;
+        // Ambil data galeri berdasarkan ID
+        $galeri = $galeriModel->find($id);
 
-        // Validasi input berdasarkan tipe yang dipilih
-        if ($this->request->getPost('tipe') === 'image') {
-            if (!$this->validate([
-                'judul' => 'required',
-                'tipe' => 'required|in_list[image,video]',
-                'image' => 'is_image[image]|max_size[image,10240]', // max 10MB
-            ])) {
-                return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
-            }
+        if (!$galeri) {
+            return redirect()->to('/superadmin/galeri')->with('error', 'Galeri tidak ditemukan.');
+        }
 
-            // Jika ada file gambar, proses uploadnya
-            if ($file && $file->isValid()) {
-                if (!$file->hasMoved()) {
-                    $name = $file->getRandomName();
-                    if ($file->move($pathImage, $name)) {
-                        log_message('debug', 'File image moved successfully: ' . $name);
-                        $urlToSave = base_url($pathImage . $name); // URL yang akan disimpan ke database
-                    } else {
-                        log_message('debug', 'Image move failed: ' . $file->getErrorString());
-                        return redirect()->back()->with('error', 'Gagal memindahkan gambar.');
-                    }
+        // Validasi input
+        if (!$this->validate([
+            'judul' => 'required',
+            'tipe' => 'required|in_list[image,video]',
+            'image' => 'is_image[image]|max_size[image,10240]', // max 10MB
+            'url' => 'valid_url', // Validasi URL untuk video
+        ])) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
+        $tipe = $this->request->getPost('tipe');
+        $pathToSave = '';
+
+        // Jika tipe 'image'
+        if ($tipe == 'image') {
+            $newImage = $this->request->getFile('image');
+            $pathImage = 'assets/uploads/images/galeri/';
+
+            // Jika ada gambar baru
+            if ($newImage && $newImage->isValid() && !$newImage->hasMoved()) {
+                // Hapus gambar lama jika ada
+                if (file_exists($galeri['url'])) {
+                    unlink($galeri['url']);
                 }
+
+                // Simpan gambar baru
+                $name = $newImage->getRandomName();
+                if ($newImage->move($pathImage, $name)) {
+                    $pathToSave = $pathImage . $name;
+                } else {
+                    return redirect()->back()->with('error', 'Gagal mengupload gambar.');
+                }
+            } else {
+                // Tidak ada gambar baru, gunakan gambar lama
+                $pathToSave = $galeri['url'];
             }
         }
 
-        // Jika tipe adalah "video", gunakan URL yang diinput
-        if ($this->request->getPost('tipe') === 'video') {
-            if (!$this->validate([
-                'judul' => 'required',
-                'tipe' => 'required|in_list[image,video]',
-                'url' => 'required|valid_url',
-            ])) {
-                return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
-            }
-
-            $urlToSave = $url;
-        }
-
-        // Jika file tidak ada dan URL tidak ada, gunakan data yang sudah ada di database
-        if (!$urlToSave) {
-            $existingGaleri = $galeriModel->find($id);
-            $urlToSave = $existingGaleri['url'];
+        // Jika tipe 'video'
+        elseif ($tipe == 'video') {
+            $urlVideo = $this->request->getPost('url');
+            $pathToSave = $urlVideo; // Menyimpan URL video jika tidak ada file baru
         }
 
         // Data yang akan diperbarui
         $data = [
-            'judul'        => $this->request->getPost('judul'),
-            'id_user'      => auth()->user()->id,
-            'url'          => $urlToSave,
-            'tipe'         => $this->request->getPost('tipe'),
-            'uploaded_by'  => auth()->user()->id,
-            'uploaded_at'  => date('Y-m-d H:i:s'),
+            'judul' => $this->request->getPost('judul'),
+            'url' => $pathToSave,
+            'tipe' => $tipe,
+            'updated_at' => date('Y-m-d H:i:s'),
         ];
 
-        // Memperbarui data di database
+        // Update data galeri
         if ($galeriModel->update($id, $data)) {
-            // Logging aktivitas edit
+            // Logging aktivitas update
             $superAdminId = auth()->user()->id;
             $logData = [
-                'id_user'          => $superAdminId,
+                'id_user' => $superAdminId,
                 'tanggal_aktivitas' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(),
-                'aksi'             => 'update',
-                'jenis_data'       => 'galeri',
-                'keterangan'       => "SuperAdmin dengan ID {$superAdminId} memperbarui data galeri dengan nama " . $data['judul'],
+                'aksi' => 'update data',
+                'jenis_data' => 'galeri',
+                'keterangan' => "SuperAdmin dengan ID {$superAdminId} memperbarui data galeri dengan judul " . $data['judul'],
             ];
             $logModel->save($logData);
 
-            // Berhasil, kembali ke halaman galeri dengan pesan sukses
             return redirect()->to('/superadmin/galeri')->with('success', 'Data galeri berhasil diperbarui.');
         } else {
-            // Gagal, kembali ke form dengan pesan error
             return redirect()->back()->withInput()->with('errors', $galeriModel->errors());
         }
     }
-
 
     public function delete($id)
     {
