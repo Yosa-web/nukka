@@ -19,7 +19,7 @@
                                     <a href="javascript: void(0);">Data Pengguna</a>
                                 </li>
                                 <li class="breadcrumb-item">
-                                    <a href="/superadmin/user/list/pegawai">Pegawai</a>
+                                    <a href="/adminopd/pegawai/list">Pegawai</a>
                                 </li>
                                 <li class="breadcrumb-item active">
                                     Tambah Pegawai
@@ -58,7 +58,7 @@
                                     </div>
                                 </div>
                                 <!-- OPD -->
-<!-- OPD -->
+                                <!-- OPD -->
                                 <div class="row mb-3">
                                     <label for="floatingIdOpdInput" class="col-sm-3 col-form-label">OPD</label>
                                     <div class="col-sm-9">
@@ -165,7 +165,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="d-flex justify-content-end">
-                                            <button type="button" class="btn btn-secondary w-md" onclick="window.location.href='/superadmin/user/list/pegawai'">Batal</button>
+                                            <button type="button" class="btn btn-secondary w-md" onclick="window.location.href='/adminopd/pegawai/list'">Batal</button>
                                             <button type="submit" class="btn btn-primary w-md ms-4">Kirim</button>
                                         </div>
                                     </div>

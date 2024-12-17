@@ -108,7 +108,7 @@ class KelolaDataInovasi extends BaseController
             ->orderBy('FIELD(inovasi.status, "tertunda", "draf", "revisi", "terbit", "arsip", "tertolak")') // Mengatur urutan
             ->findAll();
 
-        return view('kepala_opd/inovasi/filter_by_statuses', $data);
+        return view('sekertaris_opd/inovasi/filter_by_statuses', $data);
     }
 
     // Fungsi untuk menampilkan form tambah proposal
@@ -284,7 +284,7 @@ class KelolaDataInovasi extends BaseController
         // Ambil data inovasi berdasarkan ID
         $inovasi = $this->inovasiModel->find($id_inovasi);
         if (!$inovasi) {
-            return redirect()->to('/kepala/inovasi/filter')->with('error', 'Inovasi tidak ditemukan.');
+            return redirect()->to('/sekertaris/inovasi/filter')->with('error', 'Inovasi tidak ditemukan.');
         }
 
         $status = $this->request->getPost('status');
@@ -379,7 +379,7 @@ class KelolaDataInovasi extends BaseController
             'tanggal_aktivitas' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(),
             'aksi' => 'update',
             'jenis_data' => 'Inovasi',
-            'keterangan' => "SuperAdmin dengan ID {$user} memperbarui Inovasi dengan ID {$id_inovasi}",
+            'keterangan' => "Sekertaris dengan ID {$user} memperbarui Inovasi dengan ID {$id_inovasi}",
         ];
         $this->LogAktivitasModel->save($logData);
 

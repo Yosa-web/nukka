@@ -54,6 +54,9 @@ $routes->group('', ['filter' => 'group:superadmin'], function ($routes) {
     $routes->get('/superadmin/galeri/edit/(:num)', 'Superadmin\KelolaGaleri::edit/$1'); // Menampilkan form edit
     $routes->post('/superadmin/galeri/update/(:num)', 'Superadmin\KelolaGaleri::update/$1'); // Memperbarui galeri
     $routes->delete('/superadmin/galeri/(:num)', 'Superadmin\KelolaGaleri::delete/$1'); // Menghapus galeri
+    $routes->match(['get', 'post'], 'superadmin/galeri/update-image/(:num)', 'Superadmin\GaleriImage::updateImage/$1');
+    $routes->match(['get', 'post'], 'superadmin/galeri/update-video/(:num)', 'Superadmin\GaleriVideo::updateVideo/$1');
+
 
     //kelola option web
     $routes->get('/superadmin/optionweb', 'Superadmin\KelolaOptionWeb::index'); // Menampilkan option web
@@ -87,7 +90,7 @@ $routes->group('', ['filter' => 'group:superadmin'], function ($routes) {
     $routes->put('/superadmin/berita/update/(:segment)', 'Superadmin\KelolaBerita::update/$1');
     $routes->delete('/superadmin/berita', 'Superadmin\KelolaBerita::delete');
     $routes->get('/berita', 'Superadmin\KelolaBerita::publishedNews');
-    $routes->get('berita/detail/(:segment)', 'Superadmin\KelolaBerita::show/$1');
+
     $routes->get('berita/show/detail/(:segment)', 'Superadmin\KelolaBerita::detail/$1');
 
     $routes->get('/superadmin/user/list/admin', 'Superadmin\KelolaUser::indexAdmin');
@@ -302,5 +305,6 @@ $routes->get('/regulasi', 'LandingController::regulasi');
 
 //berita
 $routes->get('/berita/lainnya', 'LandingController::semuaBerita');
+$routes->get('berita/detail/(:segment)', 'Superadmin\KelolaBerita::show/$1');
 
 $routes->get('handleLogin', 'AuthController::handleLogin');

@@ -16,12 +16,6 @@ class GaleriVideo extends BaseController
         $galeriModel = new \App\Models\GaleriModel();
         $logModel = new \App\Models\LogAktivitasModel();
 
-        // // Path untuk menyimpan file gambar
-        // $pathImage = 'assets/uploads/images/galeri/';
-        // $file = $this->request->getFile('image');
-        // $url = $this->request->getPost('url');
-        // $urlToSave = null;
-
         if (!$this->validate([
             'judul' => 'required',
             'url'   => 'required|valid_url',
@@ -33,19 +27,10 @@ class GaleriVideo extends BaseController
         $judul = $this->request->getPost('judul');
         $url = $this->request->getPost('url');
 
-
-        // // Jika tipe adalah "video", gunakan URL yang diinput
-        // if ($this->request->getPost('tipe') === 'video') {
-        //     if (!$this->validate([
-        //         'judul' => 'required',
-        //         'tipe' => 'required|in_list[image,video]',
-        //         'url' => 'required|valid_url',
-        //     ])) {
-        //         return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
-        //     }
-
-        //     $urlToSave = $url;
-        // }
+        // Cek apakah judul video sudah ada
+        if (!$this->isJudulUnique($judul)) {
+            return redirect()->back()->withInput()->with('error', 'Judul video sudah ada. Mohon gunakan judul yang berbeda.');
+        }
 
         // Data yang akan disimpan
         $data = [
@@ -77,30 +62,59 @@ class GaleriVideo extends BaseController
             return redirect()->back()->withInput()->with('errors', $galeriModel->errors());
         }
     }
+
+    public function updateVideo($id)
+    {
+        $galeriModel = new GaleriModel();
+
+        // Ambil data galeri berdasarkan ID
+        $galeri = $galeriModel->find($id);
+        if (!$galeri) {
+            return redirect()->to('/superadmin/galeri')->with('error', 'Galeri tidak ditemukan.');
+        }
+
+        // Validasi input untuk URL video
+        if (!$this->validate([
+            'judul' => 'required',
+            'url' => 'valid_url|required',
+        ])) {
+            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        }
+
+        $judul = $this->request->getPost('judul');
+        $urlVideo = $this->request->getPost('url');
+
+        // Cek apakah judul video sudah ada (kecuali judul video yang sedang diedit)
+        if (!$this->isJudulUnique($judul, $id)) {
+            return redirect()->back()->withInput()->with('error', 'Judul video sudah ada. Mohon gunakan judul yang berbeda.');
+        }
+
+        // Data yang akan diperbarui
+        $data = [
+            'judul' => $this->request->getPost('judul'),
+            'url' => $urlVideo,
+            'updated_at' => Time::now(),
+        ];
+
+        // Update data galeri
+        if ($galeriModel->update($id, $data)) {
+            return redirect()->to('/superadmin/galeri')->with('success', 'Video berhasil diperbarui.');
+        } else {
+            return redirect()->back()->withInput()->with('errors', $galeriModel->errors());
+        }
+    }
+
+    // Fungsi untuk mengecek apakah judul video unik
+    private function isJudulUnique($judul, $excludeId = null)
+    {
+        $galeriModel = new GaleriModel();
+        // Query untuk mengecek judul yang sama, kecuali id yang diberikan
+        $query = $galeriModel->where('judul', $judul);
+        if ($excludeId) {
+            $query = $query->where('id_galeri !=', $excludeId); // Mengecualikan ID saat update
+        }
+        $result = $query->first(); // Mengambil satu data, jika ada yang sama maka return true
+
+        return empty($result); // Jika tidak ada data dengan judul yang sama, return true
+    }
 }
-
-
-//         $galeriModel = new GaleriModel();
-
-// if (!$this->validate([
-//     'judul' => 'required',
-//     'url'   => 'required|valid_url', // Validasi URL video
-// ])) {
-//     return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
-// }
-
-//         // Simpan data ke database
-//         $data = [
-//             'judul'        => $this->request->getPost('judul'),
-//             'id_user'      => auth()->user()->id,
-//             'url'          => $this->request->getPost('url'),
-//             'tipe'         => 'video',
-//             'uploaded_by'  => auth()->user()->id,
-//             'uploaded_at'  => date('Y-m-d H:i:s'),
-//         ];
-
-//         $galeriModel->save($data);
-
-//         return redirect()->to('/superadmin/galeri')->with('success', 'Video URL berhasil disimpan.');
-//     }
-// }

@@ -21,9 +21,9 @@
                     <div class="d-flex">
                         <label for="kategori-filter" class="me-2">Kategori</label>
                         <select id="kategori-filter" class="form-select form-select-sm" style="width: auto;">
-                            <option value="all-kategori">Semua Jenis</option>
-                            <?php foreach ($inovasi as $row): ?>
-                                <option value="<?= esc($row['nama_jenis']) ?>"><?= esc($row['nama_jenis']) ?></option>
+                            <option value="all-kategori">Semua Kategori</option>
+                            <?php foreach ($jenis_inovasi as $jenis): ?>
+                                <option value="<?= esc($jenis['nama_jenis']) ?>"><?= esc($jenis['nama_jenis']) ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
@@ -70,7 +70,7 @@
                             if (!empty($inovasi)): ?>
                                 <?php $no = 1; ?>
                                 <?php foreach ($inovasi as $row): ?>
-                                    <tr>
+                                    <tr data-jenis="<?= esc($row['nama_jenis']) ?>">
                                         <td class="text-center"><?= $no++; ?></td>
                                         <td>
                                             <?= esc($row['judul']); ?>
@@ -102,6 +102,7 @@
                                 </tr>
                             <?php endif; ?>
                         </tbody>
+
                     </table>
                 </div>
             </div>
@@ -112,41 +113,20 @@
 <!-- Modal Detail -->
 <?php if (!empty($inovasi)): ?>
     <?php foreach ($inovasi as $row): ?>
-        <div
-            class="modal fade"
-            id="detailModal<?= $row['id_inovasi'] ?>"
-            tabindex="-1"
-            role="dialog"
-            aria-labelledby="detailModalLabel"
-            aria-hidden="true">
+        <div class="modal fade" id="detailModal<?= $row['id_inovasi'] ?>" tabindex="-1" role="dialog"
+            aria-labelledby="detailModalLabel<?= $row['id_inovasi'] ?>" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4
-                            class="modal-title"
-                            id="detailModalLabel">
-                            Detail Proposal
-                        </h4>
-                        <button
-                            type="button"
-                            class="btn-close"
-                            data-bs-dismiss="modal"
-                            aria-label="Close"></button>
+                        <h4 class="modal-title" id="detailModalLabel<?= $row['id_inovasi'] ?>">Detail Proposal</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body card-body">
                         <div class="table-responsive">
                             <table class="table table-striped mb-0">
-                                <!-- <thead>
-									<tr>
-										<th>#</th>
-										<th>First Name</th>
-									</tr>
-								</thead> -->
                                 <tbody>
                                     <tr>
-                                        <th scope="row" class="modal-detail-row">
-                                            Judul
-                                        </th>
+                                        <th scope="row" style="width: 230px">Judul Inovasi</th>
                                         <td><?= esc($row['judul']); ?></td>
                                     </tr>
                                     <tr>
@@ -154,12 +134,32 @@
                                         <td><?= esc($row['deskripsi']); ?></td>
                                     </tr>
                                     <tr>
+                                        <th scope="row">Tahun</th>
+                                        <td><?= esc($row['tahun']); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Nama OPD</th>
+                                        <td><?= esc($row['nama_opd']); ?></td> <!-- Menampilkan nama OPD -->
+                                    </tr>
+                                    <tr>
                                         <th scope="row">Kategori</th>
                                         <td><?= esc($row['nama_jenis']); ?></td>
                                     </tr>
                                     <tr>
+                                        <th scope="row">Bentuk</th>
+                                        <td><?= esc($row['nama_bentuk']); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Tahapan</th>
+                                        <td><?= esc($row['nama_tahapan']); ?></td>
+                                    </tr>
+                                    <tr>
                                         <th scope="row">Kecamatan</th>
-                                        <td><?= esc($row['kecamatan']); ?></td>
+                                        <td><?= esc($row['nama_kecamatan']); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Desa</th>
+                                        <td><?= esc($row['nama_desa']); ?></td>
                                     </tr>
                                     <tr>
                                         <th scope="row">Tanggal Pengajuan</th>
@@ -167,7 +167,31 @@
                                     </tr>
                                     <tr>
                                         <th scope="row">Diajukan oleh</th>
-                                        <td><?= esc($row['published_by']); ?></td>
+                                        <td><?= esc($row['diajukan_oleh']); ?></td> <!-- Ganti sesuai dengan data pengaju -->
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Status</th>
+                                        <td><?= ucfirst($row['status']); ?></td>
+                                    </tr>
+                                    <?php if ($row['status'] === 'terbit'): ?>
+                                        <tr>
+                                            <th scope="row">Tanggal Disetujui</th>
+                                            <td><?= date('d M Y', strtotime($row['updated_at'])) ?></td>
+                                        </tr>
+                                        <!-- <tr>
+                                            <th scope="row">Disetujui oleh</th>
+                                            <td><?= esc($row['published_by']); ?></td>
+                                        </tr> -->
+                                    <?php endif; ?>
+                                    <?php if (in_array($row['status'], ['revisi', 'tertolak', 'arsip'])): ?>
+                                        <tr>
+                                            <th scope="row">Pesan</th>
+                                            <td><?= esc($row['pesan']); ?></td>
+                                        </tr>
+                                    <?php endif; ?>
+                                    <tr>
+                                        <th scope="row">File Proposal</th>
+                                        <td><a href="<?= base_url($row['url_file']) ?>" target="_blank" type="button" class="btn btn-soft-primary waves-effect btn-label"><i class="fas fa-download label-icon"></i>Download File</a></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -179,17 +203,19 @@
     <?php endforeach; ?>
 <?php endif; ?>
 
+
 <script>
     document.getElementById('kategori-filter').addEventListener('change', function() {
-        const filterValue = this.value; // Ambil nilai filter
+        const filterValue = this.value.toLowerCase(); // Ambil nilai filter dan ubah menjadi lowercase
         const rows = document.querySelectorAll('#datatable tbody tr'); // Ambil semua baris data
 
         rows.forEach(row => {
-            const status = row.querySelector('td:nth-child(4)').textContent.trim().toLowerCase();
+            const kategori = row.getAttribute('data-jenis').toLowerCase(); // Ambil kategori dari atribut data-jenis
+
             if (filterValue === 'all-kategori') {
-                row.style.display = ''; // Tampilkan semua baris
-            } else if (status === filterValue) {
-                row.style.display = ''; // Tampilkan baris yang sesuai
+                row.style.display = ''; // Tampilkan semua baris jika "Semua Jenis" dipilih
+            } else if (kategori.includes(filterValue)) {
+                row.style.display = ''; // Tampilkan baris yang sesuai dengan kategori
             } else {
                 row.style.display = 'none'; // Sembunyikan baris yang tidak sesuai
             }

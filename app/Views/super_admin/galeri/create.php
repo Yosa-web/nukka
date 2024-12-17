@@ -1,5 +1,6 @@
 <?= $this->extend('layout/master_dashboard'); ?>
 <?= $this->section('title') ?><title>Tambah Galeri | Rumah Inovasi</title><?= $this->endSection() ?>
+
 <?= $this->section('content'); ?>
 <div class="main-content">
     <div class="page-content">
@@ -7,33 +8,27 @@
             <!-- start page title -->
             <div class="row">
                 <div class="col-12">
-                    <div
-                        class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h3 class="mb-sm-0">
-                            Tambah Galeri
-                        </h3>
-
-                        <div class="page-title-right">
-                            <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item">
-                                    <a href="javascript: void(0);">Kelola Konten</a>
-                                </li>
-                                <li class="breadcrumb-item">
-                                    <a href="<?= base_url('superadmin/galeri') ?>">Kelola Galeri</a>
-                                </li>
-                                <li class="breadcrumb-item active">
-                                    Tambah Galeri
-                                </li>
-                            </ol>
-                        </div>
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h3 class="mb-sm-0">Tambah Galeri</h3>
                     </div>
                 </div>
             </div>
             <!-- end page title -->
+
             <div class="row">
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
+                            <!-- Menampilkan alert error jika judul sudah terpakai -->
+                            <?php if (session()->getFlashdata('error')): ?>
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <?= session()->getFlashdata('error') ?>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            <?php endif; ?>
+
                             <form id="galeriForm" method="post" enctype="multipart/form-data">
                                 <div class="row mb-3">
                                     <label for="tipe" class="col-sm-3 col-form-label">Tipe</label>
@@ -45,12 +40,14 @@
                                         </select>
                                     </div>
                                 </div>
+
                                 <div class="row mb-3">
                                     <label for="judul" class="col-sm-3 col-form-label">Judul</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="judul" placeholder="Masukkan judul" required>
+                                        <input type="text" class="form-control" name="judul" placeholder="Masukkan judul" value="<?= old('judul') ?>" required>
                                     </div>
                                 </div>
+
                                 <!-- Input untuk gambar -->
                                 <div class="row mb-5" id="imageInput" style="display: none;">
                                     <label for="image" class="col-sm-3 col-form-label">Upload File Gambar</label>
@@ -58,6 +55,7 @@
                                         <input type="file" class="form-control" name="image">
                                     </div>
                                 </div>
+
                                 <!-- Input untuk URL video -->
                                 <div class="row mb-5" id="urlInput" style="display: none;">
                                     <label for="url" class="col-sm-3 col-form-label">Tautan Video</label>
@@ -65,6 +63,7 @@
                                         <input type="url" class="form-control" name="url" placeholder="Masukkan URL video">
                                     </div>
                                 </div>
+
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="d-flex justify-content-end">
@@ -78,28 +77,30 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </div>
 
 <script>
-			function toggleInput() {
-				const tipe = document.getElementById("tipe").value;
-				const uploadGambar = document.getElementById("imageInput");
-				const tautanVideo = document.getElementById("urlInput");
-		
-				if (tipe === "image") {
-					uploadGambar.style.display = "flex";
-					tautanVideo.style.display = "none";
-                    document.getElementById('galeriForm').setAttribute('action', '/superadmin/galeri/storeImage');
-				} else if (tipe === "video") {
-					uploadGambar.style.display = "none";
-					tautanVideo.style.display = "flex";
-                    document.getElementById('galeriForm').setAttribute('action', '/superadmin/galeri/storeVideo');
-				} else {
-					uploadGambar.style.display = "none";
-					tautanVideo.style.display = "none";
-				}
-			}
-		</script>
+    function toggleInput() {
+        const tipe = document.getElementById("tipe").value;
+        const uploadGambar = document.getElementById("imageInput");
+        const tautanVideo = document.getElementById("urlInput");
+
+        if (tipe === "image") {
+            uploadGambar.style.display = "flex";
+            tautanVideo.style.display = "none";
+            document.getElementById('galeriForm').setAttribute('action', '/superadmin/galeri/storeImage');
+        } else if (tipe === "video") {
+            uploadGambar.style.display = "none";
+            tautanVideo.style.display = "flex";
+            document.getElementById('galeriForm').setAttribute('action', '/superadmin/galeri/storeVideo');
+        } else {
+            uploadGambar.style.display = "none";
+            tautanVideo.style.display = "none";
+        }
+    }
+</script>
+
 <?= $this->endSection(); ?>

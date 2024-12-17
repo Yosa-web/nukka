@@ -71,12 +71,14 @@
                                                     <span class="badge rounded-pill <?= $row['status'] === 'terbit' ? 'bg-success' : ($row['status'] === 'draf' ? 'bg-secondary' : ($row['status'] === 'arsip' ? 'bg-warning' : ($row['status'] === 'revisi' ? 'bg-info' : ($row['status'] === 'tertunda' ? 'bg-secondary' : ($row['status'] === 'tertolak' ? 'bg-danger' : ''))))) ?>"><?= ucfirst($row['status']) ?></span>
                                                 </td>
                                                 <td class="text-center">
-                                                    <a href="/kepala/inovasi/edit/<?= $row['id_inovasi']; ?>" class="btn btn-outline-warning btn-sm edit mb-3" title="Edit">
-                                                        <i class="fas fa-pencil-alt"></i>
-                                                    </a>
-                                                    <a href="/kepala/inovasi/delete/<?= $row['id_inovasi']; ?>" class="btn btn-outline-danger btn-sm delete ms-2 mb-3" title="Hapus">
-                                                        <i class="fas fa-trash-alt"></i>
-                                                    </a>
+                                                    <?php if ($row['status'] !== 'terbit'): ?>
+                                                        <a href="/kepala/inovasi/edit/<?= $row['id_inovasi']; ?>" class="btn btn-outline-warning btn-sm edit mb-3" title="Edit">
+                                                            <i class="fas fa-pencil-alt"></i>
+                                                        </a>
+                                                        <a href="/kepala/inovasi/delete/<?= $row['id_inovasi']; ?>" class="btn btn-outline-danger btn-sm delete ms-2 mb-3" title="Hapus">
+                                                            <i class="fas fa-trash-alt"></i>
+                                                        </a>
+                                                    <?php endif; ?>
                                                     <a class="btn btn-outline-secondary btn-sm ms-2 mb-3" data-bs-toggle="modal"
                                                         data-bs-target="#detailModal<?= $row['id_inovasi'] ?>" title="Detail"><i class="fas fa-eye"></i></a>
                                                 </td>
