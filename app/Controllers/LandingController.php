@@ -62,10 +62,23 @@ class LandingController extends BaseController
     }
 
 
-    public function visi()
+    public function visiMisi()
     {
-        return view('landing_page/visi_misi/visi_misi');
+        $optionWebModel = new \App\Models\OptionWebModel(); // Pastikan model sesuai dengan struktur Anda
+        $banner = $optionWebModel->where('key', 'Banner')->first();
+
+        // Ambil data visi dan misi berdasarkan key
+        $visi = $optionWebModel->where('key', 'visi')->first();
+        $misi = $optionWebModel->where('key', 'misi')->first();
+
+        // Kirim data ke view
+        return view('landing_page/visi_misi/visi_misi.php', [
+            'visi' => $visi['value'] ?? 'Visi belum tersedia',
+            'misi' => $misi['value'] ?? 'Misi belum tersedia',
+            'banner' => $banner
+        ]);
     }
+
 
     public function databaseInovasi()
     {
@@ -99,15 +112,15 @@ class LandingController extends BaseController
         return view('landing_page/database_inovasi/database_inovasi', $data);
     }
 
-
     public function petaInovasi()
     {
-        // Mengambil data jumlah inovasi per kecamatan
+        // Mengambil data jumlah inovasi per kecamatan dan desa yang statusnya 'terbit'
         $inovasiModel = new InovasiModel();
-        $data['inovasi'] = $inovasiModel->getJumlahInovasiPerKecamatan();
+        $data['inovasi'] = $inovasiModel->getJumlahInovasiPerKecamatanDanDesa();
 
         return view('landing_page/peta_inovasi/peta_inovasi', $data);
     }
+
 
     public function jumlahInovasi()
     {

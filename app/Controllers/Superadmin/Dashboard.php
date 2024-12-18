@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers\Superadmin;
+
 use App\Models\LogAktivitasModel;
 use App\Controllers\BaseController;
 
@@ -18,7 +19,6 @@ class Dashboard extends BaseController
             'title' => 'List Log Aktivitas',
             'log' => $this->logModel->getLogWithUser(),
         ];
-        return view('super_admin/dashboard', $data);    
-    } 
-
+        return view('super_admin/dashboard', $data);
+    }
 }

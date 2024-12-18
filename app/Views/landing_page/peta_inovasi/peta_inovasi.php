@@ -29,14 +29,15 @@
 
     function loadMapData() {
         Promise.all([
-                fetch('/api/jumlah-inovasi').then(res => res.json()),
-                fetch('/assets/libs/kecamatan_pesawaran.geojson').then(res => res.json())
+                fetch('/api/jumlah-inovasi-terbit').then(res => res.json()), // Mengambil data inovasi yang terbit
+                fetch('/assets/libs/kecamatan_pesawaran.geojson').then(res => res.json()) // GeoJSON data
             ])
             .then(([inovasiData, geojsonData]) => {
-                // Gabungkan data jumlah inovasi ke GeoJSON
+                // Gabungkan data jumlah inovasi terbit ke GeoJSON
                 geojsonData.features.forEach(feature => {
                     const kecamatan = feature.properties.NAMOBJ; // Nama kecamatan di GeoJSON
-                    const inovasi = inovasiData.find(item => item.kecamatan === kecamatan);
+                    const desa = feature.properties.DESAWI; // Nama desa di GeoJSON
+                    const inovasi = inovasiData.find(item => item.kecamatan === kecamatan && item.desa === desa);
 
                     // Tambahkan jumlah inovasi ke properties GeoJSON
                     feature.properties.jumlahInovasi = inovasi ? inovasi.jumlahInovasi : 0;
@@ -80,9 +81,10 @@
                 if (feature.properties && feature.properties.NAMOBJ) {
                     layer.on('mouseover', () => {
                         layer.bindPopup(`
-                        <b>Nama Kecamatan :</b> ${feature.properties.NAMOBJ}<br>
-                        <b>Jumlah Inovasi :</b> ${feature.properties.jumlahInovasi}
-                    `).openPopup();
+                            <b>Nama Kecamatan :</b> ${feature.properties.NAMOBJ}<br>
+                            <b>Nama Desa :</b> ${feature.properties.DESAWI}<br>
+                            <b>Jumlah Inovasi Terbit :</b> ${feature.properties.jumlahInovasi}
+                        `).openPopup();
                     });
 
                     layer.on('mouseout', () => {
@@ -96,4 +98,5 @@
     // Panggil fungsi untuk memuat data dan menampilkan peta
     loadMapData();
 </script>
+
 <?= $this->endSection(); ?>

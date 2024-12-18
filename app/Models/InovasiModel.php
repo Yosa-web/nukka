@@ -62,7 +62,7 @@ class InovasiModel extends Model
             ->join('kecamatan', 'inovasi.kecamatan = kecamatan.id_kecamatan', 'left')
             ->join('desa', 'inovasi.desa = desa.id_desa', 'left')
             ->join('opd', 'inovasi.id_opd = opd.id_opd', 'left');
-    
+
         // Filter data berdasarkan input
         if (!empty($filters['jenis_inovasi'])) {
             $builder->where('jenis_inovasi.id_jenis_inovasi', $filters['jenis_inovasi']);
@@ -79,9 +79,15 @@ class InovasiModel extends Model
         if (!empty($filters['status'])) {
             $builder->where('inovasi.status', $filters['status']); // Tambahkan filter status
         }
-    
+
         return $builder->get()->getResultArray();
     }
-    
-    
+
+    public function getJumlahInovasiPerKecamatanDanDesa()
+    {
+        return $this->select('kecamatan, desa, COUNT(*) as jumlahInovasi')
+            ->where('status', 'terbit')  // Hanya status terbit
+            ->groupBy('kecamatan, desa')  // Mengelompokkan berdasarkan kecamatan dan desa
+            ->findAll();
+    }
 }

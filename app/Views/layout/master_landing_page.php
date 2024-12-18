@@ -56,7 +56,7 @@ $jenis_inovasi = $jenisInovasiModel->findAll();
 			<div class="container-fluid justify-content-between">
 				<a class="navbar-brand d-flex align-items-center" href="<?= base_url('beranda') ?>">
 					<img
-						src="/assets/images/logo_litbang.png"
+						src="/assets/uploads/images/optionweb/logo.png"
 						alt="Logo Balitbang Pesawaran" />
 					<span
 						style="

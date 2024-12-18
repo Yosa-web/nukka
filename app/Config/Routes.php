@@ -298,11 +298,14 @@ $routes->group('', ['filter' => 'group:user'], function ($routes) {
 
 $routes->get('/beranda', 'LandingController::index');
 $routes->get('/tentang', 'LandingController::tentang');
-$routes->get('/visi-misi', 'LandingController::visi');
+$routes->get('/visi-misi', 'LandingController::visiMisi');
 $routes->get('/database-inovasi', 'LandingController::databaseInovasi');
 $routes->get('/peta-inovasi', 'LandingController::petaInovasi');
 $routes->get('/api/jumlah-inovasi', 'LandingController::jumlahInovasi');
 $routes->get('/regulasi', 'LandingController::regulasi');
+// routes.php
+$routes->get('/api/jumlah-inovasi-terbit', 'Superadmin\KelolaDataInovasi::getJumlahInovasiTerbit');
+
 
 //berita
 $routes->get('/berita/lainnya', 'LandingController::semuaBerita');
