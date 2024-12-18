@@ -58,21 +58,16 @@
                                     </div>
                                 </div>
                                 <!-- OPD -->
-                                <!-- OPD -->
                                 <div class="row mb-3">
                                     <label for="floatingIdOpdInput" class="col-sm-3 col-form-label">OPD</label>
                                     <div class="col-sm-9">
-                                        <select class="form-select" id="floatingIdOpdInput" name="id_opd" required>
-                                            <option value="" disabled selected>Pilih OPD</option>
-                                            <?php foreach ($opd as $opd): ?>
-                                                <option value="<?= esc($opd->id_opd) ?>" <?= old('id_opd') == esc($opd->id_opd) ? 'selected' : '' ?>>
-                                                    <?= esc($opd->nama_opd) ?>
-                                                </option>
-                                            <?php endforeach; ?>
-                                        </select>
+                                        <!-- Tampilkan nama OPD -->
+                                        <input type="text" class="form-control" id="floatingIdOpdInput" 
+                                            value="<?= esc($opd->nama_opd ?? 'OPD tidak ditemukan') ?>" readonly>
+                                        <!-- Kirimkan id_opd secara tersembunyi -->
+                                        <input type="hidden" name="id_opd" value="<?= esc($opd->id_opd ?? '') ?>">
                                     </div>
                                 </div>
-
                                 <!-- NIP -->
                                 <div class="row mb-3">
                                     <label for="floatingNipInput" class="col-sm-3 col-form-label">NIP</label>
@@ -82,16 +77,16 @@
                                 </div>
                                 <!-- Jabatan -->
                                 <div class="row mb-3">
-                                    <label for="floatingGroupInput" class="col-sm-3 col-form-label">Jabatan</label>
+                                    <label for="jabatanSelect" class="col-sm-3 col-form-label">Jabatan</label>
                                     <div class="col-sm-9">
-                                        <select
-                                            class="form-select" id="floatingGroupInput" name="group" inputmode="text" autocomplete="group" value="<?= old('group') ?>" required>
-                                            <option value="" disabled selected>
-                                                Pilih Jabatan
-                                            </option>
-                                            <option value="kepala-opd">Kepala OPD</option>
+                                        <select class="form-select" id="jabatanSelect" name="group" inputmode="text" autocomplete="group" required>
+                                            <option value="" disabled selected>Pilih Jabatan</option>
                                             <option value="sekertaris-opd">Sekretaris OPD</option>
                                             <option value="operator">Operator</option>
+                                            <!-- Tampilkan "Kepala OPD" hanya jika OPD belum memiliki Kepala OPD -->
+                                            <?php if (!in_array($opd->id_opd, $opdWithHead)): ?>
+                                                <option value="kepala-opd">Kepala OPD</option>
+                                            <?php endif; ?>
                                         </select>
                                     </div>
                                 </div>

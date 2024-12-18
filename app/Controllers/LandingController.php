@@ -29,12 +29,16 @@ class LandingController extends BaseController
         $optionWebModel = new OptionWebModel();
 
         $banner = $optionWebModel->where('key', 'Banner')->first();
+        $banner2 = $optionWebModel->where('key', 'Banner2')->first();
+        $banner3 = $optionWebModel->where('key', 'Banner3')->first();
 
         $data = [
             'title' => 'Beranda',
             'beritas' => $beritaModel->getPublishedNews(), // Menggunakan $beritaModel tanpa $this
             'galeri' => $galeriModel->findAll(),           // Menggunakan $galeriModel tanpa $this
             'banner' => $banner,
+            'banner2' => $banner2,
+            'banner3' => $banner3,
         ];
 
         return view('landing_page/beranda/beranda', $data);

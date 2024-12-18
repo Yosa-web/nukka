@@ -171,33 +171,43 @@ class KelolaJenisInovasi extends BaseController
     {
         $jenisInovasiModel = new \App\Models\JenisInovasiModel();
         $logModel = new \App\Models\LogAktivitasModel();
-
-        $jenisInovasi = $jenisInovasiModel->find($id);  // Temukan data sebelum dihapus
-        $jenisInovasiModel->delete($id);
-
-        // Mendapatkan ID pengguna (SuperAdmin) yang sedang login
-        $superAdminId = auth()->user()->id;
-
+    
+        // Temukan data sebelum dihapus
+        $jenisInovasi = $jenisInovasiModel->find($id);
+        if (!$jenisInovasi) {
+            return redirect()->back()->with('error', 'Data tidak ditemukan.');
+        }
+    
+        // Pengecekan apakah data jenis inovasi digunakan di tabel lain
+        $relatedTables = [
+            'inovasi', // Ganti dengan nama tabel terkait
+        ];
+    
+        foreach ($relatedTables as $table) {
+            if (db_connect()->table($table)->where('kategori', $id)->countAllResults() > 0) {
+                return redirect()->back()->with('errors', 'Data tidak dapat dihapus karena digunakan di tabel lain.');
+            }
+        }
+    
         // Menghapus data jenis inovasi berdasarkan ID
+        $superAdminId = auth()->user()->id; // ID SuperAdmin yang sedang login
         if ($jenisInovasiModel->delete($id)) {
-
             // Data untuk log aktivitas
             $logData = [
                 'id_user'          => $superAdminId,
-                'tanggal_aktivitas' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(), // Format tanggal
-                'aksi'             => 'hapus data', // Tindakan yang dilakukan
-                'jenis_data'       => 'jenis inovasi', // Jenis data yang terlibat
+                'tanggal_aktivitas' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(),
+                'aksi'             => 'hapus data',
+                'jenis_data'       => 'jenis inovasi',
                 'keterangan'       => "SuperAdmin dengan ID {$superAdminId} menghapus data Jenis Inovasi ",
             ];
-
+    
             // Simpan log aktivitas ke dalam database
             $logModel->save($logData);
-
-            // Jika berhasil, kembali ke halaman dashboard dengan pesan sukses
+    
             return redirect()->to('/jenis_inovasi')->with('success', 'Data berhasil dihapus.');
         } else {
-            // Jika penyimpanan data gagal, kembali ke form dengan pesan error
             return redirect()->back()->withInput()->with('errors', $jenisInovasiModel->errors());
         }
     }
+    
 }

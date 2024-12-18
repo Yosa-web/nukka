@@ -28,21 +28,21 @@
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img
-                    src="assets/images/small/img-1.jpg"
+                    src="<?= base_url('assets/uploads/images/optionweb/' . esc($banner['value'])) ?>"
                     alt=""
                     class="d-block"
                     style="width: 100%" />
             </div>
             <div class="carousel-item">
                 <img
-                    src="assets/images/small/img-2.jpg"
+                    src="<?= base_url('assets/uploads/images/optionweb/' . esc($banner2['value'])) ?>"
                     alt="Chicago"
                     class="d-block"
                     style="width: 100%" />
             </div>
             <div class="carousel-item">
                 <img
-                    src="assets/images/small/img-3.jpg"
+                    src="<?= base_url('assets/uploads/images/optionweb/' . esc($banner3['value'])) ?>"
                     alt="New York"
                     class="d-block"
                     style="width: 100%" />
