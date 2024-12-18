@@ -22,8 +22,42 @@
                     </div>
                 </div>
             </div>
+            <!-- Style added here -->
+            <style>
+                .card-img-overlay {
+                    opacity: 0;
+                    transition: opacity 0.3s ease-in-out;
+                    background-color: rgba(0, 0, 0, 0.5);
+                }
 
-            <!-- Flash messages -->
+                .card-img:hover {
+                    filter: brightness(75%);
+                }
+
+                .card-img-overlay:hover {
+                    opacity: 1;
+                }
+
+                .card-img {
+                    aspect-ratio: 3 / 2;
+                    width: 100%;
+                }
+
+                .card-img img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+                #pagination-container button {
+                    cursor: pointer;
+                }
+
+                #pagination-container .btn {
+                    margin: 0 5px;
+                }
+            </style>
+            <!-- End of style -->
+
             <?php if (session()->getFlashdata('errors') || session()->getFlashdata('success')): ?>
                 <div class="alert alert-dismissible fade show <?= session()->getFlashdata('errors') ? 'alert-danger' : 'alert-success' ?>">
                     <?= session()->getFlashdata('errors') ?: session()->getFlashdata('success') ?>
@@ -57,10 +91,10 @@
                             <!-- Tab panes -->
                             <div class="tab-content p-3 text-muted">
                                 <div class="tab-pane active" id="gambar" role="tabpanel">
-                                    <div class="row mt-3">
+                                    <div class="row mt-3" id="gambar-container">
                                         <?php foreach ($galeri as $item): ?>
                                             <?php if ($item['tipe'] === 'image'): ?>
-                                                <div class="col-md-4 col-sm-6 mb-4">
+                                                <div class="col-md-4 col-sm-6">
                                                     <div class="card">
                                                         <img class="card-img img-fluid" src="<?= base_url(esc($item['url'])) ?>" alt="galeri image">
                                                         <div class="card-img-overlay">
@@ -90,12 +124,13 @@
                                             <?php endif; ?>
                                         <?php endforeach; ?>
                                     </div>
+                                    <div id="gambar-pagination" class="d-flex justify-content-center mt-4 mb-4"></div>
                                 </div>
                                 <div class="tab-pane" id="video" role="tabpanel">
-                                    <div class="row mt-3">
+                                    <div class="row mt-3" id="video-container">
                                         <?php foreach ($galeri as $item): ?>
                                             <?php if ($item['tipe'] === 'video'): ?>
-                                                <div class="col-md-4 col-sm-6 mb-4">
+                                                <div class="col-md-4 col-sm-6">
                                                     <div class="card">
                                                         <div class="ratio ratio-16x9">
                                                             <?php
@@ -133,30 +168,8 @@
                                             <?php endif; ?>
                                         <?php endforeach; ?>
                                     </div>
-                                </div>
-                                <!-- pagination -->
-                                <div class="row justify-content-center mb-4">
-                                    <div class="col-md-3">
-                                        <div class="">
-                                            <ul class="pagination mb-sm-0">
-                                                <li class="page-item disabled">
-                                                    <a href="#" class="page-link"><i class="mdi mdi-chevron-left"></i></a>
-                                                </li>
-                                                <li class="page-item active">
-                                                    <a href="#" class="page-link">1</a>
-                                                </li>
-                                                <li class="page-item">
-                                                    <a href="#" class="page-link">2</a>
-                                                </li>
-                                                <li class="page-item">
-                                                    <a href="#" class="page-link">3</a>
-                                                </li>
-                                                <li class="page-item">
-                                                    <a href="#" class="page-link"><i class="mdi mdi-chevron-right"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                                    <!-- pagination video -->
+                                    <div id="video-pagination" class="d-flex justify-content-center mt-4 mb-4"></div>
                                 </div>
                             </div>
                         </div>
@@ -167,34 +180,6 @@
     </div>
 </div>
 </div>
-
-<!-- CSS Internal -->
-<style>
-    .card {
-        height: 100%;
-    }
-
-    .card-body {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-
-    .card-img {
-        height: 250px;
-        /* Tentukan tinggi gambar jika perlu */
-        object-fit: cover;
-    }
-
-    .card-title,
-    .card-text {
-        margin-bottom: 10px;
-    }
-
-    .card-footer {
-        margin-top: auto;
-    }
-</style>
 
 <script src="/assets/libs/sweetalert2/sweetalert2.min.js"></script>
 <script>
@@ -217,6 +202,176 @@
                 }
             });
         });
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const itemsPerPage = 9; // Jumlah item per halaman
+        const contentContainer = document.getElementById("gambar-container");
+        const paginationContainer = document.getElementById("gambar-pagination");
+        const allItems = Array.from(contentContainer.children);
+        const totalItems = allItems.length;
+        const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+        // Fungsi untuk menampilkan item sesuai halaman
+        function displayPage(page) {
+            // Reset konten
+            contentContainer.innerHTML = "";
+
+            // Hitung indeks awal dan akhir
+            const start = (page - 1) * itemsPerPage;
+            const end = Math.min(start + itemsPerPage, totalItems);
+
+            // Tampilkan item sesuai indeks
+            for (let i = start; i < end; i++) {
+                contentContainer.appendChild(allItems[i]);
+            }
+
+            updatePagination(page);
+        }
+
+        // Fungsi untuk memperbarui navigasi pagination
+        function updatePagination(currentPage) {
+            paginationContainer.innerHTML = ""; // Bersihkan kontainer pagination
+
+            const ul = document.createElement("ul");
+            ul.className = "pagination mb-sm-0";
+
+            // Tombol Prev
+            const prevLi = document.createElement("li");
+            prevLi.className = `page-item ${currentPage === 1 ? "disabled" : ""}`;
+            const prevLink = document.createElement("a");
+            prevLink.className = "page-link";
+            prevLink.innerHTML = '<i class="mdi mdi-chevron-left"></i>';
+            prevLink.href = "#";
+            prevLink.addEventListener("click", (e) => {
+                e.preventDefault();
+                if (currentPage > 1) displayPage(currentPage - 1);
+            });
+            prevLi.appendChild(prevLink);
+            ul.appendChild(prevLi);
+
+            // Tombol halaman
+            for (let i = 1; i <= totalPages; i++) {
+                const pageLi = document.createElement("li");
+                pageLi.className = `page-item ${i === currentPage ? "active" : ""}`;
+                const pageLink = document.createElement("a");
+                pageLink.className = "page-link";
+                pageLink.textContent = i;
+                pageLink.href = "#";
+                pageLink.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    displayPage(i);
+                });
+                pageLi.appendChild(pageLink);
+                ul.appendChild(pageLi);
+            }
+
+            // Tombol Next
+            const nextLi = document.createElement("li");
+            nextLi.className = `page-item ${currentPage === totalPages ? "disabled" : ""}`;
+            const nextLink = document.createElement("a");
+            nextLink.className = "page-link";
+            nextLink.innerHTML = '<i class="mdi mdi-chevron-right"></i>';
+            nextLink.href = "#";
+            nextLink.addEventListener("click", (e) => {
+                e.preventDefault();
+                if (currentPage < totalPages) displayPage(currentPage + 1);
+            });
+            nextLi.appendChild(nextLink);
+            ul.appendChild(nextLi);
+
+            // Tambahkan elemen pagination ke kontainer
+            paginationContainer.appendChild(ul);
+        }
+
+        // Tampilkan halaman pertama saat halaman dimuat
+        displayPage(1);
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const itemsPerPage = 9; // Jumlah item per halaman
+        const contentContainer = document.getElementById("video-container");
+        const paginationContainer = document.getElementById("video-pagination");
+        const allItems = Array.from(contentContainer.children);
+        const totalItems = allItems.length;
+        const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+        // Fungsi untuk menampilkan item sesuai halaman
+        function displayPage(page) {
+            // Reset konten
+            contentContainer.innerHTML = "";
+
+            // Hitung indeks awal dan akhir
+            const start = (page - 1) * itemsPerPage;
+            const end = Math.min(start + itemsPerPage, totalItems);
+
+            // Tampilkan item sesuai indeks
+            for (let i = start; i < end; i++) {
+                contentContainer.appendChild(allItems[i]);
+            }
+
+            updatePagination(page);
+        }
+
+        // Fungsi untuk memperbarui navigasi pagination
+        function updatePagination(currentPage) {
+            paginationContainer.innerHTML = ""; // Bersihkan kontainer pagination
+
+            const ul = document.createElement("ul");
+            ul.className = "pagination mb-sm-0";
+
+            // Tombol Prev
+            const prevLi = document.createElement("li");
+            prevLi.className = `page-item ${currentPage === 1 ? "disabled" : ""}`;
+            const prevLink = document.createElement("a");
+            prevLink.className = "page-link";
+            prevLink.innerHTML = '<i class="mdi mdi-chevron-left"></i>';
+            prevLink.href = "#";
+            prevLink.addEventListener("click", (e) => {
+                e.preventDefault();
+                if (currentPage > 1) displayPage(currentPage - 1);
+            });
+            prevLi.appendChild(prevLink);
+            ul.appendChild(prevLi);
+
+            // Tombol halaman
+            for (let i = 1; i <= totalPages; i++) {
+                const pageLi = document.createElement("li");
+                pageLi.className = `page-item ${i === currentPage ? "active" : ""}`;
+                const pageLink = document.createElement("a");
+                pageLink.className = "page-link";
+                pageLink.textContent = i;
+                pageLink.href = "#";
+                pageLink.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    displayPage(i);
+                });
+                pageLi.appendChild(pageLink);
+                ul.appendChild(pageLi);
+            }
+
+            // Tombol Next
+            const nextLi = document.createElement("li");
+            nextLi.className = `page-item ${currentPage === totalPages ? "disabled" : ""}`;
+            const nextLink = document.createElement("a");
+            nextLink.className = "page-link";
+            nextLink.innerHTML = '<i class="mdi mdi-chevron-right"></i>';
+            nextLink.href = "#";
+            nextLink.addEventListener("click", (e) => {
+                e.preventDefault();
+                if (currentPage < totalPages) displayPage(currentPage + 1);
+            });
+            nextLi.appendChild(nextLink);
+            ul.appendChild(nextLi);
+
+            // Tambahkan elemen pagination ke kontainer
+            paginationContainer.appendChild(ul);
+        }
+
+        // Tampilkan halaman pertama saat halaman dimuat
+        displayPage(1);
     });
 </script>
 <?= $this->endSection(); ?>

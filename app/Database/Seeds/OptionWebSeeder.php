@@ -39,7 +39,19 @@ class OptionWebSeeder extends Seeder
                 'modified_by'  => 1, // Ganti dengan ID pengguna yang sesuai
             ],
             [
-                'key'          => 'Banner',
+                'key'          => 'Banner 1',
+                'seting_type' => 'Image',
+                'value'        => 'Banner Balitbang',
+                'modified_by'  => 1, // Ganti dengan ID pengguna yang sesuai
+            ],
+            [
+                'key'          => 'Banner 2',
+                'seting_type' => 'Image',
+                'value'        => 'Banner Balitbang',
+                'modified_by'  => 1, // Ganti dengan ID pengguna yang sesuai
+            ],
+            [
+                'key'          => 'Banner 3',
                 'seting_type' => 'Image',
                 'value'        => 'Banner Balitbang',
                 'modified_by'  => 1, // Ganti dengan ID pengguna yang sesuai

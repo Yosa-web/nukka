@@ -32,7 +32,7 @@
                 <div class="col-xl-6">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title mb-0">Persebaran Jenis Inovasi</h4>
+                            <h5 class="mb-0">Persebaran Jenis Inovasi</h5>
                         </div>
                         <div class="card-body">
                             <div id="pie-chart" data-colors='["#fd625e", "#2ab57d","#5156be"]' class="e-charts"></div>
@@ -43,7 +43,7 @@
                 <div class="col-xl-6">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title mb-0">Grafik Kunjungan Website</h4>
+                            <h5 class="mb-0">Grafik Kunjungan Website</h5>
                         </div>
                         <div class="card-body">
                             <div id="mix-line-bar" data-colors='["#2ab57d", "#5156be", "#fd625e"]' class="e-charts"></div>
@@ -55,7 +55,116 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="">Log Aktivitas</h4>
+                            <h5 class="mb-0">Ekspor Data CSV</h5>
+                        </div>
+                        <div class="card-body">
+                            <form action="<?= site_url('export/csv') ?>" method="get">
+                                <div class="row">
+                                    <div
+                                        class="col-md-4">
+                                        <div
+                                            class="mb-3">
+                                            <label
+                                                class="form-label"
+                                                for="kategori">Kategori</label>
+                                            <select
+                                                class="form-select" name="kategori" id="kategori">
+                                                <option value="" disabled selected>
+                                                    --- Pilih Kategori ---
+                                                </option>
+                                                <?php foreach ($kategoriOptions as $kategori): ?>
+                                                    <option value="<?= $kategori['id_jenis_inovasi'] ?>"><?= $kategori['nama_jenis'] ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="col-md-4">
+                                        <div
+                                            class="mb-3">
+                                            <label
+                                                class="form-label"
+                                                for="bentuk">Bentuk</label>
+                                            <select
+                                                class="form-select" name="bentuk" id="bentuk">
+                                                <option value="" disabled selected>
+                                                    --- Pilih Bentuk ---
+                                                </option>
+                                                <?php foreach ($bentukOptions as $bentuk): ?>
+                                                    <option value="<?= $bentuk['id_bentuk'] ?>"><?= $bentuk['nama_bentuk'] ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="col-md-4">
+                                        <div
+                                            class="mb-3">
+                                            <label
+                                                class="form-label"
+                                                for="tahapan">Tahapan</label>
+                                            <select
+                                                class="form-select" name="tahapan" id="tahapan">
+                                                <option value="" disabled selected>
+                                                    --- Pilih Tahapan ---
+                                                </option>
+                                                <?php foreach ($tahapanOptions as $tahapan): ?>
+                                                    <option value="<?= $tahapan['id_tahapan'] ?>"><?= $tahapan['nama_tahapan'] ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div
+                                        class="col-md-4">
+                                        <div
+                                            class="mb-3">
+                                            <label
+                                                class="form-label"
+                                                for="status">Status</label>
+                                            <select
+                                                class="form-select" name="status" required>
+                                                <option value="" <?= !isset($_GET['status']) || $_GET['status'] == '' ? 'selected' : '' ?>>Semua</option>
+                                                <option value="tertunda" <?= isset($_GET['status']) && $_GET['status'] == 'tertunda' ? 'selected' : '' ?>>Tertunda</option>
+                                                <option value="draf" <?= isset($_GET['status']) && $_GET['status'] == 'draf' ? 'selected' : '' ?>>Draf</option>
+                                                <option value="terbit" <?= isset($_GET['status']) && $_GET['status'] == 'terbit' ? 'selected' : '' ?>>Terbit</option>
+                                                <option value="arsip" <?= isset($_GET['status']) && $_GET['status'] == 'arsip' ? 'selected' : '' ?>>Arsip</option>
+                                                <option value="tertolak" <?= isset($_GET['status']) && $_GET['status'] == 'tertolak' ? 'selected' : '' ?>>Tertolak</option>
+                                                <option value="revisi" <?= isset($_GET['status']) && $_GET['status'] == 'revisi' ? 'selected' : '' ?>>Revisi</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="col-md-4">
+                                        <div
+                                            class="mb-3">
+                                            <label
+                                                class="form-label"
+                                                for="tahun">Tahun</label>
+                                            <input
+                                                type="number"
+                                                class="form-control"
+                                                name="tahun" id="tahun" placeholder="Masukkan Tahun" />
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="col-md-4">
+                                        <div class="mt-4">
+                                        <button type="submit" class="btn btn-primary btn-rounded waves-effect waves-light">Export</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">Log Aktivitas</h5>
                         </div>
                         <div class="card-body">
                             <?php if (empty($log)): ?>

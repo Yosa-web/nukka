@@ -173,6 +173,9 @@ $routes->group('', ['filter' => 'group:superadmin'], function ($routes) {
     $routes->get('/superadmin/desa/edit/(:num)', 'Superadmin\DesaController::edit/$1');
     $routes->post('/superadmin/desa/update/(:num)', 'Superadmin\DesaController::update/$1');
     $routes->get('/superadmin/desa/delete/(:num)', 'Superadmin\DesaController::delete/$1');
+
+    //export
+    $routes->get('export/csv', 'Superadmin\ExportController::exportToCSV');
 });
 
 $routes->group('', ['filter' => 'group:admin-opd'], function ($routes) {
@@ -312,5 +315,5 @@ $routes->get('berita/detail/(:segment)', 'Superadmin\KelolaBerita::show/$1');
 
 $routes->get('handleLogin', 'AuthController::handleLogin');
 
-$routes->get('export', 'Superadmin\ExportController::showExportForm');
-$routes->get('export/csv', 'Superadmin\ExportController::exportToCSV');
+
+
