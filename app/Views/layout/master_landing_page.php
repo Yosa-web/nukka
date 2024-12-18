@@ -13,7 +13,7 @@ $jenis_inovasi = $jenisInovasiModel->findAll();
 	<?= $this->renderSection('title'); ?>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<!-- App favicon -->
-	<link rel="shortcut icon" href="/assets/images/logo_litbang.png" />
+	<link rel="shortcut icon" href="/assets/uploads/images/optionweb/logo.png" />
 	<link
 		href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
 		rel="stylesheet" />
@@ -55,24 +55,12 @@ $jenis_inovasi = $jenisInovasiModel->findAll();
 		<nav class="navbar navbar-expand-lg" id="mainNavbar">
 			<div class="container-fluid justify-content-between">
 				<a class="navbar-brand d-flex align-items-center" href="<?= base_url('beranda') ?>">
-					<img
-						src="/assets/uploads/images/optionweb/logo.png"
-						alt="Logo Balitbang Pesawaran" />
-					<span
-						style="
-								color: #0077c2;
-								font-weight: bold;
-								font-size: 25px;
-							">Balitbang</span>
+					<img src="/assets/uploads/images/optionweb/logo.png" alt="Logo Website" />
+					<span style="color: #0077c2; font-weight: bold; font-size: 25px;">
+						<span><?= esc(strip_tags($namaWebsite)) ?></span>
+					</span>
 				</a>
-				<button
-					class="navbar-toggler"
-					type="button"
-					data-bs-toggle="collapse"
-					data-bs-target="#navbarNav"
-					aria-controls="navbarNav"
-					aria-expanded="false"
-					aria-label="Toggle navigation">
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 
@@ -97,16 +85,13 @@ $jenis_inovasi = $jenisInovasiModel->findAll();
 							<a class="nav-link" href="<?= base_url('regulasi') ?>">Regulasi</a>
 						</li>
 					</ul>
-					<button
-						type="button"
-						class="btn btn-light btn-rounded waves-effect"
-						onclick="window.location.href='<?= base_url('login') ?>'">
-						<i
-							class="fas fa-user font-size-16 align-middle me-2"></i>Masuk
+					<button type="button" class="btn btn-light btn-rounded waves-effect" onclick="window.location.href='<?= base_url('login') ?>'">
+						<i class="fas fa-user font-size-16 align-middle me-2"></i>Masuk
 					</button>
 				</div>
 			</div>
 		</nav>
+
 
 		<!-- Content -->
 		<?= $this->renderSection('content'); ?>
@@ -116,12 +101,12 @@ $jenis_inovasi = $jenisInovasiModel->findAll();
 			<div class="row align-items-center">
 				<div class="col-md-3 text-center mb-4 mb-md-0">
 					<img
-						src="/assets/images/logo_litbang.png"
+						src="/assets/uploads/images/optionweb/logo.png"
 						alt="Logo Balitbang"
 						class="footer-logo" />
 				</div>
 				<div class="col-md-5 text-md-start mb-4 mb-md-0 ps-4">
-					<h3 class="fw-bold">Balitbang.</h3>
+					<h3 class="fw-bold"><span><?= esc(strip_tags($namaWebsite)) ?></span></h3>
 					<p>balitbangpesawaran@gmail.com</p>
 					<p>(0733) 4540000</p>
 					<p>

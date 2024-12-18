@@ -6,7 +6,7 @@
     <title>Register Admin OPD | Rumah Inovasi</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="/assets/images/logo_litbang.png" />
+    <link rel="shortcut icon" href="/assets/uploads/images/optionweb/logo.png" />
     <!-- choices css -->
     <link href="/assets/libs/choices.js/public/assets/styles/choices.min.css" rel="stylesheet" type="text/css" />
     <!-- Sweet Alert-->
@@ -59,7 +59,7 @@
             <div class="mb-4 mb-md-4 text-center">
                 <a href="#" class="d-block auth-logo">
                     <img
-                        src="/assets/images/logo_litbang.png"
+                        src="/assets/uploads/images/optionweb/logo.png"
                         alt=""
                         height="50" />
                 </a>
@@ -93,113 +93,113 @@
                             Please Enter Name
                         </div>
                     </div>
-                        <!-- NIP -->
-                        <div class="mb-3">
-                            <label for="floatingNipInput" class="form-label">NIP</label>
-                            <input type="text" class="form-control" id="floatingNipInput" name="NIP" inputmode="text" autocomplete="nip" placeholder="Masukkan NIP Anda" value="<?= old('NIP') ?>" required>
-                            <div class="invalid-feedback">
-                                Please Enter NIP
+                    <!-- NIP -->
+                    <div class="mb-3">
+                        <label for="floatingNipInput" class="form-label">NIP</label>
+                        <input type="text" class="form-control" id="floatingNipInput" name="NIP" inputmode="text" autocomplete="nip" placeholder="Masukkan NIP Anda" value="<?= old('NIP') ?>" required>
+                        <div class="invalid-feedback">
+                            Please Enter NIP
+                        </div>
+                    </div>
+                    <!-- OPD -->
+                    <div class="mb-3">
+                        <div class="d-flex align-items-start">
+                            <div class="flex-grow-1">
+                                <label for="floatingIdOpdInput" class="form-label">OPD</label>
+                            </div>
+                            <div class="flex-shrink-0">
+                                <div class="">
+                                    <a class="btn text-muted" id="sa-title">OPD tidak tersedia?</a>
+                                </div>
                             </div>
                         </div>
-                        <!-- OPD -->
+                        <select required class="form-control" data-trigger name="id_opd" id="floatingIdOpdInput" placeholder="Pilih OPD" required>
+                            <option value="" disabled selected>Pilih OPD</option>
+                            <?php foreach ($opd as $item): ?>
+                                <option value="<?= esc($item->id_opd) ?>" <?= old('id_opd') == esc($item->id_opd) ? 'selected' : '' ?>><?= esc($item->nama_opd) ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                        <div class="invalid-feedback">
+                            Please Choose One
+                        </div>
+                        <!-- Email -->
                         <div class="mb-3">
-                            <div class="d-flex align-items-start">
-                                <div class="flex-grow-1">
-                                    <label for="floatingIdOpdInput" class="form-label">OPD</label>
-                                </div>
-                                <div class="flex-shrink-0">
-                                    <div class="">
-                                        <a class="btn text-muted" id="sa-title">OPD tidak tersedia?</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <select required class="form-control" data-trigger name="id_opd" id="floatingIdOpdInput" placeholder="Pilih OPD" required>
-                                <option value="" disabled selected>Pilih OPD</option>
-                                <?php foreach ($opd as $item): ?>
-                                    <option value="<?= esc($item->id_opd) ?>" <?= old('id_opd') == esc($item->id_opd) ? 'selected' : '' ?>><?= esc($item->nama_opd) ?></option>
-                                <?php endforeach; ?>
-                            </select>
+                            <label for="floatingEmailInput" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="floatingEmailInput" name="email" inputmode="email" autocomplete="email" placeholder="Masukkan Email Anda" value="<?= old('email') ?>" required>
                             <div class="invalid-feedback">
-                                Please Choose One
+                                Please Enter Email
                             </div>
-                            <!-- Email -->
-                            <div class="mb-3">
-                                <label for="floatingEmailInput" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="floatingEmailInput" name="email" inputmode="email" autocomplete="email" placeholder="Masukkan Email Anda" value="<?= old('email') ?>" required>
-                                <div class="invalid-feedback">
-                                    Please Enter Email
+                        </div>
+                        <!-- Telepon -->
+                        <div class="mb-3">
+                            <label for="no_telp" class="form-label">No. Telp</label>
+                            <input type="text" class="form-control" id="floatingNoTeleponInput" name="no_telepon" inputmode="tel" autocomplete="tel" placeholder="Masukkan Nomor Telepon" value="<?= old('no_telepon') ?>" required>
+                            <div class="invalid-feedback">
+                                Please Enter Phone Number
+                            </div>
+                        </div>
+                        <!-- Password -->
+                        <div class="mb-4">
+                            <label for="floatingPasswordInput" class="form-label">Password</label>
+                            <div class="input-group auth-pass-inputgroup">
+                                <input
+                                    type="password"
+                                    class="form-control"
+                                    id="floatingPasswordInput" name="password" inputmode="text" autocomplete="new-password"
+                                    placeholder="Masukkan Kata Sandi"
+                                    required />
+                                <button
+                                    class="btn btn-light shadow-none ms-0"
+                                    type="button"
+                                    id="password-addon">
+                                    <i class="mdi mdi-eye-outline"></i>
+                                </button>
+                                <div
+                                    class="invalid-feedback"
+                                    id="password-error">
                                 </div>
                             </div>
-                            <!-- Telepon -->
-                            <div class="mb-3">
-                                <label for="no_telp" class="form-label">No. Telp</label>
-                                <input type="text" class="form-control" id="floatingNoTeleponInput" name="no_telepon" inputmode="tel" autocomplete="tel" placeholder="Masukkan Nomor Telepon" value="<?= old('no_telepon') ?>" required>
-                                <div class="invalid-feedback">
-                                    Please Enter Phone Number
+                        </div>
+                        <!-- Re-Password -->
+                        <div class="mb-4">
+                            <label for="floatingPasswordConfirmInput" class="form-label">Konfirmasi Password</label>
+                            <div class="input-group auth-pass-inputgroup">
+                                <input
+                                    type="password"
+                                    class="form-control"
+                                    id="floatingPasswordConfirmInput" name="password_confirm" inputmode="text" autocomplete="new-password"
+                                    placeholder="Masukkan kembali kata sandi"
+                                    required />
+                                <button
+                                    class="btn btn-light shadow-none ms-0"
+                                    type="button"
+                                    id="repassword-addon">
+                                    <i class="mdi mdi-eye-outline"></i>
+                                </button>
+                                <div
+                                    class="invalid-feedback"
+                                    id="repassword-error">
                                 </div>
                             </div>
-                            <!-- Password -->
-                            <div class="mb-4">
-                                <label for="floatingPasswordInput" class="form-label">Password</label>
-                                <div class="input-group auth-pass-inputgroup">
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col">
+                                <div class="form-check">
                                     <input
-                                        type="password"
-                                        class="form-control"
-                                        id="floatingPasswordInput" name="password" inputmode="text" autocomplete="new-password"
-                                        placeholder="Masukkan Kata Sandi"
-                                        required />
-                                    <button
-                                        class="btn btn-light shadow-none ms-0"
-                                        type="button"
-                                        id="password-addon">
-                                        <i class="mdi mdi-eye-outline"></i>
-                                    </button>
-                                    <div
-                                        class="invalid-feedback"
-                                        id="password-error">
-                                    </div>
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        id="remember-check" required />
+                                    <label
+                                        class="form-check-label text-muted fw-normal"
+                                        for="remember-check">
+                                        Saya setuju dengan <a href="#" class="text-primary">Syarat dan Ketentuan</a> yang berlaku
+                                    </label>
                                 </div>
                             </div>
-                            <!-- Re-Password -->
-                            <div class="mb-4">
-                                <label for="floatingPasswordConfirmInput" class="form-label">Konfirmasi Password</label>
-                                <div class="input-group auth-pass-inputgroup">
-                                    <input
-                                        type="password"
-                                        class="form-control"
-                                        id="floatingPasswordConfirmInput" name="password_confirm" inputmode="text" autocomplete="new-password"
-                                        placeholder="Masukkan kembali kata sandi"
-                                        required />
-                                    <button
-                                        class="btn btn-light shadow-none ms-0"
-                                        type="button"
-                                        id="repassword-addon">
-                                        <i class="mdi mdi-eye-outline"></i>
-                                    </button>
-                                    <div
-                                        class="invalid-feedback"
-                                        id="repassword-error">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mb-4">
-                                <div class="col">
-                                    <div class="form-check">
-                                        <input
-                                            class="form-check-input"
-                                            type="checkbox"
-                                            id="remember-check" required />
-                                        <label
-                                            class="form-check-label text-muted fw-normal"
-                                            for="remember-check">
-                                            Saya setuju dengan <a href="#" class="text-primary">Syarat dan Ketentuan</a> yang berlaku
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <button class="btn btn-primary w-100 waves-effect waves-light" type="submit"><?= lang('Auth.register') ?></button>
-                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <button class="btn btn-primary w-100 waves-effect waves-light" type="submit"><?= lang('Auth.register') ?></button>
+                        </div>
                 </form>
 
                 <div class="mt-4 text-center">

@@ -6,7 +6,7 @@
     <?= $this->renderSection('title'); ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="/assets/images/logo_litbang.png" />
+    <link rel="shortcut icon" href="/assets/uploads/images/optionweb/logo.png" />
     <!-- Sweet Alert-->
     <link href="/assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
     <!-- choices css -->

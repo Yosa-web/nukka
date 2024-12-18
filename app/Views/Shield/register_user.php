@@ -6,7 +6,7 @@
     <title>Register Umum | Rumah Inovasi</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="/assets/images/logo_litbang.png" />
+    <link rel="shortcut icon" href="/assets/uploads/images/optionweb/logo.png" />
     <!-- choices css -->
     <link
         href="/assets/libs/choices.js/public/assets/styles/choices.min.css"
@@ -60,7 +60,7 @@
             <div class="mb-4 mb-md-4 text-center">
                 <a href="#" class="d-block auth-logo">
                     <img
-                        src="/assets/images/logo_litbang.png"
+                        src="/assets/uploads/images/optionweb/logo.png"
                         alt=""
                         height="50" />
                 </a>

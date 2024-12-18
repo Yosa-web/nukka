@@ -14,12 +14,17 @@ class LandingController extends BaseController
 {
     protected $inovasiModel;
     protected $JenisInovasiModel;
-
+    protected $namaWebsite; // Tambahkan properti untuk nama website
 
     public function __construct()
     {
         $this->inovasiModel = new InovasiModel();
         $this->JenisInovasiModel = new JenisInovasiModel();
+
+        // Ambil nama website saat konstruktor dijalankan
+        $optionWebModel = new OptionWebModel();
+        $nama = $optionWebModel->where('key', 'Nama')->first();
+        $this->namaWebsite = $nama['value'] ?? 'Balitbang'; // Fallback jika Nama tidak tersedia
     }
 
     public function index()
@@ -32,6 +37,7 @@ class LandingController extends BaseController
         $banner2 = $optionWebModel->where('key', 'Banner2')->first();
         $banner3 = $optionWebModel->where('key', 'Banner3')->first();
 
+
         $data = [
             'title' => 'Beranda',
             'beritas' => $beritaModel->getPublishedNews(), // Menggunakan $beritaModel tanpa $this
@@ -39,6 +45,8 @@ class LandingController extends BaseController
             'banner' => $banner,
             'banner2' => $banner2,
             'banner3' => $banner3,
+            'namaWebsite' => $this->namaWebsite, // Kirim nama website ke view
+
         ];
 
         return view('landing_page/beranda/beranda', $data);
@@ -56,6 +64,8 @@ class LandingController extends BaseController
             'title' => 'Tentang',
             'option' => $deskripsi, // Mengirimkan data tunggal ke view
             'beritas' => $beritaModel->getPublishedNewsNew(), // Menggunakan $beritaModel tanpa $this
+            'namaWebsite' => $this->namaWebsite, // Kirim nama website ke view
+
         ];
 
         return view('landing_page/tentang/tentang', $data);
@@ -75,10 +85,11 @@ class LandingController extends BaseController
         return view('landing_page/visi_misi/visi_misi.php', [
             'visi' => $visi['value'] ?? 'Visi belum tersedia',
             'misi' => $misi['value'] ?? 'Misi belum tersedia',
-            'banner' => $banner
+            'banner' => $banner,
+            'namaWebsite' => $this->namaWebsite, // Kirim nama website ke view
+
         ]);
     }
-
 
     public function databaseInovasi()
     {
@@ -109,6 +120,9 @@ class LandingController extends BaseController
         // Mengambil data jenis_inovasi untuk kategori filter
         $data['jenis_inovasi'] = $this->JenisInovasiModel->findAll();
 
+        // Tambahkan nama website ke data
+        $data['namaWebsite'] = $this->namaWebsite;
+
         return view('landing_page/database_inovasi/database_inovasi', $data);
     }
 
@@ -117,6 +131,9 @@ class LandingController extends BaseController
         // Mengambil data jumlah inovasi per kecamatan dan desa yang statusnya 'terbit'
         $inovasiModel = new InovasiModel();
         $data['inovasi'] = $inovasiModel->getJumlahInovasiPerKecamatanDanDesa();
+
+        // Tambahkan nama website ke data
+        $data['namaWebsite'] = $this->namaWebsite;
 
         return view('landing_page/peta_inovasi/peta_inovasi', $data);
     }
@@ -140,6 +157,7 @@ class LandingController extends BaseController
         $data = [
             'title' => 'Tentang',
             'option' => $deskripsi, // Mengirimkan data tunggal ke view
+            'namaWebsite' => $this->namaWebsite, // Kirim nama website ke view
         ];
         return view('landing_page/regulasi/regulasi', $data);
     }
@@ -159,6 +177,8 @@ class LandingController extends BaseController
             'new_berita' => $beritaModel->getPublishedNewsNewOne(), // Menggunakan $beritaModel tanpa $this
             'new_beritas' => $beritaModel->getPublishedNewsNew(), // Menggunakan $beritaModel tanpa $this
             'beritas' => $beritaModel->getPublishedNews(),
+            'namaWebsite' => $this->namaWebsite, // Kirim nama website ke view
+
         ];
 
         return view('landing_page/berita/berita_lainnya', $data);
@@ -171,6 +191,8 @@ class LandingController extends BaseController
 
         $data = [
             'galeri' => $galeriModel->findAll(),
+            'namaWebsite' => $this->namaWebsite, // Kirim nama website ke view
+
         ];
 
         return view('landing_page/galeri/galeri_foto', $data);
@@ -183,6 +205,8 @@ class LandingController extends BaseController
 
         $data = [
             'galeri' => $galeriModel->findAll(),
+            'namaWebsite' => $this->namaWebsite, // Kirim nama website ke view
+
         ];
 
         return view('landing_page/galeri/galeri_video', $data);
