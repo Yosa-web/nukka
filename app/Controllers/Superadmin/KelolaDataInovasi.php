@@ -42,6 +42,13 @@ class KelolaDataInovasi extends BaseController
         $this->litbang = \Config\Database::connect();
     }
 
+    public function getJumlahInovasiTerbit()
+    {
+        $inovasiModel = new InovasiModel();
+        $data = $inovasiModel->getJumlahInovasiPerKecamatanDanDesa();
+        return $this->response->setJSON($data);
+    }
+
     public function index()
     {
         // Mengambil koneksi database

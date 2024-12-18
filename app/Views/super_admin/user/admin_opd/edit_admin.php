@@ -59,17 +59,20 @@
                                 </div>
                                 <!-- OPD -->
                                 <div class="row mb-3">
-                                    <label for="floatingIdOpdInput" class="col-sm-3 col-form-label">OPD</label>
-                                    <div class="col-sm-9">
-                                        <select
-                                            class="form-select" id="floatingIdOpdInput" name="id_opd" required>
-                                            <option value="" disabled>Pilih OPD</option>
-                                            <?php foreach ($opd as $item): ?>
-                                                <option value="<?= esc($item->id_opd) ?>" <?= old('id_opd', $user->id_opd) == esc($item->id_opd) ? 'selected' : '' ?>><?= esc($item->nama_opd) ?></option>
-                                            <?php endforeach; ?>
-                                        </select>
-                                    </div>
-                                </div>
+    <label for="floatingIdOpdInput" class="col-sm-3 col-form-label">OPD</label>
+    <div class="col-sm-9">
+        <select
+            class="form-select" id="floatingIdOpdInput" name="id_opd_disabled" disabled>
+            <option value="" disabled>Pilih OPD</option>
+            <?php foreach ($opd as $item): ?>
+                <option value="<?= esc($item->id_opd) ?>" <?= old('id_opd', $user->id_opd) == esc($item->id_opd) ? 'selected' : '' ?>><?= esc($item->nama_opd) ?></option>
+            <?php endforeach; ?>
+        </select>
+        <!-- Input hidden untuk menyimpan nilai id_opd -->
+        <input type="hidden" name="id_opd" value="<?= esc($user->id_opd) ?>">
+    </div>
+</div>
+
                                 <!-- NIP -->
                                 <div class="row mb-3">
                                     <label for="floatingNipInput" class="col-sm-3 col-form-label">NIP</label>

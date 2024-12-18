@@ -68,13 +68,13 @@
                         <a href="#" class="logo logo-dark">
                             <span class="logo-sm">
                                 <img
-                                    src="/assets/images/logo_litbang.png"
+                                    src="/assets/uploads/images/optionweb/logo.png"
                                     alt=""
                                     height="35" />
                             </span>
                             <span class="logo-lg">
                                 <img
-                                    src="/assets/images/logo_litbang.png"
+                                    src="/assets/uploads/images/optionweb/logo.png"
                                     alt=""
                                     height="35" />
                                 <span class="logo-txt">Rumah Inovasi</span>

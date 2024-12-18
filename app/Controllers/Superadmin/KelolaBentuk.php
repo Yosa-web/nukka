@@ -175,6 +175,18 @@ class KelolaBentuk extends BaseController
         // Mendapatkan ID pengguna (SuperAdmin) yang sedang login
         $superAdminId = auth()->user()->id;
 
+        // Pengecekan apakah data jenis inovasi digunakan di tabel lain
+        $relatedTables = [
+            'inovasi', // Ganti dengan nama tabel terkait
+        ];
+    
+        foreach ($relatedTables as $table) {
+            if (db_connect()->table($table)->where('bentuk', $id)->countAllResults() > 0) {
+                return redirect()->back()->with('errors', 'Data tidak dapat dihapus karena digunakan di tabel lain.');
+            }
+        }
+        
+
         // Menghapus data jenis inovasi berdasarkan ID
         if ($bentukModel->delete($id)) {
 

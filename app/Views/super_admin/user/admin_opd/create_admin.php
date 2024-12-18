@@ -82,7 +82,7 @@
                                 </div>
                                 <!-- Jabatan -->
                                 <div class="row mb-3">
-                                    <label for="floatingGroupInput" class="col-sm-3 col-form-label">Role</label>
+                                    <label for="floatingGroupInput" class="col-sm-3 col-form-label">Jabatan</label>
                                     <div class="col-sm-9">
                                         <select
                                             class="form-select" id="floatingGroupInput" name="group" inputmode="text" autocomplete="group" value="<?= old('group') ?>" required>

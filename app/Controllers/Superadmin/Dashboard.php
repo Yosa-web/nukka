@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers\Superadmin;
+
 use App\Models\LogAktivitasModel;
 use App\Controllers\BaseController;
 use App\Models\InovasiModel;
@@ -30,8 +31,6 @@ class Dashboard extends BaseController
             'bentukOptions' => $bentukModel->findAll(),
             'tahapanOptions' => $tahapanModel->findAll(),
         ];
-    
-        return view('super_admin/dashboard', $data);    
+        return view('super_admin/dashboard', $data);
     }
-
 }

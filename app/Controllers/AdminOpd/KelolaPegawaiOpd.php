@@ -69,11 +69,32 @@ class KelolaPegawaiOpd extends BaseRegisterController
         // Ambil `id_opd` langsung dari pengguna yang sedang login
         $adminOpdId = auth()->user()->id_opd;
     
-        $opdModel = new OpdModel();
-        $opd = $opdModel->where('id_opd', $adminOpdId)->findAll();
+        // Ambil data kepala-opd
+        $db = \Config\Database::connect();
+        $builder = $db->table('auth_groups_users');
+        $builder->select('auth_groups_users.user_id, auth_groups_users.group, users.id_opd');
+        $builder->join('users', 'users.id = auth_groups_users.user_id');
+        $builder->where('auth_groups_users.group', 'kepala-opd');
+        $query = $builder->get();
+        $usersWithHead = $query->getResult();
     
-        return view('admin_opd/kelola_pegawai/create_pegawai', ['opd' => $opd]);
+        // Ambil semua opd_id yang sudah memiliki kepala-opd
+        $opdWithHead = [];
+        foreach ($usersWithHead as $user) {
+            $opdWithHead[] = $user->id_opd;
+        }
+    
+        // Ambil data OPD admin yang sedang login
+        $opdModel = new OpdModel();
+        $opd = $opdModel->where('id_opd', $adminOpdId)->first();
+    
+        return view('admin_opd/kelola_pegawai/create_pegawai', [
+            'opd' => $opd,
+            'opdWithHead' => $opdWithHead,
+        ]);
     }
+    
+    
     
     public function store(): RedirectResponse
 {
@@ -150,6 +171,23 @@ class KelolaPegawaiOpd extends BaseRegisterController
 
     public function edit(string $id) // Ubah tipe parameter menjadi string
     {
+                // Ambil `id_opd` langsung dari pengguna yang sedang login
+                $adminOpdId = auth()->user()->id_opd;
+    
+                // Ambil data kepala-opd
+                $db = \Config\Database::connect();
+                $builder = $db->table('auth_groups_users');
+                $builder->select('auth_groups_users.user_id, auth_groups_users.group, users.id_opd');
+                $builder->join('users', 'users.id = auth_groups_users.user_id');
+                $builder->where('auth_groups_users.group', 'kepala-opd');
+                $query = $builder->get();
+                $usersWithHead = $query->getResult();
+            
+                // Ambil semua opd_id yang sudah memiliki kepala-opd
+                $opdWithHead = [];
+                foreach ($usersWithHead as $user) {
+                    $opdWithHead[] = $user->id_opd;
+                }
         // Ambil encrypter dari service untuk dekripsi
         $encrypter = \Config\Services::encrypter();
     
@@ -196,6 +234,7 @@ class KelolaPegawaiOpd extends BaseRegisterController
         return view('admin_opd/kelola_pegawai/edit_pegawai', [
             'user' => $user,
             'opd' => $opd,
+            'opdWithHead' => $opdWithHead,
         ]);
     }
     

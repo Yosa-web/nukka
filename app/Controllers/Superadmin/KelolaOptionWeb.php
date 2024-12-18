@@ -20,25 +20,22 @@ class KelolaOptionWeb extends BaseController
     public function index()
     {
         $model = new OptionWebModel();
-    
+
         // Mengambil semua data dari tabel option_web
         $options = $model->findAll();
-    
+
         // Proses data untuk membersihkan tag HTML, namun izinkan beberapa tag HTML
         foreach ($options as &$option) {
             // Izinkan tag HTML seperti <b>, <i>, <u>, <strong>, <em>, <p>, <h1>, <h2>, dll
             $allowed_tags = '<b><i><u><strong><em><p><h1><h2><h3><h4><h5><h6><ul><ol><li><br>';
             $option['clean_text'] = strip_tags($option['value'], $allowed_tags); // Membersihkan tag HTML kecuali yang diizinkan
         }
-    
+
         // Kirim data ke view
         $data['options'] = $options;
-    
+
         return view('super_admin/option_web/index', $data);
     }
-    
-    
-
 
     public function edit($id)
     {
@@ -60,114 +57,78 @@ class KelolaOptionWeb extends BaseController
         $pathImage = 'assets/uploads/images/optionweb/';
         $file = $this->request->getFile('image');
         $text = $this->request->getPost('text');
-        $warna = $this->request->getPost('warna'); // Ambil input warna jika ada
-        $tipe = $this->request->getPost('tipe') ?? $optionWebModel->find($id)['seting_type'];
+        $warna = $this->request->getPost('warna');
+        $option = $optionWebModel->find($id); // Ambil data berdasarkan ID
+        $tipe = $this->request->getPost('tipe') ?? $option['seting_type'];
+        $key = $option['key']; // Ambil key untuk menentukan nama file
         $fileNameToSave = null;
 
-        // Jika tipe adalah 'warna', ambil data warna dari input
+        // Jika tipe adalah 'warna'
         if ($tipe === 'warna' || $tipe === 'kode warna') {
-            $warna = $this->request->getPost('warna'); // Ambil nilai warna
-            if (!$this->validate(['warna' => 'required'])) { // Validasi warna
+            if (!$this->validate(['warna' => 'required'])) {
                 return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
             }
             $fileNameToSave = $warna;
 
-            // Jika tipe adalah 'text', ambil data teks dari input
+            // Jika tipe adalah 'text'
         } elseif ($tipe === 'text') {
-            $text = $this->request->getPost('text'); // Ambil nilai teks
-            if (!$this->validate(['text' => 'required'])) { // Validasi teks
+            if (!$this->validate(['text' => 'required'])) {
                 return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
             }
             $fileNameToSave = $text;
 
-            // Jika tipe adalah 'image', ambil data gambar dari input file
+            // Jika tipe adalah 'image'
         } elseif ($tipe === 'image') {
-            $file = $this->request->getFile('image'); // Ambil file gambar
             if ($file && $file->isValid() && !$file->hasMoved()) {
-                $uniqueName = $file->getRandomName(); // Buat nama acak untuk file
-                if ($file->move($pathImage, $uniqueName)) {
-                    $fileNameToSave = $uniqueName;
+                // Tentukan nama file sesuai key: logo, banner1, banner2, atau banner3
+                if (stripos($key, 'Banner 1') !== false) {
+                    $fileNameToSave = 'banner1.' . $file->getExtension();
+                } elseif (stripos($key, 'Banner 2') !== false) {
+                    $fileNameToSave = 'banner2.' . $file->getExtension();
+                } elseif (stripos($key, 'Banner 3') !== false) {
+                    $fileNameToSave = 'banner3.' . $file->getExtension();
+                } elseif (stripos($key, 'Logo') !== false) {
+                    $fileNameToSave = 'logo.' . $file->getExtension();
                 } else {
-                    return redirect()->back()->with('error', 'Gagal memindahkan gambar.');
-                } // Simpan nama file untuk update ke database
+                    $fileNameToSave = $file->getRandomName(); // Default jika tidak terdeteksi
+                }
+
+                // Hapus file lama jika ada
+                $existingFile = $pathImage . $option['value'];
+                if (file_exists($existingFile)) {
+                    unlink($existingFile);
+                }
+
+                // Simpan file baru
+                if (!$file->move($pathImage, $fileNameToSave)) {
+                    return redirect()->back()->with('error', 'Gagal menyimpan file baru.');
+                }
             } else {
                 return redirect()->back()->withInput()->with('errors', ['image' => 'Gagal mengunggah gambar.']);
             }
         }
 
-        // Jika tidak ada perubahan data, tetap gunakan nilai lama dari database
+        // Jika tidak ada perubahan data
         if (!$fileNameToSave) {
-            $existingOption = $this->optionWebModel->find($id);
-            $fileNameToSave = $existingOption['value'];
+            $fileNameToSave = $option['value'];
         }
 
-        // Siapkan data untuk update ke database
-        $data = [
-            'value' => $fileNameToSave
-        ];
-
+        // Update data
+        $data = ['value' => $fileNameToSave];
         if ($optionWebModel->update($id, $data)) {
+            // Simpan log aktivitas
             $superAdminId = auth()->user()->id;
-            $logData = [
+            $logModel->save([
                 'id_user'          => $superAdminId,
                 'tanggal_aktivitas' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(),
                 'aksi'             => 'update',
                 'jenis_data'       => 'option_web',
-                'keterangan'       => "SuperAdmin dengan ID {$superAdminId} memperbarui option dengan ID {$id}",
-            ];
-            $logModel->save($logData);
+                'keterangan'       => "SuperAdmin dengan ID {$superAdminId} memperbarui {$key} dengan ID {$id}",
+            ]);
 
-            return redirect()->to('/superadmin/optionweb')->with('success', 'Data option berhasil diperbarui.');
+            return redirect()->to('/superadmin/optionweb')->with('success', "{$key} berhasil diperbarui.");
         } else {
             return redirect()->back()->withInput()->with('errors', $optionWebModel->errors());
         }
     }
-
-
-
-    // // KelolaOptionWeb.php
-    // public function showImage($id)
-    // {
-    //     $model = new OptionWebModel();
-    //     $option = $model->find($id); // Mencari opsi berdasarkan ID
-
-    //     // Pastikan opsi ditemukan dan bertipe image
-    //     if ($option && $option['seting_type'] === 'image') {
-    //         return view('super_admin/option_web/show_image', ['image_url' => $option['value']]);
-    //     } else {
-    //         return redirect()->back()->with('error', 'Gambar tidak ditemukan atau tipe salah.');
-    //     }
-    // }
-
-    // public function publishedOptions()
-    // {
-    //     $optionWebModel = new OptionWebModel();
-    //     $publishedOptions = $optionWebModel->findAll(); // Ambil semua opsi yang ada
-
-    //     if (!empty($publishedOptions)) {
-    //         return view('landing_page/option_web/option_published', [
-    //             'options' => $publishedOptions,
-    //         ]);
-    //     } else {
-    //         return view('landing_page/option_web/option_published', ['options' => []]);
-    //     }
-    // }
-
-    // public function show($id)
-    // {
-    //     $optionWebModel = new OptionWebModel();
-    //     $option = $optionWebModel->find($id); // Ambil opsi berdasarkan ID
-
-    //     // Pastikan opsi ditemukan
-    //     if (!empty($option)) {
-    //         $data = [
-    //             'title' => 'Detail Opsi Web',
-    //             'option' => $option, // Ambil item detail opsi
-    //         ];
-
-    //         return view('landing_page/option_web/option_detail', $data);
-    //     } else {
-    //         throw new \CodeIgniter\Exceptions\PageNotFoundException('Opsi tidak ditemukan');
-    //     }
-    // }
 }

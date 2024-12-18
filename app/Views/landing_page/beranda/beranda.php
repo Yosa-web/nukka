@@ -25,29 +25,65 @@
         </div>
 
         <!-- The slideshow/carousel -->
+        <?php
+        $pathImage = 'assets/uploads/images/optionweb/';
+
+        // Fungsi untuk mencari file banner dengan ekstensi dinamis
+        function getBannerFile($baseName, $path)
+        {
+            $extensions = ['jpg', 'jpeg', 'png', 'gif', 'webp']; // Ekstensi yang mungkin digunakan
+            foreach ($extensions as $ext) {
+                $file = $path . $baseName . '.' . $ext;
+                if (file_exists($file)) {
+                    return $baseName . '.' . $ext; // Hanya kembalikan nama file
+                }
+            }
+            return null; // Jika file tidak ditemukan
+        }
+
+        $banner1 = getBannerFile('banner1', $pathImage);
+        $banner2 = getBannerFile('banner2', $pathImage);
+        $banner3 = getBannerFile('banner3', $pathImage);
+        ?>
+
+        <!-- HTML Carousel -->
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img
-                    src="assets/images/small/img-1.jpg"
-                    alt=""
-                    class="d-block"
-                    style="width: 100%" />
+                <?php if ($banner1): ?>
+                    <img
+                        src="<?= base_url('assets/uploads/images/optionweb/' . esc($banner1)) ?>"
+                        alt="Banner 1"
+                        class="d-block"
+                        style="width: 100%" />
+                <?php else: ?>
+                    <p>Banner 1 tidak tersedia</p>
+                <?php endif; ?>
             </div>
             <div class="carousel-item">
-                <img
-                    src="assets/images/small/img-2.jpg"
-                    alt="Chicago"
-                    class="d-block"
-                    style="width: 100%" />
+                <?php if ($banner2): ?>
+                    <img
+                        src="<?= base_url('assets/uploads/images/optionweb/' . esc($banner2)) ?>"
+                        alt="Banner 2"
+                        class="d-block"
+                        style="width: 100%" />
+                <?php else: ?>
+                    <p>Banner 2 tidak tersedia</p>
+                <?php endif; ?>
             </div>
             <div class="carousel-item">
-                <img
-                    src="assets/images/small/img-3.jpg"
-                    alt="New York"
-                    class="d-block"
-                    style="width: 100%" />
+                <?php if ($banner3): ?>
+                    <img
+                        src="<?= base_url('assets/uploads/images/optionweb/' . esc($banner3)) ?>"
+                        alt="Banner 3"
+                        class="d-block"
+                        style="width: 100%" />
+                <?php else: ?>
+                    <p>Banner 3 tidak tersedia</p>
+                <?php endif; ?>
             </div>
         </div>
+
+
 
         <!-- Left and right controls/icons -->
         <button

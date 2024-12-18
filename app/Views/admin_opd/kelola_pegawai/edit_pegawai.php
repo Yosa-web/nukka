@@ -78,12 +78,17 @@
                                 <div class="row mb-3">
                                     <label for="floatingGroupInput" class="col-sm-3 col-form-label">Jabatan</label>
                                     <div class="col-sm-9">
-                                    <select name="group" id="floatingGroupInput" class="form-select <?= isset(session()->getFlashdata('errors')['group']) ? 'is-invalid' : '' ?>" required>
-                                        <option value="" disabled <?= !$user->group ? 'selected' : '' ?>>Pilih Jabatan</option>
-                                        <option value="kepala-opd" <?= (old('group') ?? $user->group) === 'kepala-opd' ? 'selected' : '' ?>>Kepala OPD</option>
-                                        <option value="sekertaris-opd" <?= (old('group') ?? $user->group) === 'sekertaris-opd' ? 'selected' : '' ?>>Sekretaris OPD</option>
-                                        <option value="operator" <?= (old('group') ?? $user->group) === 'operator' ? 'selected' : '' ?>>Operator</option>
-                                    </select>
+                                        <select name="group" id="floatingGroupInput" class="form-select <?= isset(session()->getFlashdata('errors')['group']) ? 'is-invalid' : '' ?>" required>
+                                            <option value="" disabled <?= !$user->group ? 'selected' : '' ?>>Pilih Jabatan</option>
+
+                                            <!-- Kepala OPD hanya ditampilkan jika belum ada atau user yang diedit adalah kepala-opd -->
+                                            <?php if (!in_array($user->id_opd, $opdWithHead) || $user->group === 'kepala-opd'): ?>
+                                                <option value="kepala-opd" <?= (old('group') ?? $user->group) === 'kepala-opd' ? 'selected' : '' ?>>Kepala OPD</option>
+                                            <?php endif; ?>
+
+                                            <option value="sekertaris-opd" <?= (old('group') ?? $user->group) === 'sekertaris-opd' ? 'selected' : '' ?>>Sekretaris OPD</option>
+                                            <option value="operator" <?= (old('group') ?? $user->group) === 'operator' ? 'selected' : '' ?>>Operator</option>
+                                        </select>
                                         <?php if (isset(session()->getFlashdata('errors')['group'])): ?>
                                             <div class="invalid-feedback">
                                                 <?= session()->getFlashdata('errors')['group'] ?>
