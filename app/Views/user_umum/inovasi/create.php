@@ -58,7 +58,6 @@
                                         <input type="text" class="form-control" name="tahun" placeholder="Masukkan tahun proposal inovasi" required oninput="validateYear(this)">
                                     </div>
                                 </div>
-
                                 <div class="row mb-3">
                                     <label for="kategori" class="col-sm-3 col-form-label">Kategori</label>
                                     <div class="col-sm-9">
@@ -129,18 +128,18 @@
                                 <div class="row mb-5">
                                     <label for="url_file" class="col-sm-3 col-form-label">Upload File Proposal</label>
                                     <div class="col-sm-9">
-                                        <input type="file" class="form-control" name="url_file"">
+                                        <input type="file" class="form-control" name="url_file">
                                     </div>
                                 </div>
 
                                 <div class=" row">
-                                        <div class="col-12">
-                                            <div class="d-flex justify-content-end">
-                                                <button type="button" class="btn btn-secondary w-md" onclick="window.location.href='<?= base_url('userumum/inovasi/filter') ?>'">Batal</button>
-                                                <button type="submit" class="btn btn-primary w-md ms-4">Kirim</button>
-                                            </div>
+                                    <div class="col-12">
+                                        <div class="d-flex justify-content-end">
+                                            <button type="button" class="btn btn-secondary w-md" onclick="window.location.href='<?= base_url('userumum/inovasi/filter') ?>'">Batal</button>
+                                            <button type="submit" class="btn btn-primary w-md ms-4">Kirim</button>
                                         </div>
                                     </div>
+                                </div>
                             </form>
                         </div>
                     </div>

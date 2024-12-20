@@ -89,7 +89,7 @@ class KelolaDataInovasi extends BaseController
 
     public function create()
     {
-        $data['opd'] = $this->opdModel->findAll(); // Ambil semua data OPD untuk dropdown
+        // $data['opd'] = $this->opdModel->findAll(); // Ambil semua data OPD untuk dropdown
         $data['bentuk'] = $this->bentukModel->findAll(); // Ambil semua data bentuk untuk dropdown
         $data['tahapan'] = $this->tahapanModel->findAll(); // Ambil semua data tahapan untuk dropdown
         $data['kecamatan'] = $this->kecamatanModel->findAll(); // Ambil semua data kecamatan untuk dropdown
@@ -103,9 +103,9 @@ class KelolaDataInovasi extends BaseController
                  tahapan.nama_tahapan, 
                  kecamatan.nama_kecamatan, 
                  desa.nama_desa, 
-                 opd.nama_opd,
+                 
                  users.username as diajukan_oleh') // Menambahkan nama-nama terkait
-            ->join('opd', 'inovasi.id_opd = opd.id_opd', 'left')
+            // ->join('opd', 'inovasi.id_opd = opd.id_opd', 'left')
             ->join('jenis_inovasi', 'inovasi.kategori = jenis_inovasi.id_jenis_inovasi', 'left')
             ->join('bentuk', 'inovasi.bentuk = bentuk.id_bentuk', 'left') // Join dengan tabel bentuk
             ->join('tahapan', 'inovasi.tahapan = tahapan.id_tahapan', 'left') // Join dengan tabel tahapan
@@ -194,7 +194,7 @@ class KelolaDataInovasi extends BaseController
             'desa' => $desa,
             'tanggal_pengajuan' => $tanggalPengajuan,
             'id_user' => $user->id,
-            'id_opd' => $id_opd,  // Gunakan id_opd dari user yang sedang login, atau null jika tidak ada
+            // 'id_opd' => $id_opd,  // Gunakan id_opd dari user yang sedang login, atau null jika tidak ada
             'url_file' => isset($fileName) ? 'uploads/' . $fileName : null,
         ];
 
@@ -217,19 +217,18 @@ class KelolaDataInovasi extends BaseController
         return redirect()->to('/userumum/inovasi/filter')->with('success', 'Inovasi berhasil ditambahkan.');
     }
 
-
     public function edit($id_inovasi)
     {
         // Ambil data inovasi berdasarkan ID
         $data['inovasi'] = $this->inovasiModel
             ->select('inovasi.*, 
-                jenis_inovasi.nama_jenis, 
-                bentuk.nama_bentuk, 
-                tahapan.nama_tahapan, 
-                kecamatan.nama_kecamatan, 
-                desa.nama_desa,
-                opd.nama_opd,
-                users.username as diajukan_oleh') // Menambahkan nama-nama terkait
+                  jenis_inovasi.nama_jenis, 
+                  bentuk.nama_bentuk, 
+                  tahapan.nama_tahapan, 
+                  kecamatan.nama_kecamatan, 
+                  desa.nama_desa,
+                  opd.nama_opd,
+                  users.username as diajukan_oleh') // Menambahkan nama-nama terkait
             ->join('opd', 'inovasi.id_opd = opd.id_opd', 'left')
             ->join('jenis_inovasi', 'inovasi.kategori = jenis_inovasi.id_jenis_inovasi', 'left')
             ->join('bentuk', 'inovasi.bentuk = bentuk.id_bentuk', 'left') // Join dengan tabel bentuk
@@ -264,7 +263,7 @@ class KelolaDataInovasi extends BaseController
         // Ambil data inovasi berdasarkan ID
         $inovasi = $this->inovasiModel->find($id_inovasi);
         if (!$inovasi) {
-            return redirect()->to('/kepala/inovasi/filter')->with('error', 'Inovasi tidak ditemukan.');
+            return redirect()->to('/superadmin/inovasi/filter')->with('error', 'Inovasi tidak ditemukan.');
         }
 
         $status = $this->request->getPost('status');
@@ -283,7 +282,7 @@ class KelolaDataInovasi extends BaseController
             'kategori' => 'required',
             'bentuk' => 'required',
             'tahapan' => 'required',
-            'id_opd' => 'required',
+            'id_opd' => 'permit_empty',
         ];
 
         if (!$this->validate($validationRules)) {
@@ -299,23 +298,30 @@ class KelolaDataInovasi extends BaseController
             'bentuk'    => $this->request->getPost('bentuk'),
             'tahapan'   => $this->request->getPost('tahapan'),
             'status'    => $status, // Status yang dipilih oleh pengguna
-            'id_opd'    => $this->request->getPost('id_opd'),
+            'id_opd'    => $this->request->getPost('id_opd') ?: null, // Set null jika kosong
             'kecamatan' => $this->request->getPost('kecamatan'),
             'desa'      => $this->request->getPost('desa'),
         ];
 
         // Jika status adalah revisi, gabungkan pesan lama dan pesan baru
+        // Gabungkan pesan lama dan pesan baru jika ada
         if ($status === 'revisi' && !empty($pesanBaru)) {
+            // Jika pesan lama ada, gabungkan dengan pesan baru
             $pesanLama = $inovasi['pesan'] ?? '';
-            $pesanGabungan = !empty($pesanLama) ? $pesanLama . "\n" . $pesanBaru : $pesanBaru;
+            if (!empty($pesanLama)) {
+                $pesanGabungan = $pesanLama . "\n" . $pesanBaru; // Gabungkan pesan lama dengan pesan baru, dengan newline (\n) sebagai pemisah
+            } else {
+                $pesanGabungan = $pesanBaru;  // Jika pesan lama kosong, hanya simpan pesan baru
+            }
             $data['pesan'] = $pesanGabungan;
         } else {
+            // Jika status bukan revisi atau tidak ada pesan baru, biarkan pesan lama
             $data['pesan'] = $inovasi['pesan'] ?? null;
         }
 
         // Jika status adalah 'terbit', set published_at dan published_by
         if ($status === 'terbit') {
-            $data['updated_at'] = Time::now('Asia/Jakarta', 'id')->toDateTimeString(); // Waktu saat update
+            $data['updated_at'] = Time::now('Asia/Jakarta', 'id')->toDateTimeString();  // Waktu saat update
             $user = auth()->user();
             $data['published_by'] = $user->id; // Menyimpan ID user yang sedang login, bukan nama
         }
@@ -346,6 +352,7 @@ class KelolaDataInovasi extends BaseController
         // **Menetapkan status menjadi "tertunda" sebelum update**
         $data['status'] = 'tertunda'; // Pastikan status menjadi 'tertunda' sebelum disimpan
 
+
         // Update data di database
         $this->inovasiModel->update($id_inovasi, $data);
 
@@ -356,7 +363,7 @@ class KelolaDataInovasi extends BaseController
             'tanggal_aktivitas' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(),
             'aksi' => 'update',
             'jenis_data' => 'Inovasi',
-            'keterangan' => "Kepala dengan ID {$user} memperbarui Inovasi dengan ID {$id_inovasi}",
+            'keterangan' => "user dengan ID {$user} memperbarui Inovasi dengan ID {$id_inovasi}",
         ];
         $this->LogAktivitasModel->save($logData);
 

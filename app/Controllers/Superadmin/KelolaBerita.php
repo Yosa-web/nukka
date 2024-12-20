@@ -31,17 +31,17 @@ class KelolaBerita extends BaseController
         return view('super_admin/berita/create_berita');
     }
 
-
-
     public function store()
     {
-        // Debugging: Lihat data yang diterima
-        log_message('debug', print_r($this->request->getPost(), true));
+        // Validasi input, cek judul unik, dan tidak boleh hanya spasi
+        $judul = trim($this->request->getVar('judul'));
 
-        // Validasi input
-        if (!$this->validate($this->beritaModel->getValidationRules(), $this->beritaModel->getValidationMessages())) {
-            log_message('debug', 'Validation failed: ' . json_encode($this->validator->getErrors()));
-            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        if (empty($judul)) {
+            return redirect()->back()->withInput()->with('errors', 'Judul tidak boleh kosong.');
+        }
+
+        if ($this->beritaModel->where('judul', $judul)->countAllResults() > 0) {
+            return redirect()->back()->withInput()->with('errors', 'Judul berita harus unik.');
         }
 
         // Path untuk menyimpan file gambar
@@ -51,61 +51,35 @@ class KelolaBerita extends BaseController
 
         if ($foto->isValid() && !$foto->hasMoved()) {
             $name = $foto->getRandomName();
-            if ($foto->move($path, $name)) {
-                log_message('debug', 'Image moved successfully: ' . $name);
-                $fotoUrl = $path . $name;
-            } else {
-                log_message('debug', 'Image move failed: ' . $foto->getErrorString());
-            }
+            $foto->move($path, $name);
+            $fotoUrl = $path . $name;
         }
 
-        // Menyiapkan data
-        $user = auth()->user()->id;
         $data = [
-            'judul'        => $this->request->getVar('judul'),
+            'judul'        => $judul,
             'isi'          => $this->request->getVar('isi'),
             'gambar'       => $fotoUrl,
             'tanggal_post' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(),
-            'posted_by'    => $user,
+            'posted_by'    => auth()->user()->id,
             'status'       => $this->request->getVar('status'),
-            'slug'         => url_title($this->request->getVar('judul'), '-', true),  // Menambahkan slug berdasarkan judul
+            'slug'         => url_title($judul, '-', true),
         ];
 
-        // Memulai transaksi database
-        $db = \Config\Database::connect();
-        $db->transStart();
-
-        // Simpan data berita baru
         if ($this->beritaModel->save($data)) {
-            $newBeritaId = $this->beritaModel->insertID();
-
-            // Simpan log aktivitas
             $logData = [
-                'id_user'          => $user,
+                'id_user'          => auth()->user()->id,
                 'tanggal_aktivitas' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(),
                 'aksi'             => 'tambah data',
                 'jenis_data'       => 'Berita',
-                'keterangan'       => "SuperAdmin dengan ID {$user} menambahkan data Berita dengan ID {$newBeritaId}",
+                'keterangan'       => "SuperAdmin menambahkan berita berjudul {$judul}.",
             ];
+            $this->logModel->save($logData);
 
-            $logModel = new LogAktivitasModel();
-            $logModel->save($logData);
-
-            $db->transComplete();
-
-            // Mengecek status transaksi
-            if ($db->transStatus() === false) {
-                log_message('debug', 'Transaction failed.');
-                return redirect()->back()->with('errors', 'Gagal menyimpan data Berita dan mencatat log aktivitas.');
-            }
-
-            return redirect()->to('/superadmin/berita/list-berita')->with('success', 'Data Berita berhasil ditambahkan.');
-        } else {
-            log_message('debug', 'Data save failed: ' . json_encode($this->beritaModel->errors()));
-            return redirect()->back()->withInput()->with('errors', $this->beritaModel->errors());
+            return redirect()->to('/superadmin/berita/list-berita')->with('success', 'Berita berhasil ditambahkan.');
         }
-    }
 
+        return redirect()->back()->withInput()->with('errors', 'Gagal menyimpan berita.');
+    }
 
     public function edit($slug)
     {
@@ -119,97 +93,54 @@ class KelolaBerita extends BaseController
 
     public function update($id)
     {
-        // Ambil data berita lama
+        // Validasi input, cek judul unik, dan tidak boleh hanya spasi
+        $judul = trim($this->request->getVar('judul'));
         $beritaLama = $this->beritaModel->find($id);
 
-        // Ambil judul yang dikirimkan pada form
-        $judulBaru = $this->request->getVar('judul');
-
-        // Validasi input dengan pengecekan judul yang berubah
-        $validationRules = $this->beritaModel->getValidationRules();
-        if ($judulBaru !== $beritaLama['judul']) {
-            $validationRules['judul'] = 'required|max_length[200]|is_unique[berita.judul,id_berita,' . $id . ']';
-        } else {
-            $validationRules['judul'] = 'required|max_length[200]';
+        if (empty($judul)) {
+            return redirect()->back()->withInput()->with('errors', 'Judul tidak boleh kosong.');
         }
 
-        // Validasi input
-        if (!$this->validate($validationRules, $this->beritaModel->getValidationMessages())) {
-            log_message('debug', 'Validation failed: ' . json_encode($this->validator->getErrors()));
-            return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
+        if ($judul !== $beritaLama['judul'] && $this->beritaModel->where('judul', $judul)->countAllResults() > 0) {
+            return redirect()->back()->withInput()->with('errors', 'Judul berita harus unik.');
         }
 
         // Path untuk menyimpan file gambar
         $path = 'assets/uploads/images/berita/';
         $foto = $this->request->getFile('gambar');
-        $fotoUrl = null;
+        $fotoUrl = $beritaLama['gambar'];
 
-        // Jika ada file baru yang diunggah dan valid
         if ($foto && $foto->isValid() && !$foto->hasMoved()) {
             $name = $foto->getRandomName();
-            if ($foto->move($path, $name)) {
-                log_message('debug', 'Image moved successfully: ' . $name);
-                $fotoUrl = $path . $name;
-            } else {
-                log_message('debug', 'Image move failed: ' . $foto->getErrorString());
-            }
-        } else {
-            // Gunakan URL gambar lama jika tidak ada unggahan baru
-            $fotoUrl = $beritaLama['gambar'];
+            $foto->move($path, $name);
+            $fotoUrl = $path . $name;
         }
 
-        // Mengambil tanggal post sebelumnya jika tidak ada input baru
-        $tanggalPost = $this->request->getVar('tanggal_post') ?: $beritaLama['tanggal_post'];
-
-        $superAdminId = auth()->user()->id;
-        $user = auth()->user()->id;
-
-        // Menambahkan slug berdasarkan judul
         $data = [
-            'judul'        => $judulBaru,
+            'judul'        => $judul,
             'isi'          => $this->request->getVar('isi'),
-            'gambar'       => $fotoUrl,  // Menyimpan gambar baru atau lama
-            'tanggal_post' => $tanggalPost,
-            'posted_by'    => $user,
+            'gambar'       => $fotoUrl,
+            'tanggal_post' => $this->request->getVar('tanggal_post') ?: $beritaLama['tanggal_post'],
+            'posted_by'    => auth()->user()->id,
             'status'       => $this->request->getVar('status'),
-            'slug'         => url_title($judulBaru, '-', true), // Menambahkan slug baru
+            'slug'         => url_title($judul, '-', true),
         ];
 
-        // Inisialisasi database dan transaksi
-        $db = \Config\Database::connect();
-        $db->transStart();
-
-        // Update data berita
         if ($this->beritaModel->update($id, $data)) {
-            // Catat log aktivitas
             $logData = [
-                'id_user'           => $superAdminId,
+                'id_user'          => auth()->user()->id,
                 'tanggal_aktivitas' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(),
-                'aksi'              => 'update',
-                'jenis_data'        => 'Berita',
-                'keterangan'        => "SuperAdmin dengan ID {$superAdminId} updated Berita dengan ID {$id}",
+                'aksi'             => 'update',
+                'jenis_data'       => 'Berita',
+                'keterangan'       => "SuperAdmin mengubah berita dengan ID {$id}.",
             ];
+            $this->logModel->save($logData);
 
-            $logModel = new LogAktivitasModel();
-            $logModel->save($logData);
-
-            $db->transComplete();
-
-            // Cek status transaksi
-            if ($db->transStatus() === false) {
-                log_message('debug', 'Transaction failed.');
-                return redirect()->back()->with('errors', 'Gagal menyimpan data Berita dan mencatat log aktivitas.');
-            }
-
-            return redirect()->to('/superadmin/berita/list-berita')->with('success', 'Data Berita berhasil diperbarui.');
-        } else {
-            log_message('debug', 'Data update failed: ' . json_encode($this->beritaModel->errors()));
-            return redirect()->back()->withInput()->with('errors', $this->beritaModel->errors());
+            return redirect()->to('/superadmin/berita/list-berita')->with('success', 'Berita berhasil diperbarui.');
         }
+
+        return redirect()->back()->withInput()->with('errors', 'Gagal memperbarui berita.');
     }
-
-
-
 
     public function delete()
     {
@@ -291,5 +222,21 @@ class KelolaBerita extends BaseController
         } else {
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Berita tidak ditemukan');
         }
+    }
+
+    public function checkTitle()
+    {
+        if ($this->request->isAJAX()) {
+            $judul = $this->request->getPost('judul');
+
+            // Cek apakah judul sudah digunakan
+            $exists = $this->beritaModel
+                ->where('judul', $judul)
+                ->countAllResults() > 0;
+
+            return $this->response->setJSON(['exists' => $exists]);
+        }
+
+        throw new \CodeIgniter\Exceptions\PageNotFoundException();
     }
 }

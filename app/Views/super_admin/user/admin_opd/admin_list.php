@@ -44,6 +44,7 @@
                                 <i class="bx bx-check-double label-icon"></i>
                                 Verifikasi Admin
                                 <span id="badge-indicator" class="position-absolute top-0 start-100 translate-middle badge border border-light rounded-circle bg-danger p-1 d-none">
+                                    <span id="badge-count">0</span>
                                     <span class="visually-hidden">unread messages</span>
                                 </span>
                             </button>
@@ -145,16 +146,19 @@
     });
 </script>
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
         function checkNonActiveAdmins() {
-            fetch('<?= base_url('useractivation/count') ?>')
+            fetch('<?= base_url('useractivation/count') ?>') // Endpoint untuk menghitung jumlah data
                 .then(response => response.json())
                 .then(data => {
                     const badgeIndicator = document.getElementById('badge-indicator');
+                    const badgeCount = document.getElementById('badge-count');
+
                     if (data.count > 0) {
-                        badgeIndicator.classList.remove('d-none'); // Tampilkan badge jika ada data
+                        badgeIndicator.classList.remove('d-none'); // Tampilkan badge
+                        badgeCount.textContent = data.count; // Tampilkan jumlah data
                     } else {
-                        badgeIndicator.classList.add('d-none'); // Sembunyikan badge jika tidak ada data
+                        badgeIndicator.classList.add('d-none'); // Sembunyikan badge
                     }
                 })
                 .catch(error => console.error('Error fetching non-active admins:', error));
@@ -163,9 +167,10 @@
         // Panggil fungsi saat halaman dimuat
         checkNonActiveAdmins();
 
-        // Refresh otomatis setiap interval tertentu (opsional)
-        setInterval(checkNonActiveAdmins, 60000); // 60 detik
+        // Refresh otomatis setiap 60 detik
+        setInterval(checkNonActiveAdmins, 60000);
     });
 </script>
+
 
 <?= $this->endSection(); ?>

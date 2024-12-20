@@ -51,11 +51,21 @@
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label for="deskripsi" class="col-sm-3 col-form-label">Tahun</label>
+                                    <label for="tahun" class="col-sm-3 col-form-label">Tahun</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" name="tahun" value="<?= esc($inovasi['tahun']); ?>" required>
+                                        <input
+                                            type="text"
+                                            class="form-control"
+                                            name="tahun"
+                                            placeholder="Masukkan tahun proposal inovasi"
+                                            id="tahun"
+                                            value="<?= esc($inovasi['tahun']) ?>"
+                                            oninput="validateYear()"
+                                            required>
+                                        <div id="tahun-error" style="color: red; font-size: 0.9em; display: none;">Tahun hanya boleh berupa angka.</div>
                                     </div>
                                 </div>
+
                                 <div class="row mb-3">
                                     <label for="kategori" class="col-sm-3 col-form-label">Kategori</label>
                                     <div class="col-sm-9">
@@ -96,18 +106,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="row mb-3">
-                                    <label for="id_opd" class="col-sm-3 col-form-label">OPD</label>
-                                    <div class="col-sm-9">
-                                        <select class="form-select" name="id_opd" required>
-                                            <?php foreach ($opd as $row): ?>
-                                                <option value="<?= $row->id_opd ?>" <?= $inovasi['id_opd'] == $row->id_opd ? 'selected' : '' ?>>
-                                                    <?= $row->nama_opd ?>
-                                                </option>
-                                            <?php endforeach; ?>
-                                        </select>
-                                    </div>
-                                </div>
+
                                 <div class="row mb-3">
                                     <label for="kecamatan" class="col-sm-3 col-form-label">Kecamatan</label>
                                     <div class="col-sm-9">
@@ -151,8 +150,8 @@
                                         <select class="form-select" name="status" required>
                                             <option value="tertunda" <?= $inovasi['status'] == 'tertunda' ? 'selected' : '' ?>>Tertunda</option>
                                             <option value="draf" <?= $inovasi['status'] == 'draf' ? '' : '' ?>>Draf</option>
-                                            <option value="terbit" <?= $inovasi['status'] == 'terbit' ? '' : '' ?>>Terbit</option>
-                                            <option value="arsip" <?= $inovasi['status'] == 'arsip' ? '' : '' ?>>Arsip</option>
+                                            <!-- <option value="terbit" <?= $inovasi['status'] == 'terbit' ? '' : '' ?>>Terbit</option> -->
+                                            <!-- <option value="arsip" <?= $inovasi['status'] == 'arsip' ? '' : '' ?>>Arsip</option> -->
                                             <option value="tertolak" <?= $inovasi['status'] == 'tertolak' ? '' : '' ?>>Tertolak</option>
                                             <option value="revisi" <?= $inovasi['status'] == 'revisi' ? '' : '' ?>>Revisi</option>
                                         </select>
@@ -242,4 +241,20 @@
         statusSelect.dispatchEvent(new Event('change'));
     });
 </script>
+<script>
+    function validateYear() {
+        var input = document.getElementById('tahun');
+        var errorDiv = document.getElementById('tahun-error');
+        var value = input.value;
+
+        // Cek apakah input hanya angka
+        if (!/^\d*$/.test(value)) {
+            errorDiv.style.display = 'block'; // Tampilkan pesan error
+            input.value = value.replace(/\D/g, ''); // Hapus karakter non-angka
+        } else {
+            errorDiv.style.display = 'none'; // Sembunyikan pesan error jika valid
+        }
+    }
+</script>
+
 <?= $this->endSection(); ?>

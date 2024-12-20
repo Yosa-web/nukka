@@ -333,41 +333,41 @@ class KelolaUser extends BaseRegisterController
     {
         // Ambil encrypter dari service untuk dekripsi
         $encrypter = \Config\Services::encrypter();
-    
+
         // Dekripsi ID
         try {
             // Dekripsi ID terenkripsi (menggunakan hex2bin untuk mengkonversi dari hex)
             $decryptedId = $encrypter->decrypt(hex2bin($id));
-    
+
             // Pastikan ID yang terdekripsi adalah integer
             $decryptedId = (int) $decryptedId;
         } catch (\Exception $e) {
             // Tangani jika dekripsi gagal
             return redirect()->back()->with('error', 'ID tidak valid.');
         }
-    
+
         $users = $this->getUserProvider();
-    
+
         // Dapatkan user berdasarkan ID
         $user = $users->findById($decryptedId);
-    
+
         if (!$user) {
             return redirect()->to('/superadmin/user/pegawai/pegawai_list')
                 ->with('error', 'User tidak ditemukan.');
         }
-    
+
         // Ambil grup user saat ini menggunakan GroupModel
         $groupModel = new GroupModel();
         $userGroups = $groupModel->getGroupsForUser($user->id);
-    
+
         // Ambil nama grup dalam bentuk array, lalu tetapkan ke grup pertama atau 'user' jika tidak ada
         $groupNames = array_column($userGroups, 'group');
         $currentGroup = !empty($groupNames) ? $groupNames[0] : 'user';
-    
+
         // Ambil data OPD
         $opdModel = new OpdModel();
         $opd = $opdModel->findAll();
-    
+
         // Ambil data kepala-opd
         $db = \Config\Database::connect();
         $builder = $db->table('auth_groups_users');
@@ -376,19 +376,19 @@ class KelolaUser extends BaseRegisterController
         $builder->where('auth_groups_users.group', 'kepala-opd');
         $query = $builder->get();
         $usersWithHead = $query->getResult();
-    
+
         // Ambil semua id_opd yang sudah memiliki kepala-opd
         $opdWithHead = [];
         foreach ($usersWithHead as $head) {
             $opdWithHead[] = $head->id_opd;
         }
-    
+
         // Jika user yang sedang diedit adalah kepala OPD, tambahkan id_opd-nya ke dalam daftar
         if ($currentGroup === 'kepala-opd' && !in_array($user->id_opd, $opdWithHead)) {
             $opdWithHead[] = $user->id_opd;
         }
-        
-    
+
+
         // Kirim data user, grup, OPD, dan status ke view
         return view('super_admin/user/pegawai/edit_pegawai', [
             'user' => $user,
@@ -397,7 +397,7 @@ class KelolaUser extends BaseRegisterController
             'opdWithHead' => $opdWithHead, // Kirim daftar OPD yang sudah memiliki kepala
         ]);
     }
-        
+
 
     public function update(int $id): RedirectResponse
     {
@@ -575,47 +575,42 @@ class KelolaUser extends BaseRegisterController
     }
 
 
-        public function editUserUmum(string $id)
-        {
-            // Ambil encrypter dari service untuk dekripsi
-            $encrypter = \Config\Services::encrypter();
+    public function editUserUmum(string $id)
+    {
+        // Ambil encrypter dari service untuk dekripsi
+        $encrypter = \Config\Services::encrypter();
 
-            // Dekripsi ID
-            try {
-                // Dekripsi ID terenkripsi (menggunakan hex2bin untuk mengkonversi dari hex)
-                $decryptedId = $encrypter->decrypt(hex2bin($id));
+        // Dekripsi ID
+        try {
+            // Dekripsi ID terenkripsi (menggunakan hex2bin untuk mengkonversi dari hex)
+            $decryptedId = $encrypter->decrypt(hex2bin($id));
 
-                // Pastikan ID yang terdekripsi adalah integer
-                $decryptedId = (int) $decryptedId;
-            } catch (\Exception $e) {
-                // Tangani jika dekripsi gagal
-                return redirect()->back()->with('error', 'ID tidak valid.');
-            }
-
-            $users = $this->getUserProvider();
-
-            // Dapatkan user berdasarkan ID
-            $user = $users->findById($decryptedId);
-
-            if (!$user) {
-                return redirect()->to('/superadmin/user/list')
-                    ->with('error', 'User tidak ditemukan.');
-            }
-
-            // Ambil grup user saat ini menggunakan GroupModel
-            $groupModel = new GroupModel();
-            $userGroup = $groupModel->getGroupsForUser($user->id);
-
-
-            // Kirim data user, grup, dan OPD ke view
-            return view('super_admin/user/umum/edit_umum', [
-                'user' => $user,
-            ]);
+            // Pastikan ID yang terdekripsi adalah integer
+            $decryptedId = (int) $decryptedId;
+        } catch (\Exception $e) {
+            // Tangani jika dekripsi gagal
+            return redirect()->back()->with('error', 'ID tidak valid.');
         }
 
+        $users = $this->getUserProvider();
 
+        // Dapatkan user berdasarkan ID
+        $user = $users->findById($decryptedId);
 
+        if (!$user) {
+            return redirect()->to('/superadmin/user/list')
+                ->with('error', 'User tidak ditemukan.');
+        }
 
+        // Ambil status aktif user
+        $status = $user->active;
+
+        // Kirim data user dan status ke view
+        return view('super_admin/user/umum/edit_umum', [
+            'user' => $user,
+            'status' => $status, // Tambahkan status
+        ]);
+    }
 
     public function updateUserUmum(int $id): RedirectResponse
     {
@@ -858,5 +853,20 @@ class KelolaUser extends BaseRegisterController
         } else {
             return redirect()->back()->with('error', 'Email penolakan gagal dikirim. Akun tidak dihapus.');
         }
+    }
+
+    public function countNonActiveAdmins()
+    {
+        $userModel = new UserModel();
+
+        // Hitung jumlah pengguna non-aktif dengan grup admin-opd
+        $db = \Config\Database::connect();
+        $builder = $db->table('auth_groups_users');
+        $builder->join('users', 'auth_groups_users.user_id = users.id');
+        $builder->where('auth_groups_users.group', 'admin-opd');
+        $builder->where('users.active', 0); // Filter hanya untuk pengguna non-aktif
+        $count = $builder->countAllResults();
+
+        return $this->response->setJSON(['count' => $count]);
     }
 }

@@ -90,7 +90,7 @@ $routes->group('', ['filter' => 'group:superadmin'], function ($routes) {
     $routes->put('/superadmin/berita/update/(:segment)', 'Superadmin\KelolaBerita::update/$1');
     $routes->delete('/superadmin/berita', 'Superadmin\KelolaBerita::delete');
     $routes->get('/berita', 'Superadmin\KelolaBerita::publishedNews');
-
+    $routes->post('/superadmin/berita/check-title', 'Superadmin\KelolaBerita::checkTitle');
     $routes->get('berita/show/detail/(:segment)', 'Superadmin\KelolaBerita::detail/$1');
 
     $routes->get('/superadmin/user/list/admin', 'Superadmin\KelolaUser::indexAdmin');
@@ -317,6 +317,3 @@ $routes->get('/video/lainnya', 'LandingController::semuaVideo');
 $routes->get('berita/detail/(:segment)', 'Superadmin\KelolaBerita::show/$1');
 
 $routes->get('handleLogin', 'AuthController::handleLogin');
-
-
-

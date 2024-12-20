@@ -42,7 +42,9 @@
                                 <div class="form-group mb-3">
                                     <label for="judul" class="form-label">Judul Berita</label>
                                     <input type="text" class="form-control <?= isset(session()->getFlashdata('errors')['judul']) ? 'is-invalid' : '' ?>" id="judul" name="judul" value="<?= old('judul', $berita['judul']) ?>" placeholder="Masukkan Judul Berita">
-                                    <div id="judul_error" class="error"><?= isset(session()->getFlashdata('errors')['judul']) ? session()->getFlashdata('errors')['judul'] : '' ?></div>
+                                    <div id="judul_error" class="text-danger">
+                                        <?= isset(session()->getFlashdata('errors')['judul']) ? session()->getFlashdata('errors')['judul'] : '' ?>
+                                    </div>
                                 </div>
                                 <!-- CK Editor -->
                                 <div class="form-group mb-3">
@@ -157,5 +159,112 @@
             }
         });
     });
+
+    $(document).ready(function() {
+        const judulInput = $('#judul');
+        const judulErrorDiv = $('#judul_error');
+
+        // Cek apakah judul unik dan tidak kosong
+        judulInput.on('keyup change', function() {
+            const judul = judulInput.val().trim();
+
+            if (judul === '') {
+                judulErrorDiv.text('Judul tidak boleh kosong atau hanya spasi.');
+                judulInput.addClass('is-invalid');
+                return;
+            }
+
+            // AJAX untuk cek judul di server
+            $.ajax({
+                url: '/superadmin/berita/check-title',
+                type: 'POST',
+                data: {
+                    judul: judul,
+                    <?= csrf_token() ?>: '<?= csrf_hash() ?>' // Tambahkan CSRF token jika diaktifkan
+                },
+                success: function(response) {
+                    if (response.exists) {
+                        judulErrorDiv.text('Judul sudah digunakan, harap gunakan judul lain.');
+                        judulInput.addClass('is-invalid');
+                    } else {
+                        judulErrorDiv.text('');
+                        judulInput.removeClass('is-invalid');
+                    }
+                },
+                error: function() {
+                    judulErrorDiv.text('Terjadi kesalahan saat memeriksa judul.');
+                    judulInput.addClass('is-invalid');
+                }
+            });
+        });
+
+        // Prevent form submission jika masih ada error
+        $('form').on('submit', function(e) {
+            if ($('.is-invalid').length > 0) {
+                e.preventDefault(); // Hentikan pengiriman form
+                alert('Periksa kembali form yang diisi.');
+            }
+        });
+    });
 </script>
+<script>
+    $(document).ready(function() {
+        const judulInput = $('#judul');
+        const judulErrorDiv = $('#judul_error');
+
+        // Validasi judul saat pengguna mengetik atau mengubah isi
+        judulInput.on('keyup change', function() {
+            const judul = judulInput.val().trim();
+
+            // Jika judul kosong atau hanya spasi
+            if (judul === '') {
+                judulErrorDiv.text('Judul tidak boleh kosong atau hanya spasi.');
+                judulInput.addClass('is-invalid');
+                return;
+            }
+
+            // Lakukan permintaan AJAX untuk memeriksa apakah judul sudah terpakai
+            $.ajax({
+                url: '/superadmin/berita/check-title',
+                type: 'POST',
+                data: {
+                    judul: judul,
+                    id: <?= isset($berita['id_berita']) ? $berita['id_berita'] : 'null' ?>, // Kirim ID jika mode edit
+                    <?= csrf_token() ?>: '<?= csrf_hash() ?>'
+                },
+                success: function(response) {
+                    if (response.exists) {
+                        judulErrorDiv.text('Judul sudah digunakan, harap gunakan judul lain.');
+                        judulInput.addClass('is-invalid');
+                    } else {
+                        judulErrorDiv.text('');
+                        judulInput.removeClass('is-invalid');
+                    }
+                },
+                error: function() {
+                    judulErrorDiv.text('Terjadi kesalahan saat memeriksa judul.');
+                    judulInput.addClass('is-invalid');
+                }
+            });
+        });
+
+        // Validasi ulang sebelum form dikirim
+        $('form').on('submit', function(e) {
+            const judul = judulInput.val().trim();
+
+            if (judul === '') {
+                judulErrorDiv.text('Judul tidak boleh kosong atau hanya spasi.');
+                judulInput.addClass('is-invalid');
+                e.preventDefault();
+                return;
+            }
+
+            if (judulInput.hasClass('is-invalid')) {
+                alert('Periksa kembali form yang diisi.');
+                e.preventDefault();
+            }
+        });
+    });
+</script>
+
 <?= $this->endSection(); ?>

@@ -30,6 +30,12 @@
                 </div>
             </div>
             <!-- end page title -->
+            <?php if (session()->getFlashdata('error') || session()->getFlashdata('success')): ?>
+                <div class="alert alert-dismissible fade show <?= session()->getFlashdata('error') ? 'alert-danger' : 'alert-success' ?>">
+                    <?= session()->getFlashdata('error') ?: session()->getFlashdata('success') ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php endif; ?>
             <div class="row">
                 <div class="col-12">
                     <div class="card">
@@ -61,7 +67,7 @@
                                             <tr>
                                                 <td><?= esc($row['judul']); ?></td>
                                                 <td><?= esc(substr($row['deskripsi'], 0, 100)) . '...'; ?></td>
-                                                <td><?= esc($row['nama_jenis']); ?></td>
+                                                <td class="text-center"><?= esc($row['nama_jenis']); ?></td>
                                                 <td class="text-center"><?= date('d M Y', strtotime($row['tanggal_pengajuan'])) ?></td>
                                                 <td class="text-center"><span class="badge bg-secondary rounded-pill"><?= esc($row['status']); ?></span></td>
                                                 <td class="text-center">
@@ -224,67 +230,88 @@
 <!-- Modal Tolak -->
 <?php if (!empty($inovasi)): ?>
     <?php foreach ($inovasi as $row): ?>
-<div class="modal fade" id="modalTolak" tabindex="-1" aria-labelledby="modalTolakLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <form id="formTolak" method="post" action="/operator/inovasi/tolak">
-                <?= csrf_field() ?>
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalTolakLabel">Kirim Pesan Penolakan</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <input type="hidden" name="id_inovasi" id="id_inovasi">
-                    <div class="form-group">
-                        <label for="pesan">Pesan Penolakan</label>
-                        <textarea class="form-control" id="pesan" name="pesan" required></textarea>
+        <div class="modal fade" id="modalTolak" data-bs-backdrop="static"
+            data-bs-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modalTolakLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalTolakLabel">Pesan Penolakan</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        </button>
                     </div>
+                    <form id="formTolak" method="post" action="/operator/inovasi/tolak">
+                        <?= csrf_field() ?>
+                        <div class="modal-body">
+                            <input type="hidden" name="id_inovasi" id="id_inovasi">
+                            <div class="mb-3">
+                                <label for="pesan" class="col-form-label">Kirim Pesan Penolakan</label>
+                                <textarea class="form-control" id="pesan" name="pesan" required></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
+                            <button type="submit" class="btn btn-danger">Kirim Pesan</button>
+                        </div>
+                    </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-danger">Kirim Pesan</button>
-                </div>
-            </form>
+            </div>
         </div>
-    </div>
-</div>
-<?php endforeach; ?>
+    <?php endforeach; ?>
 <?php endif; ?>
 
 <!-- Sweet Alerts js -->
 <script src="assets/libs/sweetalert2/sweetalert2.min.js"></script>
-<!-- Sweet alert init js-->
+<!-- Sweet alert setujui -->
 <script>
-    document.getElementById("sa-title").addEventListener("click", function() {
+    function setujuiInovasi(id) {
+        Swal.fire({
+            title: "Konfirmasi Setujui",
+            text: "Anda yakin ingin menyetujui proposal ini?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#2ab57d",
+            cancelButtonColor: "#fd625e",
+            confirmButtonText: "Setujui",
+            cancelButtonText: "Batal",
+        }).then(function(result) {
+            if (result.isConfirmed) {
+                // Lakukan permintaan POST menggunakan jQuery
+                $.post('/superoperator/inovasi/setujui', {
+                    id_inovasi: id,
+                    <?= csrf_token() ?>: '<?= csrf_hash() ?>'
+                })
+            }
+        });
+    }
+</script>
+<!-- Sweet alert tolak -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Tangkap tombol submit pada form tolak
+        const formTolak = document.getElementById("formTolak");
+        const modalTolak = new bootstrap.Modal(document.getElementById("modalTolak"));
+
+        formTolak.addEventListener("submit", function(event) {
+            // Hentikan submit default
+            event.preventDefault();
+
             Swal.fire({
-                title: "Setujui?",
-                text: "Anda yakin akan menyetujui proposal ini?",
-                icon: "success",
-                confirmButtonColor: "#5156be",
-            });
-        }),
-        document.getElementById("sa-params").addEventListener("click", function() {
-            Swal.fire({
-                title: "Apakah anda yakin?",
-                text: "Anda yakin akan menolak proposal ini?",
+                title: "Konfirmasi Penolakan",
+                text: "Anda yakin ingin menolak proposal ini?",
                 icon: "warning",
-                showCancelButton: !0,
-                confirmButtonText: "Ya, tolak!",
+                showCancelButton: true,
+                confirmButtonColor: "#2ab57d",
+                cancelButtonColor: "#fd625e",
+                confirmButtonText: "Tolak",
                 cancelButtonText: "Batal",
-                confirmButtonClass: "btn btn-primary mt-2",
-                cancelButtonClass: "btn btn-secondary ms-2 mt-2",
-                buttonsStyling: !1,
-            }).then(function(e) {
-                e.value &&
-                    Swal.fire(
-                        "Ditolak!",
-                        "Proposal tersebut telah ditolak.",
-                        "error",
-                    );
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Submit form setelah konfirmasi
+                    formTolak.submit();
+                }
             });
         });
+    });
 </script>
 <script>
     function tolakInovasi(id) {
@@ -312,23 +339,6 @@
                 alert('Gagal mengubah status. Error: ' + xhr.responseText);
             }
         });
-    }
-</script>
-<script>
-    function setujuiInovasi(id) {
-        if (confirm('Apakah Anda yakin ingin menyetujui inovasi ini?')) {
-            $.post('/operator/inovasi/setujui', {
-                    id_inovasi: id,
-                    <?= csrf_token() ?>: '<?= csrf_hash() ?>'
-                })
-                .done(function(response) {
-                    alert('Disetujui'); // Tampilkan notifikasi "disetujui"
-                    location.reload(); // Reload halaman untuk memperbarui status
-                })
-                .fail(function() {
-                    alert('Terjadi kesalahan. Coba lagi.');
-                });
-        }
     }
 </script>
 <?= $this->endSection(); ?>

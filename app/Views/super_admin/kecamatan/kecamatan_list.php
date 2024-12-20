@@ -128,37 +128,41 @@
                     data-bs-dismiss="modal"
                     aria-label="Close"></button>
             </div>
-            <form action="/superadmin/kecamatan/store" method="post">
+            <form action="/superadmin/kecamatan/store" method="post" onsubmit="return validateForm()">
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label
-                            for="nama_kecamatan"
-                            class="col-form-label">Nama
-                            Kecamatan</label>
+                        <label for="nama_kecamatan" class="col-form-label">Nama Kecamatan</label>
                         <input
                             type="text"
                             class="form-control"
                             name="nama_kecamatan"
                             id="nama_kecamatan"
                             required />
+                        <div id="error-message" style="color: red; font-size: 0.9em; display: none;">Nama kecamatan tidak boleh hanya berisi spasi.</div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button
-                        type="button"
-                        class="btn btn-light"
-                        data-bs-dismiss="modal">
-                        Batal
-                    </button>
-                    <button
-                        type="submit"
-                        class="btn btn-primary"
-                        data-bs-dismiss="modal"
-                        id="">
-                        Kirim
-                    </button>
+                    <button type="button" class="btn btn-light" data-bs-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-primary">Kirim</button>
                 </div>
             </form>
+
+            <script>
+                function validateForm() {
+                    const inputField = document.getElementById('nama_kecamatan');
+                    const errorMessage = document.getElementById('error-message');
+                    const value = inputField.value.trim();
+
+                    if (value === "") {
+                        errorMessage.style.display = "block"; // Tampilkan pesan error
+                        return false; // Cegah form dikirim
+                    } else {
+                        errorMessage.style.display = "none"; // Sembunyikan pesan error jika valid
+                        return true; // Izinkan form dikirim
+                    }
+                }
+            </script>
+
         </div>
     </div>
 </div>
@@ -302,13 +306,13 @@
 </script>
 
 <script>
-function redirectToDesaPage(element) {
-    // Ambil ID kecamatan dari data-id
-    const kecamatanId = element.getAttribute("data-id");
+    function redirectToDesaPage(element) {
+        // Ambil ID kecamatan dari data-id
+        const kecamatanId = element.getAttribute("data-id");
 
-    // Redirect ke halaman dengan ID kecamatan
-    window.location.href = `/superadmin/desa/${kecamatanId}`;
-}
+        // Redirect ke halaman dengan ID kecamatan
+        window.location.href = `/superadmin/desa/${kecamatanId}`;
+    }
 </script>
 
 <?= $this->endSection(); ?>

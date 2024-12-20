@@ -168,35 +168,28 @@ class KelolaBentuk extends BaseController
     {
         $bentukModel = new \App\Models\BentukModel();
         $logModel = new \App\Models\LogAktivitasModel();
+        $db = db_connect();
 
-        $bentuk = $bentukModel->find($id);  // Temukan data sebelum dihapus
-        $bentukModel->delete($id);
+        // Periksa apakah data bentuk digunakan dalam tabel inovasi
+        $isUsed = $db->table('inovasi')->where('bentuk', $id)->countAllResults();
+
+        if ($isUsed > 0) {
+            // Jika data digunakan di tabel inovasi, batalkan penghapusan
+            return redirect()->back()->with('errors', 'Data tidak dapat dihapus karena digunakan di tabel lain.');
+        }
 
         // Mendapatkan ID pengguna (SuperAdmin) yang sedang login
         $superAdminId = auth()->user()->id;
 
-        // Pengecekan apakah data jenis inovasi digunakan di tabel lain
-        $relatedTables = [
-            'inovasi', // Ganti dengan nama tabel terkait
-        ];
-    
-        foreach ($relatedTables as $table) {
-            if (db_connect()->table($table)->where('bentuk', $id)->countAllResults() > 0) {
-                return redirect()->back()->with('errors', 'Data tidak dapat dihapus karena digunakan di tabel lain.');
-            }
-        }
-        
-
-        // Menghapus data jenis inovasi berdasarkan ID
+        // Hapus data bentuk jika tidak digunakan di tabel lain
         if ($bentukModel->delete($id)) {
-
             // Data untuk log aktivitas
             $logData = [
                 'id_user'          => $superAdminId,
-                'tanggal_aktivitas' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(), // Format tanggal
-                'aksi'             => 'hapus data', // Tindakan yang dilakukan
-                'jenis_data'       => 'bentuk', // Jenis data yang terlibat
-                'keterangan'       => "SuperAdmin dengan ID {$superAdminId} menghapus Bentuk Inovasi ",
+                'tanggal_aktivitas' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(),
+                'aksi'             => 'hapus data',
+                'jenis_data'       => 'bentuk',
+                'keterangan'       => "SuperAdmin dengan ID {$superAdminId} menghapus Bentuk Inovasi dengan ID {$id}.",
             ];
 
             // Simpan log aktivitas ke dalam database
@@ -205,7 +198,7 @@ class KelolaBentuk extends BaseController
             // Jika berhasil, kembali ke halaman dashboard dengan pesan sukses
             return redirect()->to('/bentuk')->with('success', 'Data berhasil dihapus.');
         } else {
-            // Jika penyimpanan data gagal, kembali ke form dengan pesan error
+            // Jika penghapusan data gagal, kembali ke halaman sebelumnya dengan pesan error
             return redirect()->back()->withInput()->with('errors', $bentukModel->errors());
         }
     }

@@ -165,41 +165,33 @@ class KelolaTahapan extends BaseController
         }
     }
 
-
-
     // Hapus jenis inovasi dari databases
     public function delete($id)
     {
         $tahapanModel = new \App\Models\TahapanModel();
         $logModel = new \App\Models\LogAktivitasModel();
+        $db = db_connect();
 
-        $jenisInovasi = $tahapanModel->find($id);  // Temukan data sebelum dihapus
-        $tahapanModel->delete($id);
+        // Ganti 'tahapan' dengan nama kolom relasi yang sesuai
+        $isUsed = $db->table('inovasi')->where('tahapan', $id)->countAllResults();
+
+        if ($isUsed > 0) {
+            // Jika data digunakan di tabel inovasi, batalkan penghapusan
+            return redirect()->back()->with('errors', 'Data tidak dapat dihapus karena digunakan di tabel lain.');
+        }
 
         // Mendapatkan ID pengguna (SuperAdmin) yang sedang login
         $superAdminId = auth()->user()->id;
 
-        // Pengecekan apakah data jenis inovasi digunakan di tabel lain
-        $relatedTables = [
-            'inovasi', // Ganti dengan nama tabel terkait
-        ];
-    
-        foreach ($relatedTables as $table) {
-            if (db_connect()->table($table)->where('tahapan', $id)->countAllResults() > 0) {
-                return redirect()->back()->with('errors', 'Data tidak dapat dihapus karena digunakan di tabel lain.');
-            }
-        }
-
-        // Menghapus data jenis inovasi berdasarkan ID
+        // Hapus data tahapan jika tidak digunakan di tabel lain
         if ($tahapanModel->delete($id)) {
-
             // Data untuk log aktivitas
             $logData = [
                 'id_user'          => $superAdminId,
-                'tanggal_aktivitas' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(), // Format tanggal
-                'aksi'             => 'hapus data', // Tindakan yang dilakukan
-                'jenis_data'       => 'tahapan', // Jenis data yang terlibat
-                'keterangan'       => "SuperAdmin dengan ID {$superAdminId} menghapus Tahapan ",
+                'tanggal_aktivitas' => Time::now('Asia/Jakarta', 'en')->toDateTimeString(),
+                'aksi'             => 'hapus data',
+                'jenis_data'       => 'tahapan',
+                'keterangan'       => "SuperAdmin dengan ID {$superAdminId} menghapus Tahapan dengan ID {$id}.",
             ];
 
             // Simpan log aktivitas ke dalam database

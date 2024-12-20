@@ -242,7 +242,7 @@
                     <form id="formTolak" method="post" action="/admin/inovasi/tolak">
                         <?= csrf_field() ?>
                         <div class="modal-body">
-                        <input type="hidden" name="id_inovasi" id="id_inovasi">
+                            <input type="hidden" name="id_inovasi" id="id_inovasi">
                             <div class="mb-3">
                                 <label for="pesan" class="col-form-label">Kirim Pesan Penolakan</label>
                                 <textarea class="form-control" id="pesan" name="pesan" required></textarea>

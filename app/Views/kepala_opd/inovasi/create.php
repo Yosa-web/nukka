@@ -55,7 +55,7 @@
                                 <div class="row mb-3">
                                     <label for="tahun" class="col-sm-3 col-form-label">Tahun</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="tahun" placeholder="Masukkan tahun proposal inovasi" required>
+                                        <input type="text" class="form-control" name="tahun" placeholder="Masukkan tahun proposal inovasi" required oninput="validateYear(this)">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -190,5 +190,18 @@
         });
     });
 </script>
-
+<script>
+    function validateYear(input) {
+        // Hanya menerima angka
+        var regex = /^[0-9]+$/;
+        if (!regex.test(input.value)) {
+            // Mengosongkan input jika tidak berupa angka
+            input.setCustomValidity("Tahun hanya bisa berupa angka.");
+            input.reportValidity();
+        } else {
+            // Menghapus validasi jika input berupa angka
+            input.setCustomValidity("");
+        }
+    }
+</script>
 <?= $this->endSection(); ?>

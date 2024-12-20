@@ -83,7 +83,8 @@
                                                     </div>
                                                     <div class="d-flex justify-content-center">
                                                         <div class="me-2">
-                                                            <a href="/kepala/inovasi/edit/<?= $row['id_inovasi']; ?>" class="btn btn-outline-warning btn-sm edit mb-2" title="Edit">
+                                                            <a href="javascript:void(0);" class="btn btn-outline-warning btn-sm mb-2"
+                                                                onclick="editRevisi(<?= $row['id_inovasi']; ?>)" title="Edit">
                                                                 <i class="fas fa-pencil-alt"></i>
                                                             </a>
                                                             <button class="btn btn-outline-secondary btn-sm ms-2 mb-2" data-bs-toggle="modal" data-bs-target="#detailModal<?= $row['id_inovasi'] ?>" title="Detail">
@@ -280,6 +281,33 @@
     <?php endforeach; ?>
 <?php endif; ?>
 
+<!-- modal revisi -->
+<div class="modal fade" id="modalRevisi" tabindex="-1" aria-labelledby="modalRevisiLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalRevisiLabel">Pesan Revisi</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="formRevisi" action="/kepala/inovasi/revisi" method="post">
+                <?= csrf_field() ?>
+                <div class="modal-body">
+                    <input type="hidden" name="id_inovasi" id="id_inovasi_revisi">
+                    <div class="mb-3">
+                        <label for="pesanRevisi" class="form-label">Kirim Pesan Revisi</label>
+                        <textarea name="pesan" id="pesanRevisi" class="form-control" rows="4" required></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-primary">Kirim</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
 <!-- Sweet Alerts js -->
 <script src="assets/libs/sweetalert2/sweetalert2.min.js"></script>
 <!-- Sweet alert setujui -->
@@ -371,4 +399,13 @@
         });
     }
 </script>
+<script>
+    function editRevisi(id) {
+        // Set ID Inovasi di modal
+        $('#id_inovasi_revisi').val(id);
+        // Buka modal revisi
+        $('#modalRevisi').modal('show');
+    }
+</script>
+
 <?= $this->endSection(); ?>
