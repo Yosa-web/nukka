@@ -184,49 +184,50 @@
     });
 </script>
 <script>
-    // Ambil elemen yang diperlukan
-    const passwordInput = document.getElementById('floatingPasswordInput');
-    const confirmPasswordInput = document.getElementById('floatingPasswordConfirmInput');
-    const submitButton = document.querySelector('button[type="submit"]'); // Tombol submit
+// Ambil elemen yang diperlukan
+const passwordInput = document.getElementById('floatingPasswordInput');
+const confirmPasswordInput = document.getElementById('floatingPasswordConfirmInput');
+const updateButton = document.querySelector('.btn-warning.update'); // Tombol "Perbarui"
 
-    // Fungsi untuk memvalidasi input password
-    function validatePassword() {
-        const passwordErrorDiv = document.getElementById('password-error');
-        const confirmPasswordErrorDiv = document.getElementById('repassword-error');
-        let isValid = true;
+// Fungsi untuk memvalidasi input password
+function validatePassword() {
+    const passwordErrorDiv = document.getElementById('password-error');
+    const confirmPasswordErrorDiv = document.getElementById('repassword-error');
+    let isValid = true;
 
-        // Validasi password tidak diawali dengan spasi
-        if (passwordInput.value.startsWith(' ')) {
-            passwordErrorDiv.textContent = 'Password tidak boleh diawali dengan spasi.';
-            passwordInput.classList.add('is-invalid');
-            isValid = false;
-        } else {
-            passwordErrorDiv.textContent = '';
-            passwordInput.classList.remove('is-invalid');
-        }
-
-        // Validasi apakah konfirmasi password sesuai
-        if (confirmPasswordInput.value && confirmPasswordInput.value !== passwordInput.value) {
-            confirmPasswordErrorDiv.textContent = 'Password dan Konfirmasi Password harus sama.';
-            confirmPasswordInput.classList.add('is-invalid');
-            isValid = false;
-        } else {
-            confirmPasswordErrorDiv.textContent = '';
-            confirmPasswordInput.classList.remove('is-invalid');
-        }
-
-        // Nonaktifkan tombol submit jika ada error
-        submitButton.disabled = !isValid;
+    // Validasi password tidak diawali dengan spasi
+    if (passwordInput.value.startsWith(' ')) {
+        passwordErrorDiv.textContent = 'Password tidak boleh diawali dengan spasi.';
+        passwordInput.classList.add('is-invalid');
+        isValid = false;
+    } else {
+        passwordErrorDiv.textContent = '';
+        passwordInput.classList.remove('is-invalid');
     }
 
-    // Tambahkan event listener pada input password dan konfirmasi password
-    passwordInput.addEventListener('input', validatePassword);
-    confirmPasswordInput.addEventListener('input', validatePassword);
+    // Validasi apakah konfirmasi password sesuai
+    if (confirmPasswordInput.value && confirmPasswordInput.value !== passwordInput.value) {
+        confirmPasswordErrorDiv.textContent = 'Password dan Konfirmasi Password harus sama.';
+        confirmPasswordInput.classList.add('is-invalid');
+        isValid = false;
+    } else {
+        confirmPasswordErrorDiv.textContent = '';
+        confirmPasswordInput.classList.remove('is-invalid');
+    }
 
-    // Pastikan tombol submit aktif jika password tidak diisi (password tidak wajib)
-    document.addEventListener('DOMContentLoaded', function () {
-        validatePassword(); // Panggil saat halaman dimuat
-    });
+    // Nonaktifkan tombol "Perbarui" jika ada error
+    updateButton.disabled = !isValid;
+}
+
+// Tambahkan event listener pada input password dan konfirmasi password
+passwordInput.addEventListener('input', validatePassword);
+confirmPasswordInput.addEventListener('input', validatePassword);
+
+// Pastikan tombol "Perbarui" aktif jika password tidak diisi (password tidak wajib)
+document.addEventListener('DOMContentLoaded', function () {
+    validatePassword(); // Panggil saat halaman dimuat
+});
+
 </script>
 <!-- Sweet Alerts js -->
 <script src="/assets/libs/sweetalert2/sweetalert2.min.js"></script>

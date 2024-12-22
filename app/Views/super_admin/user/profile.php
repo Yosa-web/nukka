@@ -187,7 +187,7 @@
     // Ambil elemen yang diperlukan
     const passwordInput = document.getElementById('floatingPasswordInput');
     const confirmPasswordInput = document.getElementById('floatingPasswordConfirmInput');
-    const submitButton = document.querySelector('button[type="submit"]'); // Tombol submit
+    const updateButton = document.querySelector('.btn-warning.update'); // Tombol "Perbarui"
 
     // Fungsi untuk memvalidasi input password
     function validatePassword() {
@@ -215,16 +215,16 @@
             confirmPasswordInput.classList.remove('is-invalid');
         }
 
-        // Nonaktifkan tombol submit jika ada error
-        submitButton.disabled = !isValid;
+        // Nonaktifkan tombol "Perbarui" jika ada error
+        updateButton.disabled = !isValid;
     }
 
     // Tambahkan event listener pada input password dan konfirmasi password
     passwordInput.addEventListener('input', validatePassword);
     confirmPasswordInput.addEventListener('input', validatePassword);
 
-    // Pastikan tombol submit aktif jika password tidak diisi (password tidak wajib)
-    document.addEventListener('DOMContentLoaded', function () {
+    // Pastikan tombol "Perbarui" aktif jika password tidak diisi (password tidak wajib)
+    document.addEventListener('DOMContentLoaded', function() {
         validatePassword(); // Panggil saat halaman dimuat
     });
 </script>

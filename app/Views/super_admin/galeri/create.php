@@ -20,14 +20,20 @@
                     <div class="card">
                         <div class="card-body">
                             <!-- Menampilkan alert error jika judul sudah terpakai -->
-                            <?php if (session()->getFlashdata('error')): ?>
-                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                    <?= session()->getFlashdata('error') ?>
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
+                            <?php if (session('error') !== null) : ?>
+                                <div class="alert alert-danger" role="alert"><?= session('error') ?></div>
+                            <?php elseif (session('error') !== null) : ?>
+                                <div class="alert alert-danger" role="alert">
+                                    <?php if (is_array(session('error'))) : ?>
+                                        <?php foreach (session('error') as $error) : ?>
+                                            <?= $error ?>
+                                            <br>
+                                        <?php endforeach ?>
+                                    <?php else : ?>
+                                        <?= session('error') ?>
+                                    <?php endif ?>
                                 </div>
-                            <?php endif; ?>
+                            <?php endif ?>
 
                             <form id="galeriForm" method="post" enctype="multipart/form-data">
                                 <div class="row mb-3">

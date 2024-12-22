@@ -8,25 +8,41 @@
             <h3 class="mb-0">Edit Gambar Galeri</h3>
 
             <!-- Flash Messages (Alert) -->
-            <?php if (session()->getFlashdata('error')): ?>
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <?= session()->getFlashdata('error') ?>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <?php if (session('error') !== null) : ?>
+                <div class="alert alert-danger" role="alert"><?= session('error') ?></div>
+            <?php elseif (session('error') !== null) : ?>
+                <div class="alert alert-danger" role="alert">
+                    <?php if (is_array(session('error'))) : ?>
+                        <?php foreach (session('error') as $error) : ?>
+                            <?= $error ?>
+                            <br>
+                        <?php endforeach ?>
+                    <?php else : ?>
+                        <?= session('error') ?>
+                    <?php endif ?>
                 </div>
-            <?php endif; ?>
+            <?php endif ?>
+
 
             <form action="<?= base_url('superadmin/galeri/update-image/' . $galeri['id_galeri']) ?>" method="POST" enctype="multipart/form-data">
                 <?= csrf_field() ?>
                 <div class="form-group mb-3">
                     <label for="judul">Judul</label>
                     <input type="text" class="form-control" id="judul" name="judul" value="<?= old('judul', $galeri['judul']) ?>" required>
+                    <?php if (isset($errors['judul'])): ?>
+                        <div class="error"><?= $errors['judul'] ?></div>
+                    <?php endif; ?>
                 </div>
-
-                <div class="form-group mb-3">
-                    <label for="image">Ganti Gambar</label>
+                <div class="form-group">
+                    <label for="image">Ganti Gambar (Opsional)</label>
                     <input type="file" class="form-control" id="image" name="image" accept="image/*">
+                    <?php if ($galeri['url']): ?>
+                        <p>Gambar Saat Ini: <img src="<?= base_url($galeri['url']) ?>" alt="Gambar Galeri" width="100"></p>
+                    <?php endif; ?>
+                    <?php if (isset($errors['image'])): ?>
+                        <div class="error"><?= $errors['image'] ?></div>
+                    <?php endif; ?>
                 </div>
-
                 <div class="row">
                     <div class="col-12">
                         <div class="d-flex justify-content-end">

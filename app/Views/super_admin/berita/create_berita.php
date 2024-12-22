@@ -20,6 +20,20 @@
                 </div>
             </div>
             <!-- end page title -->
+            <?php if (session('errors') !== null) : ?>
+                <div class="alert alert-danger" role="alert"><?= session('errors') ?></div>
+            <?php elseif (session('errors') !== null) : ?>
+                <div class="alert alert-danger" role="alert">
+                    <?php if (is_array(session('errors'))) : ?>
+                        <?php foreach (session('errors') as $error) : ?>
+                            <?= $error ?>
+                            <br>
+                        <?php endforeach ?>
+                    <?php else : ?>
+                        <?= session('errors') ?>
+                    <?php endif ?>
+                </div>
+            <?php endif ?>
             <div class="row">
                 <div class="col-12">
                     <div class="card">

@@ -9,22 +9,6 @@ use CodeIgniter\I18n\Time;
 
 class GaleriImage extends BaseController
 {
-    // Fungsi untuk memastikan judul unik
-    private function isJudulUnique($judul, $id = null)
-    {
-        $galeriModel = new GaleriModel();
-        $builder = $galeriModel->builder();
-
-        // Jika $id diberikan, kita mengecualikan galeri yang sedang diperbarui
-        if ($id) {
-            $builder->where('id_galeri !=', $id);
-        }
-
-        $builder->where('judul', $judul);
-        $existing = $builder->countAllResults();
-
-        return $existing === 0; // Jika tidak ada judul yang sama, return true
-    }
 
     public function storeImage()
     {
@@ -101,25 +85,21 @@ class GaleriImage extends BaseController
             return redirect()->to('/superadmin/galeri')->with('error', 'Galeri tidak ditemukan.');
         }
 
-        // Validasi input
+        // Validasi judul: wajib, unik kecuali untuk data yang sedang diedit
         if (!$this->validate([
-            'judul' => 'required',
-            'image' => 'uploaded[image]|is_image[image]|max_size[image,10240]',
+            'judul' => 'required', // Validasi judul harus unik kecuali yang sedang diedit
+            'image' => 'is_image[image]|max_size[image,10240]', // Gambar bersifat opsional
         ])) {
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
 
-        // Pengecekan apakah judul sudah ada
+        // Ambil nilai judul dan gambar
         $judul = $this->request->getPost('judul');
-        if (!$this->isJudulUnique($judul, $id)) {
-            return redirect()->back()->withInput()->with('error', 'Judul galeri sudah ada. Mohon gunakan judul yang berbeda.');
-        }
-
         $newImage = $this->request->getFile('image');
         $pathImage = 'assets/uploads/images/galeri/';
-        $pathToSave = '';
+        $pathToSave = $galeri['url']; // Set default path dengan gambar lama jika tidak ada gambar baru
 
-        // Jika ada gambar baru
+        // Jika ada gambar baru yang diupload
         if ($newImage && $newImage->isValid() && !$newImage->hasMoved()) {
             // Hapus gambar lama jika ada
             if (file_exists($galeri['url'])) {
@@ -129,27 +109,46 @@ class GaleriImage extends BaseController
             // Simpan gambar baru
             $name = $newImage->getRandomName();
             if ($newImage->move($pathImage, $name)) {
-                $pathToSave = $pathImage . $name;
+                $pathToSave = $pathImage . $name; // Update path dengan gambar baru
             } else {
                 return redirect()->back()->with('error', 'Gagal mengupload gambar.');
             }
-        } else {
-            // Jika tidak ada gambar baru, gunakan gambar lama
-            $pathToSave = $galeri['url'];
+        }
+
+        // Cek apakah judul sudah ada
+        $judul = $this->request->getPost('judul');
+        if (!$this->isJudulUnique($judul, $id)) {
+            return redirect()->back()->withInput()->with('error', 'Judul galeri sudah ada. Mohon gunakan judul yang berbeda.');
         }
 
         // Data yang akan diperbarui
         $data = [
             'judul' => $judul,
-            'url' => $pathToSave,
+            'url' => $pathToSave, // Menyimpan URL gambar baru atau lama
             'updated_at' => Time::now(),
         ];
 
         // Update data galeri
         if ($galeriModel->update($id, $data)) {
-            return redirect()->to('/superadmin/galeri')->with('success', 'Gambar berhasil diperbarui.');
+            return redirect()->to('/superadmin/galeri')->with('success', 'Galeri berhasil diperbarui.');
         } else {
             return redirect()->back()->withInput()->with('errors', $galeriModel->errors());
         }
+    }
+
+    // Fungsi untuk mengecek apakah judul sudah ada
+    private function isJudulUnique($judul, $excludeId = null)
+    {
+        $galeriModel = new GaleriModel();
+
+        // Cek apakah ada galeri dengan judul yang sama, kecuali ID yang diberikan
+        $query = $galeriModel->where('judul', $judul);
+        if ($excludeId) {
+            $query = $query->where('id_galeri !=', $excludeId); // Mengecualikan ID saat update
+        }
+
+        $result = $query->first(); // Mengambil satu data, jika ada yang sama maka return false
+
+        return empty($result); // Jika tidak ada data dengan judul yang sama, return true
     }
 }

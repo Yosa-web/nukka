@@ -49,7 +49,7 @@
                     <div class="card">
                         <div class="card-body">
                             <form action="/superadmin/userumum/update/<?= $user->id ?>" method="post">
-                            <?= csrf_field() ?>
+                                <?= csrf_field() ?>
                                 <!-- Nama -->
                                 <div class="row mb-3">
                                     <label for="floatingNameInput" class="col-sm-3 col-form-label">Nama Lengkap</label>
@@ -73,17 +73,14 @@
                                 </div>
                                 <!-- Status -->
                                 <div class="row mb-3">
-                                    <label for="status" class="col-sm-3 col-form-label">Status Akun</label>
+                                <label for="floatingStatusInput" class="col-sm-3 col-form-label">Status</label>
                                     <div class="col-sm-9">
-                                        <select name="status" id="status" class="form-select" required>
-                                            <option value="1" <?= (old('status', (string)$status) === '1') ? 'selected' : ''; ?>>Aktif</option>
-                                            <option value="0" <?= (old('status', (string)$status) === '0') ? 'selected' : ''; ?>>Non Aktif</option>
+                                        <select name="active" id="floatingStatusInput" class="form-select <?= isset(session()->getFlashdata('errors')['active']) ? 'is-invalid' : '' ?>">
+                                            <option value="1" <?= old('active') == '1' ? 'selected' : '' ?>>Aktif</option>
+                                            <option value="0" <?= old('active') == '0' ? 'selected' : '' ?>>Non Aktif</option>
                                         </select>
                                     </div>
-                                </div>
-                                    <div id="status_error" class="error">
-                                        <?= isset(session()->getFlashdata('errors')['active']) ? session()->getFlashdata('errors')['active'] : '' ?>
-                                    </div>
+                                    <div id="status_error" class="error"><?= isset(session()->getFlashdata('errors')['active']) ? session()->getFlashdata('errors')['active'] : '' ?></div>
                                 </div>
                                 <!-- Email -->
                                 <div class="row mb-3">
@@ -148,7 +145,7 @@
                                     <div class="col-12">
                                         <div class="d-flex justify-content-end">
                                             <button type="button" class="btn btn-secondary w-md" onclick="window.location.href='/superadmin/user/list/umum'">Batal</button>
-                                            <button type="submit" class="btn btn-warning w-md ms-4">Perbarui</button>
+                                            <button type="submit" class="btn btn-warning update w-md ms-4">Perbarui</button>
                                         </div>
                                     </div>
                                 </div>
@@ -194,6 +191,51 @@
                 icon.classList.add("mdi-eye-outline");
             }
         });
+    });
+</script>
+<script>
+    // Ambil elemen yang diperlukan
+    const passwordInput = document.getElementById('floatingPasswordInput');
+    const confirmPasswordInput = document.getElementById('floatingPasswordConfirmInput');
+    const updateButton = document.querySelector('.btn-warning.update'); // Tombol "Perbarui"
+
+    // Fungsi untuk memvalidasi input password
+    function validatePassword() {
+        const passwordErrorDiv = document.getElementById('password-error');
+        const confirmPasswordErrorDiv = document.getElementById('repassword-error');
+        let isValid = true;
+
+        // Validasi password tidak diawali dengan spasi
+        if (passwordInput.value.startsWith(' ')) {
+            passwordErrorDiv.textContent = 'Password tidak boleh diawali dengan spasi.';
+            passwordInput.classList.add('is-invalid');
+            isValid = false;
+        } else {
+            passwordErrorDiv.textContent = '';
+            passwordInput.classList.remove('is-invalid');
+        }
+
+        // Validasi apakah konfirmasi password sesuai
+        if (confirmPasswordInput.value && confirmPasswordInput.value !== passwordInput.value) {
+            confirmPasswordErrorDiv.textContent = 'Password dan Konfirmasi Password harus sama.';
+            confirmPasswordInput.classList.add('is-invalid');
+            isValid = false;
+        } else {
+            confirmPasswordErrorDiv.textContent = '';
+            confirmPasswordInput.classList.remove('is-invalid');
+        }
+
+        // Nonaktifkan tombol "Perbarui" jika ada error
+        updateButton.disabled = !isValid;
+    }
+
+    // Tambahkan event listener pada input password dan konfirmasi password
+    passwordInput.addEventListener('input', validatePassword);
+    confirmPasswordInput.addEventListener('input', validatePassword);
+
+    // Pastikan tombol "Perbarui" aktif jika password tidak diisi (password tidak wajib)
+    document.addEventListener('DOMContentLoaded', function() {
+        validatePassword(); // Panggil saat halaman dimuat
     });
 </script>
 <?= $this->endSection(); ?>

@@ -56,7 +56,7 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row" id="berita-container">
                 <?php foreach ($berita as $item): ?>
                     <div class="col-xl-4 col-sm-6">
                         <div class="card">
@@ -77,7 +77,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h5 class=""><a href="#" class="text-body"><?= substr($item['judul'], 0, 70) . '...' ?></a></h5>
+                                <h5 class=""><a href="<?= base_url('berita/show/detail/' . $item['slug']) ?>" class="text-body"><?= substr($item['judul'], 0, 70) . '...' ?></a></h5>
                                 <p class="mb-0 font-size-15"><?= substr($item['isi'], 0, 150) . '...' ?></p>
                                 <div class="row mt-3">
                                     <div class="col-8">
@@ -100,31 +100,7 @@
                     </div>
                 <?php endforeach; ?>
             </div>
-
-            <!-- pagination -->
-            <div class="row justify-content-center mb-4">
-                <div class="col-md-3">
-                    <div class="">
-                        <ul class="pagination mb-sm-0">
-                            <li class="page-item disabled">
-                                <a href="#" class="page-link"><i class="mdi mdi-chevron-left"></i></a>
-                            </li>
-                            <li class="page-item active">
-                                <a href="#" class="page-link">1</a>
-                            </li>
-                            <li class="page-item">
-                                <a href="#" class="page-link">2</a>
-                            </li>
-                            <li class="page-item">
-                                <a href="#" class="page-link">3</a>
-                            </li>
-                            <li class="page-item">
-                                <a href="#" class="page-link"><i class="mdi mdi-chevron-right"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            <div id="berita-pagination" class="d-flex justify-content-center mt-4 mb-4"></div>
         </div>
     </div>
 </div>
@@ -155,6 +131,91 @@
                 }
             });
         });
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const itemsPerPage = 9; // Jumlah item per halaman
+        const contentContainer = document.getElementById("berita-container");
+        const paginationContainer = document.getElementById("berita-pagination");
+        const allItems = Array.from(contentContainer.children);
+        const totalItems = allItems.length;
+        const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+        // Fungsi untuk menampilkan item sesuai halaman
+        function displayPage(page) {
+            // Reset konten
+            contentContainer.innerHTML = "";
+
+            // Hitung indeks awal dan akhir
+            const start = (page - 1) * itemsPerPage;
+            const end = Math.min(start + itemsPerPage, totalItems);
+
+            // Tampilkan item sesuai indeks
+            for (let i = start; i < end; i++) {
+                contentContainer.appendChild(allItems[i]);
+            }
+
+            updatePagination(page);
+        }
+
+        // Fungsi untuk memperbarui navigasi pagination
+        function updatePagination(currentPage) {
+            paginationContainer.innerHTML = ""; // Bersihkan kontainer pagination
+
+            const ul = document.createElement("ul");
+            ul.className = "pagination mb-sm-0";
+
+            // Tombol Prev
+            const prevLi = document.createElement("li");
+            prevLi.className = `page-item ${currentPage === 1 ? "disabled" : ""}`;
+            const prevLink = document.createElement("a");
+            prevLink.className = "page-link";
+            prevLink.innerHTML = '<i class="mdi mdi-chevron-left"></i>';
+            prevLink.href = "#";
+            prevLink.addEventListener("click", (e) => {
+                e.preventDefault();
+                if (currentPage > 1) displayPage(currentPage - 1);
+            });
+            prevLi.appendChild(prevLink);
+            ul.appendChild(prevLi);
+
+            // Tombol halaman
+            for (let i = 1; i <= totalPages; i++) {
+                const pageLi = document.createElement("li");
+                pageLi.className = `page-item ${i === currentPage ? "active" : ""}`;
+                const pageLink = document.createElement("a");
+                pageLink.className = "page-link";
+                pageLink.textContent = i;
+                pageLink.href = "#";
+                pageLink.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    displayPage(i);
+                });
+                pageLi.appendChild(pageLink);
+                ul.appendChild(pageLi);
+            }
+
+            // Tombol Next
+            const nextLi = document.createElement("li");
+            nextLi.className = `page-item ${currentPage === totalPages ? "disabled" : ""}`;
+            const nextLink = document.createElement("a");
+            nextLink.className = "page-link";
+            nextLink.innerHTML = '<i class="mdi mdi-chevron-right"></i>';
+            nextLink.href = "#";
+            nextLink.addEventListener("click", (e) => {
+                e.preventDefault();
+                if (currentPage < totalPages) displayPage(currentPage + 1);
+            });
+            nextLi.appendChild(nextLink);
+            ul.appendChild(nextLi);
+
+            // Tambahkan elemen pagination ke kontainer
+            paginationContainer.appendChild(ul);
+        }
+
+        // Tampilkan halaman pertama saat halaman dimuat
+        displayPage(1);
     });
 </script>
 <?= $this->endSection(); ?>

@@ -199,7 +199,7 @@ class KelolaBerita extends BaseController
                 'berita' => $publishedBerita, // Hanya satu berita karena menggunakan first()
             ];
 
-            return view('landing_page/berita/detail', $data);
+            return view('super_admin/berita/detail_berita', $data);
         } else {
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Berita tidak ditemukan');
         }
