@@ -77,7 +77,7 @@
                                     src="/assets/uploads/images/optionweb/logo.png"
                                     alt=""
                                     height="35" />
-                                <span class="logo-txt">Rumah Inovasi</span>
+                                <span class="logo-txt">Dashboard</span>
                             </span>
                         </a>
                     </div>

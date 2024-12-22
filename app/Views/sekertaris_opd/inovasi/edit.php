@@ -108,30 +108,26 @@
                                 </div>
 
                                 <div class="row mb-3">
-                                    <label for="kecamatan" class="col-sm-3 col-form-label">Kecamatan</label>
+                                    <label for="id_opd" class="col-sm-3 col-form-label">Kecamatan</label>
                                     <div class="col-sm-9">
                                         <select class="form-select" name="kecamatan" id="kecamatan" required>
-                                            <?php foreach ($kecamatan as $kecamatan_item): ?>
-                                                <option value="<?= $kecamatan_item['id_kecamatan'] ?>" <?= $inovasi['kecamatan'] == $kecamatan_item['id_kecamatan'] ? 'selected' : '' ?>>
-                                                    <?= $kecamatan_item['nama_kecamatan'] ?>
-                                                </option>
-                                            <?php endforeach; ?>
+                                            <option value="" disabled selected>Pilih Kecamatan</option>
+                                            <?php if (!empty($kecamatan)): ?>
+                                                <?php foreach ($kecamatan as $kecamatan_item): ?>
+                                                    <option value="<?= $kecamatan_item['id_kecamatan'] ?>"><?= $kecamatan_item['nama_kecamatan'] ?></option>
+                                                <?php endforeach; ?>
+                                            <?php else: ?>
+                                                <option value="" disabled>Tidak ada data kecamatan</option>
+                                            <?php endif; ?>
                                         </select>
                                     </div>
                                 </div>
+
                                 <div class="row mb-3">
                                     <label for="desa" class="col-sm-3 col-form-label">Desa</label>
                                     <div class="col-sm-9">
                                         <select class="form-select" name="desa" id="desa" required>
-                                            <?php if (!empty($desa)): ?>
-                                                <?php foreach ($desa as $desa_item): ?>
-                                                    <option value="<?= $desa_item['id_desa'] ?>" <?= $inovasi['desa'] == $desa_item['id_desa'] ? 'selected' : '' ?>>
-                                                        <?= $desa_item['nama_desa'] ?>
-                                                    </option>
-                                                <?php endforeach; ?>
-                                            <?php else: ?>
-                                                <option value="" disabled selected>Tidak ada data desa</option>
-                                            <?php endif; ?>
+                                            <option value="" disabled selected>Pilih Desa</option>
                                         </select>
                                     </div>
                                 </div>

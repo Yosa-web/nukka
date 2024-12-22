@@ -12,16 +12,21 @@ class KelolaBerita extends BaseController
 {
     public $beritaModel;
     public $logModel;
+    protected $namaWebsite; // Tambahkan properti untuk nama website
+
     public function __construct()
     {
         $this->beritaModel = new BeritaModel();
         $this->logModel = new LogAktivitasModel();
+        $this->namaWebsite = $nama['value'] ?? 'Balitbang'; // Fallback jika Nama tidak tersedia
+
     }
     public function index()
     {
         $data = [
             'title' => 'List Berita',
             'berita' => $this->beritaModel->getBerita(),
+            'namaWebsite' => $this->namaWebsite, // Kirim nama website ke view
         ];
         return view('super_admin/berita/list_berita', $data);
     }
@@ -63,6 +68,8 @@ class KelolaBerita extends BaseController
             'posted_by'    => auth()->user()->id,
             'status'       => $this->request->getVar('status'),
             'slug'         => url_title($judul, '-', true),
+            'namaWebsite' => $this->namaWebsite, // Kirim nama website ke view
+
         ];
 
         if ($this->beritaModel->save($data)) {
@@ -87,6 +94,8 @@ class KelolaBerita extends BaseController
         $data = [
             'title' => 'List berita',
             'berita' => $berita,
+            'namaWebsite' => $this->namaWebsite, // Kirim nama website ke view
+
         ];
         return view('super_admin/berita/edit_berita', $data);
     }
@@ -124,6 +133,8 @@ class KelolaBerita extends BaseController
             'posted_by'    => auth()->user()->id,
             'status'       => $this->request->getVar('status'),
             'slug'         => url_title($judul, '-', true),
+            'namaWebsite' => $this->namaWebsite, // Kirim nama website ke view
+
         ];
 
         if ($this->beritaModel->update($id, $data)) {
@@ -180,6 +191,7 @@ class KelolaBerita extends BaseController
         if (!empty($publishedBerita)) {
             return view('landing_page/berita/berita_published', [
                 'beritas' => $publishedBerita,
+                'namaWebsite' => $this->namaWebsite, // Kirim nama website ke view
             ]);
         } else {
             return view('landing_page/berita/berita_published', ['beritas' => []]);
@@ -197,6 +209,7 @@ class KelolaBerita extends BaseController
             $data = [
                 'title' => 'Detail Berita',
                 'berita' => $publishedBerita, // Hanya satu berita karena menggunakan first()
+                'namaWebsite' => $this->namaWebsite, // Kirim nama website ke view
             ];
 
             return view('super_admin/berita/detail_berita', $data);
@@ -216,6 +229,7 @@ class KelolaBerita extends BaseController
                 'title' => 'Detail Berita',
                 'berita' => $publishedBerita[0], // Ambil item pertama karena getPublishedNews mengembalikan array
                 'randberita' => $publishedBerita,
+                'namaWebsite' => $this->namaWebsite, // Kirim nama website ke view
             ];
 
             return view('landing_page/berita/detail', $data);

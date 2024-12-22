@@ -63,7 +63,19 @@
                                                 <td class="text-center"><?= esc($user['name']); ?></td>
                                                 <td><?= esc($user['id_opd']); ?></td>
                                                 <td class="text-center"><?= esc($user['NIP']); ?></td>
-                                                <td class="text-center"><?= esc($user['group']); ?></td>
+                                                <td class="text-center">                                                    <?php
+                                                    // Mengganti nama group yang tampil
+                                                    $group = $user['group'];
+                                                    if ($group == 'kepala-opd') {
+                                                        echo 'Kepala OPD';
+                                                    } elseif ($group == 'sekertaris-opd') {
+                                                        echo 'Sekretaris OPD';
+                                                    } elseif ($group == 'operator') {
+                                                        echo 'Operator';
+                                                    } else {
+                                                        echo esc($group); // Jika group lainnya, tampilkan sesuai dengan aslinya
+                                                    }
+                                                    ?></td>
                                                 <td class="text-center"><?= esc($user['no_telepon']); ?></td>
                                                 <td class="text-center"><?= esc($user['email']); ?></td>
                                                 <td class="text-center">

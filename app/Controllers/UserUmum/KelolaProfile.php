@@ -40,7 +40,7 @@ class KelolaProfile extends BaseRegisterController
         $users = $this->getUserProvider();
 
         // Dapatkan user berdasarkan sesi login
-        $userId = auth()->user()->id;
+        $userId = auth()->user()->id;  // Gunakan auth()->user()->id untuk mendapatkan ID user
         $user = $users->findById($userId);
 
         if (!$user) {
@@ -69,11 +69,13 @@ class KelolaProfile extends BaseRegisterController
         $newNoTelepon = $this->request->getPost('no_telepon');
         if ($newNoTelepon && $newNoTelepon !== $user->no_telepon) {
             $rules['no_telepon']['rules'][] = 'is_unique[users.no_telepon,id,' . $userId . ']';
+            $rules['no_telepon']['errors']['is_unique'] = 'Nomor telepon sudah digunakan oleh pengguna lain.';
         }
 
         $newNIK = $this->request->getPost('NIK');
         if ($newNIK && $newNIK !== $user->NIK) {
             $rules['NIK']['rules'][] = 'is_unique[users.NIP,id,' . $userId . ']';
+            $rules['NIK']['errors']['is_unique'] = 'NIK sudah digunakan oleh pengguna lain.';
         }
 
         // Lakukan validasi
@@ -108,11 +110,11 @@ class KelolaProfile extends BaseRegisterController
             auth()->logout();
             session()->destroy();
 
-            // Redirect ke halaman login
+            // Redirect ke halaman login dengan pesan
             return redirect()->to('/login?message=' . urlencode('Email atau password telah diperbarui. Silakan login kembali.'));
         }
 
-        // Redirect dengan pesan sukses
+        // Redirect dengan pesan sukses jika tidak ada perubahan password/email
         return redirect()->to('/userumum/inovasi/filter')
             ->with('message', 'Profil berhasil diperbarui.');
     }

@@ -133,7 +133,7 @@
                                     </tr>
                                     <tr>
                                         <th scope="row">Nama OPD</th>
-                                        <td><?= esc($row['nama_opd']); ?></td> <!-- Menampilkan nama OPD -->
+                                        <td><?= esc(!empty($row['nama_opd']) ? $row['nama_opd'] : '-'); ?></td> <!-- Menampilkan nama OPD, atau "-" jika kosong -->
                                     </tr>
                                     <tr>
                                         <th scope="row">Kategori</th>

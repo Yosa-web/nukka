@@ -9,6 +9,7 @@ use App\Models\GaleriModel;
 use App\Models\OptionWebModel;
 use App\Models\InovasiModel;
 use App\Models\JenisInovasiModel;
+use App\Models\KunjunganModel;
 
 class LandingController extends BaseController
 {
@@ -32,6 +33,7 @@ class LandingController extends BaseController
         $beritaModel = new BeritaModel();
         $galeriModel = new GaleriModel();
         $optionWebModel = new OptionWebModel();
+        $this->logKunjungan();
 
         $banner = $optionWebModel->where('key', 'Banner')->first();
         $banner2 = $optionWebModel->where('key', 'Banner2')->first();
@@ -51,6 +53,27 @@ class LandingController extends BaseController
 
         return view('landing_page/beranda/beranda', $data);
     }
+
+    private function logKunjungan()
+    {
+        $kunjunganModel = new KunjunganModel();
+        
+        // Set zona waktu Indonesia (WIB)
+        date_default_timezone_set('Asia/Jakarta');
+        
+        // Ambil waktu sekarang
+        $currentTime = date('Y-m-d H:i:s');
+        
+        // Ambil IP address pengunjung
+        $ipAddress = $this->request->getIPAddress();  // Mengambil alamat IP pengunjung
+        
+        // Simpan data kunjungan ke database
+        $kunjunganModel->save([
+            'tanggal_kunjungan' => $currentTime,
+            'ip_address' => $ipAddress
+        ]);
+    }
+    
 
     public function tentang()
     {
@@ -210,5 +233,25 @@ class LandingController extends BaseController
         ];
 
         return view('landing_page/galeri/galeri_video', $data);
+    }
+
+    public function show($slug)
+    {
+        $beritaModel = new BeritaModel();
+        $publishedBerita = $beritaModel->getPublishedNews($slug); // Ambil berita berdasarkan slug
+        // $publishedRandBerita = $beritaModel->getRandPublishedNews($slug);
+        // Pastikan berita ditemukan
+        if (!empty($publishedBerita)) {
+            $data = [
+                'title' => 'Detail Berita',
+                'berita' => $publishedBerita[0], // Ambil item pertama karena getPublishedNews mengembalikan array
+                'randberita' => $publishedBerita,
+                'namaWebsite' => $this->namaWebsite, // Kirim nama website ke view
+            ];
+
+            return view('landing_page/berita/detail', $data);
+        } else {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('Berita tidak ditemukan');
+        }
     }
 }

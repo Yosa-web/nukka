@@ -161,7 +161,7 @@
                             </div>
                         </div>
                         <!-- Re-Password -->
-                        <div class="mb-4">
+                        <div class="mb-5">
                             <label for="floatingPasswordConfirmInput" class="form-label">Konfirmasi Password</label>
                             <div class="input-group auth-pass-inputgroup">
                                 <input
@@ -179,21 +179,6 @@
                                 <div
                                     class="invalid-feedback"
                                     id="repassword-error">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row mb-4">
-                            <div class="col">
-                                <div class="form-check">
-                                    <input
-                                        class="form-check-input"
-                                        type="checkbox"
-                                        id="remember-check" required />
-                                    <label
-                                        class="form-check-label text-muted fw-normal"
-                                        for="remember-check">
-                                        Saya setuju dengan <a href="#" class="text-primary">Syarat dan Ketentuan</a> yang berlaku
-                                    </label>
                                 </div>
                             </div>
                         </div>

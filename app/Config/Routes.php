@@ -176,6 +176,8 @@ $routes->group('', ['filter' => 'group:superadmin'], function ($routes) {
 
     //export
     $routes->get('export/csv', 'Superadmin\ExportController::exportToCSV');
+
+    $routes->get('superadmin/kunjungan/getKunjunganData', 'Superadmin\KunjunganController::getKunjunganData');
 });
 
 $routes->group('', ['filter' => 'group:admin-opd'], function ($routes) {
@@ -314,6 +316,6 @@ $routes->get('/api/jumlah-inovasi-terbit', 'Superadmin\KelolaDataInovasi::getJum
 $routes->get('/berita/lainnya', 'LandingController::semuaBerita');
 $routes->get('/foto/lainnya', 'LandingController::semuaFoto');
 $routes->get('/video/lainnya', 'LandingController::semuaVideo');
-$routes->get('berita/detail/(:segment)', 'Superadmin\KelolaBerita::show/$1');
+$routes->get('berita/detail/(:segment)', 'LandingController::show/$1');
 
 $routes->get('handleLogin', 'AuthController::handleLogin');

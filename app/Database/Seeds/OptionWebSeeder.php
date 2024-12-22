@@ -16,12 +16,6 @@ class OptionWebSeeder extends Seeder
                 'modified_by'  => 1, // Ganti dengan ID pengguna yang sesuai
             ],
             [
-                'key'          => 'Warna',
-                'seting_type' => 'Kode Warna',
-                'value'        => ' #0000ff',
-                'modified_by'  => 1, // Ganti dengan ID pengguna yang sesuai
-            ],
-            [
                 'key'          => 'Nama',
                 'seting_type' => 'Text',
                 'value'        => 'Rumah Inovasi',

@@ -105,17 +105,10 @@ class KelolaProfile extends BaseRegisterController
         $logModel = new LogAktivitasModel();
         $logModel->save($logData);
 
-        // Logout jika email atau password berubah
-        if ($emailChanged || $passwordChanged) {
-            auth()->logout();
-            session()->destroy();
+        // Logout setelah perubahan apapun terjadi
+        auth()->logout();
 
-            // Redirect ke halaman login
-            return redirect()->to('/login?message=' . urlencode('Email atau password telah diperbarui. Silakan login kembali.'));
-        }
-
-        // Redirect dengan pesan sukses
-        return redirect()->to('/dashboard')
-            ->with('message', 'Profil berhasil diperbarui.');
+        // Redirect ke halaman login dengan pesan
+        return redirect()->to('/login')->with('message', 'Profil Anda telah diperbarui. Silakan login kembali.');
     }
 }

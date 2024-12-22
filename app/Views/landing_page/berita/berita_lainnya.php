@@ -4,7 +4,7 @@
 <div class="page-title-left">
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-            <a href="beranda.html">Beranda</a>
+            <a href="<?= base_url('beranda') ?>">Beranda</a>
         </li>
         <li class="breadcrumb-item active">Berita</li>
     </ol>
@@ -56,7 +56,7 @@
             <div class="scrollable-headline">
                 <?php if (!empty($new_beritas) && is_array($new_beritas)): ?>
                     <?php foreach ($new_beritas as $berita): ?> <!-- Menampilkan 3 data terakhir -->
-                        <a href="link1.html" class="headline-item">
+                        <a href="<?= base_url('berita/detail/' . $berita['slug']) ?>" class="headline-item">
                             <span> <?= substr($berita['judul'], 0, 120) . '...' ?></span>
                             <i class="bx bx-link-external"></i>
                         </a>

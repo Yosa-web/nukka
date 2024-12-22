@@ -131,7 +131,6 @@
     const editButtons = document.querySelectorAll('.edit');
     const modal = document.getElementById('editModal');
     const form = modal.querySelector('#edit-form');
-    const colorInputDiv = document.createElement('div'); // Div untuk input warna
     const textInputDiv = modal.querySelector('.text-input'); // Div untuk input teks
     const imageInputDiv = modal.querySelector('.image-input'); // Div untuk input gambar
     const hiddenTipeInput = modal.querySelector('#hidden-tipe');
@@ -146,38 +145,15 @@
             form.action = `/superadmin/optionweb/update/${settingId}`;
             hiddenTipeInput.value = type;
 
-            // Reset input warna
-            if (colorInputDiv.parentNode) colorInputDiv.parentNode.removeChild(colorInputDiv);
-
             // Tampilkan input warna jika tipe pengaturan adalah 'warna'
-            if (type === 'warna' || type === 'kode warna') {
-                colorInputDiv.className = 'mb-3';
-                colorInputDiv.innerHTML = `
-                    <label for="setting-warna" class="col-form-label">Warna:</label>
-                    <input
-                        type="color"
-                        class="form-control form-control-color"
-                        id="setting-warna"
-                        name="warna"
-                        value="${value.startsWith('#') ? value : '#000000'}"
-                        title="Pilih warna"
-                    />
-                `;
-                form.insertBefore(colorInputDiv, form.querySelector('.modal-footer'));
-                textInputDiv.style.display = 'none'; // Sembunyikan input teks
-                imageInputDiv.style.display = 'none'; // Sembunyikan input gambar
-
-                // Tampilkan input gambar jika tipe pengaturan adalah 'image'
-            } else if (type === 'image') {
+            if (type === 'image') {
                 textInputDiv.style.display = 'none'; // Sembunyikan input teks
                 imageInputDiv.style.display = 'block'; // Tampilkan input gambar
-                colorInputDiv.style.display = 'none'; // Sembunyikan input warna
 
                 // Jika tipe bukan 'warna' atau 'image', tampilkan input teks dan sembunyikan lainnya
             } else {
                 textInputDiv.style.display = 'block'; // Tampilkan input teks
                 imageInputDiv.style.display = 'none'; // Sembunyikan input gambar
-                colorInputDiv.style.display = 'none'; // Sembunyikan input warna
                 modal.querySelector('#setting-text').value = value; // Set nilai teks
                 if (window.ckEditorInstance) {
                     window.ckEditorInstance.setData(value); // Set data CKEditor

@@ -163,7 +163,7 @@ class KelolaDataInovasi extends BaseController
 
         // Jika tidak memiliki OPD, atur ID OPD ke NULL atau biarkan kosong, atau gunakan nilai default lain
         if (empty($id_opd)) {
-            $id_opd = null; // Set ID OPD ke null jika tidak ada
+            $id_opd = '-'; // Set ID OPD ke null jika tidak ada
             // Bisa juga mengarahkan ke halaman tertentu jika diperlukan
             // return redirect()->back()->withInput()->with('error', 'User tidak memiliki OPD yang terdaftar.');
         }

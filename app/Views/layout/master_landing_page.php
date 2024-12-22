@@ -108,11 +108,9 @@ $jenis_inovasi = $jenisInovasiModel->findAll();
 				<div class="col-md-5 text-md-start mb-4 mb-md-0 ps-4">
 					<h3 class="fw-bold"><span><?= esc(strip_tags($namaWebsite)) ?></span></h3>
 					<p>balitbangpesawaran@gmail.com</p>
-					<p>(0733) 4540000</p>
+					<p>0821-8649-0949</p>
 					<p>
-						Komplek Perkantoran Pemerintah Kabupaten Pesawaran,
-						Jalan Raya Kedondong, Way Layap, Kecamatan Gedong
-						Tataan, Kabupaten Pesawaran, Provinsi Lampung
+						Jl.alvaro Bin Bahar No.46, Sukaraja, Kec. Gedong Tataan, Kabupaten Pesawaran, Lampung 35366
 					</p>
 					<div class="social-links">
 						<a href="#"><i class="fab fa-facebook"></i></a>
@@ -123,7 +121,7 @@ $jenis_inovasi = $jenisInovasiModel->findAll();
 				</div>
 				<div class="col-md-4 text-center text-md-end">
 					<iframe
-						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3523.8254389374856!2d105.07081024431248!3d-5.400336996834666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e40d2f093d4a027%3A0x35fedef26ffe058a!2sDEPARTMENT%20OF%20COMMUNICATION%20AND%20INFORMATION%20kab.%20Pesawaran!5e0!3m2!1sen!2sid!4v1730910571089!5m2!1sen!2sid"
+						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3972.2016135412177!2d105.09904200905426!3d-5.386210994570204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e40d26b60ef67e9%3A0xc529c82c28ba0e46!2sJl.alvaro%20Bin%20Bahar%20No.46%2C%20Sukaraja%2C%20Kec.%20Gedong%20Tataan%2C%20Kabupaten%20Pesawaran%2C%20Lampung%2035366!5e0!3m2!1sen!2sid!4v1734860926873!5m2!1sen!2sid"
 						width="400"
 						height="300"
 						style="border: 0"

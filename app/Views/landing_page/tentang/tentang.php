@@ -26,7 +26,7 @@
             <div class="scrollable-headline">
             <?php if (!empty($beritas) && is_array($beritas)): ?>
             <?php foreach ($beritas as $berita): ?>
-                <a href="link1.html" class="headline-item">
+                <a href="<?= base_url('berita/detail/' . $berita['slug']) ?>" class="headline-item">
                     <span><?= $berita['judul'] ?></span>
                     <i class="bx bx-link-external"></i>
                 </a>
