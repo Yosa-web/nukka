@@ -114,7 +114,9 @@
                                             <option value="" disabled selected>Pilih Kecamatan</option>
                                             <?php if (!empty($kecamatan)): ?>
                                                 <?php foreach ($kecamatan as $kecamatan_item): ?>
-                                                    <option value="<?= $kecamatan_item['id_kecamatan'] ?>"><?= $kecamatan_item['nama_kecamatan'] ?></option>
+                                                    <option value="<?= $kecamatan_item['id_kecamatan'] ?>" <?= $inovasi['kecamatan'] == $kecamatan_item['id_kecamatan'] ? 'selected' : '' ?>>
+                                                        <?= $kecamatan_item['nama_kecamatan'] ?>
+                                                    </option>
                                                 <?php endforeach; ?>
                                             <?php else: ?>
                                                 <option value="" disabled>Tidak ada data kecamatan</option>
@@ -128,16 +130,15 @@
                                     <div class="col-sm-9">
                                         <select class="form-select" name="desa" id="desa" required>
                                             <option value="" disabled selected>Pilih Desa</option>
+                                            <!-- Desa akan di-load berdasarkan kecamatan yang dipilih -->
+                                            <?php if (!empty($desa)): ?>
+                                                <?php foreach ($desa as $desa_item): ?>
+                                                    <option value="<?= $desa_item['id_desa'] ?>" <?= $inovasi['desa'] == $desa_item['id_desa'] ? 'selected' : '' ?>>
+                                                        <?= $desa_item['nama_desa'] ?>
+                                                    </option>
+                                                <?php endforeach; ?>
+                                            <?php endif; ?>
                                         </select>
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label for="url_file" class="col-sm-3 col-form-label">File Proposal</label>
-                                    <div class="col-sm-9">
-                                        <input type="file" class="form-control" name="url_file">
-                                        <?php if (!empty($inovasi['url_file'])): ?>
-                                            <p>File Saat Ini: <a href="<?= base_url($inovasi['url_file']) ?>" target="_blank">Lihat File</a></p>
-                                        <?php endif; ?>
                                     </div>
                                 </div>
 
@@ -173,31 +174,49 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function() {
+        // Menangani perubahan pada dropdown kecamatan
         $('#kecamatan').change(function() {
             var id_kecamatan = $(this).val();
+
+            // Cek apakah ada ID kecamatan yang dipilih
             if (id_kecamatan) {
                 $.ajax({
-                    url: '/userumum/inovasi/getDesa', // Sesuaikan dengan endpoint yang akan dibuat
+                    url: '/userumum/inovasi/getDesa', // Sesuaikan dengan endpoint yang akan mengembalikan daftar desa berdasarkan kecamatan
                     type: 'GET',
                     data: {
                         id_kecamatan: id_kecamatan
                     },
                     success: function(response) {
-                        console.log(response); // Cek respons dari server
                         var desaOptions = '<option value="" disabled selected>Pilih Desa</option>';
+
+                        // Menambahkan opsi desa yang diterima dari response
                         $.each(response, function(index, desa) {
                             desaOptions += '<option value="' + desa.id_desa + '">' + desa.nama_desa + '</option>';
                         });
-                        $('#desa').html(desaOptions); // Update dropdown Desa
+
+                        // Memperbarui dropdown desa
+                        $('#desa').html(desaOptions);
+
+                        // Jika ada desa yang sudah dipilih sebelumnya, pilih desa tersebut
+                        <?php if (isset($inovasi['desa']) && $inovasi['desa'] != ''): ?>
+                            $('#desa').val('<?= $inovasi['desa'] ?>'); // Pilih desa yang sudah dipilih sebelumnya
+                        <?php endif; ?>
                     },
                     error: function() {
                         alert('Terjadi kesalahan saat memuat data desa');
                     }
                 });
             } else {
+                // Jika kecamatan tidak dipilih, kosongkan dropdown desa
                 $('#desa').html('<option value="" disabled selected>Pilih Desa</option>');
             }
         });
+
+        // Trigger perubahan dropdown desa jika kecamatan sudah dipilih sebelumnya
+        var kecamatanId = <?= json_encode($inovasi['kecamatan']) ?>;
+        if (kecamatanId) {
+            $('#kecamatan').val(kecamatanId).trigger('change');
+        }
     });
 </script>
 <script>
