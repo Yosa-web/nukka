@@ -79,7 +79,7 @@
         <!-- Body -->
         <div class="email-body">
             <p>Halo,</p>
-            <p>Kami menerima permintaan untuk mengatur ulang password akun Anda. Jika Anda melakukan permintaan ini, silakan gunakan tautan di bawah ini untuk melanjutkan proses reset password:</p>
+            <p>Kami menerima permintaan untuk mengatur ulang password akun Anda. Jika Anda melakukan permintaan ini, silakan gunakan tombol di bawah ini untuk melanjutkan proses reset password:</p>
             <div style="text-align: center;">
                 <a href="<?= url_to('verify-magic-link') ?>?token=<?= $token ?>" class="action-button">Atur Ulang Password</a>
             </div>

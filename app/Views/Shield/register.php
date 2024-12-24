@@ -233,7 +233,7 @@
         document.getElementById("sa-title").addEventListener("click", function() {
             Swal.fire({
                 title: "Silakan hubungi nomor berikut",
-                text: "WhatsApp : +628831234xxxx",
+                text: "WhatsApp : 0821-8649-0949",
                 icon: "info",
                 confirmButtonColor: "#5156be",
             });

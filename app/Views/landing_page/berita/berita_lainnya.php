@@ -38,7 +38,10 @@
                         <p><?= date('d M Y', strtotime($berita['tanggal_post'])) ?>
                         </p>
                         <h4 class="fw-semibold">
-                            <?= substr($berita['judul'], 0, 120) . '...' ?>
+                            <a href="<?= base_url('berita/detail/' . $berita['slug']) ?>" class="headline-item">
+                            <span> <?= substr($berita['judul'], 0, 120) . '...' ?></span>
+                            <i class="bx bx-link-external"></i>
+                        </a>    
                         </h4>
                         <p>
                             <?= substr($berita['isi'], 0, 200) . '...' ?>
@@ -80,7 +83,10 @@
                                 <?= date('d M Y', strtotime($berita['tanggal_post'])) ?>
                             </p>
                             <h4 class="fw-semibold mb-2">
-                                <?= substr($berita['judul'], 0, 120) . '...' ?>
+                                <a href="<?= base_url('berita/detail/' . $berita['slug']) ?>" class="text-decoration-none">
+                                    <span><?= substr($berita['judul'], 0, 120) . '...' ?></span>
+                                    <i class="bx bx-link-external"></i>
+                                </a>
                             </h4>
                             <p>
                                 <?= substr($berita['isi'], 0, 300) . '...' ?>

@@ -158,5 +158,12 @@ public function getRandPublishedNews($slug = null)
 }
 
 
+    // Ambil semua berita yang dipublikasikan
+    public function getAllPublishedNews()
+    {
+        return $this->where('status', 'published')->findAll();
+    }
+
+
 
 }

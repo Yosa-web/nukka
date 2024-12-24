@@ -77,7 +77,7 @@
                                     src="/assets/uploads/images/optionweb/logo.png"
                                     alt=""
                                     height="35" />
-                                <span class="logo-txt ms-3">Balitbang</span>
+                                <span class="logo-txt ms-3">Dashboard</span>
                             </span>
                         </a>
                     </div>

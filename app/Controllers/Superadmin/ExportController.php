@@ -36,14 +36,19 @@ class ExportController extends BaseController
     public function exportToCSV()
     {
         $model = new InovasiModel();
-
+    
         // Ambil filter dari input
         $kategori = $this->request->getGet('kategori');
         $tahun = $this->request->getGet('tahun');
         $bentuk = $this->request->getGet('bentuk');
         $tahapan = $this->request->getGet('tahapan');
         $status = $this->request->getGet('status');
-
+    
+        // Jika status "semua", set menjadi null atau abaikan filter status
+        if ($status == 'semua' || empty($status)) {
+            $status = null; // Abaikan filter status
+        }
+    
         // Definisikan filter
         $filters = [
             'jenis_inovasi' => $kategori,
@@ -52,13 +57,13 @@ class ExportController extends BaseController
             'tahapan' => $tahapan,
             'status' => $status,
         ];
-
+    
         // Ambil data berdasarkan filter
         $data = $model->getAllData($filters);
-
+    
         // Nama file CSV
         $filename = "export_data_" . date('Ymd_His') . ".csv";
-
+    
         // Header CSV (Kolom tabel)
         $header = [
             'Judul',
@@ -75,23 +80,20 @@ class ExportController extends BaseController
             'URL File',
             'Tahun'
         ];
-
+    
         // Menyiapkan output ke browser
         header('Content-Type: text/csv; charset=UTF-8');
         header('Content-Disposition: attachment; filename="' . $filename . '"');
-
+    
         // Membuka file untuk output (streaming ke browser)
         $file = fopen('php://output', 'w');
-
+    
         // Menulis BOM untuk UTF-8 agar mendukung karakter khusus
         fputs($file, chr(0xEF) . chr(0xBB) . chr(0xBF));
-
-        // Tambahkan BOM UTF-8
-        fwrite($file, "\xEF\xBB\xBF");
-
+    
         // Tulis header
         fputcsv($file, $header);
-
+    
         // Tulis data
         foreach ($data as $row) {
             fputcsv($file, [
@@ -110,11 +112,12 @@ class ExportController extends BaseController
                 $row['tahun'],
             ]);
         }
-
+    
         // Menutup file
         fclose($file);
         exit;
     }
+    
 
     public function exportToPDF()
     {

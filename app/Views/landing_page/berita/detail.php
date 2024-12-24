@@ -34,26 +34,38 @@
             </div>
         </div>
         <div class="col-sm-4 berita-lainnya">
-            <h3 class="pb-4 fw-semibold">Berita Lainnya</h3>
-            <?php if (!empty($randberita) && is_array($randberita)): ?>
-                <?php
-                // Acak array
-                shuffle($randberita);
-                // Ambil maksimal 3 elemen pertama
-                $beritaLainnya = array_slice($randberita, 0, 3);
-                ?>
-                <?php foreach ($beritaLainnya as $berita): ?>
-                    <div class="news-all pb-3" style="border-bottom: 2px solid #ddd;">
-                        <p><?= date('d M Y', strtotime($berita['tanggal_post'])) ?></p>
-                        <h4><a href="<?= base_url('berita/detail/' . $berita['slug']) ?>"><?= substr($berita['judul'], 0, 120) . '...' ?></a></h4>
-                        <p><?= substr($berita['isi'], 0, 300) . '...' ?></p>
-                    </div>
-                <?php endforeach; ?>
-            <?php else: ?>
-                <p>Belum ada berita yang dipublikasikan.</p>
-            <?php endif; ?>
+    <h3 class="pb-4 fw-semibold">Berita Lainnya</h3>
+    <?php if (!empty($randberita) && is_array($randberita)): ?>
+        <?php
+        // Ambil slug dari berita yang sedang dibuka
+        $currentSlug = $berita['slug'];
 
-        </div>
-    </div>
+        // Filter array untuk menghapus berita yang sedang dibuka
+        $filteredBerita = array_filter($randberita, function ($beritaItem) use ($currentSlug) {
+            return $beritaItem['slug'] !== $currentSlug;
+        });
+
+        // Acak array yang sudah difilter
+        shuffle($filteredBerita);
+
+        // Ambil maksimal 3 elemen pertama
+        $beritaLainnya = array_slice($filteredBerita, 0, 3);
+        ?>
+        <?php if (!empty($beritaLainnya)): ?>
+            <?php foreach ($beritaLainnya as $beritaItem): ?>
+                <div class="news-all pb-3" style="border-bottom: 2px solid #ddd;">
+                    <p><?= date('d M Y', strtotime($beritaItem['tanggal_post'])) ?></p>
+                    <h4><a href="<?= base_url('berita/detail/' . $beritaItem['slug']) ?>"><?= substr($beritaItem['judul'], 0, 120) . '...' ?></a></h4>
+                    <p><?= substr($beritaItem['isi'], 0, 300) . '...' ?></p>
+                </div>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p>Belum ada berita lain yang dipublikasikan.</p>
+        <?php endif; ?>
+    <?php else: ?>
+        <p>Belum ada berita yang dipublikasikan.</p>
+    <?php endif; ?>
 </div>
+        
+
 <?= $this->endSection(); ?>

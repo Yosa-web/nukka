@@ -238,20 +238,33 @@ class LandingController extends BaseController
     public function show($slug)
     {
         $beritaModel = new BeritaModel();
-        $publishedBerita = $beritaModel->getPublishedNews($slug); // Ambil berita berdasarkan slug
-        // $publishedRandBerita = $beritaModel->getRandPublishedNews($slug);
+    
+        // Ambil berita berdasarkan slug
+        $currentBerita = $beritaModel->getPublishedNews($slug);
+    
         // Pastikan berita ditemukan
-        if (!empty($publishedBerita)) {
+        if (!empty($currentBerita)) {
+            $currentBerita = $currentBerita[0]; // Ambil berita pertama karena hasilnya berupa array
+    
+            // Ambil semua berita yang dipublikasikan, kecuali berita yang sedang dibuka
+            $allBerita = $beritaModel->getAllPublishedNews();
+            $filteredBerita = array_filter($allBerita, function ($berita) use ($slug) {
+                return $berita['slug'] !== $slug;
+            });
+    
+            // Siapkan data untuk dikirim ke view
             $data = [
                 'title' => 'Detail Berita',
-                'berita' => $publishedBerita[0], // Ambil item pertama karena getPublishedNews mengembalikan array
-                'randberita' => $publishedBerita,
+                'berita' => $currentBerita, // Berita yang sedang dibuka
+                'randberita' => $filteredBerita, // Semua berita kecuali yang sedang dibuka
                 'namaWebsite' => $this->namaWebsite, // Kirim nama website ke view
             ];
-
+    
             return view('landing_page/berita/detail', $data);
         } else {
+            // Jika berita tidak ditemukan, lempar error 404
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Berita tidak ditemukan');
         }
     }
+    
 }
