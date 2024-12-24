@@ -93,34 +93,33 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <!-- Bagian Status, Tahun dan Tombol Export menjadi satu baris -->
                                 <div class="row">
-    <div class="col-md-4">
-        <div class="mb-3">
-            <label class="form-label" for="status">Status</label>
-            <select class="form-select" name="status" required>
-    <option value="semua" <?= !isset($_GET['status']) || $_GET['status'] == 'semua' ? 'selected' : '' ?>>Semua</option>
-    <option value="tertunda" <?= isset($_GET['status']) && $_GET['status'] == 'tertunda' ? 'selected' : '' ?>>Tertunda</option>
-    <option value="draf" <?= isset($_GET['status']) && $_GET['status'] == 'draf' ? 'selected' : '' ?>>Draf</option>
-    <option value="terbit" <?= isset($_GET['status']) && $_GET['status'] == 'terbit' ? 'selected' : '' ?>>Terbit</option>
-    <option value="arsip" <?= isset($_GET['status']) && $_GET['status'] == 'arsip' ? 'selected' : '' ?>>Arsip</option>
-    <option value="tertolak" <?= isset($_GET['status']) && $_GET['status'] == 'tertolak' ? 'selected' : '' ?>>Tertolak</option>
-    <option value="revisi" <?= isset($_GET['status']) && $_GET['status'] == 'revisi' ? 'selected' : '' ?>>Revisi</option>
-</select>
+                                    <div class="col-md-3">
+                                        <div class="mb-3">
+                                            <label class="form-label" for="status">Status</label>
+                                            <select class="form-select" name="status" required>
+                                                <option value="semua" <?= !isset($_GET['status']) || $_GET['status'] == 'semua' ? 'selected' : '' ?>>Semua</option>
+                                                <option value="tertunda" <?= isset($_GET['status']) && $_GET['status'] == 'tertunda' ? 'selected' : '' ?>>Tertunda</option>
+                                                <option value="draf" <?= isset($_GET['status']) && $_GET['status'] == 'draf' ? 'selected' : '' ?>>Draf</option>
+                                                <option value="terbit" <?= isset($_GET['status']) && $_GET['status'] == 'terbit' ? 'selected' : '' ?>>Terbit</option>
+                                                <option value="arsip" <?= isset($_GET['status']) && $_GET['status'] == 'arsip' ? 'selected' : '' ?>>Arsip</option>
+                                                <option value="tertolak" <?= isset($_GET['status']) && $_GET['status'] == 'tertolak' ? 'selected' : '' ?>>Tertolak</option>
+                                                <option value="revisi" <?= isset($_GET['status']) && $_GET['status'] == 'revisi' ? 'selected' : '' ?>>Revisi</option>
+                                            </select>
+                                        </div>
+                                    </div>
 
-        </div>
-    </div>
-</div>
-
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <div class="mb-3">
                                             <label class="form-label" for="tahun">Tahun</label>
                                             <input type="number" class="form-control" name="tahun" id="tahun" placeholder="Masukkan Tahun" />
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="mt-4">
-                                            <button type="submit" class="btn btn-primary btn-rounded waves-effect waves-light">Export</button>
-                                        </div>
+
+                                    <div class="col-md-3 d-flex align-items-end">
+                                        <button type="submit" class="btn btn-primary btn-rounded waves-effect waves-light">Export</button>
                                     </div>
                                 </div>
                             </form>
@@ -129,47 +128,49 @@
                 </div>
             </div>
 
-            <!-- Log Aktivitas (remains unchanged) -->
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h5 class="mb-0">Log Aktivitas</h5>
-                        </div>
-                        <div class="card-body">
-                            <?php if (empty($log)): ?>
-                                <p>Data log aktivitas kosong.</p>
-                            <?php else: ?>
-                                <table id="datatable" class="table table-bordered dt-responsive w-100 table-hover">
-                                    <thead>
+        </div>
+
+        <!-- Log Aktivitas (remains unchanged) -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">Log Aktivitas</h5>
+                    </div>
+                    <div class="card-body">
+                        <?php if (empty($log)): ?>
+                            <p>Data log aktivitas kosong.</p>
+                        <?php else: ?>
+                            <table id="datatable" class="table table-bordered dt-responsive w-100 table-hover">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 100px">ID User</th>
+                                        <th style="width: 200px">Waktu</th>
+                                        <th style="width: 80px">Aksi</th>
+                                        <th style="width: 100px">Jenis Data</th>
+                                        <th>Keterangan</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($log as $item): ?>
                                         <tr>
-                                            <th style="width: 100px">ID User</th>
-                                            <th style="width: 200px">Waktu</th>
-                                            <th style="width: 80px">Aksi</th>
-                                            <th style="width: 100px">Jenis Data</th>
-                                            <th>Keterangan</th>
+                                            <td><a href="#" data-bs-toggle="tooltip" data-bs-placement="right"
+                                                    title="<?= $item['name'] ?>"><?= $item['id_user'] ?></a></td>
+                                            <td><?= $item['tanggal_aktivitas'] ?></td>
+                                            <td><?= $item['aksi'] ?></td>
+                                            <td><?= $item['jenis_data'] ?></td>
+                                            <td><?= $item['keterangan'] ?></td>
                                         </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php foreach ($log as $item): ?>
-                                            <tr>
-                                                <td><a href="#" data-bs-toggle="tooltip" data-bs-placement="right"
-                                                        title="<?= $item['name'] ?>"><?= $item['id_user'] ?></a></td>
-                                                <td><?= $item['tanggal_aktivitas'] ?></td>
-                                                <td><?= $item['aksi'] ?></td>
-                                                <td><?= $item['jenis_data'] ?></td>
-                                                <td><?= $item['keterangan'] ?></td>
-                                            </tr>
-                                        <?php endforeach; ?>
-                                    </tbody>
-                                </table>
-                            <?php endif; ?>
-                        </div>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

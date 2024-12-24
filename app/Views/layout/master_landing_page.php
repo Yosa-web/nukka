@@ -78,9 +78,9 @@ $jenis_inovasi = $jenisInovasiModel->findAll();
 						<li class="nav-item">
 							<a class="nav-link" href="<?= base_url('database-inovasi') ?>">Database Inovasi</a>
 						</li>
-						<li class="nav-item">
+						<!-- <li class="nav-item">
 							<a class="nav-link" href="<?= base_url('peta-inovasi') ?>">Peta Inovasi</a>
-						</li>
+						</li> -->
 						<li class="nav-item">
 							<a class="nav-link" href="<?= base_url('regulasi') ?>">Regulasi</a>
 						</li>
