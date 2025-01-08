@@ -43,14 +43,7 @@ $jenis_inovasi = $jenisInovasiModel->findAll();
 <body>
 	<div id="layout-wrapper">
 		<!-- Topbar -->
-		<div class="topbar">
-			<span>Kabupaten Pesawaran</span>
-			<div class="topbar-social">
-				<a href="https://www.facebook.com/arisapriyadiking/" target="_blank"><i class="fab fa-facebook"></i></a>
-				<a href="https://www.instagram.com/balitbangpesawaran" target="_blank"><i class="fab fa-instagram"></i></a>
-				<a href="https://youtube.com/@balitbangpesawaran3884?si=x9v-nndnx2ER7KjH" target="_blank"><i class="fab fa-youtube"></i></a>
-			</div>
-		</div>
+
 		<!-- Navbar -->
 		<nav class="navbar navbar-expand-lg" id="mainNavbar">
 			<div class="container-fluid justify-content-between">
@@ -72,22 +65,8 @@ $jenis_inovasi = $jenisInovasiModel->findAll();
 						<li class="nav-item">
 							<a class="nav-link" href="<?= base_url('tentang') ?>">Tentang</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="<?= base_url('visi-misi') ?>">Visi & Misi</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="<?= base_url('database-inovasi') ?>">Database Inovasi</a>
-						</li>
-						<!-- <li class="nav-item">
-							<a class="nav-link" href="<?= base_url('peta-inovasi') ?>">Peta Inovasi</a>
-						</li> -->
-						<li class="nav-item">
-							<a class="nav-link" href="<?= base_url('regulasi') ?>">Regulasi</a>
-						</li>
 					</ul>
-					<button type="button" class="btn btn-light btn-rounded waves-effect" onclick="window.location.href='<?= base_url('login') ?>'">
-						<i class="fas fa-user font-size-16 align-middle me-2"></i>Masuk
-					</button>
+
 				</div>
 			</div>
 		</nav>
@@ -107,10 +86,10 @@ $jenis_inovasi = $jenisInovasiModel->findAll();
 				</div>
 				<div class="col-md-5 text-md-start mb-4 mb-md-0 ps-4">
 					<h3 class="fw-bold"><span><?= esc(strip_tags($namaWebsite)) ?></span></h3>
-					<p>balitbangpesawaran@gmail.com</p>
-					<p>0821-8649-0949</p>
+					<p>nukka@gmail.com</p>
+					<p>+62 811-7970-855</p>
 					<p>
-						Jl.alvaro Bin Bahar No.46, Sukaraja, Kec. Gedong Tataan, Kabupaten Pesawaran, Lampung 35366
+						Jl. Pagar Alam No.23, Kedaton, Kec. Kedaton, Kota Bandar Lampung, Lampung 35148
 					</p>
 					<div class="social-links">
 						<a href="#"><i class="fab fa-facebook"></i></a>
@@ -121,13 +100,14 @@ $jenis_inovasi = $jenisInovasiModel->findAll();
 				</div>
 				<div class="col-md-4 text-center text-md-end">
 					<iframe
-						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3972.2016135412177!2d105.09904200905426!3d-5.386210994570204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e40d26b60ef67e9%3A0xc529c82c28ba0e46!2sJl.alvaro%20Bin%20Bahar%20No.46%2C%20Sukaraja%2C%20Kec.%20Gedong%20Tataan%2C%20Kabupaten%20Pesawaran%2C%20Lampung%2035366!5e0!3m2!1sen!2sid!4v1734860926873!5m2!1sen!2sid"
+						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3972.1649313831335!2d105.23271299999999!3d-5.3918199!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e40dbb335159f23%3A0xa09f7121e78026ca!2sNukka%20Carwash%20%26%20Cafe!5e0!3m2!1sid!2sid!4v1735218456059!5m2!1sid!2sid"
 						width="400"
 						height="300"
 						style="border: 0"
 						allowfullscreen=""
 						loading="lazy"
-						referrerpolicy="no-referrer-when-downgrade"></iframe>
+						referrerpolicy="no-referrer-when-downgrade">
+					</iframe>
 				</div>
 			</div>
 			<div class="footer-bottom text-center">
@@ -136,8 +116,8 @@ $jenis_inovasi = $jenisInovasiModel->findAll();
 					<a
 						href="#"
 						class="text-decoration-none"
-						style="color: #0077c2">Badan Penelitian dan Pengembangan Kabupaten
-						Pesawaran</a>
+						style="color: #0077c2">Nukka carwash &
+						coffee shop</a>
 					| All Rights Reserved
 				</p>
 			</div>

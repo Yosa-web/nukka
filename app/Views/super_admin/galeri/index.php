@@ -48,6 +48,7 @@
                     height: 100%;
                     object-fit: cover;
                 }
+
                 #pagination-container button {
                     cursor: pointer;
                 }

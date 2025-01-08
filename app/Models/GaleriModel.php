@@ -12,7 +12,7 @@ class GaleriModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['judul', 'id_user', 'url', 'tipe', 'uploaded_by', 'uploaded_at'];
+    protected $allowedFields    = ['judul', 'id_user', 'url', 'tipe', 'uploaded_by', 'uploaded_at', 'thumbnail_url'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;

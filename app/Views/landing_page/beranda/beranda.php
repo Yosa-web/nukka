@@ -102,73 +102,6 @@
         </button>
     </div>
 
-    <!-- Ketua & Wakil Section -->
-    <section class="py-5">
-        <h1 class="section-title">
-            <span style="color: #0077c2">Ketua & Wakil</span>
-            Balitbang Kabupaten Pesawaran
-        </h1>
-        <div class="d-flex flex-wrap justify-content-center">
-            <div class="col-6 col-md-4 p-2">
-                <img
-                    src="/assets/images/bupati.png"
-                    alt="Ketua"
-                    class="img-fluid hidden" />
-            </div>
-            <div class="col-6 col-md-4 p-2">
-                <img
-                    src="/assets/images/wakil-bupati.png"
-                    alt="Wakil"
-                    class="img-fluid hidden" />
-            </div>
-        </div>
-    </section>
-
-    <!-- Berita Section -->
-    <section class="py-4">
-        <div class="mb-4 showall-btn d-flex align-items-center">
-            <h1 class="section-title mb-0">
-                <span style="color: #0077c2">Berita & Inovasi</span>
-                Balitbang Kabupaten Pesawaran
-            </h1>
-            <button
-                class="btn btn-rounded waves-effect waves-light ms-auto"
-                onclick="window.location.href='<?= base_url('berita/lainnya') ?>'">
-                Tampilkan Semua
-            </button>
-        </div>
-        <?php if (!empty($beritas) && is_array($beritas)): ?>
-            <?php foreach (array_slice($beritas, -3) as $berita): ?> <!-- Menampilkan 3 data terakhir -->
-                <div class="news-item hidden">
-                    <div class="news-image">
-                        <?php if ($berita['gambar']): ?>
-                            <img
-                                src="<?= $berita['gambar'] ?>"
-                                alt="News Image" />
-                        <?php endif; ?>
-                    </div>
-                    <div class="news-content">
-                        <div class="news-meta">
-                            <?= date('d M Y', strtotime($berita['tanggal_post'])) ?> | Diunggah oleh
-                            <span> <?= esc($berita['uploaded_by_username']) ?></span>
-                        </div>
-                        <div class="news-title"><a href="<?= base_url('berita/detail/' . $berita['slug']) ?>"><?= substr($berita['judul'], 0, 120) . '...' ?></a>
-                        </div>
-                        <div class="news-description">
-                            <?= substr($berita['isi'], 0, 530) . '...' ?>
-                        </div>
-                        <div class="mt-2">
-                            <a href="<?= base_url('berita/detail/' . $berita['slug']) ?>" class="align-middle">Selengkapnya
-                                <i class="mdi mdi-chevron-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            <?php endforeach; ?>
-        <?php else: ?>
-            <p>Belum ada berita yang dipublikasikan.</p>
-        <?php endif; ?>
-    </section>
-
     <!-- Foto Section -->
     <section class="py-5">
         <div class="weekly-news-area">
@@ -178,7 +111,7 @@
                         <div class="mb-4 showall-btn d-flex align-items-center">
                             <h1 class="section-title mb-0">
                                 <span style="color: #0077c2">Galeri Foto</span>
-                                Balitbang Kabupaten Pesawaran
+                                Nukka carwash & coffee shop
                             </h1>
                             <button
                                 class="btn btn-rounded waves-effect waves-light ms-auto"
@@ -221,7 +154,7 @@
         <div class="mb-4 showall-btn d-flex align-items-center">
             <h1 class="section-title mb-0">
                 <span style="color: #0077c2">Galeri Video</span>
-                Balitbang Kabupaten Pesawaran
+                Nukka carwash & coffee shop
             </h1>
             <button
                 class="btn btn-rounded waves-effect waves-light ms-auto"

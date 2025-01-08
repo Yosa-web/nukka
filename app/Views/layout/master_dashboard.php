@@ -147,74 +147,10 @@
                                     <span>Dashboard</span>
                                 </a>
                             </li>
-                            <li class="menu-title">
-                                Inovasi
-                            </li>
-                            <li>
-                                <a href="#" class="has-arrow">
-                                    <i class="bx bx-bulb"></i>
-                                    <span>Data Inovasi</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="true">
-                                    <li><a href="<?= base_url('jenis_inovasi') ?>">Jenis</a></li>
-                                    <li><a href="<?= base_url('tahapan') ?>">Tahapan</a></li>
-                                    <li><a href="<?= base_url('bentuk') ?>">Bentuk</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="<?= base_url('superadmin/kecamatan') ?>">
-                                    <i class="bx bx-world"></i>
-                                    <span>Wilayah</span>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#" class="has-arrow">
-                                    <i data-feather="file-text"></i>
-                                    <span>Proposal</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="true">
-                                    <li><a href="<?= base_url('superadmin/inovasi/filter') ?>">Daftar Proposal</a></li>
-                                    <li><a href="<?= base_url('superadmin/inovasi') ?>">Verifikasi Proposal</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="menu-title">
-                                Pengguna
-                            </li>
-
-                            <li>
-                                <a href="<?= base_url('superadmin/opd') ?>">
-                                    <i data-feather="user-check"></i>
-                                    <span>Data OPD</span>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#" class="has-arrow">
-                                    <i data-feather="users"></i>
-                                    <span>Data Pengguna</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="true">
-                                    <li><a href="<?= base_url('superadmin/user/list/admin') ?>">Admin</a></li>
-                                    <li>
-                                        <a href="<?= base_url('superadmin/user/list/pegawai') ?>">Pegawai</a>
-                                    </li>
-                                    <li><a href="<?= base_url('superadmin/user/list/umum') ?>">Umum</a></li>
-                                </ul>
-                            </li>
 
                             <li class="menu-title">
                                 Kelola Konten
                             </li>
-
-                            <li>
-                                <a href="<?= base_url('superadmin/berita/list-berita') ?>">
-                                    <i data-feather="layout"></i>
-                                    <span>Kelola Berita</span>
-                                </a>
-                            </li>
-
                             <li>
                                 <a href="<?= base_url('superadmin/galeri') ?>">
                                     <i data-feather="grid"></i>
@@ -233,86 +169,6 @@
                                 </a>
                             </li>
                         <?php endif; ?>
-
-                        <!-- menu user -->
-                        <?php if (auth()->user()->inGroup('user')): ?>
-                            <li>
-                                <a href="#" class="has-arrow">
-                                    <i data-feather="file-text"></i>
-                                    <span>Data Inovasi</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="true">
-                                    <li><a href="<?= base_url(' userumum/inovasi/filter') ?>">Daftar Proposal</a></li>
-                                </ul>
-                            </li>
-                        <?php endif; ?>
-
-                        <!-- menu operator -->
-                        <?php if (auth()->user()->inGroup('operator')): ?>
-                            <li>
-                                <a href="#" class="has-arrow">
-                                    <i data-feather="file-text"></i>
-                                    <span>Data Inovasi</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="true">
-                                    <li><a href="<?= base_url(' operator/inovasi/filter') ?>">Daftar Proposal</a></li>
-                                </ul>
-                            </li>
-                        <?php endif; ?>
-
-
-                        <!-- menu kepala opd -->
-                        <?php if (auth()->user()->inGroup('kepala-opd')): ?>
-                            <li>
-                                <a href="#" class="has-arrow">
-                                    <i data-feather="file-text"></i>
-                                    <span>Data Inovasi</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="true">
-                                    <li><a href="<?= base_url('kepala/inovasi/filter') ?>">Daftar Proposal</a></li>
-                                    <li><a href="<?= base_url('kepala/inovasi') ?>">Verifikasi Proposal</a></li>
-                                </ul>
-                            </li>
-                        <?php endif; ?>
-
-                        <!-- menu sekertaris opd -->
-                        <?php if (auth()->user()->inGroup('sekertaris-opd')): ?>
-                            <li>
-                                <a href="#" class="has-arrow">
-                                    <i data-feather="file-text"></i>
-                                    <span>Data Inovasi</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="true">
-                                    <li><a href="<?= base_url('sekertaris/inovasi/filter') ?>">Daftar Proposal</a></li>
-                                    <li><a href="<?= base_url('sekertaris/inovasi') ?>">Verifikasi Proposal</a></li>
-                                </ul>
-                            </li>
-                        <?php endif; ?>
-
-
-                        <!-- menu admin-opd -->
-                        <?php if (auth()->user()->inGroup('admin-opd')): ?>
-                            <li>
-                                <a href="#" class="has-arrow">
-                                    <i data-feather="file-text"></i>
-                                    <span>Data Inovasi</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="true">
-                                    <li><a href="<?= base_url(' admin/inovasi/filter') ?>">Daftar Proposal</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="#" class="has-arrow">
-                                    <i data-feather="users"></i>
-                                    <span>Data Pengguna</span>
-                                </a>
-                                <ul class="sub-menu" aria-expanded="true">
-                                    <li>
-                                        <a href="<?= base_url('adminopd/pegawai/list') ?>">Pegawai</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        <?php endif; ?>
                     </ul>
                 </div>
                 <!-- Sidebar -->
@@ -325,7 +181,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-6">
-                        Balitbang Pesawaran ©
+                        Nukka ©
                         <script>
                             document.write(new Date().getFullYear());
                         </script>
@@ -336,7 +192,7 @@
                             Developed by
                             <a
 
-                                class="text-decoration-underline">Tim 2 MSIB 7</a>
+                                class="text-decoration-underline">T-RC </a>
                         </div>
                     </div>
                 </div>

@@ -25,15 +25,11 @@
         cursor: pointer;
     }
 
-    .card-img {
-        aspect-ratio: 3 / 2;
-        width: 100%;
-    }
-
     .card-img img {
         width: 100%;
-        height: 100%;
-        object-fit: cover;
+        height: auto;
+        /* Ukuran gambar mengikuti proporsi asli */
+        max-width: 100%;
     }
 </style>
 <div class="container-fluid mb-5">
@@ -60,6 +56,13 @@
     <div id="gambar-pagination" class="d-flex justify-content-center mt-4 mb-4"></div>
 </div>
 
+<!-- Modal for full-size image -->
+<div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="img01">
+    <div id="caption"></div>
+</div>
+
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         const itemsPerPage = 9; // Jumlah item per halaman
@@ -69,16 +72,11 @@
         const totalItems = allItems.length;
         const totalPages = Math.ceil(totalItems / itemsPerPage);
 
-        // Fungsi untuk menampilkan item sesuai halaman
         function displayPage(page) {
-            // Reset konten
             contentContainer.innerHTML = "";
-
-            // Hitung indeks awal dan akhir
             const start = (page - 1) * itemsPerPage;
             const end = Math.min(start + itemsPerPage, totalItems);
 
-            // Tampilkan item sesuai indeks
             for (let i = start; i < end; i++) {
                 contentContainer.appendChild(allItems[i]);
             }
@@ -86,14 +84,11 @@
             updatePagination(page);
         }
 
-        // Fungsi untuk memperbarui navigasi pagination
         function updatePagination(currentPage) {
-            paginationContainer.innerHTML = ""; // Bersihkan kontainer pagination
-
+            paginationContainer.innerHTML = "";
             const ul = document.createElement("ul");
             ul.className = "pagination mb-sm-0";
 
-            // Tombol Prev
             const prevLi = document.createElement("li");
             prevLi.className = `page-item ${currentPage === 1 ? "disabled" : ""}`;
             const prevLink = document.createElement("a");
@@ -107,7 +102,6 @@
             prevLi.appendChild(prevLink);
             ul.appendChild(prevLi);
 
-            // Tombol halaman
             for (let i = 1; i <= totalPages; i++) {
                 const pageLi = document.createElement("li");
                 pageLi.className = `page-item ${i === currentPage ? "active" : ""}`;
@@ -123,7 +117,6 @@
                 ul.appendChild(pageLi);
             }
 
-            // Tombol Next
             const nextLi = document.createElement("li");
             nextLi.className = `page-item ${currentPage === totalPages ? "disabled" : ""}`;
             const nextLink = document.createElement("a");
@@ -137,56 +130,11 @@
             nextLi.appendChild(nextLink);
             ul.appendChild(nextLi);
 
-            // Tambahkan elemen pagination ke kontainer
             paginationContainer.appendChild(ul);
         }
 
-        // Tampilkan halaman pertama saat halaman dimuat
         displayPage(1);
     });
-</script>
-<script>
-    // Get the modal elements
-    var modal = document.getElementById("myModal");
-    var modalImg = document.getElementById("img01");
-    var captionText = document.getElementById("caption");
-
-    // Get all cards with images and captions
-    var cards = document.querySelectorAll(".card");
-
-    // Function to open the modal with the specific image and caption
-    function openModal(imgSrc, caption) {
-        modal.style.display = "block";
-        modalImg.src = imgSrc;
-        captionText.innerHTML = caption;
-    }
-
-    // Add event listeners to each card
-    cards.forEach((card) => {
-        // Get the image and caption inside the card
-        var image = card.querySelector(".card-img");
-        var caption = card.querySelector(".captionGambar");
-
-        // Add click event listener to the card
-        card.addEventListener("click", function() {
-            openModal(image.src, caption.textContent);
-        });
-    });
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-        modal.style.display = "none";
-    };
-
-    // Close the modal when clicking outside the modal content
-    modal.onclick = function(event) {
-        if (event.target === modal) {
-            modal.style.display = "none";
-        }
-    };
 </script>
 
 <?= $this->endSection(); ?>

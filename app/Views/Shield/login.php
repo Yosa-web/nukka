@@ -73,7 +73,7 @@
                     <h3 class="mb-0 fw-bold">LOGIN</h3>
                     <p class="mt-2 welcome fw-semibold">
                         Hi, Selamat Datang di
-                        <span class="text-primary">#RumahInovasi</span>
+                        <span class="text-primary">#Nukka</span>
                     </p>
                 </div>
                 <?php if (session('error') !== null) : ?>
